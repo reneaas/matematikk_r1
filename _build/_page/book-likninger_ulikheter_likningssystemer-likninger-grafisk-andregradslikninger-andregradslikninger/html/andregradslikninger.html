@@ -1,0 +1,914 @@
+
+<!DOCTYPE html>
+
+
+<html lang="norwegian" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Matematikk 2P</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=ce6fbf6d" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=87e54e7c" />
+    <link rel="stylesheet" type="text/css" href="_static/static_code_blocks.css?v=b6831e29" />
+    <link rel="stylesheet" type="text/css" href="_static/pdf_custom.css?v=7ae8860d" />
+    <link rel="stylesheet" type="text/css" href="_static/admonitions.css?v=400de38b" />
+    <link rel="stylesheet" type="text/css" href="_static/code_mirror.css?v=73e49c55" />
+    <link rel="stylesheet" type="text/css" href="_static/misc.css?v=14b32792" />
+    <link rel="stylesheet" type="text/css" href="_static/code_mirror_themes/one_dark_cm.css?v=3ae52176" />
+    <link rel="stylesheet" type="text/css" href="_static/code_mirror_themes/github_dark_high_contrast_cm.css?v=4c0c1b0f" />
+    <link rel="stylesheet" type="text/css" href="_static/code_mirror_themes/github_dark_default_cm.css?v=3beebd47" />
+    <link rel="stylesheet" type="text/css" href="_static/code_mirror_themes/github_dark_cm.css?v=d1235728" />
+    <link rel="stylesheet" type="text/css" href="_static/code_mirror_themes/github_light_default_cm.css?v=c880a553" />
+    <link rel="stylesheet" type="text/css" href="_static/code_mirror_themes/github_light_cm.css?v=facc8b7a" />
+    <link rel="stylesheet" type="text/css" href="_static/pairPuzzle/game.css?v=fb53e670" />
+    <link rel="stylesheet" type="text/css" href="_static/parsons_puzzle/parsonsPuzzle.css?v=12d87ba9" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=46da646d"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/tabs.js?v=3ee01567"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3.2/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'andregradslikninger';</script>
+    <script>mermaid.initialize({"startOnLoad": true})</script>
+    <script src="_static/geogebra-setup.js?v=c67998b1"></script>
+    <script src="_static/static_code_blocks.js?v=d0b96be4"></script>
+    <script src="_static/serviceWorker.js?v=19bb19ce"></script>
+    <script src="_static/utils.js?v=8e047c30"></script>
+    <script src="_static/interactiveCode/pythonRunner.js?v=309bc2ed"></script>
+    <script src="_static/interactiveCode/codeEditor.js?v=c1b887a1"></script>
+    <script src="_static/interactiveCode/interactiveCodeSetup.js?v=b243d8d1"></script>
+    <script src="_static/interactiveCode/workerManager.js?v=afad59ba"></script>
+    <script src="_static/pairPuzzle/game.js?v=9b1f0ac6"></script>
+    <script src="_static/pairPuzzle/draggableItem.js?v=5767251d"></script>
+    <script src="_static/pairPuzzle/dropZone.js?v=35c3e4a6"></script>
+    <script src="_static/parsons_puzzle/theme-switcher.js?v=c0cdcaac"></script>
+    <script src="_static/parsons_puzzle/parsonsPuzzle.js?v=4f5b9685"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="norwegian"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">None</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullskjerm-modus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Andregradslikninger og andregradsulikheter</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="andregradslikninger-og-andregradsulikheter">
+<h1>Andregradslikninger og andregradsulikheter<a class="headerlink" href="#andregradslikninger-og-andregradsulikheter" title="Link to this heading">#</a></h1>
+<section id="andregradslikninger">
+<h2>Andregradslikninger<a class="headerlink" href="#andregradslikninger" title="Link to this heading">#</a></h2>
+<div class="problem-level-1 admonition">
+<p class="admonition-title">Oppgave 1</p>
+<p>I <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-1"><span class="std std-numref">Fig. 1</span></a> vises grafene til</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^2 - 4 \quad \text{og} \quad g(x) = -3
+\]</div>
+<figure class="align-default" id="book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-1">
+<a class="reference internal image-reference" href="_images/oppgave_1.svg"><img alt="_images/oppgave_1.svg" src="_images/oppgave_1.svg" width="80%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">viser grafen til <span class="math notranslate nohighlight">\(f(x) = x^2 - 4\)</span> og <span class="math notranslate nohighlight">\(g(x) = -3\)</span>.</span><a class="headerlink" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-1" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<dl class="simple myst">
+<dt>Deloppgave 1</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-1"><span class="std std-numref">Fig. 1</span></a> til å bestemme løsningene av likningen</p>
+<div class="math notranslate nohighlight">
+\[
+    x^2 - 4 = 0
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+x = -2 \quad \text{eller} \quad x = 2
+\]</div>
+</div>
+<dl class="simple myst">
+<dt>Deloppgave 2</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-1"><span class="std std-numref">Fig. 1</span></a> til å bestemme løsningene av likningen</p>
+<div class="math notranslate nohighlight">
+\[
+    x^2 - 4 = -3
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+x = -1 \quad \text{eller} \quad x = 1
+\]</div>
+</div>
+<dl class="simple myst">
+<dt>Deloppgave 3</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-1"><span class="std std-numref">Fig. 1</span></a> til å bestemme løsningene av likningen</p>
+<div class="math notranslate nohighlight">
+\[
+    x^2 - 4 = 5
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+x = -3 \quad \text{eller} \quad x = 3
+\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="problem-level-1 admonition">
+<p class="admonition-title">Oppgave 2</p>
+<p>I <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-2"><span class="std std-numref">Fig. 2</span></a> vises grafene til</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^2 \quad \text{og} \quad g(x) = 2x + 3.
+\]</div>
+<figure class="align-default" id="book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-2">
+<a class="reference internal image-reference" href="_images/oppgave_2.svg"><img alt="_images/oppgave_2.svg" src="_images/oppgave_2.svg" width="80%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">vises grafen til <span class="math notranslate nohighlight">\(f(x) = x^2\)</span> og <span class="math notranslate nohighlight">\(g(x) = 2x + 3\)</span>.</span><a class="headerlink" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-2" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<dl class="simple myst">
+<dt>Deloppgave 1</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-2"><span class="std std-numref">Fig. 2</span></a> til å løse likningen</p>
+<div class="math notranslate nohighlight">
+\[
+    x^2 = 4
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+x = -2 \quad \text{eller} \quad x = 2
+\]</div>
+</div>
+<dl class="simple myst">
+<dt>Deloppgave 2</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-2"><span class="std std-numref">Fig. 2</span></a> til å løse likningen</p>
+<div class="math notranslate nohighlight">
+\[
+    x^2 = 2x + 3
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+x = -1 \quad \text{eller} \quad x = 3
+\]</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="andregradsulikheter">
+<h2>Andregradsulikheter<a class="headerlink" href="#andregradsulikheter" title="Link to this heading">#</a></h2>
+<div class="problem-level-1 full-width admonition">
+<p class="admonition-title">Oppgave 3</p>
+<p>Pusle sammen riktig ulikhet(er) med riktig beskrivelse.</p>
+<div id="container-pair-puzzle-likninger-ulikheter-likningssystemer-andregradsulikheter-grafisk-oppgave-3" class="pairing-puzzle-container"></div>
+
+<!-- Include KaTeX -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+
+        const pairs = [
+            ['$2 < x < 4$', '$x$&nbsp er større enn &nbsp$2$&nbsp og mindre enn &nbsp$4$.'],
+            ['$x < 1$ eller $x > 3$', '$x$&nbsp er mindre enn &nbsp$1$&nbsp eller større enn &nbsp$3$'],
+            ['$2 \\leq x < 4$', '$x$&nbsp er større enn eller lik &nbsp$2$&nbsp og mindre enn &nbsp$4$.'],
+            ['$x \\leq 1$ eller $x > 3$', '$x$&nbsp er mindre enn eller lik &nbsp$1$&nbsp eller større enn &nbsp$3$'],
+            ['$2 < x \\leq 4$', '$x$&nbsp er større enn &nbsp$2$&nbsp og mindre enn eller lik &nbsp$4$.'],
+            ['$x < 1$ eller $x \\geq 3$', '$x$&nbsp er mindre enn &nbsp$1$&nbsp eller større enn eller lik &nbsp$3$'],
+        ];
+
+        // Initialize the puzzle
+        initGame('container-pair-puzzle-likninger-ulikheter-likningssystemer-andregradsulikheter-grafisk-oppgave-3', pairs);
+    });
+</script>
+</div>
+<hr class="docutils" />
+<div class="problem-level-1 admonition">
+<p class="admonition-title">Oppgave 4</p>
+<p>I <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-4"><span class="std std-numref">Fig. 3</span></a> vises grafene til</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^2 - 4 \quad \text{og} \quad g(x) = -3.
+\]</div>
+<figure class="align-default" id="book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-4">
+<a class="reference internal image-reference" href="_images/oppgave_4.svg"><img alt="_images/oppgave_4.svg" src="_images/oppgave_4.svg" width="80%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">vises grafen til <span class="math notranslate nohighlight">\(f(x) = -x^2 + 4\)</span> og <span class="math notranslate nohighlight">\(g(x) = -5\)</span>.</span><a class="headerlink" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-4" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<dl class="simple myst">
+<dt>Deloppgave 1</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-4"><span class="std std-numref">Fig. 3</span></a> til å bestemme løsningene av likningen</p>
+<div class="math notranslate nohighlight">
+\[
+    -x^2 + 4 = 0
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+x = -2 \quad \text{eller} \quad x = 2
+\]</div>
+</div>
+<dl class="simple myst">
+<dt>Deloppgave 2</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-4"><span class="std std-numref">Fig. 3</span></a> til å bestemme løsningene av ulikheten</p>
+<div class="math notranslate nohighlight">
+\[
+    -x^2 + 4 &gt; 0
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+-2 &lt; x &lt; 2
+\]</div>
+</div>
+<dl class="simple myst">
+<dt>Deloppgave 3</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-4"><span class="std std-numref">Fig. 3</span></a> til å bestemme løsningene av ulikheten</p>
+<div class="math notranslate nohighlight">
+\[
+    -x^2 + 4 &lt; 0
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+x &lt; -2 \quad \text{eller} \quad x &gt; 2
+\]</div>
+</div>
+<dl class="simple myst">
+<dt>Deloppgave 4</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-4"><span class="std std-numref">Fig. 3</span></a> til å bestemme løsningene av ulikheten</p>
+<div class="math notranslate nohighlight">
+\[
+    -x^2 + 4 \geq -5
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+-3 \leq x \leq 3
+\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="problem-level-1 admonition">
+<p class="admonition-title">Oppgave 5</p>
+<p>I <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-5"><span class="std std-numref">Fig. 4</span></a> vises grafene til</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^2 \quad \text{og} \quad g(x) = -x + 2
+\]</div>
+<figure class="align-default" id="book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-5">
+<a class="reference internal image-reference" href="_images/oppgave_5.svg"><img alt="_images/oppgave_5.svg" src="_images/oppgave_5.svg" width="80%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">viser grafene til <span class="math notranslate nohighlight">\(f(x) = x^2\)</span> og <span class="math notranslate nohighlight">\(g(x) = -x + 2\)</span>.</span><a class="headerlink" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-5" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<br>
+<dl class="simple myst">
+<dt>Deloppgave 1</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-5"><span class="std std-numref">Fig. 4</span></a> til å bestemme løsningene av likningen</p>
+<div class="math notranslate nohighlight">
+\[
+    x^2 = -x + 2
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+x = -1 \quad \text{eller} \quad x = 2
+\]</div>
+</div>
+<br>
+<dl class="simple myst">
+<dt>Deloppgave 2</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-5"><span class="std std-numref">Fig. 4</span></a> til å bestemme løsningene av ulikheten</p>
+<div class="math notranslate nohighlight">
+\[
+    x^2 &gt; -x + 2
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+-2 &lt; x &lt; 1
+\]</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="blandede-oppgaver">
+<h2>Blandede oppgaver<a class="headerlink" href="#blandede-oppgaver" title="Link to this heading">#</a></h2>
+<div class="problem-level-2 admonition">
+<p class="admonition-title">Oppgave 6</p>
+<p>I <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-6"><span class="std std-numref">Fig. 5</span></a> vises grafene til</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+f(x) &amp;= x^2 - x - 6 \\
+\\
+g(x) &amp;= -x - 2 \\
+\end{align*}\]</div>
+<figure class="align-default" id="book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-6">
+<a class="reference internal image-reference" href="_images/oppgave_6.svg"><img alt="_images/oppgave_6.svg" src="_images/oppgave_6.svg" width="80%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">viser grafene til <span class="math notranslate nohighlight">\(f(x) = x^2 - x - 6\)</span> og <span class="math notranslate nohighlight">\(g(x) = -x - 2\)</span>.</span><a class="headerlink" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-6" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<br>
+<dl class="simple myst">
+<dt>Deloppgave 1</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-6"><span class="std std-numref">Fig. 5</span></a> til å bestemme løsningene av likningen</p>
+<div class="math notranslate nohighlight">
+\[
+    f(x) = 0
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+x = -2 \quad \text{eller} \quad x = 3
+\]</div>
+</div>
+<br>
+<dl class="simple myst">
+<dt>Deloppgave 2</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-6"><span class="std std-numref">Fig. 5</span></a> til å bestemme løsningene av ulikheten</p>
+<div class="math notranslate nohighlight">
+\[
+    f(x) \leq 0
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+-2 \leq x \leq 3
+\]</div>
+</div>
+<br>
+<dl class="simple myst">
+<dt>Deloppgave 3</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-6"><span class="std std-numref">Fig. 5</span></a> til å bestemme løsningene av likningen</p>
+<div class="math notranslate nohighlight">
+\[
+    f(x) = g(x)
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+x = -2 \quad \text{eller} \quad x = 3
+\]</div>
+</div>
+<br>
+<dl class="simple myst">
+<dt>Deloppgave 4</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-6"><span class="std std-numref">Fig. 5</span></a> til å bestemme løsningene av ulikheten</p>
+<div class="math notranslate nohighlight">
+\[
+    f(x) \geq g(x)
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+x \leq -2 \quad \text{eller} \quad x \geq 3
+\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="problem-level-3 admonition">
+<p class="admonition-title">Oppgave 7</p>
+<p>I <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-7"><span class="std std-numref">Fig. 6</span></a> vises grafen</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^2 - 5x + 4
+\]</div>
+<figure class="align-default" id="book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-7">
+<a class="reference internal image-reference" href="_images/oppgave_7.svg"><img alt="_images/oppgave_7.svg" src="_images/oppgave_7.svg" width="80%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">viser grafen til <span class="math notranslate nohighlight">\(f(x) = x^2 - 5x + 4\)</span>.</span><a class="headerlink" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-7" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<br>
+<dl class="simple myst">
+<dt>Deloppgave 1</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-7"><span class="std std-numref">Fig. 6</span></a> til å bestemme løsningene av likningen</p>
+<div class="math notranslate nohighlight">
+\[
+    f(x) = 0
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+x = 1 \quad \text{eller} \quad x = 4
+\]</div>
+</div>
+<br>
+<dl class="simple myst">
+<dt>Deloppgave 2</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-7"><span class="std std-numref">Fig. 6</span></a> til å bestemme løsningene av ulikheten</p>
+<div class="math notranslate nohighlight">
+\[
+    x^2 - 5x &lt; -4
+    \]</div>
+</dd>
+</dl>
+<div class="hints dropdown admonition">
+<p class="admonition-title">Hint</p>
+<p>Flytt alle ledd over til én side av ulikhetstegnet. Husk flytt-og-bytt regelen!</p>
+<p>Ser du noen sammenheng med grafen til <span class="math notranslate nohighlight">\(f\)</span> og ulikheten du ender opp med?</p>
+</div>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+1 &lt; x &lt; 4
+\]</div>
+</div>
+<br>
+<dl class="simple myst">
+<dt>Deloppgave 3</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-7"><span class="std std-numref">Fig. 6</span></a> til å bestemme løsningene av likningen</p>
+<div class="math notranslate nohighlight">
+\[
+    f(x) = -2
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+x = 2 \quad \text{eller} \quad x = 3
+\]</div>
+</div>
+<br>
+<dl class="simple myst">
+<dt>Deloppgave 4</dt><dd><p>Bruk <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-7"><span class="std std-numref">Fig. 6</span></a> til å bestemme løsningene av ulikheten</p>
+<div class="math notranslate nohighlight">
+\[
+    x^2 - 5x + 6 &lt; 0
+    \]</div>
+</dd>
+</dl>
+<div class="hints dropdown admonition">
+<p class="admonition-title">Hint</p>
+<p>Her kan du skrive om ulikheten slik at du får <span class="math notranslate nohighlight">\(f(x)\)</span> på den ene siden av ulikhetstegnet!</p>
+<p>Løs deretter ulikheten ved hjelp av grafen.</p>
+</div>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+2 &lt; x &lt; 3
+\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="problem-level-3 admonition">
+<p class="admonition-title">Oppgave 8</p>
+<p>I <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-8"><span class="std std-numref">Fig. 7</span></a> vises grafene til</p>
+<div class="amsmath math notranslate nohighlight">
+\[\begin{align*}
+f(x) &amp;= x^2 - 4x + 5 \\
+\\
+g(x) &amp;= x + 1 \\
+\\
+h(x) &amp;= -x + 5
+\end{align*}\]</div>
+<figure class="align-default" id="book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-8">
+<a class="reference internal image-reference" href="_images/oppgave_8.svg"><img alt="_images/oppgave_8.svg" src="_images/oppgave_8.svg" width="80%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">viser grafene til <span class="math notranslate nohighlight">\(f(x) = x^2 - 4x + 5\)</span>, <span class="math notranslate nohighlight">\(g(x) = x + 1\)</span> og <span class="math notranslate nohighlight">\(h(x) = -x + 5\)</span>.</span><a class="headerlink" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-8" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<br>
+<dl class="simple myst">
+<dt>Deloppgave 1</dt><dd><p>Bruk én eller flere av grafene i <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-8"><span class="std std-numref">Fig. 7</span></a> til å lage en likning som har løsningene</p>
+<div class="math notranslate nohighlight">
+\[
+    x = 0 \quad \text{eller} \quad x = 3
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = h(x)
+\]</div>
+<p>eller med funksjonsuttrykkene satt inn:</p>
+<div class="math notranslate nohighlight">
+\[
+x^2 - 4x + 5 = -x + 5
+\]</div>
+</div>
+<br>
+<dl class="simple myst">
+<dt>Deloppgave 2</dt><dd><p>Bruk én eller flere av grafene i <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-8"><span class="std std-numref">Fig. 7</span></a> til å lage en ulikhet som har løsningene</p>
+<div class="math notranslate nohighlight">
+\[
+    x &lt; 0 \quad \text{eller} \quad x &gt; 3
+    \]</div>
+</dd>
+</dl>
+<div class="hints dropdown admonition">
+<p class="admonition-title">Hint</p>
+<p>Ulikheten er relatert til grafene til <span class="math notranslate nohighlight">\(f\)</span> og <span class="math notranslate nohighlight">\(h\)</span>.</p>
+</div>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<p>Uttrykt med funksjonene:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) &gt; h(x)
+\]</div>
+<p>Med funksjonsuttrykkene satt inn:</p>
+<div class="math notranslate nohighlight">
+\[
+x^2 - 4x + 5 &gt; -x + 5
+\]</div>
+</div>
+<dl class="simple myst">
+<dt>Deloppgave 3</dt><dd><p>Bruk én eller flere av grafene i <a class="reference internal" href="#book-likninger-ulikheter-likningssystemer-andregradslikninger-andregradsulikheter-oppgave-8"><span class="std std-numref">Fig. 7</span></a> til å lage en ulikhet som har løsningene</p>
+<div class="math notranslate nohighlight">
+\[
+    1 &lt; x &lt; 4
+    \]</div>
+</dd>
+</dl>
+<div class="answer dropdown admonition">
+<p class="admonition-title">Fasit</p>
+<p>Uttrykt med funksjonene:</p>
+<div class="math notranslate nohighlight">
+\[
+g(x) &gt; f(x)
+\]</div>
+<p>Med funksjonsuttrykkene satt inn:</p>
+<div class="math notranslate nohighlight">
+\[
+x + 1 &gt; x^2 - 4x + 5
+\]</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Av René Ask
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

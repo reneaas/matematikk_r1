@@ -1,0 +1,68 @@
+title: Matematikk 2P
+author: René Ask
+copyright: "2024"
+# logo: logo/evg_logo_med_1T.jpg
+exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints", README.md]
+
+options:
+  numbered: true
+
+execute:
+  execute_notebooks: off
+
+parse:
+  myst_enable_extensions:
+    - dollarmath
+    - amsmath
+    - html_image
+    - deflist
+    - tasklist
+    - attrs_inline
+    - attrs_block
+    - smartquotes
+    - colon_fence
+
+
+repository:
+  url: https://github.com/reneaas/matematikk_2p/
+  path_to_book: book/
+  branch: main/
+
+
+pdfhtml:
+  extra_css:
+    - _static/pdf_custom.css
+    - _static
+  
+
+extra_static_paths:
+  - _static
+
+html:
+  use_issues_button: false
+  use_repository_button: false
+  nb_number_source_lines: false
+  extra_js:
+    - _static
+    - https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.13.4/mermaid.min.js
+  extra_css:
+    - _static/
+
+
+sphinx:
+  extra_extensions:
+    - sphinx_proof
+    - sphinx_inline_tabs
+    - sphinxmermaid
+    - sphinxcontrib.tikz
+    - sphinx_jupyterbook_latex
+
+
+  config:
+    language: norwegian
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3.2/es5/tex-mml-chtml.js
+    html_theme_options:
+      pygments_light_style: "github-light"
+      pygments_dark_style: "github-dark"
+    templates_path:
+      - "_templates"

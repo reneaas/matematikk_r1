@@ -1,0 +1,140 @@
+<!-- Container for the quiz -->
+<div id="quiz-container-percentage-fundamentals-problem-1" class="quiz-main-container">
+    <!-- Placeholder content -->
+    <div id="quiz-placeholder-percentage-fundamentals-problem-1" style="height: 300px; background-color: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+        <p>Laster inn quiz...⏳</p>
+    </div>
+</div>
+
+<!-- Include KaTeX for LaTeX rendering -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+
+
+<script type="text/javascript">
+    document.addEventListener("DOMContentLoaded", () => {
+
+        // Define your questions and answers
+        const questionsData = [
+            {
+                content: 'Hva er det samme som $30 \\%$?',
+                answers: [
+                    { content: '$0.3$', isCorrect: true },
+                    { content: '$30 / 100$', isCorrect: true },
+                    { content: '$0.03$', isCorrect: false },
+                    { content: '$3.0$', isCorrect: false },
+                ]
+            },
+            {
+                content: 'Hva er det samme som $0.05$?',
+                answers: [
+                    { content: '$5 \\%$', isCorrect: true },
+                    { content: '$5 / 100$', isCorrect: true },
+                    { content: '$50 / 100$', isCorrect: false },
+                    { content: '$50 \\%$', isCorrect: false },
+                ]
+            },
+            {
+                content: 'Et parti gikk fra å ha en oppslutning på $10 \\%$ til å få en oppslutning på $15 \\%$. Hva er sant?',
+                answers: [
+                    { content: 'Partiet hadde en økning på $5$ prosentpoeng.', isCorrect: true },
+                    { content: 'Partiet hadde en økning på $50 \\%$.', isCorrect: true },
+                    { content: 'Partiet hadde en økning på $5 \\%$.', isCorrect: false },
+                    { content: 'Partiet hadde en økning på $0.5$ prosentpoeng.', isCorrect: false },
+                ]
+            },
+            {
+                content: 'En prosentvis økning på $10 \\%$ gir vekstfaktoren...',
+                answers: [
+                    { content: '$V = 1.1$', isCorrect: true },
+                    { content: '$V = 1.01$', isCorrect: false },
+                    { content: '$V = 0.9$', isCorrect: false },
+                    { content: '$V = 0.99$', isCorrect: false },
+                ]
+            },
+            {
+                content: 'En prosentvis negang på $20 \\%$ gir vekstfaktoren...',
+                answers: [
+                    { content: '$V = 0.8$', isCorrect: true },
+                    { content: '$V = 1.2$', isCorrect: false },
+                    { content: '$V = 0.98$', isCorrect: false },
+                    { content: '$V = 1.02$', isCorrect: false },
+                ]
+            },
+            {
+                content: 'En vekstfaktor på $1.03$ svarer til en prosentvis endring på...',
+                answers: [
+                    { content: '$+3 \%$', isCorrect: true },
+                    { content: '$-3 \%$', isCorrect: false },
+                    { content: '$30 \%$', isCorrect: false },
+                    { content: '$-30 \%$', isCorrect: false },
+                ]
+            },
+            {
+                content: 'En vekstfaktor på $0.94$ svarer til en prosentvis endring på...',
+                answers: [
+                    { content: '$-6 \%$', isCorrect: true },
+                    { content: '$+6 \%$', isCorrect: false },
+                    { content: '$4 \%$', isCorrect: false },
+                    { content: '$-4 \%$', isCorrect: false },
+                ]
+            },
+            {
+                content: 'Hvis vare øker med $10 \\%$ to ganger på rad, hva er vekstfaktoren?',
+                answers: [
+                    { content: '$V = 1.21$', isCorrect: true },
+                    { content: '$V = 0.8$', isCorrect: false },
+                    { content: '$V = 1.2$', isCorrect: false },
+                    { content: '$V = 1.11$', isCorrect: false },
+                ]
+            },
+            {
+                content: 'En vare blir satt opp med $20 \\%$ og deretter satt ned med $20 \\%$. Hva er vekstfaktoren for de to endringene til sammen?',
+                answers: [
+                    { content: '$V = 0.96$', isCorrect: true },
+                    { content: '$V = 0.99$', isCorrect: false },
+                    { content: '$V = 1.2$', isCorrect: false },
+                    { content: '$V = 1$', isCorrect: false },
+                ]
+            },
+        ];
+
+        // Function to initialize the quiz
+        function initializeQuiz() {
+            const quizContainerId = 'quiz-container-percentage-fundamentals-problem-1';
+            const quiz = new SequentialMultipleChoiceQuiz(quizContainerId, questionsData);
+
+            // Remove the placeholder after initializing the quiz
+            const placeholder = document.getElementById('quiz-placeholder-percentage-fundamentals-problem-1');
+            if (placeholder) {
+                placeholder.remove();
+            }
+
+            // Disconnect the observer since we don't need it anymore
+            observer.disconnect();
+        }
+
+        // Set up the IntersectionObserver
+        const observerOptions = {
+            root: null, // Use the viewport as the root
+            rootMargin: '100px', // Start loading before the user reaches the quiz
+            threshold: 0.1 // Adjust as needed
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // The placeholder is in view, initialize the quiz
+                    initializeQuiz();
+                }
+            });
+        }, observerOptions);
+
+        // Start observing the placeholder
+        const placeholder = document.getElementById('quiz-placeholder-percentage-fundamentals-problem-1');
+        if (placeholder) {
+            observer.observe(placeholder);
+        }
+    });
+</script>
