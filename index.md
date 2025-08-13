@@ -1,4 +1,4 @@
-# Matematikk 2P
+# Matematikk R1
 
 :::{raw} html
 ---
