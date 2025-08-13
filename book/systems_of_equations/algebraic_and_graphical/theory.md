@@ -1,2 +1,0 @@
-# Forarbeid: likningssystemer
-

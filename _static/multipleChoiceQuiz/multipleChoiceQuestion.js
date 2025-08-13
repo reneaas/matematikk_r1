@@ -128,12 +128,16 @@ class MultipleChoiceQuestion {
 
         // Provide visual feedback
         if (isCorrect) {
+            this.elements.questionCard.classList.remove('incorrect'); // ✅ Remove incorrect class
             this.elements.questionCard.classList.add('correct');
             this.correctlyAnswered = true; // Mark question as correctly answered
             // Disable further interaction
             const allAnswerCards = this.elements.answersGrid.querySelectorAll('.answer-card');
             allAnswerCards.forEach(card => {
                 card.classList.add('disabled');
+
+                const newCard = card.cloneNode(true);
+                card.parentNode.replaceChild(newCard, card);
             });
         } else {
             this.elements.questionCard.classList.add('incorrect');

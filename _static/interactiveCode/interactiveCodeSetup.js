@@ -111,7 +111,6 @@ function makeInteractiveCode(containerId, initialCode, preloadPackages = null) {
 }
 
 
-
 // predictionInteractiveCodeSetup.js
 
 class PredictionInteractiveCodeSetup extends InteractiveCodeSetup {
@@ -148,7 +147,7 @@ class PredictionInteractiveCodeSetup extends InteractiveCodeSetup {
         const predictionHtml = `
             <div id="${this.predictionContainerId}" class="prediction-container">
             <textarea id="${this.predictionInputId}" rows="3" placeholder="Skriv inn svaret ditt her! \n \nTrykk på Enter (&#9166;) for en ny linje."></textarea>
-            <button id="${this.lockPredictionButtonId}" class="button button-lock-prediction">Sjekk svaret!</button>
+            <button id="${this.lockPredictionButtonId}" class="button button-run">Sjekk svaret!</button>
             </div>
         `;
 
@@ -194,14 +193,38 @@ class PredictionInteractiveCodeSetup extends InteractiveCodeSetup {
         this.originalOutputElement = document.getElementById(this.outputId);
     }
 
+    
+
     setupPredictionFeature() {
         // Make the code editor read-only initially
-        this.editorInstance.editor.setOption('readOnly', true);
+        // Use setTimeout to ensure the editor is fully initialized
+        const setupReadOnly = () => {
+            // Check if editor instance exists and has been properly initialized
+            if (this.editorInstance && this.editorInstance.editor) {
+                console.log("Setting editor to read-only");
+                this.editorInstance.editor.setOption('readOnly', true);
+                
+                // Hide the buttons now that we know the editor is ready
+                document.getElementById(this.runButtonId).style.display = 'none';
+                document.getElementById(this.resetButtonId).style.display = 'none';
+                document.getElementById(this.cancelButtonId).style.display = 'none';
+            } else {
+                console.log("Editor not ready yet, retrying in 100ms...");
+                // Retry after a short delay
+                setTimeout(setupReadOnly, 100);
+            }
+        };
+    
+        // Start the setup process
+        setupReadOnly();
 
-        // Hide the run/reset/cancel buttons until the prediction is made
-        document.getElementById(this.runButtonId).style.display = 'none';
-        document.getElementById(this.resetButtonId).style.display = 'none';
-        document.getElementById(this.cancelButtonId).style.display = 'none';
+
+        // this.editorInstance.editor.setOption('readOnly', true);
+
+        // // Hide the run/reset/cancel buttons until the prediction is made
+        // document.getElementById(this.runButtonId).style.display = 'none';
+        // document.getElementById(this.resetButtonId).style.display = 'none';
+        // document.getElementById(this.cancelButtonId).style.display = 'none';
 
         // Add event listener for the lock prediction button
         document.getElementById(this.lockPredictionButtonId).addEventListener("click", () => this.lockPrediction());
@@ -234,6 +257,7 @@ class PredictionInteractiveCodeSetup extends InteractiveCodeSetup {
     runCode() {
         if (this.predictionDisplayed) {
             // Replace with a new InteractiveCodeSetup instance
+            this.initialCode = this.editorInstance.getValue();
             this.replaceWithInteractiveCodeSetup();
 
         } else {

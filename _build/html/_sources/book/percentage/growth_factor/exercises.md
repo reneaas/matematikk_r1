@@ -1,2 +1,0 @@
-# Modellering med vekstfart
-

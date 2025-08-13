@@ -12,6 +12,7 @@ class TimedMultipleChoiceQuiz {
         this.correctAnswers = 0;
         this.questionsAttempted = 0;
         this.uniqueId = generateUUID();
+        this.correctlyAnsweredQuestions = new Set(); // Track correctly answered questions
         this.init();
     }
 
@@ -149,6 +150,7 @@ class TimedMultipleChoiceQuiz {
 
         // Render the new question
         this.currentQuestion = new MultipleChoiceQuestion(questionData);
+        this.currentQuestion.shuffleAnswers();
         this.currentQuestion.render(`question-container-${this.uniqueId}`);
     }
 
@@ -157,14 +159,22 @@ class TimedMultipleChoiceQuiz {
 
         if (isCorrect) {
             this.correctAnswers++;
-            this.showToast('success');
+            this.correctlyAnsweredQuestions.add(this.currentQuestionIndex); // Track correct answer
+            this.currentQuestion.markAsCorrectlyAnswered();
+
+            // this.showToast('success');
         } else {
-            this.showToast('error');
+            // this.showToast('error');
         }
 
+        setTimeout(() => {
+            this.currentQuestionIndex++;
+            this.showQuestion();
+        }, 500);
+
         // Move to the next question immediately
-        this.currentQuestionIndex++;
-        this.showQuestion();
+        // this.currentQuestionIndex++;
+        // this.showQuestion();
     }
 
     showToast(type) {

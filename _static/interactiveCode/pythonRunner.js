@@ -1,7 +1,7 @@
 // pythonRunner.js
 
 class PythonRunner {
-    constructor(outputId, errorBoxId, preloadPackages = null) {
+    constructor(outputId, errorBoxId, preloadPackages = ['casify']) {
         this.outputId = outputId;            // ID of the HTML element where output will be displayed
         this.errorBoxId = errorBoxId;        // ID of the HTML element for displaying errors
         this.workerManager = WorkerManager.getInstance(preloadPackages);
@@ -42,6 +42,10 @@ class PythonRunner {
         // Extract and load necessary packages
         const packages = this.extractPackageNames(this.currentCode);
 
+        if (!packages.includes('matplotlib')) {
+            packages.push('matplotlib');
+        }
+
         console.log("Packages to load:", packages);
         if (packages.length > 0) {
             try {
@@ -54,23 +58,28 @@ class PythonRunner {
             }
         }
 
-        // const callback = (data) => {
-        //     if (data.type === 'stdout' || data.type === 'stderr') {
-        //         this.handleWorkerMessage(data);
-        //     }
-        //     if (data.type === 'executionComplete') {
-        //         // Code execution is complete
-        //         console.log("Code execution complete for messageId:", data.messageId);
-        //     }
-        // };
 
         const callback = (data) => {
             if (data.type === 'stdout') {
                 this.handleWorkerMessage(data);
             } else if (data.type === 'stderr') {
                 this.handleErrorMessage(data.msg);  // Displays the error
-            }
-            if (data.type === 'executionComplete') {
+            } else if (data.type === 'plot') {
+                const outputElement = document.getElementById(this.outputId);
+                if (!outputElement) {
+                    console.error("Output element not found:", this.outputId);
+                    return;
+                }
+    
+                const img = document.createElement('img');
+                img.src = 'data:image/png;base64,' + data.data;
+                img.style.width = '100%'; // Or any other appropriate styling
+                img.style.height = 'auto'; // Or any other appropriate styling
+                img.style.maxHeight = '500px';  // Example: set a max width
+    
+                outputElement.appendChild(img);
+                this.scrollToBottom(outputElement); // Scroll to show new plot
+            } else if (data.type === 'executionComplete') {
                 console.log("Code execution complete for messageId:", data.messageId);
             }
         };
@@ -129,6 +138,7 @@ class PythonRunner {
             errorElement.innerHTML = this.formatErrorMessage(msg);
         }
         this.highlightLine(this.editorInstance, msg);
+
     }
 
     /**
@@ -157,148 +167,28 @@ class PythonRunner {
         let content = '';
         let title = '';
         let knownError = false;
-        // Highlight the error type
-        const errorTypeMatch = errorMsg.match(/(\w+Error):/);
-        if (errorTypeMatch) {
-    
-            formattedMessage = formattedMessage.replace(errorTypeMatch[1], `<span class="error-type">${errorTypeMatch[1]}</span>`);
-            
-            if (errorTypeMatch[1] === 'SyntaxError') {
-                console.log("Adding admonition for SyntaxError");
-                title = 'SyntaxError';
-                content = `
-                    SyntaxError er en feil som oppstår når du skriver kode som ikke følger reglene for Python kode. 
-                    I meldingen står det typisk hvor i koden feilen oppstod og hva som er feil. 
-                    Typiske tilfeller:
-                    <li> Du har glemt kolon (:) etter en for- eller while-setning. </li>
-                    <li> Du har glemt å lukke en parentes, klammeparentes eller tekststreng. </li>
-                    <li> Du har glemt gangetegn. Da står det "invalid decimal literal". </li>
-                `;
-                knownError = true;
-            }
-    
-            else if (errorTypeMatch[1] === 'NameError') {
-                title = 'NameError';
-                content = `
-                    NameError er en feil som oppstår når du prøver å bruke en variabel som ikke er definert.
-                    Typiske tilfeller: 
-                    <li> Du har glemt å definere variabelen </li>
-                    <li> Du har brukt stor bokstav når det skulle vært liten. </li>
-                    <li> Du har en skrivefeil i variabelnavnet. </li>
-                `;
-                knownError = true;
-            }
-    
-            else if (errorTypeMatch[1] === 'TypeError') {
-                title = 'TypeError';
-                content = `
-                    TypeError er en feil som oppstår når du prøver å bruke en variabel på en måte som ikke er lov.
-                    Typiske tilfeller:
-                    <li> Du har prøvd en parentes inntil en variabel. Da står det at variabelen ikke er "callable". </li>
-                    <li> Du har prøvd å gjøre regneoperasjon med noe som ikke er et tall. </li>
-                    <li> Du har glemt å returnere verdien i en funksjon. </li>
-                    <li> Du prøver å bruke desimaltall med range-funksjonen. </li>
-                `;
-                knownError = true;
-            }
-    
-            else if (errorTypeMatch[1] === 'IndentationError') {
-                title = 'IndentationError';
-                content = `
-                    IndentationError er en feil som oppstår når du har feil innrykk i koden din.
-                    Typiske tilfeller:
-                    <li> Du har glemt innrykk rett etter en for- eller while-setning. </li>
-                    <li> Du har forskjellig innrykk i samme for- eller while-løkke. </li>
-                    <li> Du har glemt innrykk i en Pythonfunksjon. </li>
-                `;
-                knownError = true;
-            }
-    
-            else if (errorTypeMatch[1] === 'IndexError') {
-                title = 'IndexError';
-                content = `
-                    IndexError er en feil som oppstår når du prøver å hente ut et element fra en liste som ikke finnes.
-                    Typiske tilfeller:
-                    <li> Du har prøvd å hente ut et element fra en tom liste. </li>
-                    <li> Du har prøvd å hente ut et element fra en liste på en indeks som ikke finnes. </li>
-                    <li> Du har brukt en indeks som er for stor for listen. Da står det "list index out of range". </li>
-                `;
-                knownError = true;
-            }
-    
-            else if (errorTypeMatch[1] === 'KeyError') {
-                title = 'KeyError';
-                content = `
-                    KeyError er en feil som oppstår når du prøver å hente ut en nøkkel fra et dictionary som ikke finnes.
-                `;
-                knownError = true;
-            }
-    
-            else if (errorTypeMatch[1] === 'ValueError') {
-                title = 'ValueError';
-                content = `
-                    ValueError er en feil som oppstår når du prøver å bruke en verdi på en måte som ikke er lov.
-                    Typiske tilfeller:
-                    <li> Du har brukt en verdi utenfor definisjonsmengden til en matematisk funksjon. For eksempel negative tall i kvadratrot eller logaritmer. </li>
-                    <li> Du har prøvd å konvertere en streng til et tall, men strengen inneholder ikke et tall. </li>
-                    <li> Du har prøvd å konvertere en streng til et tall med feil format. </li>
-                `;
-                knownError = true;
-            }
-    
-            else if (errorTypeMatch[1] === 'ZeroDivisionError') {
-                title = 'ZeroDivisionError';
-                content = `Feilen oppstår når du deler med null.`
-                knownError = true;
-            }
-    
-            else if (errorTypeMatch[1] === 'OverflowError') {
-                title = 'OverflowError';
-                content = `
-                    Feilen oppstår når et tall blir for stort til å bli representert på datamaskin. Du har i praksis regnet ut uendelig.
-                `;
-                knownError = true;
-            }
-    
-            else if (errorTypeMatch[1] === 'ModuleNotFoundError') {
-                title = 'ModuleNotFoundError';
-                content = `
-                    ModuleNotFoundError er en feil som oppstår når du prøver å importere et Python-bibliotek som ikke er installert.
-                    En av pakkene du har prøvd i å installere er dessverre ikke tilgjengelig.
-                `;
-                knownError = true;
-            }
-            
-            // Currently does not work as intended
-            // if (knownError) {
-            //     this.addAdmonitionToContainer(title, content, this.errorBoxId); 
-            // }
-        }
+
     
         // Highlight the line number in the pattern 'File "<exec>", line <number>'
         const fileLinePattern = /File "<exec>", line (\d+)/g;
         formattedMessage = formattedMessage.replace(fileLinePattern, (match, p1) => {
             return match.replace(`line ${p1}`, `<span class="error-line">line ${p1}</span>`);
         });
-    
+
+
+        // Highlight the error type
+        const errorTypeMatch = errorMsg.match(/(\w+Error):/);
+        if (errorTypeMatch) {
+            console.log("Error type match:", errorTypeMatch[1]);
+            formattedMessage = formattedMessage.replace(errorTypeMatch[1], `<span class="error-type">${errorTypeMatch[1]}</span>`);
+
+        }
+
+
         return formattedMessage;
     }
 
-    addAdmonitionToContainer(title, content, errorBoxId) {
-        const container = document.getElementById(errorBoxId);
-        if (container) {
-            container.innerHTML = this.createAdmonition(title, content);
-        }
-    }
 
-    createAdmonition(title, content) {
-        return `
-            <div class="admonition pythonerror margin">
-                <p class="admonition-title">${title}</p>
-                <p>${content}</p>
-            </div>
-        `;
-    }
 
     /**
      * Extracts package names from the code based on import statements.
@@ -364,7 +254,7 @@ class PythonRunner {
      * @returns {Array<Object>} - An array of input statements found.
      */
     findInputStatements(code) {
-        const inputRegex = /(\w+)\s*=\s*(float|eval)?\(?input\(["'](.*?)["']\)\)?/g;
+        const inputRegex = /(\w+)\s*=\s*(int|float|eval)?\(?input\(["'](.*?)["']\)\)?/g;
         let match;
         let inputs = [];
 

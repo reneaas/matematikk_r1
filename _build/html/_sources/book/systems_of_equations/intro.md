@@ -1,4 +1,0 @@
-# Likningssystemer
-
-:::{tableofcontents}
-:::

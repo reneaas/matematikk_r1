@@ -1,10 +1,20 @@
+
+
+
 class CodeEditor {
     constructor(editorId) {
         this.editorId = editorId;          // ID of the HTML textarea element to convert to a code editor
-        this.editor = this.initializeEditor(editorId); // Initialize the CodeMirror editor instance
-        this.editor = this.addCommentOverlay(this.editor); // Add custom overlay for highlighting comments
-        this.setupThemeListener();         // Set up a listener to detect and apply theme changes
-        this.refreshOnVisibilityChange(); // Add this line
+        this.loadAddons().then(() => {
+            this.editor = this.initializeEditor(editorId); // Initialize the CodeMirror editor instance
+            this.editor = this.addCommentOverlay(this.editor); // Add custom overlay for highlighting comments
+            this.setupThemeListener();         // Set up a listener to detect and apply theme changes
+            this.refreshOnVisibilityChange(); // Add this line
+        });
+
+        // this.editor = this.initializeEditor(editorId); // Initialize the CodeMirror editor instance
+        // this.editor = this.addCommentOverlay(this.editor); // Add custom overlay for highlighting comments
+        // this.setupThemeListener();         // Set up a listener to detect and apply theme changes
+        // this.refreshOnVisibilityChange(); // Add this line
     }
 
     /**
@@ -22,6 +32,8 @@ class CodeEditor {
             theme: this.getCurrentTheme(), // Set the initial theme based on user preference
             tabSize: 4,                    // Set the tab size for indentation
             indentUnit: 4,                 // Number of spaces per indentation level
+            matchBrackets: true,          // Highlight matching brackets
+            autoCloseBrackets: true,      // Automatically close brackets
             extraKeys: {
                 Tab: cm => this.replaceTabWithSpaces(cm), // Replace tab key press with spaces
                 "Enter": function(cm) {
@@ -29,16 +41,95 @@ class CodeEditor {
                     var line = cm.getLine(cursor.line);
                     var currentIndent = line.match(/^\s*/)[0];  // Get current indentation level
 
-                    if (/:\s*$/.test(line)) {
-                        // If line ends with a colon, add an extra indent
-                        cm.replaceSelection("\n" + currentIndent + Array(cm.getOption("indentUnit") + 1).join(" "), "end");
+
+                    if (cursor.ch === 0) {
+                        var currentLine = cm.getLine(cursor.line);
+                        var currentIndent = currentLine.match(/^\s*/)[0];
+                        cm.replaceSelection("\n" + currentIndent);
+                        return;
+                    }
+
+                    // Rest of your existing logic
+                    if (line.trim() === '') {
+                        var nextLine = cursor.line < cm.lineCount() - 1 ? cm.getLine(cursor.line + 1) : "";
+                        var nextIndent = nextLine ? nextLine.match(/^\s*/)[0] : "";
+                        
+                        if (nextLine === "" || nextIndent.length < currentIndent.length) {
+                            let reducedIndent = currentIndent.slice(0, Math.max(0, currentIndent.length - cm.getOption("indentUnit")));
+                            cm.replaceSelection("\n" + reducedIndent);
+                        } else {
+                            cm.replaceSelection("\n" + currentIndent);
+                        }
+                    } else if (/:\s*$/.test(line)) {
+                        cm.replaceSelection("\n" + currentIndent + Array(cm.getOption("indentUnit") + 1).join(" "));
                     } else {
-                        // Otherwise, maintain the current indent level
-                        cm.replaceSelection("\n" + currentIndent, "end");
+                        cm.replaceSelection("\n" + currentIndent);
                     }
+                },
+                "Shift-Enter": function(cm) {
+                    // Always create a new line with the same indentation as the current line
+                    var cursor = cm.getCursor();
+                    var line = cm.getLine(cursor.line);
+                    var currentIndent = line.match(/^\s*/)[0];
+                    cm.replaceSelection("\n" + currentIndent);
+                },
+                "Ctrl-.": "toggleComment",     // For Windows/Linux
+                "Cmd-.": "toggleComment",       // For Mac
+
+                "Backspace": function(cm) {
+                    // Get cursor position
+                    const cursor = cm.getCursor();
+                    const line = cm.getLine(cursor.line);
+                    
+                    // Check if we're at an empty line with indentation
+                    if (line.trim() === '' && cursor.ch > 0 && cursor.ch % 4 === 0) {
+                        // Delete 4 spaces (one indentation level)
+                        cm.replaceRange("", 
+                            {line: cursor.line, ch: cursor.ch - 4}, 
+                            {line: cursor.line, ch: cursor.ch});
+                    } else {
+                        // Normal backspace behavior
+                        CodeMirror.commands.delCharBefore(cm);
                     }
+                },
+                    
             },
+
         });
+    }
+
+
+    async loadAddons() {
+        // Only load addons if CodeMirror exists
+        if (typeof CodeMirror === 'undefined') {
+            console.error("CodeMirror not found! Addons will not be loaded.");
+            return;
+        }
+
+        const addons = [
+            'https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/matchbrackets.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/closebrackets.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/comment/comment.min.js',
+        ];
+
+        const loadScript = (src) => {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = src;
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        };
+
+        for (const addon of addons) {
+            try {
+                await loadScript(addon);
+                console.log(`Loaded: ${addon}`);
+            } catch (error) {
+                console.error(`Failed to load: ${addon}`, error);
+            }
+        }
     }
 
     /**
@@ -110,11 +201,12 @@ class CodeEditor {
                     "# FORKLARING",
                     "# <--",
                     "# MERK",
+                    "????",
                 ];
 
                 for (const keyword of keywords) {
-                    if (stream.match(keyword) || (keyword === "# TODO" && stream.match("# <--"))) {
-                        return keyword.replace("# ", "").toLowerCase().replace(" ", "");
+                    if (stream.match(keyword)) {
+                        return keyword.replace("# ", "").toLowerCase().replace(" ", "").replace(/\?+/g, "question");
                     }
                 }
                 

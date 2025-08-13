@@ -45,8 +45,8 @@ class Game {
     <div id="draggable-container-${uniqueId}" class="draggable-container"></div>
     <div id="dropzone-container-${uniqueId}" class="drop-zone-container"></div>
     <div class="button-container">
-        <button id="check-answer-${uniqueId}" class="button button-check-solution">Sjekk svaret!</button>
-        <button id="reset-puzzle-${uniqueId}" class="button button-reset-puzzle">Reset puslespill</button>
+        <button id="check-answer-${uniqueId}" class="button button-run">Sjekk svaret!</button>
+        <button id="reset-puzzle-${uniqueId}" class="button button-reset">Reset puslespill</button>
     </div>
       <!-- Toast Notification -->
     <div id="toast-${uniqueId}" class="toast" style="display: none;">
