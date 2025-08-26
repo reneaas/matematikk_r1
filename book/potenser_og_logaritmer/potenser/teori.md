@@ -623,3 +623,62 @@ $$
 \sqrt{x} = x^{\tfrac{1}{2}}
 $$
 :::::::::::::::
+
+
+### $n$-te røtter
+
+Men hva om vi i stedet velger å dele opp potensen flere ganger som dette:
+
+$$
+x^1 = x^{\tfrac{1}{3} + \tfrac{1}{3} + \tfrac{1}{3}} = x^{\tfrac{1}{3} \cdot 3} = (x^{\tfrac{1}{3}})^3
+$$
+
+Da ser vi at $x^{\tfrac{1}{3}}$ er det tallet som må opphøyes i $3$ for å få $x$. På tilsvarende måte som at kvadratroten av $x$ er tallet som må opphøyes i $2$ for å få $x$, så vil tredjeroten av $x$ være tallet som må opphøyes i $3$ for å få $x$. Det betyr at 
+
+:::{margin}
+$\sqrt[3]{x}$ kalles noen ganger for **kubikkroten** fordi det er sidelengdene til en kube med volum $x$.
+:::
+
+$$
+x^{\tfrac{1}{3}} = \sqrt[3]{x}
+$$
+
+
+Vi kan generalisere dette enda lenger til å definere sammenhengen mellom en $n$-te rot og potenser:
+
+
+:::::::::::::::{summary} $n$-te røtter
+$n$-te roten av et tall $x$ skriver vi som $\sqrt[n]{x}$ og er definert som hvilket tall vi må opphøye i $n$ for å få $x$. Sammenhengen mellom $n$-te roten og potenser er
+
+$$
+\sqrt[n]{x} = x^{\tfrac{1}{n}}
+$$
+
+:::::::::::::::
+
+Med notasjonen vi har introdusert ovenfor, så kan vi også skrive kvadratroten av $x$ som $\sqrt[2]{x}$, men det er ikke så vanlig å gjøre i praksis. Men det kan være nyttig når vi skal huske på hvordan vi skriver om mellom potenser og kvadratrøtter.
+
+
+La oss se på et eksempel der vi skriver om et sammensatte uttrykk så enkelt som mulig med potenser: 
+
+
+:::::::::::::::{example} Eksempel 8
+Skriv så enkelt som mulig.
+
+$$
+(\sqrt[3]{x})^2 \cdot x^2
+$$
+
+
+::::{solution}
+---
+dropdown: 0
+---
+
+$$
+(\sqrt[3]{x})^2 \cdot x^2 = (x^{\tfrac{1}{3}})^2 \cdot x^2 = x^{\tfrac{2}{3}} \cdot x^2 = x^{\tfrac{2}{3}} \cdot x^{\tfrac{6}{3}} = x^{\tfrac{8}{3}}
+$$
+
+::::
+
+:::::::::::::::
