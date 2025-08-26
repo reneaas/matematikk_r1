@@ -214,3 +214,52 @@ a.no-click {
 .quiz-image {
     max-width: auto;
 }
+
+
+figure.align-right {
+    margin-left: 0px !important;    /* Space between figure and text on the left */
+    margin-right: 0;      /* No margin on the right edge */
+    margin-top: 0;        /* Reduce top margin */
+    margin-bottom: 15px;  /* Some bottom margin for spacing */
+    padding: 0px !important;
+}
+
+
+
+
+
+
+/* Base styles for polynomial division figures */
+.polydiv-figure img {
+    background: transparent !important; /* Force transparent background */
+    transition: filter 0.3s ease; /* Smooth transition between modes */
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1em auto;
+}
+
+/* Light mode (default) */
+[data-mode="light"] .polydiv-figure img,
+    .polydiv-figure img {
+    filter: invert(0%); /* Normal */
+}
+
+/* Dark mode styles */
+[data-mode="dark"] .polydiv-figure img {
+    filter: invert(100%) hue-rotate(180deg) !important; /* Invert colors for dark mode */
+}
+
+/* Auto mode with system preference */
+@media (prefers-color-scheme: dark) {
+[data-mode="auto"] .polydiv-figure img {
+    filter: invert(100%) hue-rotate(180deg) !important;
+}
+}
+
+/* Auto mode with system preference */
+@media (prefers-color-scheme: light) {
+    [data-mode="auto"] .polydiv-figure img {
+        filter: invert(0%) !important;
+    }
+}
