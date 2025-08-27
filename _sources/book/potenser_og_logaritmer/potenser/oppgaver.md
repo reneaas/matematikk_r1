@@ -656,7 +656,7 @@ $$
 
 ::::{answer}
 $$
-\left(\dfrac{a^2}{b^3}\right)^4 \cdot \dfrac{b^4}{(2a^{-3})^2} = \dfrac{a^8}{b^{12}} \cdot \dfrac{b^4}{4a^{-6}} = \dfrac{a^8 b^{4-12}}{4a^{-6}} = \dfrac{a^8}{4a^{-6}} = \dfrac{a^{8-(-6)}}{4} = \dfrac{a^{14}}{4}
+\left(\dfrac{a^2}{b^3}\right)^4 \cdot \dfrac{b^4}{(2a^{-3})^2} = \dfrac{a^8}{b^{12}} \cdot \dfrac{b^4}{4a^{-6}} = \dfrac{a^8 b^{4-12}}{4a^{-6}} = \dfrac{a^8b^{-8}}{4a^{-6}} = \dfrac{a^{8-(-6)}b^{-8}}{4} = \dfrac{a^{14}}{4b^8}
 $$
 ::::
 
