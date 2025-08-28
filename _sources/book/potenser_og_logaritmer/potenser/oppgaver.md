@@ -902,6 +902,10 @@ $$
 ---
 
 
+:::{margin} Tips: Oppgave 12, 13 og 14
+Uttrykkene her er ganske sammensatte. Det er lurt å prøve å bruke én og én potensregel av gangen på hver del av uttrykket for å senke sjansen for slurvefeil. Hold tunga rett i munn og ta deg god tid!
+:::
+
 :::::::::::::::{exercise} Oppgave 12
 ---
 level: 3
