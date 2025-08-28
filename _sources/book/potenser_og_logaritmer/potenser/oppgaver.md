@@ -983,12 +983,88 @@ $$
 ---
 
 
-:::{margin}
-Husk: én potensregel av gangen for hver del av uttrykket, så er det mindre sjanse for slurvefeil!
-:::
-
-
 :::::::::::::::{exercise} Oppgave 13
+---
+level: 3
+---
+Skriv så enkelt som mulig.
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+$$
+\dfrac{x^{-2}a^5 (2x^{-4})^2}{(3x^2a^{-2})^{-1}}
+$$
+
+::::{answer}
+$$
+\dfrac{12a^3}{x^8}
+$$
+::::
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} b
+
+$$
+\left(\dfrac{(8x^{-2})^{-1}}{2^{-1}x^3}\right)^{-1}
+$$
+
+::::{answer}
+$$
+4x
+$$
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+$$
+\dfrac{(a^3 b^2 c^{-1})^2 (\sqrt{a} \, b^2 c^{1/4})^8}{(ab^2)^2 (b^2 c)^3 (ac^2)^{-4}}
+$$
+
+
+::::{answer}
+$$
+a^{12}b^{10}c^{5}
+$$
+::::
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+$$
+\dfrac{ (x^{-2} y^3 \sqrt{z})^4 \, (xz^{-1})^{-3}}{ (\sqrt[3]{x} \, y^{-1} z^2)^6 \, (y^2 z^{-3})^{-2} }
+$$
+
+
+::::{answer}
+$$
+\dfrac{y^{22}}{x^{13}z^{13}}
+$$
+::::
+:::::::::::::
+
+
+
+
+::::::::::::::
+:::::::::::::::
+
+
+
+
+---
+
+
+
+
+:::::::::::::::{exercise} Oppgave 14
 ---
 level: 3
 ---
