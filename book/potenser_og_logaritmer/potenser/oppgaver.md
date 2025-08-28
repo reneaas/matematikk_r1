@@ -983,6 +983,11 @@ $$
 ---
 
 
+:::{margin}
+Husk: én potensregel av gangen for hver del av uttrykket, så er det mindre sjanse for slurvefeil!
+:::
+
+
 :::::::::::::::{exercise} Oppgave 13
 ---
 level: 3
