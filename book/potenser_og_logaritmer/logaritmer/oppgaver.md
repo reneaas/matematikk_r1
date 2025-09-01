@@ -1293,7 +1293,7 @@ linenos:
 ---
 x = 0
 while 3**x > 0.1:
-    x = x - 0.0001
+    x = x - 0.001
     
 print(x)
 :::
@@ -1302,7 +1302,7 @@ Utskriften blir
 
 
 :::{code-block} console
--2.0959999999999988
+-2.09599999999988
 :::
 
 som betyr at 
