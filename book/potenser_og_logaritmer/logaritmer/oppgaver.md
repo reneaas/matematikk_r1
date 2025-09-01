@@ -1208,6 +1208,10 @@ $$
 ---
 
 
+:::{margin} Tips: Oppgave 10
+Hvis du ikke vil *spoile* løsningen, kan du ta en ny titt på programmene i oppgave 5 for å få inspirasjon til hvor du kan begynne.
+:::
+
 :::::::::::::::{exercise} Oppgave 10 
 Nedenfor vises en samtale mellom Anna og Bjørn.
 
