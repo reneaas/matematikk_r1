@@ -1293,7 +1293,7 @@ linenos:
 ---
 x = 0
 while 3**x > 0.1:
-    x = x - 0.000001
+    x = x - 0.0001
     
 print(x)
 :::
@@ -1302,7 +1302,7 @@ Utskriften blir
 
 
 :::{code-block} console
--2.0959039999390567
+-2.0959999999999988
 :::
 
 som betyr at 
@@ -1494,7 +1494,7 @@ $$
 \begin{align*}
 \log_a(x y^3) + \log_{a}\left(\dfrac{x}{y}\right) &= \log_a(x) + \log_a(y^3) + \log_{a}(x) - \log_{a}(y) \\
 \\
-&= 2\log_a(x) + 3\log_a(y) \\
+&= 2\log_a(x) + 3\log_a(y) - \log_a(y) \\
 \\
 &= 2\log_a(xy).
 \end{align*}
