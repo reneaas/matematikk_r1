@@ -432,7 +432,7 @@ Bestem $\log_{10}(10000)$.
 
 ::::{answer}
 $$
-\log_{10}(10000) = 5
+\log_{10}(10000) = 4
 $$
 ::::
 
@@ -440,13 +440,13 @@ $$
 Vi ønsker å skrive om $10000$ som en potens av $10$ som vi kan gjøre ved:
 
 $$
-10000 = 10^5
+10000 = 10^4
 $$
 
-siden $10000$ har $5$ nuller. Da får vi at
+siden $10000$ har $4$ nuller. Da får vi at
 
 $$
-\log_{10}(10000) = \log_{10}(10^5) = 5
+\log_{10}(10000) = \log_{10}(10^4) = 4
 $$
 
 ::::
@@ -1363,7 +1363,7 @@ $$
 
 
 ::::{solution}
-Vi bruker potensreglene for logaritmer: 
+Vi bruker potensregelen for logaritmer: 
 
 $$
 \log_{10}(10^{-2}) = -2 \cdot \log_{10}(10) = -2 \cdot 1 = -2.
@@ -1387,7 +1387,7 @@ $$
 
 
 ::::{solution}
-Vi bruker produktregelen for logaritmer:
+Vi bruker potensregelen for logaritmer:
 
 $$
 \log_2(4^{-2}) = -2 \cdot \log_2(4).
@@ -1418,7 +1418,7 @@ $$
 
 
 ::::{solution}
-Vi bruker potensreglene for logaritmer:
+Vi bruker potensregelen for logaritmer:
 
 $$
 \log_3(9^{-4}) = -4 \cdot \log_3(9) = -4 \cdot 2 = -8.
@@ -1445,7 +1445,7 @@ $$
 
 
 ::::{solution}
-Vi bruker potensreglene for logaritmer:
+Vi bruker potensregelen for logaritmer:
 
 $$
 \log_5(25^{-8}) = -8 \cdot \log_5(25) = -8 \cdot 2 = -16.
