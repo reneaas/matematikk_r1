@@ -11,7 +11,13 @@
 
 
 :::::::::::::::{summary} Logaritmer
-Logaritmen med grunntall $a$ skriver vi som 
+Logaritmen med grunntall $a$ definerer vi som det tallet $x$ som vi må opphøye $a$ med for å få $y$. Altså, hvilken verdi for $x$ som løser likningen
+
+$$
+a^x = y
+$$
+
+Vi skriver logaritmen med grunntall $a$ som:
 
 $$
 x = \log_{\displaystyle a}(y)
@@ -83,28 +89,7 @@ $$
 ---
 
 
-
-
-Fra Eksempel 1, kan vi forstå logaritmen som "hva må vi opphøye $a$ med for å få $y$?: 
-
-$$
-a^x = y
-$$
-
-
-
-
-
-:::::::::::::::{summary} Logaritmer
-Logaritmen med grunntall $a$ er den verdien av $x$ vi må opphøye $a$ med for å få $y$:
-
-$$
-\log_{\displaystyle a}(y) = x \liff a^x = y
-$$
-:::::::::::::::
-
-
-:::::::::::::::{example} Eksempel
+:::::::::::::::{example} Eksempel 2
 Bestem $\log_5(125)$.
 
 
@@ -163,7 +148,7 @@ text: 1.7, 50, "$(x, y)$", center-right
 :::
 
 
-Det lar oss definere en **logaritmefunksjon** for hvert grunntall $a$ på formen $g(x) = \log_a(x)$. Tegner vi de to funksjonene i samme koordinatssystem, får vi grafen til $f(x) = a^x$ speilet om linja $y = x$. Se figuren nedenfor.
+Det lar oss definere en **logaritmefunksjon** for hvert grunntall $a$ på formen $g(x) = \log_a(x)$. Tegner vi de to funksjonene i samme koordinatssystem, får vi grafen til $g$ ved å speile grafen til $f(x) = a^x$ om linja $y = x$. Se figuren nedenfor.
 
 
 :::{plot}
@@ -186,21 +171,79 @@ text: 3, 1, "$(a, 1)$", top-center
 text: 1, 3, "$(1, a)$", center-right
 :::
 
-La oss spesielt legge merke til punktene som er markert på de to grafene. For eksponentialfunksjonen $f$, ser vi at den skjærer $y$-aksen i $(0, 1)$. Når $x = 1$, så vil vi få at $f(1) = a$ siden da har vi opphøyd grunntallet $a$ med $1$. Derfor går grafen gjennom punktet $(1, a)$. 
+La oss legge merke til noen ting med figuren ovenfor. Vi ser at eksponentialfunksjonen skjærer $y$-aksen i $(0, 1)$, mens logaritmefunksjonen skjærer på sin side $x$-aksen i $(1, 0)$. 
 
-Logaritmefunksjonen på sin side skjærer i stedet $x$-aksen i $(1, 0)$. Når vi beveger oss til $x = a$ så går grafen gjennom punktet $(a, 1)$ som samsvarer med at logaritmen fås ved å stille spørsmålet "hvilket tall må vi opphøye grunntallet i for å få $a$?". Vel det er jo $1$ siden $a^1 = a$. 
+Vi ser også at eksponentialfunksjonen går gjennom punktet $(1, a)$ som betyr at $f(1) = a$. Logaritmefunksjonen på sin side går gjennom punktet $(a, 1)$ som betyr at $g(a) = 1$. 
 
-Vi ser koordinatene til de to grafene bare har byttet plass som skyldes at vi kan lage grafen til logaritmefunksjonen ved å speile grafen til eksponentialfunksjonen om linja $y = x$.
+Vi kan derfor trekke følgende generelle konklusjoner:
+
+
+:::::::::::::::{summary} Spesielle logaritmeverdier
+For alle logaritmer $\log_a(x)$, så gjelder:
+
+$$
+\log_a(1) = 0 \qog \log_a(a) = 1
+$$
+:::::::::::::::
+
+
+
+Mer generelt kan vi merke oss at $x$-koordinatene og $y$-koordinatene bytter rolle mellom de to grafene! Det betyr at definisjonsmengden til $f$ er verdimengden til $g$. Og verdimengden til $f$ er definisjonsmengden til $g$! Her er $f$ og $g$ et eksempel på det vi kaller **omvendte** funksjoner. Det skal vi ser mer nøye på senere i faget.
 
 
 :::::::::::::::{summary} Logaritmefunksjoner
-Logaritmefunksjonen $g$ med grunntall $a$ skriver vi som
+For en eksponentialfunksjon $f(x) = a^x$ er definisjonsmengden og verdimengden gitt ved
 
 $$
-g(x) = \log_a(x) \qder D_g = \langle 0, \to \rangle.
+D_f = \mathbb{R} \qog V_f = \langle 0, \to \rangle
 $$
 
-Grafen til logaritmefunksjonen er grafen til eksponentialfunksjonen $y = a^x$ speilet om linja $y = x$.
+Logaritmefunksjonen $g$ for samme grunntall $a$ er da definert som
+
+$$
+g(x) = \log_a(x) \qder D_g = \langle 0, \to \rangle \qog V_g = \mathbb{R}
+$$
+
+Grafen til logaritmefunksjonen $g$ får vi ved å speile grafen til eksponentialfunksjon $f$ om linja $y = x$.
+
+
+
+:::::::::::::::
+
+
+---
+
+La oss se på hvordan vi kan avgjøre hvilken logaritmefunksjon vi har med å gjøre med et lite triks. 
+
+
+:::::::::::::::{example} Eksempel 3
+I figuren nedenfor vises grafen til en logaritmefunksjon $g(x) = \log_a(x)$.
+
+Bestem grunntallet $a$.
+
+
+:::{plot}
+width: 80%
+function: log(x) / log(5), $g$, (0.000001, 10)
+xmin: -1
+xmax: 8
+ymin: -6
+ymax: 6
+:::
+
+
+::::{solution}
+---
+dropdown: 0
+---
+Vi vet at grafen til en logaritmefunksjon må gå gjennom $(a, 1)$. Det vil si at vi kan lese av hvilke $x$-verdi som gir $y = 1$. Det må være grunntallet til logaritmen.
+
+Fra grafen ovenfor, kan vi se at dette er når $x = 5$. Det betyr at grunntallet til logaritmen er $a = 5$, og figuren viser derfor grafen til
+
+$$
+g(x) = \log_5(x)
+$$
+::::
 
 
 
@@ -228,13 +271,14 @@ $$
 x = a^p \and y = a^q
 $$
 
-Siden $\log_a(x)$ er er hvilket tall vi må opphøye $a$ i for å få $x$, betyr det at $\log_a(x) = p$. På samme måte har vi at $\log_a(y) = q$. I tillegg gir potensreglene vi har sett på at
+Siden $\log_a(x)$ er hvilket tall vi må opphøye $a$ i for å få $x$, betyr det at $\log_a(x) = p$. På samme måte har vi at $\log_a(y) = q$. I tillegg gir potensreglene vi har sett på at
 
 $$
 x \cdot y = a^p \cdot a^q = a^{p+q}
 $$
 
-Dermed må 
+Verdien til $\log_a(xy)$ er hva vi må opphøye $a$ med for å få $xy$. Det er $p + q$, som betyr at
+
 
 $$
 \log_a(xy) = p + q = \log_a(x) + \log_a(y)
