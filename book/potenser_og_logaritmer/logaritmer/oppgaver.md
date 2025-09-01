@@ -1219,7 +1219,7 @@ name2: Bjørn
 speaker1: left
 speaker2: right
 ---
-Anna: Jeg vil lage et program som regner ut logaritmen $\log_3(y)$ for en tilfeldig verdi av $y$.
+Anna: Jeg vil lage et program som regner ut logaritmen $\log_3(y)$ for en tilfeldig verdi av $y$ så lenge $y > 0$.
 Bjørn: Men trenger du ikke bare å øke $x$ frem til $3^x < y$ ikke lenger er sant? Da blir $x \approx \log_3(y)$. 
 Anna: Sant! Kan jeg ikke gjøre det med en `while`{l=python}-løkke som starter med `x = 0`{l=python}?
 Bjørn: Jeg tror kanskje ikke det funker når $y \in \langle 0, 1\rangle$? 
