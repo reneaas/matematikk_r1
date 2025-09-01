@@ -546,7 +546,7 @@ Det betyr at
 :::::::::::::::
 
 
-4. **Logaritme av 1**: 
+<!-- 4. **Logaritme av 1**: 
 
    $$
    \log_a(1) = 0
@@ -562,4 +562,4 @@ Det betyr at
 
    $$
    \log_a(a) = 1
-   $$
+   $$ -->
