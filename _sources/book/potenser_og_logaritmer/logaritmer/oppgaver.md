@@ -643,6 +643,10 @@ $$
 ---
 
 
+:::{margin} Tips: Oppgave 6
+Husk at når vi ser på grafen til en eksponentialfunksjon med grunntall $a$ så vil et punkt $(x, y)$ tilsvare et punkt $(y, x)$ på grafen til logaritmen med samme grunntall. Altså, $x$- og $y$-koordinatene bytter rolle!
+:::
+
 :::::::::::::::{exercise} Oppgave 6
 I figuren nedenfor vises logaritmefunksjonen 
 
