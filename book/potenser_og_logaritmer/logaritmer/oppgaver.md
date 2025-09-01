@@ -1,5 +1,10 @@
 # Oppgaver: Logaritmer
 
+
+:::{margin} Tips: Oppgave 1
+Husk at $x$-koordinaten til et punkt $(x, y)$ gir logaritmen $x = \log_a(y)$.
+:::
+
 :::::::::::::::{exercise} Oppgave 1
 I figuren nedenfor vises grafen til eksponentialfunksjonen
 
@@ -241,6 +246,11 @@ function: log(x) / log(4)
 xmin: -1
 xmax: 8
 :::
+
+
+::::{hints}
+Uansett grunntall, så vil grafen til en logaritmefunksjon gå gjennom $(a, 1)$. Det betyr at $\log_a(a) = 1$.
+::::
 
 
 ::::{answer}
