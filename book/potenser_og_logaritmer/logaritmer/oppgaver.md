@@ -1257,7 +1257,7 @@ Lag et program som bruker strategien Anna og Bjørn foreslår, og bruk det til �
 
 ::::{answer}
 $$
-\log_3(70) \approx 3.857
+\log_3(70) \approx 3.867
 $$
 ::::
 
@@ -1268,7 +1268,7 @@ linenos:
 ---
 x = 0
 while 3**x < 70:
-    x = x + 0.125
+    x = x + 0.0001
     
 print(x)
 :::
@@ -1276,13 +1276,13 @@ print(x)
 som gir utskriften
 
 :::{code-block} console
-3.857
+3.8672000000037365
 :::
 
 Dermed er 
 
 $$
-\log_3(70) \approx 3.857
+\log_3(70) \approx 3.867
 $$
 
 ::::
@@ -1603,5 +1603,100 @@ $$
 
 
 ::::::::::::::
+
+:::::::::::::::
+
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 13
+Utvid uttrykkene nedenfor til en sum av logaritmer.
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+$$
+\log_a(6x^3 y)
+$$
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+$$
+\log_a\left(\dfrac{\sqrt[3]{x^2}}{5y}\right)
+$$
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+$$
+\log_a\left(\dfrac{25x^4}{\sqrt{y}}\right)
+$$
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+$$
+\log_a\left(\dfrac{(3x^2y^5)^4}{2x}\right)
+$$
+
+:::::::::::::
+
+
+::::::::::::::
+
+:::::::::::::::
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 14
+Skriv uttrykkene så enkelt som mulig.
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+$$
+\log_a(x^2 y^3) - \log_a(xy)
+$$
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+$$
+\log_a\left(\dfrac{x^4}{y^2}\right) + \log_a(y)
+$$
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+$$
+\log_a\left(\dfrac{x^3}{y}\right) - 2\log_a(x)
+$$
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+$$
+\log_a\left((x^2 - 9)(x + 3)\right) - \log_a(x - 3)
+$$
+:::::::::::::
+
+
+::::::::::::::
+
 
 :::::::::::::::
