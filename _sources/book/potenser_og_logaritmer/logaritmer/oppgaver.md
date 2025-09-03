@@ -1730,6 +1730,11 @@ $$
 ---
 
 
+
+:::{margin} Så "enkelt" som mulig 
+Det er ikke alltid like lett å vite nøyaktig hva vi mener med at du skal skrive en logaritme så "enkel" som mulig, siden det vil være avhengig av hva vi skal bruke det til. Når vi jobber med likninger er det typisk å skrive den så kompakt og enkel som mulig. Når vi skal regne ut verdien til logaritmer, er det i stedet nyttig å skrive den som en sum av så enkle som mulig logaritmer.
+:::
+
 :::::::::::::::{exercise} Oppgave 14
 Skriv uttrykkene så enkelt som mulig.
 
@@ -1775,6 +1780,23 @@ $$
 \log_a\left(\dfrac{x^4}{y^2}\right) + \log_a(y)
 $$
 
+
+::::{answer}
+$$
+4\log_a(x) - \log_a(y)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\log_a\left(\dfrac{x^4}{y^2}\right) + \log_a(y) &= \log_a(x^4) - \log_a(y^2) + \log_a(y) \\
+\\
+&= 4\log_a(x) - 2\log_a(y) + \log_a(y) \\
+\\
+&= 4\log_a(x) - \log_a(y)
+\end{align*}
+::::
+
 :::::::::::::
 
 
@@ -1783,13 +1805,73 @@ $$
 \log_a\left(\dfrac{x^3}{y}\right) - 2\log_a(x)
 $$
 
-:::::::::::::
 
+::::{answer}
+$$
+\log_a(x) - \log_a(y)
+$$
+
+eller 
+
+$$
+\log_a\left(\dfrac{x}{y}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\log_a\left(\dfrac{x^3}{y}\right) - 2\log_a(x) &= \log_a(x^3) - \log_a(y) - 2\log_a(x) \\
+\\
+&= 3\log_a(x) - \log_a(y) - 2\log_a(x) \\
+\\
+&= \log_a(x) - \log_a(y)
+\end{align*}
+
+Som vi også kan skrive som
+
+$$
+\log_a(x) - \log_a(y) = \log_a\left(\dfrac{x}{y}\right)
+$$
+::::
+
+:::::::::::::
 
 :::::::::::::{tab-item} d
 $$
 \log_a\left((x^2 - 9)(x + 3)\right) - \log_a(x - 3)
 $$
+
+
+::::{answer}
+$$
+2 \log_a(x + 3)
+$$
+::::
+
+
+::::{solution}
+Vi husker først på at konjugatsetningen gir oss 
+
+$$
+x^2 - 9 = (x - 3)(x + 3)
+$$
+
+Da får vi
+
+\begin{align*}
+\log_a\left((x^2 - 9)(x + 3)\right) - \log_a(x - 3) &= \log_a\left( (x - 3)(x+3)(x+3) \right) - \log_a(x - 3) \\
+\\
+&= \log_a\left((x - 3)(x + 3)^2\right) - \log_a(x - 3) \\
+\\
+&= \log_a\left(\dfrac{\cancel{(x - 3)}(x + 3)^2}{\cancel{x - 3}}\right) \\
+\\
+&= \log_a((x + 3)^2) \\
+\\
+&= 2 \log_a(x + 3)
+\end{align*}
+::::
+
+
 :::::::::::::
 
 
