@@ -1879,3 +1879,126 @@ Da får vi
 
 
 :::::::::::::::
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 15
+> Det er såpass vanlig å jobbe med logaritmen med grunntall $10$, at man har innført en kortere notasjon for den. Vi definerer $\lg(x) = \log_{10}(x)$. Denne logaritmen er viktig fordi den bruker 10-tallssystemet.
+
+Skriv så enkelt som mulig.
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+$$
+\lg\left(\dfrac{100x}{0.1y}\right)
+$$
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+$$
+\lg\left(\sqrt{x}{y^3}\right)
+$$
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+$$
+\lg(25x^4) - \log(5x)
+$$
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+$$
+
+$$
+
+
+:::::::::::::
+
+
+::::::::::::::
+
+
+:::::::::::::::
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 15
+
+:::::::::::::::
+
+
+:::::::::::::::{exercise} Oppgave 16
+> Sålangt har vi jobbet med grunntall som er hele tall. Nå skal vi se på et grunntall som har en veldig spesiell egenskap: Eksponentialfunksjonen med dette grunntallet er den eneste funksjonen som er lik sin egen deriverte overalt! Grunntallet kalles Eulers tall (leses: "Oilers tall") og vi skriver det som $e$. 
+
+
+
+:::::::::::::::
+
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 17
+> Det er mulig å bytte fra en logaritme med grunntall $a$, $\log_a(x)$, til en logaritme med grunntall $b$, $\log_b(x)$. Noen ganger vil det gjøre det enklere å regne ut logaritmen avhengig av hvilket tall $x$ vi jobber med.
+
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Forklar at hvis $x = a^p$ så er
+
+$$
+p = \log_a(x)
+$$
+:::::::::::::
+
+:::::::::::::{tab-item} b
+Hvis $x = a^q$, hva er da $q$ lik?
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+Forklar at det må finnes et tall $r$ slik at man kan skrive 
+
+$$
+b = a^r
+$$
+
+Hva blir da $r$ lik?
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+Vis at med resultatene fra **a**, **b** og **c**, så vil følgende formel være sann: 
+
+$$
+\log_b(x) = \dfrac{\log_a(x)}{\log_a(b)}
+$$
+:::::::::::::
+
+::::::::::::::
+
+
+:::::::::::::::
