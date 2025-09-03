@@ -13,15 +13,19 @@
   function ensureButton() {
     // Prefer an existing icon_links anchor with title “Accessibility”
     let btn = document.querySelector('a[title="Accessibility"]');
+    const themeBtn = document.querySelector('button.theme-switch-button, [data-theme-switch]');
     if (btn) {
       btn.id = "od-toggle";
       btn.setAttribute("role", "button");
       btn.setAttribute("aria-pressed", "false");
+      // Place it to the left of the theme toggle
+      if (themeBtn && themeBtn.parentNode) {
+        themeBtn.parentNode.insertBefore(btn, themeBtn);
+      }
       return btn;
     }
-    // Otherwise, insert a button next to the theme switcher
-    const themeBtn = document.querySelector('button.theme-switch-button') || document.querySelector('[data-theme-switch]');
     if (!themeBtn) return null;
+    // Otherwise, insert a new button to the left of the theme toggle
     btn = document.createElement("a");
     btn.href = "javascript:void(0)";
     btn.id = "od-toggle";
@@ -29,8 +33,8 @@
     btn.className = "headerbtn od-toggle";
     btn.setAttribute("role", "button");
     btn.setAttribute("aria-pressed", "false");
-    btn.innerHTML = '<i class="fa-solid fa-universal-access"></i>';
-    themeBtn.parentNode.insertBefore(btn, themeBtn.nextSibling);
+    btn.innerHTML = '<i class="fa-solid fa-universal-access fa-xl"></i>';
+    themeBtn.parentNode.insertBefore(btn, themeBtn); // insert before = to the left
     return btn;
   }
   function init() {
