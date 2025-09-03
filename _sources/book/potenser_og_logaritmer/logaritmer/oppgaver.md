@@ -1623,6 +1623,21 @@ $$
 \log_a(6x^3 y)
 $$
 
+
+::::{answer}
+$$
+\log_a(6) + 3\log_a(x) + \log_a(y)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\log_a(6x^3 y) &= \log_a(6) + \log_a(x^3) + \log_a(y) \\
+\\
+&= \log_a(6) + 3\log_a(x) + \log_a(y)
+\end{align*}
+::::
+
 :::::::::::::
 
 
@@ -1630,6 +1645,23 @@ $$
 $$
 \log_a\left(\dfrac{\sqrt[3]{x^2}}{5y}\right)
 $$
+
+
+::::{answer}
+$$
+\dfrac{2}{3}\log_a(x) - \log_a(y) - \log_a(5)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\log_a\left(\dfrac{\sqrt[3]{x^2}}{5y}\right) &= \log_a(\sqrt[3]{x^2}) - \log_a(5y) \\
+\\
+&= \log_a(x^{2/3}) - \left(\log_a(5) + \log_a(y)\right) \\
+\\
+&= \dfrac{2}{3}\log_a(x) - \log_a(y) - \log_a(5)
+\end{align*}
+::::
 
 :::::::::::::
 
@@ -1639,6 +1671,25 @@ $$
 \log_a\left(\dfrac{25x^4}{\sqrt{y}}\right)
 $$
 
+
+::::{answer}
+$$
+2\log_a(5) + 4\log_a(x) - \dfrac{1}{2}\log_a(y)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\log_a\left(\dfrac{25x^4}{\sqrt{y}}\right) &= \log_a(25x^4) - \log_a(\sqrt{y}) \\
+\\
+&= \log_a(25) + \log_a(x^4) - \log_a(y^{1/2}) \\
+\\
+&= \log_a(5^2) + 4\log_a(x) - \dfrac{1}{2}\log_a(y)
+\\
+&= 2\log_a(5) + 4\log_a(x) - \dfrac{1}{2}\log_a(y)
+\end{align*}
+::::
+
 :::::::::::::
 
 
@@ -1646,6 +1697,27 @@ $$
 $$
 \log_a\left(\dfrac{(3x^2y^5)^4}{2x}\right)
 $$
+
+
+::::{answer}
+$$
+4\log_a(3) - \log_a(2) + 7\log_a(x) + 20\log_a(y)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\log_a\left(\dfrac{(3x^2y^5)^4}{2x}\right) &= \log_a\left((3x^2y^5)^4\right) - \log_a(2x) \\
+\\
+&= \log_a(3^4 x^8 y^{20}) - \left(\log_a(2) + \log_a(x)\right) \\
+\\
+&= \log_a(3^4) + \log_a(x^8) + \log_a(y^{20}) - \log_a(2) - \log_a(x) \\
+\\
+&= 4\log_a(3) + 8\log_a(x) + 20\log_a(y) - \log_a(2) - \log_a(x) \\
+\\
+&= 4\log_a(3) - \log_a(2) + 7\log_a(x) + 20\log_a(y)
+\end{align*}
+::::
 
 :::::::::::::
 
@@ -1669,6 +1741,31 @@ class: tabs-parts
 $$
 \log_a(x^2 y^3) - \log_a(xy)
 $$
+
+
+::::{answer}
+$$
+\log_a(x y^2)
+$$
+
+eller
+
+$$
+\log_a(x) + 2\log_a(y)
+$$
+::::
+
+::::{solution}
+$$
+\log_a(x^2 y^3) - \log_a(xy) = \log_a\left(\dfrac{x^2 y^3}{xy}\right) = \log_a(x y^2)
+$$
+
+Eventuelt som en sum:
+
+$$
+\log_a(x y^2) = \log_a(x) + \log_a(y^2) = \log_a(x) + 2\log_a(y)
+$$
+::::
 
 :::::::::::::
 
