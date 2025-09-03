@@ -1,0 +1,50 @@
+/* OpenDyslexic font faces (add the .woff2 files under _static/fonts/) */
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("OpenDyslexic-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("OpenDyslexic-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenDyslexic";
+  src: url("OpenDyslexic-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+/* Toggle via class on <html> for broad coverage without touching code/math */
+.od-enabled {
+  --pst-font-family-base: "OpenDyslexic", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --pst-font-family-heading: "OpenDyslexic", var(--pst-font-family-heading);
+}
+.od-enabled body {
+  font-family: var(--pst-font-family-base);
+}
+.od-enabled h1, .od-enabled h2, .od-enabled h3,
+.od-enabled h4, .od-enabled h5, .od-enabled h6 {
+  font-family: var(--pst-font-family-heading);
+}
+/* Don’t alter code/math fonts */
+pre, code, .MathJax, .math, .katex { font-family: inherit; }
+/* Visual feedback on the header icon */
+a#od-toggle[aria-pressed="true"] { color: var(--pst-color-primary); }
+
+
+/* Make the accessibility icon bigger and easier to tap */
+#od-toggle {
+  padding: 0.25rem 0.5rem;
+  line-height: 1;
+}
+#od-toggle .fa-universal-access {
+  font-size: 1.5rem;   /* try 1.75rem or 2rem if you want it larger */
+}
+/* Optional: visible pressed state */
+#od-toggle[aria-pressed="true"] { color: var(--pst-color-primary); }

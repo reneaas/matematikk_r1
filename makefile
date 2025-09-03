@@ -4,6 +4,9 @@ build:
 all:
 	PYTHONPATH=$PYTHONPATH:$(pwd) jb build . --all
 
+pdf:
+	PYTHONPATH=$PYTHONPATH:$(pwd) jb build . --builder pdfhtml
+
 clean:
 	rm -r ./_static/figurer
 	rm -r ./_static/polydiv
