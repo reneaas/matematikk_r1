@@ -1074,7 +1074,7 @@ $$
 
 
 :::{margin} Tips: Oppgave 9
-Her får du bruk for potensregelen for logaritmen:
+Husk potensregelen for logaritmen:
 
 $$
 \log_a(x^y) = y \cdot \log_a(x)
@@ -1550,6 +1550,7 @@ $$
 \log_a\left(\dfrac{x^5}{y^2}\right) - \log_a(x^2 y)
 $$
 
+
 ::::{answer}
 $$
 3\log_a\left(\dfrac{x}{y}\right)
@@ -1897,6 +1898,34 @@ class: tabs-parts
 $$
 \lg\left(\dfrac{100x}{0.1y}\right)
 $$
+
+
+::::{answer}
+$$
+\lg(x) - \lg(y) + 3
+$$
+::::
+
+
+::::{solution}
+\begin{align*}
+\lg\left(\dfrac{100x}{0.1y}\right) &= \lg(100x) - \lg(0.1y) \\
+\\
+&= \lg(100) + \lg(x) - \left(\lg(0.1) + \lg(y)\right) \\
+\\
+&= \lg(10^2) + \lg(x) - \lg(0.1) - \lg(y) \\
+\\
+&= 2\lg(10) + \lg(x) - \lg(10^{-1}) - \lg(y) \\
+\\
+&= 2 + \lg(x) - (-1) \cdot \lg(10) - \lg(y) \\
+\\
+&= 2 + \lg(x) + 1 - \lg(y) \\
+\\
+&= \lg(x) - \lg(y) + 3
+\end{align*}
+::::
+
+
 :::::::::::::
 
 
@@ -1905,6 +1934,22 @@ $$
 \lg\left(\sqrt{x}{y^3}\right)
 $$
 
+
+::::{answer}
+$$
+\dfrac{1}{2}\lg(x) + 3 \lg(y)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\lg\left(\sqrt{x}{y^3}\right) &= \lg(\sqrt{x}) + \lg(y^3) \\
+\\
+&= \lg(x^{1/2}) + 3 \lg(y) \\
+\\
+&= \dfrac{1}{2}\lg(x) + 3 \lg(y)
+\end{align*}
+::::
 
 :::::::::::::
 
@@ -1915,14 +1960,51 @@ $$
 $$
 
 
+::::{answer}
+$$
+\lg(5) + 3\lg(x)
+$$
+::::
+
+
+::::{solution}
+\begin{align*}
+\lg(25x^4) - \log(5x) &= \lg(25) + \lg(x^4) - \lg(5) - \lg(x) \\
+\\
+&= \lg(5^2) + 4\lg(x) - \lg(5) - \lg(x) \\
+\\
+&= 2\lg(5) + 3\lg(x) - \lg(5) \\
+\\
+&= \lg(5) + 3\lg(x)
+\end{align*}
+::::
+
 :::::::::::::
 
 
 :::::::::::::{tab-item} d
 $$
-
+\lg\left(\sqrt{\dfrac{x}{y^3}}\right)
 $$
 
+
+::::{answer}
+$$
+\dfrac{1}{2}\lg(x) - \dfrac{3}{2}\lg(y)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\lg\left(\sqrt{\dfrac{x}{y^3}}\right) &= \lg\left(\left(\dfrac{x}{y^3}\right)^{1/2}\right) \\
+\\
+&= \dfrac{1}{2}\lg\left(\dfrac{x}{y^3}\right) \\
+\\
+&= \dfrac{1}{2}\lg(x) - \dfrac{1}{2}\lg(y^3) \\
+\\
+&= \dfrac{1}{2}\lg(x) - \dfrac{3}{2}\lg(y)
+\end{align*}
+::::
 
 :::::::::::::
 
@@ -1936,15 +2018,414 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 15
+
+:::::::::::::::{exercise} Oppgave 16
+> Så langt har vi jobbet med grunntall som er hele tall. Nå skal vi se på et grunntall som har en veldig spesiell egenskap: Eksponentialfunksjonen med dette grunntallet er den eneste funksjonen som er lik sin egen deriverte overalt! Grunntallet kalles Eulers tall (leses: "Oilers tall") og vi skriver det som $e$. 
+
+
+<!-- :::{dialogue}
+---
+name1: Euler
+name2: Bernoulli
+speaker1: left
+speaker2: right
+---
+Euler: Jeg ser for meg at jeg vil sette inn $1 \, \mathrm{kr}$ på en bankkonto. Deretter vil jeg la det vokse med $100 \,%$. 
+Bernoulli: Okei, det er lett. Det blir bare $2 \, \mathrm{kr}$ etter et år.
+Euler: Ja sant. Men hva om jeg lar det vokse med $50 \%$ to ganger på ett år. Da får jeg vel $\left(1 + \dfrac{1}{2}\right)^2 \, \mathrm{kr}$ på bankkontoen.
+Bernoulli: Ja. Det blir $2.25 \, \mathrm{kr}$. Men hvor vil du med dette?
+Euler: Vel se for deg at vi øker $1 \, \mathrm{kr}$ med $100 \%$ fire ganger i løpet av et år – altså $25 \%$ av gangen. Da får jeg vel $\left(1 + \dfrac{1}{4}\right)^4 \, \mathrm{kr}$ på bankkontoen.
+Bernoulli: Hmm. Jeg lurer på hva som skjer med verdien hvis du gjør det veldig mange ganger, og ikke bare fire ganger.
+::: -->
+
+:::{dialogue}
+---
+name1: Bernoulli
+name2: Euler
+speaker1: left
+speaker2: right
+---
+Bernoulli: Jeg har tenkt på dette med renter. Hvis jeg setter inn $1 \, \mathrm{kr}$ i banken og får $100 \%$ rente en gang i året, så dobles pengene til $2 \, \mathrm{kr}$.
+Euler: Det gir mening. Men hva om banken betaler ut renten oftere, for eksempel halvårlig?
+Bernoulli: Da vokser pengene med $50 \%$ to ganger. Det blir $\left(1 + \dfrac{1}{2}\right)^2 = 2.25 \, \mathrm{kr}$.  
+Euler: Aha, så vi får mer enn $2 \, \mathrm{kr}$! Hva om vi får rente fire ganger i året, altså $25 \%$ av gangen?
+Bernoulli: Da får vi $\left(1 + \dfrac{1}{4}\right)^4 = 2.4414 \, \mathrm{kr}$. Enda litt mer!  
+Euler: Interessant … jeg lurer på hva som skjer hvis vi øker antallet renteutbetalinger mot uendelig mange ganger i året.
+:::
+
+<br>
+
+Det Euler og Bernoulli snakker om ovenfor vil lede fram til en god tilnærming til verdien til tallet $e$. 
+
+Bruk programmet nedenfor til å bestemme tallet $e$ med $5$ desimaler. Hvor mye vil $1 \, \mathrm{kr}$ vokse til etter ett år hvis vi får $100 \%$ rente til sammen, når banken betaler ut renten veldig ofte?
+
+:::{interactive-code}
+n = 1
+while n < 100_000_000:
+
+    e = (1 + 1/n)**n
+    n = n * 10
+
+    print(f"{e = :0.5f}") # skriver ut verdien med 5 desimaler
+:::
+
+
+::::{answer}
+$$
+e \approx 2.71828
+$$
+::::
+
 
 :::::::::::::::
 
 
-:::::::::::::::{exercise} Oppgave 16
-> Sålangt har vi jobbet med grunntall som er hele tall. Nå skal vi se på et grunntall som har en veldig spesiell egenskap: Eksponentialfunksjonen med dette grunntallet er den eneste funksjonen som er lik sin egen deriverte overalt! Grunntallet kalles Eulers tall (leses: "Oilers tall") og vi skriver det som $e$. 
+---
 
 
+:::::::::::::::{exercise} Oppgave 17
+> Når vi bruker $e$ som grunntall for en logaritme, så skriver vi $\ln(x)$. Det vil si at $\ln(x) = \log_e(x)$. 
+
+Skriv så enkelt som mulig.
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+$$
+\ln(xy^2) + 4 \ln(x^3 y) - 2\ln(xy^6)
+$$
+
+
+
+::::{answer}
+$$
+10\ln(x) - 8\ln(y)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+&\ln(xy^2) + 4 \ln(x^3 y) - 2\ln(xy^6)\\ 
+\\
+&= \ln(x) + 2\ln(y) + 4(3\ln(x) + \ln(y)) - 2(\ln(x) + 6\ln(y)) \\
+\\
+&= 10\ln(x) - 8\ln(y)
+\end{align*}
+::::
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} b
+$$
+\ln\left(\dfrac{5x^3}{\sqrt[4]{y^2}}\right)
+$$
+
+
+::::{answer}
+$$
+\ln(5) + 3\ln(x) - \dfrac{1}{2}\ln(y)
+$$
+::::
+
+::::{solution}
+\begin{align*}\ln\left(\dfrac{5x^3}{\sqrt[4]{y^2}}\right) &= \ln(5x^3) - \ln\left(\sqrt[4]{y^2}\right) \\
+\\
+&= \ln(5x^3) - \dfrac{1}{4}\ln(y^2) \\
+\\
+&= \ln(5) + 3\ln(x) - \dfrac{1}{2}\ln(y)
+\end{align*}
+::::
+
+
+:::::::::::::
+
+:::::::::::::{tab-item} c
+$$
+\ln \left(\sqrt[3]{a^2 b^5}\right)
+$$
+
+
+::::{answer}
+$$
+\dfrac{2}{3} \ln(a) + \dfrac{5}{3} \ln(b)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\ln \left(\sqrt[3]{a^2 b^5}\right) &= \ln \left((a^2 b^5)^{1/3}\right) \\
+\\
+&= \dfrac{1}{3} \ln(a^2 b^5) \\
+\\
+&= \dfrac{1}{3} \left(2\ln(a) + 5\ln(b)\right) \\
+\\
+&= \dfrac{2}{3} \ln(a) + \dfrac{5}{3} \ln(b)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+$$
+\ln (e^3 x \sqrt{y})
+$$
+
+
+::::{answer}
+$$
+3 + \ln (x) + \dfrac{1}{2} \ln (y)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\ln (e^3 x \sqrt{y}) &= \ln (e^3) + \ln (x) + \ln (\sqrt{y}) \\
+\\
+&= 3 + \ln (x) + \dfrac{1}{2} \ln (y)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+::::::::::::::
+
+
+:::::::::::::::
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 18
+Trekk sammen og skriv som én logaritme.
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+$$
+2 \ln(x) - \ln(5) + \dfrac{1}{2}\ln(y)
+$$
+
+::::{answer}
+$$
+\ln\left(\dfrac{x^2\sqrt{y}}{5}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+2\ln(x) - \ln(5) + \dfrac{1}{2}\ln(y)
+&= \ln(x^2) - \ln(5) + \ln\!\left(y^{1/2}\right) \\
+&= \ln\left(\dfrac{x^2\,y^{1/2}}{5}\right)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} b
+$$
+3 \ln(a) - 2\ln(b) + \ln(4)
+$$
+
+::::{answer}
+$$
+\ln\left(\dfrac{4a^3}{b^2}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+3\ln(a) - 2\ln(b) + \ln(4)
+&= \ln(a^3) - \ln(b^2) + \ln(4) \\
+&= \ln\left(\dfrac{4a^3}{b^2}\right)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} c
+$$
+\dfrac{1}{3}\ln(x) + \dfrac{2}{5}\ln(y) - \ln(z)
+$$
+
+::::{answer}
+$$
+\ln\left(\dfrac{x^{1/3} y^{2/5}}{z}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+	\dfrac{1}{3}\ln(x) + \dfrac{2}{5}\ln(y) - \ln(z)
+&= \ln\!\left(x^{1/3}\right) + \ln\!\left(y^{2/5}\right) - \ln(z) \\
+&= \ln\left(\dfrac{x^{1/3} y^{2/5}}{z}\right)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+$$
+\ln(x) + \ln(x + 1) - \dfrac{1}{2}\ln(3)
+$$
+
+::::{answer}
+$$
+\ln\left(\dfrac{x(x+1)}{\sqrt{3}}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\ln(x) + \ln(x+1) - \dfrac{1}{2}\ln(3)
+&= \ln\bigl(x(x+1)\bigr) - \ln\!\left(3^{1/2}\right) \\
+&= \ln\left(\dfrac{x(x+1)}{\sqrt{3}}\right)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} e
+$$
+4 \ln(2x) - \ln(8) - 2\ln(x)
+$$
+ 
+::::{answer}
+$$
+\ln\bigl(2x^2\bigr)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+4\ln(2x) - \ln(8) - 2\ln(x)
+&= \ln\bigl((2x)^4\bigr) - \ln(8) - \ln(x^2) \\
+&= \ln\left(\dfrac{(2x)^4}{8x^2}\right) \\
+&= \ln\left(\dfrac{16x^4}{8x^2}\right) \\
+&= \ln\left(2x^2\right)
+\end{align*}
+::::
+:::::::::::::
+
+::::::::::::::
+
+
+:::::::::::::::
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 19
+Skriv så enkelt som mulig.
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+$$
+\ln(3) + 2\ln(x) - \dfrac{1}{2}\ln(y)
+$$
+
+::::{answer}
+$$
+\ln\left(\dfrac{3x^2}{\sqrt{y}}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\ln(3) + 2\ln(x) - \dfrac{1}{2}\ln(y)
+&= \ln(3) + \ln(x^2) - \ln\!\left(y^{1/2}\right) \\
+&= \ln\left(\dfrac{3x^2}{\sqrt{y}}\right)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+$$
+3\ln(x+1) - \ln(x) - \ln(2)
+$$
+
+::::{answer}
+$$
+\ln\left(\dfrac{(x+1)^3}{2x}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+3\ln(x+1) - \ln(x) - \ln(2)
+&= \ln\bigl((x+1)^3\bigr) - \ln(2x) \\
+&= \ln\left(\dfrac{(x+1)^3}{2x}\right)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+$$
+\dfrac{1}{3}\ln(x^2 y) + \ln(5) - \ln(x)
+$$
+
+::::{answer}
+$$
+\ln\left(5\,\Bigl(\dfrac{y}{x}\Bigr)^{\!1/3}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+	frac{1}{3}\ln(x^2 y) + \ln(5) - \ln(x)
+&= \ln\!\left((x^2 y)^{1/3}\right) + \ln(5) - \ln(x) \\
+&= \ln\!\left(5\,x^{2/3} y^{1/3}\right) - \ln(x) \\
+&= \ln\!\left(\dfrac{5\,x^{2/3} y^{1/3}}{x}\right)
+= \ln\!\left(5\,x^{-1/3} y^{1/3}\right) \\
+&= \ln\left(5\,\Bigl(\dfrac{y}{x}\Bigr)^{1/3}\right)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+$$
+\ln\left(\dfrac{e^{4} x^2}{\sqrt{y}}\right) - \ln(e)
+$$
+
+::::{answer}
+$$
+\ln\left(\dfrac{e^{3} x^2}{\sqrt{y}}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\ln\left(\dfrac{e^{4} x^2}{\sqrt{y}}\right) - \ln(e)
+&= \ln\left(\dfrac{e^{4} x^2}{\sqrt{y}}\cdot \dfrac{1}{e}\right) \\
+&= \ln\left(\dfrac{e^{3} x^2}{\sqrt{y}}\right)
+\end{align*}
+::::
+
+:::::::::::::
 
 :::::::::::::::
 
@@ -1953,7 +2434,358 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 17
+
+:::::::::::::::{exercise} Oppgave 20
+Trekk sammen og skriv som én logaritme.
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+$$
+\lg(5) + 2\lg(x) - \dfrac{1}{2}\lg(y)
+$$
+
+::::{answer}
+$$
+\lg\left(\dfrac{5x^2}{\sqrt{y}}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\lg(5) + 2\lg(x) - \dfrac{1}{2}\lg(y)
+&= \lg(5) + \lg(x^2) - \lg\!\left(y^{1/2}\right) \\
+\\
+&= \lg\left(\dfrac{5x^2}{\sqrt{y}}\right)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+$$
+3\lg(x+1) - \lg(2) - \lg(x)
+$$
+
+::::{answer}
+$$
+\lg\left(\dfrac{(x+1)^3}{2x}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+3\lg(x+1) - \lg(2) - \lg(x)
+&= \lg\bigl((x+1)^3\bigr) - \lg(2x) \\
+\\
+&= \lg\left(\dfrac{(x+1)^3}{2x}\right)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+$$
+\dfrac{1}{3}\lg(25x^2) + \lg(y) - 2\lg(5)
+$$
+
+::::{answer}
+$$
+\lg\left(\dfrac{x^{2/3} y}{5^{4/3}}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+	\dfrac{1}{3}\lg(25x^2) + \lg(y) - 2\lg(5)
+&= \dfrac{1}{3}\bigl(\lg(25) + 2\lg(x)\bigr) + \lg(y) - 2\lg(5) \\
+\\
+&= \dfrac{2}{3}\lg(5) + \dfrac{2}{3}\lg(x) + \lg(y) - 2\lg(5) \\
+\\
+&= \dfrac{2}{3}\lg(x) + \lg(y) - \dfrac{4}{3}\lg(5) \\
+\\
+&= \lg\left(\dfrac{x^{2/3} y}{5^{4/3}}\right)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+$$
+4\lg(3x) - \lg(9) - \lg(x)
+$$
+
+::::{answer}
+$$
+\lg\bigl(9x^3\bigr)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+4\lg(3x) - \lg(9) - \lg(x)
+&= \lg\bigl((3x)^4\bigr) - \lg(9) - \lg(x) \\
+\\
+&= \lg\left(\dfrac{(3x)^4}{9x}\right) \\
+\\
+&= \lg\left(\dfrac{81x^4}{9x}\right) = \lg(9x^3)
+\end{align*}
+::::
+
+:::::::::::::
+
+:::::::::::::::
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 21
+Skriv så enkelt som mulig.
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+$$
+\ln\left(\dfrac{e^5}{x^3}\right)
+$$
+
+
+::::{answer}
+$$
+5 - 3\ln(x)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\ln\left(\dfrac{e^5}{x^3}\right)
+&= \ln(e^5) - \ln(x^3) \\
+&= 5 - 3\ln(x)
+\end{align*}
+::::
+
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} b
+$$
+\ln\left(\sqrt{\dfrac{e^2 x}{y^3}}\right)
+$$
+
+
+::::{answer}
+$$
+1 + \dfrac{1}{2}\ln(x) - \dfrac{3}{2}\ln(y)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\ln\left(\sqrt{\dfrac{e^2 x}{y^3}}\right)
+&= \dfrac{1}{2}\,\ln\left(\dfrac{e^2 x}{y^3}\right) \\
+&= \dfrac{1}{2}\big(\ln(e^2) + \ln(x) - 3\ln(y)\big) \\
+&= \dfrac{1}{2}\big(2 + \ln(x) - 3\ln(y)\big) \\
+&= 1 + \dfrac{1}{2}\ln(x) - \dfrac{3}{2}\ln(y)
+\end{align*}
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+$$
+\ln \left((e^3 x^2)^3\right) - \ln (e^6 x)
+$$
+
+
+::::{answer}
+$$
+3 + 5\ln(x)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\ln \left((e^3 x^2)^3\right) - \ln (e^6 x)
+&= \ln\big(e^9 x^6\big) - \ln\big(e^6 x\big) \\
+&= \ln\left(\dfrac{e^9 x^6}{e^6 x}\right) \\
+&= \ln\big(e^3 x^5\big) \\
+&= 3 + 5\ln(x)
+\end{align*}
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+$$
+\ln\left(\dfrac{1}{\sqrt[3]{e x^3}}\right) + \ln (5e^2 x)
+$$
+
+
+
+::::{answer}
+$$
+\ln(5) + \dfrac{5}{3}
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\ln\left(\dfrac{1}{\sqrt[3]{e x^3}}\right) + \ln (5e^2 x)
+&= -\,\ln\big(\sqrt[3]{e x^3}\big) + \ln(5) + \ln(e^2) + \ln(x) \\
+&= -\,\dfrac{1}{3}\,\ln(e x^3) + \ln(5) + 2 + \ln(x) \\
+&= -\,\dfrac{1}{3}\big(\ln(e) + 3\ln(x)\big) + \ln(5) + 2 + \ln(x) \\
+&= -\,\dfrac{1}{3} - \ln(x) + \ln(5) + 2 + \ln(x) \\
+&= \ln(5) + \dfrac{5}{3}
+\end{align*}
+::::
+
+
+:::::::::::::
+
+
+::::::::::::::
+
+:::::::::::::::
+
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 22
+Skriv så enkelt som mulig.
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+$$
+5 \lg(x^3) + \lg\left(\dfrac{1}{x^2}\right) + \lg(1000x^5)
+$$
+
+
+::::{answer}
+$$
+\lg\bigl(1000\,x^{18}\bigr)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+5\,\lg(x^3) + \lg\left(\dfrac{1}{x^2}\right) + \lg(1000x^5)
+&= \lg\bigl((x^3)^5\bigr) + \lg\left(\dfrac{1}{x^2}\right) + \lg(1000x^5) \\
+&= \lg\left(\dfrac{x^{15}\cdot 1000x^5}{x^2}\right) \\
+&= \lg\bigl(1000\,x^{18}\bigr)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} b
+$$
+lg(\sqrt[3]{x^6}) + 10 \lg(\sqrt[5]{x}) - \lg(x^3)
+$$
+
+
+::::{answer}
+$$
+\lg(x)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\lg\big(\sqrt[3]{x^6}\big) + 10\,\lg\big(\sqrt[5]{x}\big) - \lg(x^3)
+&= \lg(x^2) + 10\,\lg\big(x^{1/5}\big) - 3\lg(x) \\
+&= 2\lg(x) + 2\lg(x) - 3\lg(x) \\
+&= \lg(x)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} c
+$$
+\ln(x^3) + \ln \left(\dfrac{e^2}{x^5}\right) - \ln \left(\dfrac{e^{-2}}{x}\right)
+$$
+
+
+::::{answer}
+$$
+\ln\left(\dfrac{e^{4}}{x}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\ln(x^3) + \ln\left(\dfrac{e^2}{x^5}\right) - \ln\left(\dfrac{e^{-2}}{x}\right)
+&= \ln\left(\dfrac{x^3\,e^2}{x^5}\right) - \big(\ln(e^{-2}) - \ln x\big) \\
+&= \ln\big(e^2 x^{-2}\big) - (-2 - \ln x) \\
+&= 2 - 2\ln x + 2 + \ln x \\
+&= 4 - \ln x \\
+&= \ln\left(\dfrac{e^{4}}{x}\right)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+$$
+\ln(x^2 - e^2) + \ln(x + 3) - 2\ln(x - e)
+$$
+
+
+::::{answer}
+$$
+\ln\left(\dfrac{(x+e)(x+3)}{x-e}\right)
+$$
+::::
+
+::::{solution}
+\begin{align*}
+\ln(x^2 - e^2) + \ln(x + 3) - 2\ln(x - e)
+&= \ln\left(\dfrac{(x^2 - e^2)(x+3)}{(x-e)^2}\right) \\
+&= \ln\left(\dfrac{(x-e)(x+e)(x+3)}{(x-e)^2}\right) \\
+&= \ln\left(\dfrac{(x+e)(x+3)}{x-e}\right)
+\end{align*}
+::::
+
+:::::::::::::
+
+
+
+::::::::::::::
+
+
+:::::::::::::::
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 23
 > Det er mulig å bytte fra en logaritme med grunntall $a$, $\log_a(x)$, til en logaritme med grunntall $b$, $\log_b(x)$. Noen ganger vil det gjøre det enklere å regne ut logaritmen avhengig av hvilket tall $x$ vi jobber med.
 
 
@@ -1968,11 +2800,31 @@ Forklar at hvis $x = a^p$ så er
 $$
 p = \log_a(x)
 $$
+::::{answer}
+$$
+p = \log_a(x)
+$$
+::::
+
+::::{solution}
+Med definisjonen av logaritmen er $\log_a(x)$ tallet $p$ slik at $a^p = x$.
+::::
+
 :::::::::::::
 
 :::::::::::::{tab-item} b
 Hvis $x = a^q$, hva er da $q$ lik?
 
+
+::::{answer}
+$$
+q = \log_a(x)
+$$
+::::
+
+::::{solution}
+Samme definisjon: $a^q = x$ gir $q = \log_a(x)$.
+::::
 
 :::::::::::::
 
@@ -1987,6 +2839,16 @@ $$
 Hva blir da $r$ lik?
 
 
+::::{answer}
+$$
+r = \log_a(b)
+$$
+::::
+
+::::{solution}
+Per definisjon: $a^r = b$ betyr $r = \log_a(b)$.
+::::
+
 :::::::::::::
 
 
@@ -1996,9 +2858,24 @@ Vis at med resultatene fra **a**, **b** og **c**, så vil følgende formel være
 $$
 \log_b(x) = \dfrac{\log_a(x)}{\log_a(b)}
 $$
+::::{answer}
+$$
+\log_b(x) = \dfrac{\log_a(x)}{\log_a(b)}
+$$
+::::
+
+::::{solution}
+La $t = \log_b(x)$. Da er $x = b^t$. Fra c) har vi $b = a^r$ med $r = \log_a(b)$, så
+\begin{align*}
+x = b^t = (a^r)^t = a^{rt}\;\Rightarrow\; \log_a(x) = rt = \log_a(b)\,\log_b(x).
+\end{align*}
+Dermed $\displaystyle \log_b(x) = \dfrac{\log_a(x)}{\log_a(b)}$.
+::::
+
 :::::::::::::
 
 ::::::::::::::
 
 
 :::::::::::::::
+
