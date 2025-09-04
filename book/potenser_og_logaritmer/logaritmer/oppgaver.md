@@ -2022,22 +2022,6 @@ $$
 :::::::::::::::{exercise} Oppgave 16
 > Så langt har vi jobbet med grunntall som er hele tall. Nå skal vi se på et grunntall som har en veldig spesiell egenskap: Eksponentialfunksjonen med dette grunntallet er den eneste funksjonen som er lik sin egen deriverte overalt! Grunntallet kalles Eulers tall (leses: "Oilers tall") og vi skriver det som $e$. 
 
-
-<!-- :::{dialogue}
----
-name1: Euler
-name2: Bernoulli
-speaker1: left
-speaker2: right
----
-Euler: Jeg ser for meg at jeg vil sette inn $1 \, \mathrm{kr}$ på en bankkonto. Deretter vil jeg la det vokse med $100 \,%$. 
-Bernoulli: Okei, det er lett. Det blir bare $2 \, \mathrm{kr}$ etter et år.
-Euler: Ja sant. Men hva om jeg lar det vokse med $50 \%$ to ganger på ett år. Da får jeg vel $\left(1 + \dfrac{1}{2}\right)^2 \, \mathrm{kr}$ på bankkontoen.
-Bernoulli: Ja. Det blir $2.25 \, \mathrm{kr}$. Men hvor vil du med dette?
-Euler: Vel se for deg at vi øker $1 \, \mathrm{kr}$ med $100 \%$ fire ganger i løpet av et år – altså $25 \%$ av gangen. Da får jeg vel $\left(1 + \dfrac{1}{4}\right)^4 \, \mathrm{kr}$ på bankkontoen.
-Bernoulli: Hmm. Jeg lurer på hva som skjer med verdien hvis du gjør det veldig mange ganger, og ikke bare fire ganger.
-::: -->
-
 :::{dialogue}
 ---
 name1: Bernoulli
@@ -2063,7 +2047,7 @@ Bruk programmet nedenfor til å bestemme tallet $e$ med $5$ desimaler. Hvor mye 
 n = 1
 while n < 100_000_000:
 
-    e = (1 + 1/n)**n
+    e = ???? # FYLL INN: formel ut ifra dialogen ovenfor.
     n = n * 10
 
     print(f"{e = :0.5f}") # skriver ut verdien med 5 desimaler
@@ -2071,6 +2055,21 @@ while n < 100_000_000:
 
 
 ::::{answer}
+
+:::{code-block} python
+---
+linenos:
+---
+n = 1
+while n < 100_000_000:
+
+    e = (1 + 1/n)**n
+    n = n * 10
+
+    print(f"{e = :0.5f}") # skriver ut verdien med 5 desimaler
+:::
+
+
 $$
 e \approx 2.71828
 $$
@@ -2086,7 +2085,7 @@ $$
 :::::::::::::::{exercise} Oppgave 17
 > Når vi bruker $e$ som grunntall for en logaritme, så skriver vi $\ln(x)$. Det vil si at $\ln(x) = \log_e(x)$. 
 
-Skriv så enkelt som mulig.
+Skriv om til en sum av logaritmer som er så enkle som mulig.
 
 ::::::::::::::{tab-set}
 ---
@@ -2216,15 +2215,19 @@ $$
 
 ::::{answer}
 $$
-\ln\left(\dfrac{x^2\sqrt{y}}{5}\right)
+\ln\left(\dfrac{x^2 \sqrt{y}}{5}\right)
 $$
 ::::
 
 ::::{solution}
 \begin{align*}
-2\ln(x) - \ln(5) + \dfrac{1}{2}\ln(y)
+& 2\ln(x) - \ln(5) + \dfrac{1}{2}\ln(y) \\
+\\
 &= \ln(x^2) - \ln(5) + \ln\!\left(y^{1/2}\right) \\
+\\
 &= \ln\left(\dfrac{x^2\,y^{1/2}}{5}\right)
+\\
+&= \ln\left(\dfrac{x^2 \sqrt{y}}{5}\right)
 \end{align*}
 ::::
 
@@ -2245,8 +2248,10 @@ $$
 
 ::::{solution}
 \begin{align*}
-3\ln(a) - 2\ln(b) + \ln(4)
+& 3\ln(a) - 2\ln(b) + \ln(4) \\
+\\
 &= \ln(a^3) - \ln(b^2) + \ln(4) \\
+\\
 &= \ln\left(\dfrac{4a^3}{b^2}\right)
 \end{align*}
 ::::
@@ -2268,8 +2273,10 @@ $$
 
 ::::{solution}
 \begin{align*}
-	\dfrac{1}{3}\ln(x) + \dfrac{2}{5}\ln(y) - \ln(z)
+& \dfrac{1}{3}\ln(x) + \dfrac{2}{5}\ln(y) - \ln(z) \\
+\\
 &= \ln\!\left(x^{1/3}\right) + \ln\!\left(y^{2/5}\right) - \ln(z) \\
+\\
 &= \ln\left(\dfrac{x^{1/3} y^{2/5}}{z}\right)
 \end{align*}
 ::::
@@ -2290,36 +2297,18 @@ $$
 
 ::::{solution}
 \begin{align*}
-\ln(x) + \ln(x+1) - \dfrac{1}{2}\ln(3)
+& \ln(x) + \ln(x+1) - \dfrac{1}{2}\ln(3) \\
+\\
 &= \ln\bigl(x(x+1)\bigr) - \ln\!\left(3^{1/2}\right) \\
+\\
+&= \ln\left(\dfrac{x(x+1)}{3^{1/2}}\right) \\
+\\
 &= \ln\left(\dfrac{x(x+1)}{\sqrt{3}}\right)
 \end{align*}
 ::::
 
 :::::::::::::
 
-
-:::::::::::::{tab-item} e
-$$
-4 \ln(2x) - \ln(8) - 2\ln(x)
-$$
- 
-::::{answer}
-$$
-\ln\bigl(2x^2\bigr)
-$$
-::::
-
-::::{solution}
-\begin{align*}
-4\ln(2x) - \ln(8) - 2\ln(x)
-&= \ln\bigl((2x)^4\bigr) - \ln(8) - \ln(x^2) \\
-&= \ln\left(\dfrac{(2x)^4}{8x^2}\right) \\
-&= \ln\left(\dfrac{16x^4}{8x^2}\right) \\
-&= \ln\left(2x^2\right)
-\end{align*}
-::::
-:::::::::::::
 
 ::::::::::::::
 
@@ -2331,7 +2320,7 @@ $$
 
 
 :::::::::::::::{exercise} Oppgave 19
-Skriv så enkelt som mulig.
+Skriv om til én logaritme.
 
 ::::::::::::::{tab-set}
 ---
@@ -2350,8 +2339,10 @@ $$
 
 ::::{solution}
 \begin{align*}
-\ln(3) + 2\ln(x) - \dfrac{1}{2}\ln(y)
+&\ln(3) + 2\ln(x) - \dfrac{1}{2}\ln(y) \\
+\\
 &= \ln(3) + \ln(x^2) - \ln\!\left(y^{1/2}\right) \\
+\\
 &= \ln\left(\dfrac{3x^2}{\sqrt{y}}\right)
 \end{align*}
 ::::
@@ -2372,8 +2363,10 @@ $$
 
 ::::{solution}
 \begin{align*}
-3\ln(x+1) - \ln(x) - \ln(2)
+&3\ln(x+1) - \ln(x) - \ln(2) \\
+\\
 &= \ln\bigl((x+1)^3\bigr) - \ln(2x) \\
+\\
 &= \ln\left(\dfrac{(x+1)^3}{2x}\right)
 \end{align*}
 ::::
@@ -2394,11 +2387,16 @@ $$
 
 ::::{solution}
 \begin{align*}
-	frac{1}{3}\ln(x^2 y) + \ln(5) - \ln(x)
+& \dfrac{1}{3}\ln(x^2 y) + \ln(5) - \ln(x) \\
+\\
 &= \ln\!\left((x^2 y)^{1/3}\right) + \ln(5) - \ln(x) \\
+\\
 &= \ln\!\left(5\,x^{2/3} y^{1/3}\right) - \ln(x) \\
+\\
 &= \ln\!\left(\dfrac{5\,x^{2/3} y^{1/3}}{x}\right)
-= \ln\!\left(5\,x^{-1/3} y^{1/3}\right) \\
+\\
+&= \ln\!\left(5\,x^{-1/3} y^{1/3}\right) \\
+\\
 &= \ln\left(5\,\Bigl(\dfrac{y}{x}\Bigr)^{1/3}\right)
 \end{align*}
 ::::
@@ -2408,24 +2406,30 @@ $$
 
 :::::::::::::{tab-item} d
 $$
-\ln\left(\dfrac{e^{4} x^2}{\sqrt{y}}\right) - \ln(e)
+4 \ln(2x) - \ln(8) - 2\ln(x)
 $$
-
+ 
 ::::{answer}
 $$
-\ln\left(\dfrac{e^{3} x^2}{\sqrt{y}}\right)
+\ln\bigl(2x^2\bigr)
 $$
 ::::
 
 ::::{solution}
 \begin{align*}
-\ln\left(\dfrac{e^{4} x^2}{\sqrt{y}}\right) - \ln(e)
-&= \ln\left(\dfrac{e^{4} x^2}{\sqrt{y}}\cdot \dfrac{1}{e}\right) \\
-&= \ln\left(\dfrac{e^{3} x^2}{\sqrt{y}}\right)
+& 4\ln(2x) - \ln(8) - 2\ln(x) \\
+\\
+&= \ln\bigl((2x)^4\bigr) - \ln(8) - \ln(x^2) \\
+\\
+&= \ln\left(\dfrac{(2x)^4}{8x^2}\right) \\
+\\
+&= \ln\left(\dfrac{16x^4}{8x^2}\right) \\
+\\
+&= \ln\left(2x^2\right)
 \end{align*}
 ::::
-
 :::::::::::::
+::::::::::::::
 
 :::::::::::::::
 
