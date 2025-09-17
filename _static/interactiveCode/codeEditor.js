@@ -23,7 +23,8 @@ class CodeEditor {
      * @returns {Object} - The initialized CodeMirror editor instance.
      */
     initializeEditor(editorId) {
-        return CodeMirror.fromTextArea(document.getElementById(editorId), {
+        const self = this;
+        const editor = CodeMirror.fromTextArea(document.getElementById(editorId), {
             mode: {
                 name: "python",            // Language mode set to Python
                 version: 3,                 // Python 3 syntax
@@ -35,8 +36,40 @@ class CodeEditor {
             matchBrackets: true,          // Highlight matching brackets
             autoCloseBrackets: true,      // Automatically close brackets
             extraKeys: {
-                Tab: cm => this.replaceTabWithSpaces(cm), // Replace tab key press with spaces
+                // Tab navigates placeholders if a snippet is active; otherwise inserts spaces
+                Tab: (cm) => {
+                    const st = cm.state && cm.state.snippetPH;
+                    if (st && Array.isArray(st.markers) && st.markers.length) {
+                        // Try to move to the next existing marker
+                        let i = st.index + 1;
+                        let moved = false;
+                        while (i < st.markers.length) {
+                            const pos = st.markers[i] && st.markers[i].find();
+                            if (pos) {
+                                st.index = i;
+                                cm.setSelection(pos.from, pos.to);
+                                moved = true;
+                                break;
+                            }
+                            i++;
+                        }
+                        if (!moved) {
+                            // No further placeholders: clear and fall back to normal Tab
+                            this.clearSnippetPlaceholders(cm);
+                            this.replaceTabWithSpaces(cm);
+                        }
+                        return; // handled
+                    }
+                    this.replaceTabWithSpaces(cm);
+                },
                 "Enter": function(cm) {
+                    // If a completion popup is open, let it handle Enter
+                    if (cm.state && cm.state.completionActive) {
+                        return CodeMirror.Pass;
+                    }
+                    // Try snippet expansion first
+                    if (self.tryExpandSnippet(cm)) return;
+
                     var cursor = cm.getCursor();
                     var line = cm.getLine(cursor.line);
                     var currentIndent = line.match(/^\s*/)[0];  // Get current indentation level
@@ -75,6 +108,29 @@ class CodeEditor {
                 },
                 "Ctrl-.": "toggleComment",     // For Windows/Linux
                 "Cmd-.": "toggleComment",       // For Mac
+                "Ctrl-Space": "autocomplete",
+                // Shift-Tab navigates to previous placeholder when available
+                "Shift-Tab": (cm) => {
+                    const st = cm.state && cm.state.snippetPH;
+                    if (st && Array.isArray(st.markers) && st.markers.length) {
+                        let i = st.index - 1;
+                        while (i >= 0) {
+                            const pos = st.markers[i] && st.markers[i].find();
+                            if (pos) {
+                                st.index = i;
+                                cm.setSelection(pos.from, pos.to);
+                                return;
+                            }
+                            i--;
+                        }
+                        // No previous valid marker; keep current selection as-is
+                    }
+                },
+                // Placeholder navigation for snippets
+                "Ctrl-]": cm => this.selectNextPlaceholder(cm),
+                "Cmd-]": cm => this.selectNextPlaceholder(cm),
+                "Ctrl-[": cm => this.selectPrevPlaceholder(cm),
+                "Cmd-[": cm => this.selectPrevPlaceholder(cm),
 
                 "Backspace": function(cm) {
                     // Get cursor position
@@ -96,6 +152,22 @@ class CodeEditor {
             },
 
         });
+
+        // Show snippet hint popup as user types letters/underscore
+        editor.on('inputRead', function(cm, change) {
+            try {
+                if (!change || !change.text) return;
+                // Trigger on single-character word-like input
+                if (change.text.length === 1 && /^[A-Za-z_]$/.test(change.text[0])) {
+                    self.triggerSnippetHint(cm);
+                }
+            } catch (e) {
+                // fail-safe
+                console.debug('snippet hint inputRead error', e);
+            }
+        });
+
+        return editor;
     }
 
 
@@ -107,9 +179,16 @@ class CodeEditor {
         }
 
         const addons = [
-            'https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/matchbrackets.min.js',
-            'https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/edit/closebrackets.min.js',
-            'https://cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/comment/comment.min.js',
+            // Core editing helpers
+            'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/matchbrackets.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js',
+            'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/comment/comment.min.js',
+            // Show-hint for autocomplete popup
+            'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.js',
+        ];
+
+        const styles = [
+            'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css',
         ];
 
         const loadScript = (src) => {
@@ -121,6 +200,28 @@ class CodeEditor {
                 document.head.appendChild(script);
             });
         };
+
+        const loadStyle = (href) => {
+            return new Promise((resolve, reject) => {
+                // Avoid duplicate loads
+                if ([...document.styleSheets].some(s => s.href === href)) return resolve();
+                const link = document.createElement('link');
+                link.rel = 'stylesheet';
+                link.href = href;
+                link.onload = resolve;
+                link.onerror = reject;
+                document.head.appendChild(link);
+            });
+        };
+
+        for (const href of styles) {
+            try {
+                await loadStyle(href);
+                console.log(`Loaded CSS: ${href}`);
+            } catch (error) {
+                console.error(`Failed to load CSS: ${href}`, error);
+            }
+        }
 
         for (const addon of addons) {
             try {
@@ -139,6 +240,242 @@ class CodeEditor {
     replaceTabWithSpaces(cm) {
         let spaces = Array(cm.getOption("indentUnit") + 1).join(" ");
         cm.replaceSelection(spaces);
+    }
+
+    // ---------- Snippets ----------
+    // Simple snippet dictionary (keyword -> template and initial selection word)
+    getSnippets() {
+        return {
+            // Norwegian-friendly placeholders
+            "for": {
+                template: "for n in range(start, stopp, avstand):\n    print(n)",
+                caretWords: ["start", "stopp", "avstand"]
+            },
+            "if": {
+                template: "if betingelse:\n    pass",
+                caretWords: ["betingelse", "pass"]
+            },
+            "while": {
+                template: "while betingelse:\n    pass",
+                caretWords: ["betingelse", "pass"]
+            },
+            "if-else": {
+                template: "if betingelse:\n    pass\nelse:\n    pass",
+                caretWords: ["betingelse"]
+            },
+            "funksjon": {
+                template: "def funksjonsnavn(variabel):\n    return funksjonsuttrykk",
+                caretWords: ["funksjonsnavn", "variabel", "funksjonsuttrykk"]
+            },
+            "sum": {
+                template: "s = 0\nfor n in range(start, stopp, avstand):\n    a = formel\n    s = s + a",
+                caretWords: ["start", "stopp", "avstand", "formel"]
+            },
+            "print": {
+                template: "print(verdi)",
+                caretWords: ["verdi"]
+            },
+            "print-f": {
+                template: "print(f\"{variabel = }\")",
+                caretWords: ["variabel"]
+            },
+        };
+    }
+
+    // Expand snippet if the current line is exactly a keyword (ignoring leading spaces)
+    tryExpandSnippet(cm) {
+        const cur = cm.getCursor();
+        const lineText = cm.getLine(cur.line);
+        const leadingWSMatch = lineText.match(/^\s*/);
+        const leadingWS = leadingWSMatch ? leadingWSMatch[0] : "";
+        const trimmed = lineText.slice(leadingWS.length);
+
+        const snippets = this.getSnippets();
+        const snip = snippets[trimmed];
+        if (!snip) return false;
+
+    const { template, caretWords } = snip;
+
+        // Indent template according to current indentation and editor indent unit
+        const indented = this.buildIndentedTemplate(cm, leadingWS, template);
+
+        cm.operation(() => {
+            // Replace entire current line with the snippet to avoid duplicate indentation
+            cm.replaceRange(
+                indented,
+                { line: cur.line, ch: 0 },
+                { line: cur.line, ch: lineText.length }
+            );
+
+            // Prepare placeholders and select the first, if any
+            this.postInsertSnippet(cm, cur.line, indented, caretWords);
+        });
+
+        return true;
+    }
+
+    // Build an indented template that honors the editor's indentUnit.
+    // For each template line, count its leading whitespace (spaces/tabs), convert to indent levels,
+    // and prefix with the current line's indentation plus that many indent levels.
+    buildIndentedTemplate(cm, leadingWS, template) {
+        const unit = cm.getOption('indentUnit') || 4;
+        const indentStr = ' '.repeat(unit);
+        const toLevels = (ws) => {
+            let count = 0;
+            for (let i = 0; i < ws.length; i++) {
+                count += (ws[i] === '\t') ? unit : 1;
+            }
+            return Math.floor(count / unit);
+        };
+        const lines = template.split('\n');
+        return lines.map(line => {
+            const m = line.match(/^[ \t]*/)[0];
+            const level = toLevels(m);
+            const content = line.slice(m.length);
+            return leadingWS + indentStr.repeat(level) + content;
+        }).join('\n');
+    }
+
+    // Trigger snippet hint popup as the user types
+    triggerSnippetHint(cm) {
+        if (!CodeMirror || !CodeMirror.showHint) return;
+        CodeMirror.showHint(cm, (cm_) => this.snippetHint(cm_), { completeSingle: false });
+    }
+
+    // Custom hint provider that suggests snippet keywords and inserts templates
+    snippetHint(cm) {
+        const cur = cm.getCursor();
+        const lineText = cm.getLine(cur.line);
+        const leadingWSMatch = lineText.match(/^\s*/);
+        const leadingWS = leadingWSMatch ? leadingWSMatch[0] : "";
+
+        // Determine the current word before the cursor
+        let startCh = cur.ch;
+        while (startCh > 0 && /[A-Za-z_]/.test(lineText.charAt(startCh - 1))) startCh--;
+        const prefix = lineText.slice(startCh, cur.ch);
+
+        // Only offer snippet completions when typing at indentation start
+        if (startCh !== leadingWS.length) {
+            return { list: [], from: { line: cur.line, ch: cur.ch }, to: { line: cur.line, ch: cur.ch } };
+        }
+
+        const snippets = this.getSnippets();
+        const keys = Object.keys(snippets).filter(k => k.indexOf(prefix) === 0);
+
+        const list = keys.map(key => {
+            const { template } = snippets[key];
+            return {
+                text: key,
+                displayText: `${key} — ${template.split('\n')[0]}…`,
+                hint: (cmPick) => {
+                    // Replace the current word with the snippet template, with indentation
+                    const { template: tpl, caretWords } = snippets[key];
+                    const indented = this.buildIndentedTemplate(cmPick, leadingWS, tpl);
+                    cmPick.operation(() => {
+                        // Replace from start of line to cursor to include indentation
+                        cmPick.replaceRange(
+                            indented,
+                            { line: cur.line, ch: 0 },
+                            { line: cur.line, ch: cur.ch }
+                        );
+                        // Prepare placeholders and select the first
+                        this.postInsertSnippet(cmPick, cur.line, indented, caretWords);
+                    });
+                }
+            };
+        });
+
+        return {
+            list,
+            from: { line: cur.line, ch: startCh },
+            to: { line: cur.line, ch: cur.ch }
+        };
+    }
+
+    // After inserting a snippet, create live markers for placeholders and select the first
+    postInsertSnippet(cm, baseLine, indented, caretWords) {
+        const words = Array.isArray(caretWords) ? caretWords : (caretWords ? [caretWords] : []);
+        const lines = indented.split('\n');
+        const markers = [];
+
+        if (words.length) {
+            for (let i = 0; i < lines.length; i++) {
+                for (const w of words) {
+                    let idx = -1, fromCh = 0;
+                    while ((idx = lines[i].indexOf(w, fromCh)) !== -1) {
+                        const from = { line: baseLine + i, ch: idx };
+                        const to = { line: baseLine + i, ch: idx + w.length };
+                        const m = cm.getDoc().markText(from, to, { inclusiveLeft: true, inclusiveRight: true });
+                        markers.push(m);
+                        fromCh = idx + w.length;
+                    }
+                }
+            }
+        }
+
+        cm.state.snippetPH = { markers, index: 0 };
+
+        // Helper to select current marker if it still exists
+        const selectIndex = (idx) => {
+            if (!markers.length) return false;
+            const mk = markers[idx];
+            if (!mk) return false;
+            const pos = mk.find();
+            if (!pos) return false; // marker cleared by edit
+            cm.setSelection(pos.from, pos.to);
+            return true;
+        };
+
+        if (!selectIndex(0)) {
+            // Fallback: put cursor at end of first inserted line
+            cm.setCursor({ line: baseLine, ch: lines[0].length });
+        }
+    }
+
+    // Move to the next existing placeholder marker
+    selectNextPlaceholder(cm) {
+        const st = cm.state && cm.state.snippetPH;
+        if (!st || !st.markers || !st.markers.length) return;
+        let i = st.index + 1;
+        while (i < st.markers.length) {
+            const pos = st.markers[i] && st.markers[i].find();
+            if (pos) {
+                st.index = i;
+                cm.setSelection(pos.from, pos.to);
+                return;
+            }
+            i++;
+        }
+        // No further placeholders: clear state
+        this.clearSnippetPlaceholders(cm);
+    }
+
+    // Move to the previous existing placeholder marker
+    selectPrevPlaceholder(cm) {
+        const st = cm.state && cm.state.snippetPH;
+        if (!st || !st.markers || !st.markers.length) return;
+        let i = st.index - 1;
+        while (i >= 0) {
+            const pos = st.markers[i] && st.markers[i].find();
+            if (pos) {
+                st.index = i;
+                cm.setSelection(pos.from, pos.to);
+                return;
+            }
+            i--;
+        }
+        // No previous: keep current or clear if current is gone
+        const cur = st.markers[st.index] && st.markers[st.index].find();
+        if (!cur) this.clearSnippetPlaceholders(cm);
+    }
+
+    clearSnippetPlaceholders(cm) {
+        const st = cm.state && cm.state.snippetPH;
+        if (!st) return;
+        if (st.markers) {
+            st.markers.forEach(m => { try { m.clear(); } catch(_){} });
+        }
+        delete cm.state.snippetPH;
     }
 
     /**
@@ -206,7 +543,15 @@ class CodeEditor {
 
                 for (const keyword of keywords) {
                     if (stream.match(keyword)) {
-                        return keyword.replace("# ", "").toLowerCase().replace(" ", "").replace(/\?+/g, "question");
+                        // Special-case: map "# <--" to the same class as TODO
+                        if (keyword === "# <--") {
+                            return "todo";
+                        }
+                        return keyword
+                            .replace("# ", "")
+                            .toLowerCase()
+                            .replace(" ", "")
+                            .replace(/\?+/g, "question");
                     }
                 }
                 
