@@ -1326,3 +1326,114 @@ $$
 
 
 :::::::::::::::
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 9
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+
+
+:::::::::::::{tab-item} a
+I figuren nedenfor vises grafen til en funksjon $f$ gitt ved
+
+$$
+f(x) = \log_a(x)
+$$
+
+Bestem $a$.
+
+:::{plot}
+width: 80%
+function: log(x)/log(5)
+xmin: -1
+xmax: 16
+xstep: 1
+ymin: -2
+ymax: 6
+ystep: 1
+:::
+
+
+::::{answer}
+$$
+a = 5
+$$
+::::
+
+
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+I figuren nedenfor vises grafen til en funksjon
+
+$$
+f(x) = \log_a(x) \cdot (\log_a(x) - 1)
+$$
+
+Bestem $a$.
+
+:::{plot}
+width: 80%
+function: log(x)/log(3) * (log(x) / log(3) - 1)
+xmin: -1
+xmax: 9
+xstep: 1
+ymin: -2
+ymax: 4
+ystep: 1
+:::
+
+
+::::{answer}
+$$
+a = 3
+$$
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+I figuren nedenfor vises grafen til 
+
+$$
+f(x) = (\log_a(x) - 2) \cdot (\log_a(x) - 4)
+$$
+
+Bestem $a$.
+
+
+:::{plot}
+width: 80%
+function: (log(x)/log(2) - 2)*(log(x)/log(2) - 4)
+xmin: -2
+xmax: 20
+xstep: 2
+ymin: -2
+ymax: 6
+ystep: 1
+:::
+
+
+::::{answer}
+$$
+a = 2
+$$
+::::
+
+
+
+:::::::::::::
+::::::::::::::
+
+:::::::::::::::
+
