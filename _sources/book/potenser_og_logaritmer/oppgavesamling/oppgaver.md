@@ -1167,3 +1167,162 @@ $$
 
 :::::::::::::::
 
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 7
+Grafen til funksjonen $f(x) = 10^x$ er vist i figuren nedenfor.
+
+:::{plot}
+width: 80%
+function: 10^x
+xmin: -0.1
+xmax: 1.1
+xstep: 0.1
+ymin: -1
+ymax: 11
+ystep: 1
+:::
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bruk figuren til å bestemme en tilnærmet verdi for $\lg 3$.
+
+::::{answer}
+$$
+\lg 3 \approx 0.5
+$$
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Bruk figuren til å bestemme en tilnærmet verdi for $\lg 8$.
+
+
+::::{answer}
+$$
+\lg 8 \approx 0.9
+$$
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+Bruk figuren til å bestemme en tilnærmet verdi for $\lg 5$.
+
+
+::::{answer}
+$$
+\lg 5 \approx 0.7
+$$
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+Bruk figuren til å bestemme en tilnærmet verdi for $\lg 40$.
+
+::::{answer}
+$$
+\lg 40 \approx 1.6
+$$
+::::
+
+:::::::::::::
+
+
+::::::::::::::
+
+
+
+
+:::::::::::::::
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 8
+I figuren nedenfor vises grafen til $f(x) = e^x$. 
+
+
+:::{plot}
+width: 80%
+function: exp(x)
+xmin: -0.1
+xmax: 1.3
+xstep: 0.1
+ymin: -0.5
+ymax: 4
+ystep: 0.5
+:::
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bruk figuren til å bestemme en tilnærmet verdi for $\ln 2$.
+
+
+::::{answer}
+$$
+\ln 2 \approx 0.7
+$$
+::::
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} b
+Bruk figuren til å bestemme en tilnærmet verdi for $\ln 3$
+
+
+::::{answer}
+$$
+\ln 3 \approx 1.1
+$$
+::::
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+Bruk figuren til å bestemme en tilnærmet løsning til likningen $e^x = 6$. 
+
+
+::::{answer}
+$$
+x \approx 1.8
+$$
+::::
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+Bruk figuren til å bestemme en tilnærmet løsning til likningen $e^x = 24$. 
+
+
+::::{answer}
+$$
+x \approx 3.2
+$$
+::::
+
+:::::::::::::
+
+
+::::::::::::::
+
+
+:::::::::::::::
