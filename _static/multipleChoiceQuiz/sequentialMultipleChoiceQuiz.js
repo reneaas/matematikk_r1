@@ -11,6 +11,7 @@ class SequentialMultipleChoiceQuiz {
         this.uniqueId = generateUUID();
         this.correctlyAnsweredQuestions = new Set(); // Track correctly answered questions
         this.questionInstances = {}; // Store instances of MultipleChoiceQuestion
+        this.isFinished = false; // Track completion without destroying UI
         this.init();
     }
 
@@ -29,6 +30,9 @@ class SequentialMultipleChoiceQuiz {
                 <button id="submit-answer-${this.uniqueId}" class="button button-run">Sjekk svar</button>
                 <button id="next-question-${this.uniqueId}" class="button button-next">Neste →</button>
             </div>
+            <div id="quiz-completion-${this.uniqueId}" class="quiz-completion-message" style="display: none;">
+                <p>Da var quizen ferdig! 🎉</p>
+            </div>
             <!-- Toast Notifications -->
             <div id="toast-success-${this.uniqueId}" class="toast toast-success" style="display: none;">
                 <p>Riktig! 🎉</p>
@@ -45,19 +49,38 @@ class SequentialMultipleChoiceQuiz {
     }
 
     showQuestion() {
-        const questionData = this.questionsData[this.currentQuestionIndex];
-        if (!questionData) {
-            this.finishQuiz();
-            return;
+        // If we moved beyond the virtual completion card, clamp back
+        if (this.currentQuestionIndex > this.totalQuestions) {
+            this.currentQuestionIndex = this.totalQuestions;
         }
     
-        // Update the question counter
+        // Update the question counter (hide count on completion card)
         const counter = document.getElementById(`question-counter-${this.uniqueId}`);
-        counter.textContent = `Spørsmål ${this.currentQuestionIndex + 1} / ${this.totalQuestions}`;
+        if (this.currentQuestionIndex === this.totalQuestions) {
+            counter.textContent = '';
+        } else {
+            counter.textContent = `Spørsmål ${this.currentQuestionIndex + 1} / ${this.totalQuestions}`;
+        }
     
         // Clear the question container before rendering the new question
         const questionContainer = document.getElementById(`question-container-${this.uniqueId}`);
         questionContainer.innerHTML = ''; // Clear previous question
+
+        // If we are on the virtual completion card, show the completion banner
+        // and do NOT render a question (buttons remain for navigation)
+        const banner = document.getElementById(`quiz-completion-${this.uniqueId}`);
+        if (this.currentQuestionIndex === this.totalQuestions) {
+            if (banner) banner.style.display = 'block';
+            this.updateNavigationButtons();
+            return;
+        } else if (banner) {
+            banner.style.display = 'none';
+        }
+
+        const questionData = this.questionsData[this.currentQuestionIndex];
+        if (!questionData) {
+            return; // Nothing to show
+        }
     
         // Check if we already have an instance of the question
         if (this.questionInstances.hasOwnProperty(this.currentQuestionIndex)) {
@@ -133,12 +156,12 @@ class SequentialMultipleChoiceQuiz {
     }
 
     finishQuiz() {
-        // Clear the container and display a completion message
-        this.container.innerHTML = `
-            <div class="quiz-completion-message">
-                <p>Da var quizen ferdig! 🎉</p>
-            </div>
-        `;
+        // Mark finished and show completion banner, keep UI for navigation
+        this.isFinished = true;
+        const banner = document.getElementById(`quiz-completion-${this.uniqueId}`);
+        if (banner) {
+            banner.style.display = 'block';
+        }
     }
 
 
@@ -157,14 +180,21 @@ class SequentialMultipleChoiceQuiz {
         }
 
         // Show or hide the Next button
-        if (this.correctlyAnsweredQuestions.has(currentIndex)) {
-            nextButton.style.display = ''; // Show the button
+        if (currentIndex === this.totalQuestions) {
+            nextButton.style.display = 'none'; // No next beyond completion card
+        } else if (this.correctlyAnsweredQuestions.has(currentIndex)) {
+            nextButton.style.display = ''; // Show the button (including on last real question)
         } else {
             nextButton.style.display = 'none'; // Hide the button
         }
 
-        // Disable the submit button if the question has been answered correctly
-        submitButton.disabled = this.correctlyAnsweredQuestions.has(currentIndex);
+        // Disable/hide the submit button on completion card; otherwise disable if already correct
+        if (currentIndex === this.totalQuestions) {
+            submitButton.style.display = 'none';
+        } else {
+            submitButton.style.display = '';
+            submitButton.disabled = this.correctlyAnsweredQuestions.has(currentIndex);
+        }
     }
 
     goToPreviousQuestion() {
@@ -176,9 +206,19 @@ class SequentialMultipleChoiceQuiz {
     }
 
     goToNextQuestion() {
+        if (this.currentQuestionIndex === this.totalQuestions) {
+            return; // Already at completion card
+        }
         if (this.correctlyAnsweredQuestions.has(this.currentQuestionIndex)) {
-            this.currentQuestionIndex++;
-            this.showQuestion();
+            if (this.currentQuestionIndex < this.totalQuestions - 1) {
+                this.currentQuestionIndex++;
+                this.showQuestion();
+            } else if (this.currentQuestionIndex === this.totalQuestions - 1) {
+                // Move to virtual completion card
+                this.currentQuestionIndex = this.totalQuestions;
+                this.finishQuiz();
+                this.showQuestion();
+            }
             // this.scrollToQuizContainer(); // Scroll to the quiz container
         }
     }

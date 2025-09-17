@@ -544,22 +544,3 @@ Det betyr at
 
 
 :::::::::::::::
-
-
-<!-- 4. **Logaritme av 1**: 
-
-   $$
-   \log_a(1) = 0
-   $$
-
-5. Bytte av grunntall: 
-
-   $$
-   \log_a(b) = \frac{\log_c(b)}{\log_c(a)}
-   $$
-
-6. Logaritme av grunntallet:
-
-   $$
-   \log_a(a) = 1
-   $$ -->

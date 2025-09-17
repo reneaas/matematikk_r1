@@ -2320,7 +2320,7 @@ $$
 
 
 :::::::::::::::{exercise} Oppgave 19
-Skriv om til én logaritme.
+Trekk sammen og skriv som én logaritme.
 
 ::::::::::::::{tab-set}
 ---
