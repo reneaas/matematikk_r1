@@ -1414,12 +1414,12 @@ Bestem $a$.
 
 :::{plot}
 width: 80%
-function: (log(x)/log(2) - 2)*(log(x)/log(2) - 4)
+function: -(log(x)/log(2) - 2)*(log(x)/log(2) - 4)
 xmin: -2
 xmax: 20
 xstep: 2
-ymin: -2
-ymax: 6
+ymin: -4
+ymax: 4
 ystep: 1
 :::
 
