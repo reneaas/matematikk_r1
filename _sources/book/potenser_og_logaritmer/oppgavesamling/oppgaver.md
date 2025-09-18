@@ -107,19 +107,19 @@ $$
 
 ::::{answer}
 $$
-81ab^3
+81a^2b^3
 $$
 ::::
 
 ::::{solution}
 \begin{align*}
-    \dfrac{3b^2 \cdot 36a^3 \cdot 9(ab)^3}{12 (a^2b)^2} &= \dfrac{3 \cdot 36 \cdot 9}{12} \cdot \dfrac{b^2 \cdot a^2 \cdot (ab)^3}{(a^2b)^2} \\
+    \dfrac{3b^2 \cdot 36a^3 \cdot 9(ab)^3}{12 (a^2b)^2} &= \dfrac{3 \cdot 36 \cdot 9}{12} \cdot \dfrac{b^2 \cdot a^3 \cdot (ab)^3}{(a^2b)^2} \\
     \\
-    &= \dfrac{3 \cdot 3 \cdot 12 \cdot 9}{12} \cdot \dfrac{b^2 \cdot a^2 \cdot a^3 \cdot b^3}{a^4 \cdot b^2} \\
+    &= \dfrac{3 \cdot 3 \cdot 12 \cdot 9}{12} \cdot \dfrac{b^2 \cdot a^3 \cdot a^3 \cdot b^3}{a^4 \cdot b^2} \\
     \\
-    &= 3 \cdot 3 \cdot 9 \cdot a^{2 + 3 - 4} \cdot b^{2 + 3 - 2} \\
+    &= 3 \cdot 3 \cdot 9 \cdot a^{3 + 3 - 4} \cdot b^{2 + 3 - 2} \\
     \\
-    &= 81ab^3
+    &= 81a^2b^3
 \end{align*}
 ::::
 
