@@ -495,9 +495,6 @@ der vi har brukt at $\ln e = 1$.
 ## Generell strategi: Produktregelen
 
 
-### Type 4: $f(x) \cdot g(x) = 0$
-
-
 :::::::::::::::{summary} Strategi: $f(x) \cdot g(x) = 0$
 Bruk produktregelen for likninger. Hvis $a \cdot b = 0$, så er enten $a = 0$ eller $b = 0$. Dermed er
 
