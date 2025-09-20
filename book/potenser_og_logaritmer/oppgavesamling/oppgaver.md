@@ -1720,9 +1720,259 @@ $$
 
 
 
+---
 
 
-:::::::::::::::{exercise} Oppgave 11 
+:::::::::::::::{exercise} Oppgave 11
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Løs likningen
+
+$$
+\log_2(x + 2) + \log_2(x) = 3
+$$
+
+
+::::{answer}
+$$
+x = 2
+$$
+::::
+
+::::{solution}
+Vi bruker logaritmesetningene til å skrive om venstresiden til én logaritme:
+
+$$
+\log_2(x + 2) + \log_2(x) = 3
+$$
+
+$$
+\log_2((x + 2)x) = 3
+$$
+
+$$
+\log_2(x^2 + 2x) = 3
+$$
+
+Så bruker vi at $\log_2 a = b \liff 2^b = a$:
+
+$$
+x^2 + 2x = 2^3
+$$
+
+$$
+x^2 + 2x = 8
+$$
+
+$$
+x^2 + 2x - 8 = 0
+$$
+
+Nå bruker vi $abc$-formelen:
+
+$$
+x = \dfrac{-2 \pm \sqrt{2^2 - 4 \cdot 1 \cdot (-8)}}{2 \cdot 1} = \dfrac{-2 \pm \sqrt{4 + 32}}{2} = \dfrac{-2 \pm \sqrt{36}}{2}
+$$
+
+$$
+x = \dfrac{-2 \pm 6}{2}
+$$
+
+$$
+x = 2 \or x = -4
+$$
+
+Vi må sjekke om begge løsningene er gyldige. For $x = -4$, så vil vi prøve å ta logaritmen av et negativt tall på høyre side av likningen som betyr at denne løsningen ikke er gyldig. Vi får ikke samme problem med $x = 2$ siden $x + 2 > 0$ og $x > 0$ når $x = 2$. Dermed er den eneste gyldige løsningen
+
+$$
+x = 2
+$$
+::::
+
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} b
+Løs likningen
+
+$$
+(\log_3 x)^2 - 4 \log_3 x - 5 = 0
+$$
+
+
+
+::::{answer}
+$$
+x = 3^5 \or x = \dfrac{1}{3}
+$$
+::::
+
+
+::::{solution}
+Vi gjør variabelskifte $u = \log_3 x$. Da kan likningen skrives om til andregradslikningen
+
+$$
+u^2 - 4u - 5 = 0
+$$
+
+Så bruker vi $abc$-formelen:
+
+$$
+u = \dfrac{4 \pm \sqrt{(-4)^2 - 4 \cdot 1 \cdot (-5)}}{2 \cdot 1} = \dfrac{4 \pm \sqrt{16 + 20}}{2} = \dfrac{4 \pm \sqrt{36}}{2}
+$$
+
+$$
+u = \dfrac{4 \pm 6}{2}
+$$
+
+$$
+u = 5 \or u = -1
+$$
+
+Nå setter vi tilbake definisjonen av $u$:
+
+$$
+\log_3 x = 5 \or \log_3 x = -1
+$$
+
+Så bruker vi at $\log_3 a = b \liff 3^b = a$:
+
+$$
+x = 3^5 \or x = 3^{-1} = \dfrac{1}{3}
+$$
+
+::::
+
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} c
+Løs likningen
+
+$$
+\log_5 (x - 2) + \log_5 (x + 2) = 1
+$$
+
+
+::::{answer}
+$$
+x = 3
+$$
+::::
+
+
+::::{solution}
+Vi bruker logaritmesetningene til å skrive om venstresiden til én logaritme:
+
+$$
+\log_5 (x - 2) + \log_5 (x + 2) = 1
+$$
+
+$$
+\log_5 ((x - 2)(x + 2)) = 1
+$$
+
+$$
+\log_5 (x^2 - 4) = 1
+$$
+
+$$
+x^2 - 4 = 5^1
+$$
+
+$$
+x^2 = 9
+$$
+
+$$
+x = 3 \or x = -3
+$$
+
+Vi må sjekke om begge løsningene er gyldige. For $x = -3$, så vil vi prøve å ta logaritmen av et negativt tall på høyre side av likningen som betyr at denne løsningen ikke er gyldig. Vi får ikke samme problem med $x = 3$ siden $x - 2 > 0$ og $x + 2 > 0$ når $x = 3$. Dermed er den eneste gyldige løsningen
+
+$$
+x = 3
+$$
+
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+Løs likningen.
+
+$$
+\log_x (2x + 8) = 2
+$$
+
+
+
+::::{answer}
+$$
+x = 4
+$$
+::::
+
+::::{solution}
+Vi bruker at $\log_a b = c \liff a^c = b$:
+
+$$
+\log_x (2x + 8) = 2
+$$
+
+$$
+x^2 = 2x + 8
+$$
+
+$$
+x^2 - 2x - 8 = 0
+$$
+
+Nå bruker vi $abc$-formelen:
+
+$$
+x = \dfrac{2 \pm \sqrt{(-2)^2 - 4 \cdot 1 \cdot (-8)}}{2 \cdot 1} = \dfrac{2 \pm \sqrt{4 + 32}}{2} = \dfrac{2 \pm \sqrt{36}}{2}
+$$
+
+$$
+x = \dfrac{2 \pm 6}{2}
+$$
+
+$$
+x = 4 \or x = -2
+$$
+
+Vi kan ikke bruke $x = -2$ som et grunntall for logaritmen, som betyr at den eneste gyldige løsningen er
+
+$$
+x = 4
+$$
+::::
+
+
+
+:::::::::::::
+
+
+::::::::::::::
+
+
+:::::::::::::::
+
+
+
+---
+
+:::::::::::::::{exercise} Oppgave 12
 Newtons avkjølingslov sier at for temperaturen $T \, \degree \mathrm{C}$ til en gjenstand som avkjøles i et rom med temperatur $T_0 \, \degree \mathrm{C}$, så vil temperaturen til gjenstanden etter $t$ minutter oppfylle likningen
 
 $$
@@ -1734,6 +1984,12 @@ der $k$ og $r$ er konstanter som avhenger av gjenstanden og rommet.
 En kaffekopp fylles opp med kaffe som har en temperatur på $100 \degree \mathrm{C}$, og settes i et rom med temperatur $20 \degree \mathrm{C}$. Etter $10$ minutter er temperaturen til kaffen $60 \degree \mathrm{C}$.
 
 Bestem hvor lang tid det tar før temperaturen til kaffen er $40 \, \degree \mathrm{C}$.
+
+
+
+::::{hints}
+Bestem verdiene til $k$ og $r$ først! Husk å regne eksakt!
+::::
 
 
 ::::{answer}
@@ -1798,4 +2054,51 @@ Altså tar det $20$ minutter før temperaturen til kaffen er $40 \degree \mathrm
 
 
 :::::::::::::::
+
+---
+
+<!-- 
+:::::::::::::::{exercise} Oppgave 13
+pH-skalaen måler hvor sur eller basisk en væske er. pH-verdien til en væske tilfredsstiller likningen
+
+$$
+\text{pH} = -\log_{10} K
+$$
+
+der $K$ er konsentrasjonen av oksoniumioner $\text{H}_3\text{O}^+$-ioner i væsken målt i $\mathrm{mol/L}$. 
+
+$$
+1 \, \mathrm{mol} = 6.022 \cdot 10^{23} \text{ ioner}
+$$
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Normal nedbør har en pH-verdi på ca. $6$. 
+
+Bestem konsentrasjonen oksoniumioner i normal nedbør.
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} b
+Hvor mye større blir pH-verdien dersom konsentrasjonen av oksoniumioner dobles?
+
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} c
+Hvor mye endrer konsentrasjonen seg dersom pH-verdien synker med $3$? 
+:::::::::::::
+
+::::::::::::::
+
+::::::::::::::: -->
+
+
 
