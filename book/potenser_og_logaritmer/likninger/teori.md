@@ -89,7 +89,7 @@ $$
 Løs likningen
 
 $$
-\lg x^2 + 3 \lg x^2 + \lg \dfrac{1}{x^4} = 8
+\lg x^2 + 2 \lg x^3 + \lg \dfrac{1}{x^4} = 8
 $$
 
 ::::{solution}
@@ -128,7 +128,7 @@ $$
 x = 100
 $$
 
-> Hvis derimot en likning bare inneholdt logaritmen til potenser av $x^2$, $x^4$, $x^6$, så en negativ løsning og være gyldig. Hvis løsningen da var $x = 100$, så ville $x = -100$ og $x = 100$ være gyldige løsninger siden både $(-100)^2$, $(-100)^4$, $(-100)^6$ og så videre er positive tall. 
+> Hvis derimot en likning bare inneholdt logaritmen til potenser av $x^2$, $x^4$, $x^6$, så er en negativ løsning også gyldig. Hvis løsningen da var $x = 100$, så ville $x = -100$ og $x = 100$ være gyldige løsninger siden både $(-100)^2$, $(-100)^4$, $(-100)^6$ og så videre er positive tall. 
 ::::
 :::::::::::::::
 
