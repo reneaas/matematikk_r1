@@ -1733,7 +1733,7 @@ der $k$ og $r$ er konstanter som avhenger av gjenstanden og rommet.
 
 En kaffekopp fylles opp med kaffe som har en temperatur på $100 \degree \mathrm{C}$, og settes i et rom med temperatur $20 \degree \mathrm{C}$. Etter $10$ minutter er temperaturen til kaffen $60 \degree \mathrm{C}$.
 
-Bestem en tilnærmet verdi hvor lang tid det tar før temperaturen til kaffen er $40 \, \degree \mathrm{C}$.
+Bestem hvor lang tid det tar før temperaturen til kaffen er $40 \, \degree \mathrm{C}$.
 
 
 ::::{answer}
