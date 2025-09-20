@@ -1406,7 +1406,7 @@ $$
 I figuren nedenfor vises grafen til 
 
 $$
-f(x) = (\log_a(x) - 2) \cdot (\log_a(x) - 4)
+f(x) = -(\log_a(x) - 2) \cdot (\log_a(x) - 4)
 $$
 
 Bestem $a$.
