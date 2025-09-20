@@ -1455,6 +1455,55 @@ e^{2x} - e^x = 2
 $$
 
 
+
+::::{answer}
+$$
+x = \ln 2
+$$
+::::
+
+::::{solution}
+Vi skriver om likningen til
+
+$$
+e^{2x} - e^x - 2 = 0
+$$
+
+Vi gjør variabelskifte $u = e^x$. Da kan likningen skrives om til andregradslikningen
+
+$$
+u^2 - u - 2 = 0
+$$
+
+Så bruker vi $abc$-formelen:
+
+$$
+u = \dfrac{1 \pm \sqrt{(-1)^2 - 4 \cdot 1 \cdot (-2)}}{2 \cdot 1} = \dfrac{1 \pm \sqrt{1 + 8}}{2} = \dfrac{1 \pm \sqrt{9}}{2}
+$$
+
+$$
+u = \dfrac{1 \pm 3}{2}
+$$
+
+$$
+u = 2 \or u = -1
+$$
+
+Så setter vi tilbake definisjonen av $u$:
+
+$$
+e^x = 2 \or e^x = -1
+$$
+
+Det vil ikke være mulig å tilfredsstille $e^x = -1$ siden $e^x > 0$ for alle $x$. Dermed er den eneste gyldige løsningen
+
+$$
+e^x = 2 \liff x = \ln 2
+$$
+
+::::
+
+
 :::::::::::::
 
 
@@ -1463,6 +1512,53 @@ $$
 (\ln x)^2 - \ln x = 6
 $$
 
+
+::::{answer}
+$$
+x = e^3 \or x = e^{-2}
+$$
+::::
+
+::::{solution}
+Vi skriver om likningen til
+
+$$
+(\ln x)^2 - \ln x - 6 = 0
+$$
+
+Vi gjør variabelskifte $u = \ln x$. Da kan likningen skrives om til andregradslikningen
+
+$$
+u^2 - u - 6 = 0
+$$
+
+Så bruker vi $abc$-formelen:
+
+$$
+u = \dfrac{1 \pm \sqrt{(-1)^2 - 4 \cdot 1 \cdot (-6)}}{2 \cdot 1} = \dfrac{1 \pm \sqrt{1 + 24}}{2} = \dfrac{1 \pm \sqrt{25}}{2}
+$$
+
+$$
+u = \dfrac{1 \pm 5}{2}
+$$
+
+$$
+u = 3 \or u = -2
+$$
+
+Så setter vi tilbake definisjonen av $u$:
+
+$$
+\ln x = 3 \or \ln x = -2
+$$
+
+$$
+x = e^3 \or x = e^{-2}
+$$
+
+
+::::
+
 :::::::::::::
 
 
@@ -1470,6 +1566,55 @@ $$
 $$
 3^{3x + 2} - 5 = 76
 $$
+
+
+::::{answer}
+$$
+x = \dfrac{2}{3}
+$$
+::::
+
+::::{solution}
+Vi forenkler likningen litt først:
+
+$$
+3^{3x + 2} = 81
+$$
+
+Så bruker vi logaritme på begge sider:
+
+$$
+\ln (3^{3x + 2}) = \ln 81
+$$
+
+$$
+(3x + 2) \ln 3 = \ln 81
+$$
+
+$$
+3x + 2 = \dfrac{\ln 81}{\ln 3}
+$$
+
+Vi kan skrive $81 = 3^4$, så
+
+$$
+3x + 2 = \dfrac{\ln 3^4}{\ln 3} = \dfrac{4 \ln 3}{\ln 3} = 4
+$$
+
+Dermed får vi
+
+$$
+3x + 2 = 4
+$$
+
+$$
+3x = 2
+$$
+
+$$
+x = \dfrac{2}{3}
+$$
+::::
 
 
 :::::::::::::
@@ -1481,6 +1626,88 @@ $$
 $$
 
 
+::::{answer}
+$$
+x = 10^{-1} = \dfrac{1}{10}
+$$
+::::
+
+::::{solution}
+Vi bruker logaritmesetningene til å skrive om venstresiden til én logaritme:
+
+$$
+3 \lg x + 2 \lg x^2 + \lg \dfrac{1}{x^9} = 2
+$$
+
+$$
+3 \lg x + 2 \cdot 2 \lg x + \lg x^{-9} = 2
+$$
+
+$$
+3 \lg x + 4 \lg x - 9 \lg x = 2
+$$
+
+$$
+-2 \lg x = 2
+$$
+
+
+$$
+\lg x = -1
+$$
+
+$$
+x = 10^{-1}
+$$
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} e
+Løs likningen 
+
+$$
+100^x - 3\cdot 10^x = 4
+$$
+
+
+::::{solution}
+Siden $100 = 10^2$, kan vi skrive om likningen til
+
+$$
+10^{2x} - 3\cdot 10^x = 4
+$$
+
+Vi gjør variabelskifte $u = 10^x$ som gir oss likningen
+
+$$
+u^2 - 3u = 4 \liff u^2 - 3u - 4 = 0
+$$
+
+Så bruker vi $abc$-formelen til å bestemme $u$
+
+$$
+u = \dfrac{3 \pm \sqrt{3^2 - 4 \cdot 1 \cdot (-4)}}{2 \cdot 1} = \dfrac{3 \pm 5}{2}
+$$
+
+$$
+u = 4 \or u = -2
+$$
+
+Så setter vi definisjonen av $u$ tilbake i likningene:
+
+$$
+10^x = 4 \or 10^x = -2
+$$
+
+Vi kan ikke opphøye $10$ i noe for å få et negativt tall, så $10^x = -2$ har ingen løsning. Det betyr at løsningen av likningen bare kan være
+
+$$
+10^x = 4 \liff x = lg(4)
+$$
+::::
 
 :::::::::::::
 
@@ -1490,4 +1717,22 @@ $$
 ::::::::::::::
 
 :::::::::::::::
+
+
+
+
+<!-- :::::::::::::::{exercise} Oppgave 11 
+Newtons avkjølingslov sier at temperaturen $T \degree \mathrm{C}$ til en gjenstand som avkjøles i et rom med temperatur $T_0 \degree \mathrm{C}$, så vil temperaturen til gjenstanden etter $t$ minutter oppfylle likningen
+
+$$
+\ln(T - T_0) = -k\cdot t + r
+$$
+
+der $k$ og $r$ er konstanter som avhenger av gjenstanden og rommet.
+
+
+
+
+
+::::::::::::::: -->
 
