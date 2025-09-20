@@ -1721,8 +1721,9 @@ $$
 
 
 
-<!-- :::::::::::::::{exercise} Oppgave 11 
-Newtons avkjølingslov sier at temperaturen $T \degree \mathrm{C}$ til en gjenstand som avkjøles i et rom med temperatur $T_0 \degree \mathrm{C}$, så vil temperaturen til gjenstanden etter $t$ minutter oppfylle likningen
+
+:::::::::::::::{exercise} Oppgave 11 
+Newtons avkjølingslov sier at for temperaturen $T \, \degree \mathrm{C}$ til en gjenstand som avkjøles i et rom med temperatur $T_0 \, \degree \mathrm{C}$, så vil temperaturen til gjenstanden etter $t$ minutter oppfylle likningen
 
 $$
 \ln(T - T_0) = -k\cdot t + r
@@ -1730,9 +1731,71 @@ $$
 
 der $k$ og $r$ er konstanter som avhenger av gjenstanden og rommet.
 
+En kaffekopp fylles opp med kaffe som har en temperatur på $100 \degree \mathrm{C}$, og settes i et rom med temperatur $20 \degree \mathrm{C}$. Etter $10$ minutter er temperaturen til kaffen $60 \degree \mathrm{C}$.
+
+Bestem en tilnærmet verdi hvor lang tid det tar før temperaturen til kaffen er $40 \, \degree \mathrm{C}$.
+
+
+::::{answer}
+20 minutter.
+::::
 
 
 
+::::{solution}
+Siden romtemperaturen er $20 \degree \mathrm{C}$, så er $T_0 = 20$. Vi starter med å bestemme konstanten $r$ ved å bruke at når $t = 0$, så er $T = 100$: 
 
-::::::::::::::: -->
+$$
+\ln(100 - 20) = -k \cdot 0 + r = r
+$$
+
+som gir
+
+$$
+r = \ln 80
+$$
+
+Etter $t = 10$ minutter, så er temperaturen $T = 60$. Vi bruker dette til å bestemme konstanten $k$:
+
+$$
+\ln(60 - 20) = -k \cdot 10 + \ln 80
+$$
+
+$$
+\ln 40 = -10k + \ln 80
+$$
+
+$$
+10k = \ln 80 - \ln 40 = \ln \dfrac{80}{40} = \ln 2
+$$
+
+$$
+k = \dfrac{\ln 2}{10}
+$$
+
+Deretter bruker vi dette til å bestemme hvor lang tid det tar før temperaturen er $T = 40$:
+
+$$
+\ln(40 - 20) = -\dfrac{\ln 2}{10} \cdot t + \ln 80
+$$
+
+$$
+\ln 20 = -\dfrac{\ln 2}{10} \cdot t + \ln 80
+$$
+
+$$
+\dfrac{\ln 2}{10} \cdot t = \ln 80 - \ln 20 = \ln \dfrac{80}{20} = \ln 4
+$$
+
+$$
+t = \dfrac{10 \ln 4}{\ln 2} = 10 \cdot \dfrac{\ln 2^2}{\ln 2} = 10 \cdot \dfrac{2 \ln 2}{\ln 2} = 20
+$$
+
+Altså tar det $20$ minutter før temperaturen til kaffen er $40 \degree \mathrm{C}$.
+
+::::
+
+
+
+:::::::::::::::
 
