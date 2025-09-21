@@ -1663,9 +1663,9 @@ class PlotDirective(SphinxDirective):
                     except Exception:
                         ax.set_xlabel(xl_text, fontsize=int(fontsize))
 
-                fig.savefig(
-                    abs_svg, format="svg", bbox_inches="tight", transparent=True
-                )
+                matplotlib.pyplot.rc("text", usetex=True)
+                fig.tight_layout(pad=0.5)
+                fig.savefig(abs_svg, format="svg", transparent=True)
                 if debug_mode:
                     # Sidecar PDF (optional for debugging)
                     try:

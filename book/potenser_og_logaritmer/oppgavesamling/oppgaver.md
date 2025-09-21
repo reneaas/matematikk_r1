@@ -2281,6 +2281,71 @@ Dermed er påstanden sann.
 
 :::::::::::::::
 
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 14
+Anna jobber med likningen 
+
+$$
+(\log_2 x)^2 + \log_2 x - 2 = 0
+$$
+
+Hun har gjort et variabelskifte $u = \log_2 x$ og definert funksjonene
+
+$$
+f(u) = u^2 + u - 2 \qog u(x) = \lg x
+$$
+
+Så har hun tegnet grafene til de to funksjonene i to koordinatssystemer som vist nedenfor.
+
+Bruk figurene til å løse likningen til Anna grafisk.
+
+:::{plot}
+width: 70%
+function: x**2 - 4*x + 3
+xmin: -6
+xmax: 6
+ymin: -6
+ymax: 6
+xlabel: $u$
+ylabel: $f(u)$
+nocache:
+:::
+
+
+:::{plot}
+width: 70%
+function: ln(x)/ln(2), (0.000001, 100)
+xmin: -1
+xmax: 17
+ymin: -3
+ymax: 6
+xlabel: $x$
+ylabel: $u(x)$
+nocache:
+:::
+
+
+::::{answer}
+$$
+x = 2 \or x = 8
+$$
+::::
+
+
+::::{solution}
+Grafen til $f$ skjærer $u$-aksen når $u = 1$ og $u = 3$. Ser vi grafen til $u(x) = \log_2 x$ ser vi at grafen til $u$ skjærer linja $y = 1$ når $x = 2$ og linja $y = 3$ når $x = 8$. Dermed er løsningene til likningen
+
+$$
+x = 2 \or x = 8
+$$
+::::
+
+
+:::::::::::::::
+
 <!-- 
 :::::::::::::::{exercise} Oppgave 13
 pH-skalaen måler hvor sur eller basisk en væske er. pH-verdien til en væske tilfredsstiller likningen
