@@ -2289,13 +2289,13 @@ Dermed er påstanden sann.
 Anna jobber med likningen 
 
 $$
-(\log_2 x)^2 + \log_2 x - 2 = 0
+(\log_2 x)^2 - 4\log_2 x + 3 = 0
 $$
 
 Hun har gjort et variabelskifte $u = \log_2 x$ og definert funksjonene
 
 $$
-f(u) = u^2 + u - 2 \qog u(x) = \lg x
+f(u) = u^2 - 4u + 3 \qog u(x) = \log_2 x
 $$
 
 Så har hun tegnet grafene til de to funksjonene i to koordinatssystemer som vist nedenfor.
@@ -2346,48 +2346,7 @@ $$
 
 :::::::::::::::
 
-<!-- 
-:::::::::::::::{exercise} Oppgave 13
-pH-skalaen måler hvor sur eller basisk en væske er. pH-verdien til en væske tilfredsstiller likningen
 
-$$
-\text{pH} = -\log_{10} K
-$$
-
-der $K$ er konsentrasjonen av oksoniumioner $\text{H}_3\text{O}^+$-ioner i væsken målt i $\mathrm{mol/L}$. 
-
-$$
-1 \, \mathrm{mol} = 6.022 \cdot 10^{23} \text{ ioner}
-$$
-
-
-::::::::::::::{tab-set}
----
-class: tabs-parts
----
-:::::::::::::{tab-item} a
-Normal nedbør har en pH-verdi på ca. $6$. 
-
-Bestem konsentrasjonen oksoniumioner i normal nedbør.
-:::::::::::::
-
-
-
-:::::::::::::{tab-item} b
-Hvor mye større blir pH-verdien dersom konsentrasjonen av oksoniumioner dobles?
-
-
-:::::::::::::
-
-
-
-:::::::::::::{tab-item} c
-Hvor mye endrer konsentrasjonen seg dersom pH-verdien synker med $3$? 
-:::::::::::::
-
-::::::::::::::
-
-::::::::::::::: -->
 
 
 
