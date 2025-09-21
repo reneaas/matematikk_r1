@@ -1366,6 +1366,17 @@ $$
 ::::
 
 
+::::{solution}
+Vi bruker at grafen til $f$ går gjennom punktet $(5, 1)$ som betyr at
+
+$$
+f(5) = 1 \liff \log_a(5) = 1 \liff a^1 = 5 \liff a = 5
+$$
+
+Dermed er $a = 5$.
+::::
+
+
 
 
 :::::::::::::
@@ -1399,6 +1410,36 @@ $$
 ::::
 
 
+::::{solution}
+Vi ser at grafen til $f$ skjærer $x$-aksen i $(1, 0)$ og $(3, 0)$. Videre kan vi se at 
+
+$$
+f(x) = 0 \liff \log_a(x) \cdot (\log_a(x) - 1) = 0
+$$
+
+Bruker vi produktregelen for likninger får vi at 
+
+$$
+\log_a(x) = 0 \or \log_a(x) - 1 = 0
+$$
+
+$$
+\log_a(x) = 0 \or \log_a(x) = 1
+$$
+
+$$
+a^0 = x \or a^1 = x
+$$
+
+$$
+1 = x \or a = x
+$$
+
+Siden grafen til $f$ skjærer gjennom $(3, 0)$ så vil en av løsningene måtte være $x = 3$ som betyr at vi kan konkludere at $a = 3$.
+
+::::
+
+
 :::::::::::::
 
 
@@ -1428,6 +1469,61 @@ ystep: 1
 $$
 a = 2
 $$
+::::
+
+
+::::{solution}
+Vi ser at grafen til $f$ skjærer $x$-aksen i $(4, 0)$ og $(16, 0)$. Løser vi likningen $f(x) = 0$, får vi 
+
+$$
+f(x) = 0 \liff -(\log_a(x) - 2) \cdot (\log_a(x) - 4) = 0
+$$
+
+Bruker vi produktregelen for likninger får vi at
+
+$$
+-(\log_a(x) - 2) = 0 \or (\log_a(x) - 4) = 0
+$$
+
+$$
+\log_a(x) = 2 \or \log_a(x) = 4
+$$
+
+$$
+a^2 = x \or a^4 = x
+$$
+
+Siden grafen skjærer gjennom $(4, 0)$ og $(16, 0)$, kan vi først undersøke hva vi får med $x = 4$:
+
+$$
+a^2 = 4 \or a^4 = 4
+$$
+
+$$
+a = \pm 2 \or a = 4^{1/4} = \sqrt{2}
+$$
+
+Vi må forkaste $a = -2$ siden grunntallet til en logaritme må være positivt. 
+
+Så undersøker vi hva vi får med $x = 16$:
+
+$$
+a^2 = 16 \or a^4 = 16
+$$
+
+$$
+a = \pm 4 \or a = 16^{1/4} = 2
+$$
+
+Vi må forkaste $a = -4$ siden grunntallet til en logaritme må være positivt.
+
+Vi får derfor tre muligheter for $a$:
+
+$$
+a = 2 \or a = \sqrt{2} \or a = 4
+$$
+
+Men fordi grafen til $f$ må skjære $x$-aksen i både $(4, 0)$ og $(16, 0)$, så må vi velge den verdien for $a$ som dukker opp både med $x = 4$ og $x = 16$. Det eneste tallet som oppfyller dette er $a = 2$. Dermed er $a = 2$.
 ::::
 
 
@@ -2055,7 +2151,135 @@ Altså tar det $20$ minutter før temperaturen til kaffen er $40 \degree \mathrm
 
 :::::::::::::::
 
+
+
 ---
+
+
+
+:::::::::::::::{exercise} Oppgave 13
+Avgjør om påstandene er riktig.
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Hvis $x > 0$, så er $(\ln x)^4 = 4 \ln x$. 
+
+
+::::{answer}
+Påstanden er usann.
+::::
+
+::::{solution}
+Generelt sett er
+
+$$
+(\ln x)^4 \neq \ln x^4 = 4 \ln x
+$$
+
+Dermed er påstanden usann.
+::::
+
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Hvis $x > 0$ og $y > 0$, så er $\ln(x + y) = \ln x + \ln y$.
+
+::::{answer}
+Påstanden er usann.
+::::
+
+
+::::{solution}
+Generelt er
+
+$$
+\ln x + \ln y = \ln (xy)
+$$
+
+Siden vi også vet at
+
+$$
+\ln a = \ln b \liff a = b
+$$
+
+så ville $\ln(x + y) = \ln x + \ln y$ også bety at
+
+$$
+\ln (x + y) = \ln (xy) \liff x + y = xy
+$$
+
+Men for alle tall $x > 0$ og $y > 0$ så vil ikke $x + y = xy$ være sant. Et konkret moteksempel vil være $x = 1$ og $y = 2$. Da har vi
+
+$$
+1 + 2 \neq 1 \cdot 2
+$$
+
+Dermed må påstanden være usann.
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+Hvis $x > 0$, så er $\ln x^3 = 3 \ln x$.
+
+
+::::{answer}
+Påstanden er sann.
+::::
+
+::::{solution}
+Generelt, så gjelder
+
+$$
+\ln x^b = b \ln x
+$$
+
+så lenge $x > 0$. Her har vi $b = 3$, så påstanden er sann.
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+Hvis $x > 0$ og $y > 0$, så er 
+
+$$
+\ln\dfrac{x}{y} = -\ln\dfrac{y}{x}
+$$
+
+::::{answer}
+Påstanden er sann.
+::::
+
+
+::::{solution}
+Vi bruker logaritmesetningene til å skrive om venstresiden:
+
+$$
+\ln\dfrac{x}{y} = \ln x - \ln y = -(\ln y - \ln x) = -\ln\dfrac{y}{x}
+$$
+
+Dermed er påstanden sann.
+::::
+
+
+
+
+:::::::::::::
+
+
+
+::::::::::::::
+
+:::::::::::::::
 
 <!-- 
 :::::::::::::::{exercise} Oppgave 13
