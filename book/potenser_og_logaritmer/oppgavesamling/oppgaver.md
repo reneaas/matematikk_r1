@@ -2493,4 +2493,70 @@ $$
 :::::::::::::::
 
 
+---
+
+
+:::::::::::::::{exercise} Oppgave 16
+En funksjon $f$ er gitt ved
+
+$$
+f(x) = (\log_2 x)^3 - 8 (\log_2 x)^2 + 19 \log_2 x - 12
+$$
+
+Programmet nedenfor regner ut noe.
+
+:::{interactive-code}
+def f(u):
+    return u**3 - 8 * u**2 + 19*u - 12
+
+for u in range(-5, 6):
+    print(f(u))
+
+:::
+
+
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bruk programmet ovenfor og bestem $a$, $b$ og $c$ slik at likningen nedenfor er en identitet.
+
+$$
+u^3 - 8u^2 + 19u - 12 = (u - a)(u - b)(u - c)
+$$
+
+
+::::{answer}
+$$
+a = 1 \and a = 3 \and a = 4
+$$
+::::
+
+
+:::::::::::::
+
+:::::::::::::{tab-item} b
+Løs likningen $f(x) = 0$.
+
+
+
+::::{answer}
+$$
+x = 2 \or x = 8 \or x = 16
+$$
+::::
+
+:::::::::::::
+
+
+
+
+::::::::::::::
+
+:::::::::::::::
+
+
 
