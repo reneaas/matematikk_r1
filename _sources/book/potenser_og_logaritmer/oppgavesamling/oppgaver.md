@@ -2304,27 +2304,25 @@ Bruk figurene til å løse likningen til Anna grafisk.
 
 :::{plot}
 width: 70%
-function: x**2 - 4*x + 3
+function: x**2 - 4*x + 3, f(u)
 xmin: -6
 xmax: 6
 ymin: -6
 ymax: 6
 xlabel: $u$
-ylabel: $f(u)$
-nocache:
+ylabel: $y$
 :::
 
 
 :::{plot}
 width: 70%
-function: ln(x)/ln(2), (0.000001, 100)
+function: ln(x)/ln(2), (0.000001, 100), u(x)
 xmin: -1
 xmax: 17
 ymin: -3
 ymax: 6
 xlabel: $x$
-ylabel: $u(x)$
-nocache:
+ylabel: $y$
 :::
 
 
@@ -2348,7 +2346,151 @@ $$
 
 
 
+---
 
+
+:::::::::::::::{exercise} Oppgave 15
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Grafen til $f(x) = e^x$ er vist i figuren nedenfor.
+
+Bruk grafen til å bestemme en tilnærmet løsning til likningen 
+
+$$
+\ln x = 0.4
+$$
+
+
+
+:::{plot}
+width: 80%
+function: exp(x), (0.0000001, 100)
+xmin: -0.1
+xmax: 1.3
+xstep: 0.1
+ymin: -0.5
+ymax: 4
+ystep: 0.5
+:::
+
+
+::::{answer}
+$$
+x \approx 1.5
+$$
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Grafen til $f(x) = e^x$ er vist i figuren nedenfor.
+
+Bruk grafen til å bestemme en tilnærmet løsning til likningen 
+
+$$
+\ln x = \dfrac{11}{10}
+$$
+
+
+:::{plot}
+width: 80%
+function: exp(x), (0.0000001, 100)
+xmin: -0.1
+xmax: 1.3
+xstep: 0.1
+ymin: -0.5
+ymax: 4
+ystep: 0.5
+:::
+
+
+::::{answer}
+$$
+x \approx 3
+$$
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+Grafen til $f(x) = 10^x$ er vist i figuren nedenfor.
+
+Bruk grafen til å bestemme en tilnærmet løsning til likningen
+
+
+$$
+\lg x = 0.7
+$$
+
+:::{plot}
+width: 80%
+function: 10^x, (0.0000001, 100)
+xmin: -0.1
+xmax: 1
+xstep: 0.1
+ymin: -0.5
+ymax: 11
+ystep: 1
+:::
+
+
+::::{answer}
+$$
+x \approx 5
+$$
+::::
+
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+Grafen til $f(x) = 10^x$ er vist i figuren nedenfor.
+
+Bruk grafen til å bestemme en tilnærmet løsning til likningen
+
+
+$$
+\lg x = \dfrac{3}{10}
+$$
+
+:::{plot}
+width: 80%
+function: 10^x, (0.0000001, 100)
+xmin: -0.1
+xmax: 1
+xstep: 0.1
+ymin: -0.5
+ymax: 11
+ystep: 1
+:::
+
+
+::::{answer}
+$$
+x \approx 2
+$$
+::::
+
+
+
+:::::::::::::
+
+
+::::::::::::::
+
+
+
+:::::::::::::::
 
 
 
