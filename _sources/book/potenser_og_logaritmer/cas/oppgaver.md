@@ -326,7 +326,7 @@ $$
 
 
 :::::::::::::::{exercise} Oppgave 5
-Ifølge Newtons avkjølingslov vil temperaturen $T$ til et gjenstand etter $t$ minutter være gitt ved 
+Ifølge Newtons avkjølingslov vil temperaturen $T$ til en gjenstand etter $t$ minutter være gitt ved 
 
 $$
 \ln (T - T_0) = -k\cdot t + r
