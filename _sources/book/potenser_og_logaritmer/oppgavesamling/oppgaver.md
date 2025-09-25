@@ -2531,7 +2531,7 @@ $$
 
 ::::{answer}
 $$
-a = 1 \and a = 3 \and a = 4
+a = 1 \and b = 3 \and c = 4
 $$
 ::::
 
