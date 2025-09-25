@@ -101,7 +101,7 @@ Modifiser programmet og prøv følgende
 
 :::{parsons-puzzle}
 
-def f(x): # ????;    import numpy as np;    return 10 * np.log(x**3 + 2) - x + 6;;a = 0 # ????;b = 100 # ????;nøyaktighet = 0.01 # ????
+def f(x): # ????;    import numpy as np;    return 10 * np.log(x**3 + 2) - 5 * x + 6;;a = 0 # ????;b = 100 # ????;nøyaktighet = 0.01 # ????
 
 
 c = (a + b) / 2
