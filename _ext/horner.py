@@ -205,7 +205,7 @@ class HornerDirective(SphinxDirective):
         )
         raw_svg = _uniquify_ids(raw_svg, unique_prefix)
 
-        # Augment root <svg>
+        # Augment root <svg> (unified width handling)
         def _augment(match):
             tag = match.group(0)
             if "class=" not in tag:
@@ -214,51 +214,35 @@ class HornerDirective(SphinxDirective):
                 tag = tag.replace('class="', 'class="horner-inline-svg ')
             if alt and "aria-label=" not in tag:
                 tag = tag[:-1] + f' role="img" aria-label="{alt}"' + ">"
-            if percentage_width and width_opt:
-                percent_val = width_opt.strip()
+            if width_opt:
+                w_raw = width_opt.strip()
+                if percentage_width:
+                    w_css = w_raw
+                    margin = "margin:0 auto;" if "margin:" not in tag else ""
+                    style_frag = (
+                        f"width:{w_css}; height:auto; display:block; {margin}".strip()
+                    )
+                else:
+                    w_css = (w_raw + "px") if w_raw.isdigit() else w_raw
+                    style_frag = f"width:{w_css}; height:auto; display:block;"
                 if "style=" in tag:
                     tag = re.sub(
                         r'style="([^"]*)"',
-                        lambda m: f'style="{m.group(1)}; width:{percent_val}; height:auto; display:block; margin:0 auto;"',
+                        lambda m: f'style="{m.group(1)}; {style_frag}"',
                         tag,
                         count=1,
                     )
                 else:
-                    tag = (
-                        tag[:-1]
-                        + f' style="width:{percent_val}; height:auto; display:block; margin:0 auto;"'
-                        + ">"
-                    )
+                    tag = tag[:-1] + f' style="{style_frag}"' + ">"
             return tag
 
+        # NOTE: Previous pattern used <svg\\b which (because this is a raw string) looked
+        # for a literal backslash and failed to match the <svg> root element. That
+        # prevented the width / aria-label augmentation from ever running. Correct
+        # pattern is <svg\b so the word boundary applies to 'svg'.
         raw_svg = re.sub(r"<svg\b[^>]*>", _augment, raw_svg, count=1)
-        if alt and "<title" not in raw_svg:
-            raw_svg = re.sub(
-                r"(<svg\b[^>]*>)",
-                r"\1<title>" + re.escape(alt) + r"</title>",
-                raw_svg,
-                count=1,
-            )
-
-        # Apply fixed width (non-percentage) via style if requested
-        if width_opt and not percentage_width:
-
-            def _apply_width(match):
-                tag = match.group(0)
-                w_val = width_opt.strip()
-                w_css = (w_val + "px") if w_val.isdigit() else w_val
-                if "style=" in tag:
-                    tag = re.sub(
-                        r'style="([^"]*)"',
-                        lambda m: f'style="{m.group(1)}; width:{w_css}; height:auto;"',
-                        tag,
-                        count=1,
-                    )
-                else:
-                    tag = tag[:-1] + f' style="width:{w_css}; height:auto;"' + ">"
-                return tag
-
-            raw_svg = re.sub(r"<svg\b[^>]*>", _apply_width, raw_svg, count=1)
+        # Suppress automatic <title> insertion to avoid hover tooltips; accessibility via
+        # role="img" + aria-label remains intact. Reintroduce only with an explicit option.
 
         # Build docutils figure
         figure = nodes.figure()

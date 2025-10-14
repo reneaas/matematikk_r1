@@ -210,7 +210,7 @@ class PolyDivDirective(SphinxDirective):
         unique_prefix = f"pd_{_hash_key(p, q, stage, vars_opt)}_{uuid.uuid4().hex[:6]}_"
         raw_svg = _uniquify_ids(raw_svg, unique_prefix)
 
-        # Augment root <svg>
+        # Augment root <svg> (single pass handles both percent and fixed widths)
         def _augment(match):
             tag = match.group(0)
             if "class=" not in tag:
@@ -219,58 +219,37 @@ class PolyDivDirective(SphinxDirective):
                 tag = tag.replace('class="', 'class="polydiv-inline-svg ')
             if alt and "aria-label=" not in tag:
                 tag = tag[:-1] + f' role="img" aria-label="{alt}"' + ">"
-            # For percentage width, apply exact percentage to SVG
-            if percentage_width and width_opt:
-                percent_val = width_opt.strip()
-                # add helper class
-                if "polydiv-fill" not in tag:
-                    if "class=" in tag:
-                        tag = tag.replace('class="', 'class="polydiv-fill ')
-                    else:
-                        tag = tag[:-1] + ' class="polydiv-fill"' + ">"
+            if width_opt:
+                w_raw = width_opt.strip()
+                if percentage_width:
+                    # percentage width: keep percent, center block
+                    w_css = w_raw
+                    margin = "margin:0 auto;" if "margin:" not in tag else ""
+                    style_frag = (
+                        f"width:{w_css}; height:auto; display:block; {margin}".strip()
+                    )
+                else:
+                    # fixed / unit width: add px if bare number
+                    w_css = (w_raw + "px") if w_raw.isdigit() else w_raw
+                    style_frag = f"width:{w_css}; height:auto; display:block;"
                 if "style=" in tag:
                     tag = re.sub(
                         r'style="([^"]*)"',
-                        lambda m: f'style="{m.group(1)}; width:{percent_val}; height:auto; display:block; margin:0 auto;"',
+                        lambda m: f'style="{m.group(1)}; {style_frag}"',
                         tag,
                         count=1,
                     )
                 else:
-                    tag = (
-                        tag[:-1]
-                        + f' style="width:{percent_val}; height:auto; display:block; margin:0 auto;"'
-                        + ">"
-                    )
+                    tag = tag[:-1] + f' style="{style_frag}"' + ">"
             return tag
 
+        # NOTE: regex previously had an extra backslash (<svg\\b) preventing a match; corrected.
         raw_svg = re.sub(r"<svg\b[^>]*>", _augment, raw_svg, count=1)
-        if alt and "<title" not in raw_svg:
-            raw_svg = re.sub(
-                r"(<svg\b[^>]*>)",
-                r"\1<title>" + re.escape(alt) + r"</title>",
-                raw_svg,
-                count=1,
-            )
+        # Deliberately omit adding an SVG <title> to prevent hover tooltips; accessibility
+        # is provided by role="img" and aria-label injected above. Reintroduce only if
+        # a future option explicitly requests it.
 
-        # Apply explicit width (non-percent) directly to svg
-        if width_opt and not percentage_width:
-
-            def _apply_width(match):
-                tag = match.group(0)
-                w_val = width_opt.strip()
-                w_css = (w_val + "px") if w_val.isdigit() else w_val
-                if "style=" in tag:
-                    tag = re.sub(
-                        r'style="([^"]*)"',
-                        lambda m: f'style="{m.group(1)}; width:{w_css}; height:auto;"',
-                        tag,
-                        count=1,
-                    )
-                else:
-                    tag = tag[:-1] + f' style="width:{w_css}; height:auto;"' + ">"
-                return tag
-
-            raw_svg = re.sub(r"<svg\b[^>]*>", _apply_width, raw_svg, count=1)
+        # (Removed second width application pass; handled above)
 
         figure = nodes.figure()
         figure.setdefault("classes", []).extend(

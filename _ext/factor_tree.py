@@ -429,14 +429,10 @@ class FactorTreeDirective(SphinxDirective):
                     tag = tag[:-1] + f' style="{style_frag}"' + ">"
             return tag
 
+        # Correct pattern ensures augmentation executes
         raw_svg = re.sub(r"<svg\b[^>]*>", _augment, raw_svg, count=1)
-        if alt and "<title" not in raw_svg:
-            raw_svg = re.sub(
-                r"(<svg\b[^>]*>)",
-                r"\1<title>" + alt_title + r"</title>",
-                raw_svg,
-                count=1,
-            )
+        # Suppress automatic <title> element to avoid hover tooltip; accessibility
+        # maintained via role="img" + aria-label already applied above.
 
         figure = nodes.figure()
         figure.setdefault("classes", []).extend(

@@ -1,157 +1,192 @@
-r"""plot directive — complete syntax reference
+r"""Plot directive — full reference (supports rich SymPy expressions)
 
-Build flexible, textbook-style plots using plotmath primitives and a compact
-YAML-like front-matter. Supports MyST fences (recommended) and classic reST.
+This directive builds flexible, textbook‑style mathematical plots using a
+compact YAML‑like front matter plus repeated keys for geometric *primitives*.
+It powers interactive / pedagogical figures while remaining deliberately
+fault‑tolerant: malformed items are skipped instead of aborting the build.
 
-Quick start (MyST):
+NEW / EXTENDED FEATURES (summary)
+---------------------------------
+* Unified expression evaluator: almost every numeric field now accepts SymPy
+  expressions (``pi``, ``sqrt(2)``, ``exp(1/3)``, arithmetic, trig, etc.).
+* Function domains & exclusions accept expressions: ``(0, 2*sqrt(5))`` or
+  ``( -pi, pi ) \ { -pi/2, pi/2 }``.
+* Points, polygons, fill‑polygons, line‑segments, vectors, angle‑arcs,
+  circles, ellipses, and parametric curves all evaluate coordinates via SymPy.
+* New primitives: ``circle``, ``ellipse``, ``curve`` (parametric ``x(t), y(t)``).
+* Style / color tokens order‑independent for line‑segment, circle, ellipse,
+  curve, angle‑arc (after required numeric parts).
+* Palette mapping: colors first resolved through ``plotmath.COLORS`` then
+  fall back to the literal token then a sensible default.
 
+Quick start (MyST)
+------------------
 :::{plot}
-function: x**2 - 2*x + 3, f(x)
-point: (2, 3)
-annotate: (1, 2), (2, 3), "A→B", 0.35
-xmin: -6
-xmax: 6
-ymin: -10
-ymax: 10
+function: sin(x)/x, f(x), (-6*pi, 6*pi) \ {0}
+curve: cos(t), sin(2*t), (0, 2*pi), dashed, orange
+circle: (0,0), 2*pi/6, dotted, green
+ellipse: (1, -1), 3, sqrt(5), red
+point: (pi, f(pi))
+line-segment: (0,0), (2*sqrt(2), 2), dashed, purple
+vector: 0, 0, 2*cos(pi/6), 2*sin(pi/6), teal
+angle-arc: (0,0), 2.5, 0, 60, dashed
+annotate: (pi, f(pi)), (pi, 0), "Maximum?", 0.25
+xmin: -10
+xmax: 10
+ymin: -5
+ymax: 5
+grid: on
 ticks: true
-grid: off
-fontsize: 24
+fontsize: 22
 width: 100%
 xlabel: $x$
 ylabel: $y$
-
-Valgfri bildetekst
 :::
 
-Classic reST is also supported:
+MyST *or* classic reST (``.. plot::``) forms are accepted. All examples below
+use MyST for brevity.
 
-.. plot::
-     :width: 100%
-     :align: center
+Front matter
+------------
+* Provide a fenced block introduced by ``:::{plot}`` (preferred) or use an
+  unfenced reST directive. Within the block, write ``key: value`` lines.
+* A blank line ends the front matter; remaining lines become the caption.
+* Repeated keys (multi‑valued): ``function``, ``point``, ``annotate``, ``text``,
+  ``vline``, ``hline``, ``line``, ``line-segment``, ``polygon``, ``fill-polygon``,
+  ``bar``, ``axis``, ``vector``, ``angle-arc``, ``circle``, ``ellipse``, ``curve``.
 
-     xmin: -6
-     xmax: 6
-     function: x**2, f(x)
+Global figure & layout options
+------------------------------
+width          CSS width (``100%`` or pixels).
+figsize        ``(w, h)`` in inches; applied at the end.
+align          ``left|center|right``.
+class          Extra CSS classes.
+name           Stable output filename / anchor.
+alt            Alt text (accessibility).
+nocache        Force regeneration (ignore cache).
+debug          Keep raw SVG size & emit sidecar PDF if possible.
+fontsize       Base font size (default 20).
+lw             Default line width for plotted curves (default 2.5).
+alpha          Global alpha for function / curve lines (optional).
+xmin,xmax,ymin,ymax   Axis bounds (defaults ±6).
+xstep,ystep    Tick spacing (default 1).
+ticks          ``true|false`` master toggle for ticks/labels.
+xticks|yticks  ``off`` to remove one axis’s ticks.
+grid           ``true|false`` (independent of ``ticks``).
+xlabel,ylabel  Axis labels; can add a pad: ``xlabel: $t$, 8``.
+axis           Repeated key for special modes: ``off``, ``equal`` (may combine).
 
-Front matter and options
-------------------------
-- Provide a YAML-like block between two lines with just `---` (preferred), or
-    use unfenced `key: value` lines at the top followed by a blank line. The
-    remaining lines become the optional caption.
-- Repeated keys are allowed for: function, point, annotate, text, vline, hline,
-    line, polygon, fill-polygon, bar, axis.
-- All numbers may be integers or floats unless noted.
+Expression support
+------------------
+All numeric coordinates (centers, radii, interval endpoints, slopes, etc.) may
+be SymPy expressions. Allowed names include: ``pi``, ``E``, ``sqrt``, ``exp``,
+``log``, ``sin``, ``cos``, ``tan``, ``asin``, ``acos``, ``atan``, ``Abs`` plus
+basic arithmetic. A small, safe namespace is used; arbitrary Python execution
+is not performed. If evaluation fails the item is skipped silently.
 
-Presentation and caching
-------------------------
-- width: CSS width for the inline SVG. Examples: `100%`, `640`, `640px`.
-    A bare number is treated as pixels.
-- align: left | center | right (figure alignment).
-- class: extra CSS classes (space separated) applied to the figure.
-- name: stable file/anchor name (otherwise a content hash is used).
-- alt: alternative text for accessibility; also inserted as an SVG <title>.
-- nocache: force regeneration of the SVG.
-- debug: keep original width/height attributes and skip ID rewriting; also
-    writes a sidecar PDF for inspection when possible.
-
-Axes and layout
----------------
-- xmin, xmax, ymin, ymax: axis bounds (defaults: [-6, 6] × [-6, 6]).
-- xstep, ystep: tick spacing (default 1 for each).
-- ticks: true|false (default: on if both ticks and grid are omitted).
-- grid: true|false (default: on if both ticks and grid are omitted).
-- fontsize: base font size (default 20).
-- lw: default line width for curves (default 2.5).
-- alpha: global alpha for curves (float, optional; by default curves are opaque).
-- xlabel, ylabel: axis labels. Passed through verbatim — include `$...$` to use
-    math. Optionally add a numeric label pad with a trailing comma, e.g.
-    `xlabel: $t/\mathrm{s}$, 8`. The y-label is placed at the top and drawn
-    horizontally.
-
-Functions (multiple allowed)
-----------------------------
-Key: `function`. Each item may be specified in one of the following forms:
-
-1) Minimal string (SymPy syntax; variable is `x`):
-     - `function: x**2 - 2*x + 3`
-
-2) CSV-like string with optional label and domain/exclusions:
-     - `function: expr, label` → shows label in legend
-     - `function: expr (a,b)` → restricts domain to (a, b)
-     - `function: expr (a,b) \ {x1, x2, ...}` → domain with excluded x-values
-     - `function: expr, label, (a,b) \ {x1, x2}` → combined
-
-3) Literal list/tuple (any order after the expression):
-     - `function: [expr, "label"]`
-     - `function: [expr, (xmin, xmax)]`
-     - `function: [expr, "label", (xmin, xmax)]`
-     - `function: [expr, {x1, x2, ...}]` or `function: [expr, [x1, x2, ...]]`
-         for exclusions; can be combined with label/domain in any order.
+Functions
+---------
+Forms:
+1. ``function: expr`` — variable is ``x``.
+2. ``function: expr, label``
+3. ``function: expr (a,b)`` — domain restriction (open interval).
+4. ``function: expr (a,b) \ {x1, x2}`` — exclusions inside domain.
+5. List / tuple literal mixing expression, label, domain, exclusion set in
+   any order: ``function: [expr, "f(x)", (a,b), {x1, x2}]``.
 
 Notes:
-- Expressions are parsed with SymPy and evaluated over a dense grid. Obvious
-    discontinuities, extreme jumps, and excluded x-values are split to avoid
-    vertical strokes.
-- Function labels are auto-wrapped for math in the legend. Do not include `$` in
-    the label yourself; write plain text or math tokens (e.g. `f(x)`), and it will
-    render as math in the legend.
+* Discontinuities and exclusions are split to avoid vertical strokes.
+* Single‑letter labels are preserved (``g`` no longer coerced into a color).
+* Labels auto‑wrapped for math; don’t include surrounding ``$``.
 
-Points and bars
----------------
-- point: `(x, y)`
-- bar: `(x, y), length, orientation`
-    - orientation: `h|hor|horiz|horizontal` or `v|vert|vertical`
-    - Draws a dimension bar with arrow caps. Length is in data units.
+Points
+------
+``point: (x, y)`` where each coordinate can be an expression or a *function
+label call* of the form ``label(number)`` (e.g. ``point: (2, f(2))``).
 
-Annotations and text
---------------------
-- annotate: `[(xytext), (xy), "text", arc]`
-    - `(xytext)` is the text location, `(xy)` the point being annotated.
-    - `arc` is an optional curvature parameter (default 0.3).
-    - Outer brackets may be omitted; the directive accepts a tolerant CSV-like
-        variant.
-- text: `[x, y, text]`, `[x, y, text, pos]`, `[x, y, text, bbox]`, or
-    `[x, y, text, pos, bbox]`.
-    - `pos` is any of: top-left, top-right, bottom-left, bottom-right,
-        top-center, bottom-center, center-left, center-right, center-center.
-        Long-offset variants are also available (move the text further from the
-        point): prefix either axis with "long" — e.g. longtop-left, top-longright,
-        center-longleft, etc.
-    - `bbox` can be the literal token `bbox` or a boolean (true/false).
-
-Lines and guides
-----------------
-- vline: `x[, ymin, ymax][, linestyle][, color]`
-- hline: `y[, x0, x1][, linestyle][, color]`
-    - `linestyle` one of: solid, dotted, dashed, dashdot (order with color is free).
-- line: draw `y = a*x + b` with optional style/color, or compute `b` from a
-    given point: `line: a, (x, y)[, linestyle][, color]`. Defaults to dashed if no
-    style is given.
-
-Polygons and filled regions
+Vertical / horizontal lines
 ---------------------------
-- polygon: `(x,y), (x,y), ...[, show_vertices]` — draws polygon edges. Include
-    the token `show_vertices` to mark vertices.
-- fill-polygon: `(x,y), (x,y), ...[, color][, alpha]` — fills a polygon. The
-    first non-numeric extra is used as color, the first numeric extra as alpha.
-    Defaults: color = blue, alpha = 0.1.
+``vline: x[, ymin, ymax][, linestyle][, color]``
+``hline: y[, x0, x1][, linestyle][, color]``
+Linestyles: ``solid|dotted|dashed|dashdot`` (order with color is free). Omitted
+range endpoints default to current axis min/max.
 
-Axis commands
--------------
-- axis: repeated commands passed to Matplotlib's `ax.axis`, e.g. `equal`,
-    `off`, `tight`, `image`, `square`. Multiple commands are applied in order.
+General line and segments
+-------------------------
+``line: a, (x0, y0)[, linestyle][, color]`` — draws ``y = a*(x - x0) + y0``.
+``line: a, b[, linestyle][, color]`` — draws ``y = a*x + b``.
+``line-segment: (x1, y1), (x2, y2)[, linestyle][, color]`` — finite segment.
 
-Captions
+Polygons
 --------
-- Any lines after the front matter are treated as the figure caption. With the
-    unfenced format, the caption starts after the first blank line.
+``polygon: (x1, y1), (x2, y2), ...[, show_vertices]`` — edges.
+``fill-polygon: (..)[, color][, alpha]`` — filled interior; first non‑numeric
+extra = color, first numeric extra = alpha (default 0.1).
+Coordinates accept expressions and function label calls.
 
-Rendering details
+Bars
+----
+``bar: (x, y), length, orientation`` where orientation is one of
+``h|hor|horiz|horizontal`` or ``v|vert|vertical``.
+
+Vectors
+-------
+``vector: x, y, dx, dy[, color]`` — all four numeric fields accept expressions.
+Color mapped through palette then fallback to literal then black.
+
+Angle arcs
+----------
+``angle-arc: (cx, cy), radius, start_deg, end_deg[, linestyle][, color]``.
+Angles in *degrees* (mathematical CCW convention). All numeric parts allow
+expressions. Optional style/color order‑independent after the first three
+expressions.
+
+Circles & ellipses
+------------------
+Circle: ``circle: (cx, cy), r[, linestyle][, color]`` (r > 0).
+Ellipse: ``ellipse: (cx, cy), a, b[, linestyle][, color]`` (a,b > 0).
+Both sample 1024 points; style/color optional and order‑independent.
+
+Parametric curves
 -----------------
-- Output is an inline SVG; IDs are rewritten to avoid collisions, and width/
-    height attributes are stripped for responsiveness (unless `debug` is set).
-- Files are cached in `_static/plot/`. A content hash drives the filename. Use
-    `name:` to override this with a stable name.
+``curve: x_expr, y_expr, (t0, t1)[, linestyle][, color]`` — samples 1024 points
+with ``t`` symbol. Interval endpoints may be expressions (auto‑swapped if
+reversed). Style/color optional.
+
+Annotations & text
+------------------
+``annotate: (xytext), (xy), "text"[, arc]`` — arrow annotation; coordinates &
+arc curvature can be expressions.
+``text: [x, y, string[, pos][, bbox]]`` — position tokens: ``top-left``,
+``center-center``, etc.; *long* variants shift further (e.g. ``longtop-left``).
+
+Axis overrides: off / equal
+---------------------------
+``axis: off`` hides frame & ticks (manual artists still drawn).
+``axis: equal`` enforces 1:1 aspect (may combine with ``off``). Additional
+``axis: tight`` etc. still applied in visible‑axis mode.
+
+Color & linestyle resolution
+----------------------------
+1. Try ``plotmath.COLORS[name]``.
+2. Fallback to the literal (Matplotlib named or hex) token.
+3. Fallback default (e.g. black, red, blue depending on primitive).
+Single‑letter Matplotlib shorthands are *disabled for function labels* to
+avoid ambiguity.
+
+Safety & robustness
+-------------------
+* Expression evaluation uses SymPy in a restricted namespace (no exec / eval).
+* Any parsing failure for an individual primitive silently skips that item.
+* Cached SVGs stored under ``_static/plot/`` keyed by a content hash unless a
+  ``name:`` override is supplied.
+
+Caption
+-------
+Lines after a blank line (or after the front matter fence) become the caption.
+
+This docstring is intentionally exhaustive; HOWTOWRITE.md contains user‑facing
+Norwegian examples.
 """
 
 from __future__ import annotations
@@ -370,8 +405,11 @@ class PlotDirective(SphinxDirective):
         "fontsize": directives.unchanged,
         "ticks": directives.unchanged,
         "grid": directives.unchanged,
+        "xticks": directives.unchanged,
+        "yticks": directives.unchanged,
         "lw": directives.unchanged,
         "alpha": directives.unchanged,
+        "figsize": directives.unchanged,
         # axis labels
         "xlabel": directives.unchanged,
         "ylabel": directives.unchanged,
@@ -396,6 +434,12 @@ class PlotDirective(SphinxDirective):
             "axis": [],
             "fill-polygon": [],
             "bar": [],
+            "vector": [],
+            "line-segment": [],
+            "angle-arc": [],
+            "circle": [],
+            "ellipse": [],
+            "curve": [],
         }
         # YAML-like fenced front matter
         if lines and lines[0].strip() == "---":
@@ -473,6 +517,7 @@ class PlotDirective(SphinxDirective):
         fontsize = _f("fontsize", 20)
         lw = _f("lw", 2.5)
         alpha_raw = merged.get("alpha")
+        figsize_raw = merged.get("figsize")
         try:
             alpha = float(alpha_raw) if alpha_raw not in (None, "") else None
         except Exception:
@@ -480,12 +525,23 @@ class PlotDirective(SphinxDirective):
 
         ticks_flag = _parse_bool(merged.get("ticks"), default=None)
         grid_flag = _parse_bool(merged.get("grid"), default=None)
+
+        # Set defaults: if neither is specified, both default to True
         if ticks_flag is None and grid_flag is None:
             ticks_flag = True
             grid_flag = True
         else:
-            ticks_flag = bool(ticks_flag)
-            grid_flag = bool(grid_flag)
+            # If ticks not explicitly set, default to True (independent of grid setting)
+            if ticks_flag is None:
+                ticks_flag = True
+            else:
+                ticks_flag = bool(ticks_flag)
+
+            # If grid not explicitly set, default to True (independent of ticks setting)
+            if grid_flag is None:
+                grid_flag = True
+            else:
+                grid_flag = bool(grid_flag)
 
         # Compile functions (may be zero or many) and parse optional labels, optional domain (xmin,xmax), exclusions and color
         raw_fn_items = lists.get("function", [])
@@ -517,9 +573,10 @@ class PlotDirective(SphinxDirective):
                 # hex colors
                 if re.match(r"^#([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})$", t):
                     return True
-                # matplotlib single-letter and tab: names
-                if t.lower() in {"b", "g", "r", "c", "m", "y", "k", "w"}:
-                    return True
+                # IMPORTANT: single-letter matplotlib shorthands intentionally
+                # NOT treated as colors here so that users can name functions
+                # with letters like 'g' without it being consumed as green.
+                # Use full names (e.g. 'green') or color=green instead.
                 if t.lower().startswith("tab:"):
                     return True
                 if re.match(r"^C\d+$", t):
@@ -582,36 +639,124 @@ class PlotDirective(SphinxDirective):
                             lab = tok
                             label = lab if lab else None
                 return expr, label, domain, excludes, color
-            # Fallback: look for a domain pattern (a,b), remove it, then split label
+            # Fallback: attempt to locate a (domain) pattern (expr_a, expr_b) with fully balanced parentheses
+            # and optional exclusions of the form \{a,b,c}. Supports nested parentheses in each endpoint
+            # (e.g. (0, 2*sqrt(5)) or (pi/4, 3*pi/2 + sqrt(2))).
             domain: Tuple[float, float] | None = None
             excludes: List[float] = []
             color: str | None = None
-            num_re = r"[+-]?\d+(?:\.\d+)?"
-            # Domain with optional set-difference exclusions: (a,b) \ {x1, x2}
-            dom_ex_pat = re.compile(
-                rf"\(\s*({num_re})\s*,\s*({num_re})\s*\)\s*(?:\\\s*\{{\s*([^}}]*)\s*\}})?"
-            )
-            m = dom_ex_pat.search(s)
-            if m:
-                try:
-                    d0 = float(m.group(1))
-                    d1 = float(m.group(2))
-                    domain = (d0, d1)
-                except Exception:
-                    domain = None
-                # Parse exclusions if provided
-                excl_str = m.group(3) if m.lastindex and m.lastindex >= 3 else None
-                if excl_str:
-                    for tok in [t.strip() for t in excl_str.split(",") if t.strip()]:
-                        try:
-                            excludes.append(float(tok))
-                        except Exception:
-                            pass
-                # Remove the matched domain+exclusions substring
-                a, b = m.span()
-                s_wo_dom = (s[:a] + s[b:]).strip()
-            else:
-                s_wo_dom = s
+
+            def _sym_eval_num(txt: str) -> float:
+                import sympy
+
+                allowed = {
+                    k: getattr(sympy, k)
+                    for k in [
+                        "pi",
+                        "E",
+                        "exp",
+                        "sqrt",
+                        "log",
+                        "sin",
+                        "cos",
+                        "tan",
+                        "asin",
+                        "acos",
+                        "atan",
+                        "Rational",
+                    ]
+                    if hasattr(sympy, k)
+                }
+                expr = sympy.sympify(txt, locals=allowed)
+                return float(expr.evalf())
+
+            def _extract_domain_and_exclusions(text: str):
+                """Return (domain_tuple|None, exclusions_list, text_without_domain).
+                Heuristic: find the first parenthesis block whose top-level content
+                splits into exactly two parts by a single top-level comma.
+                """
+                n = len(text)
+                i = 0
+                while i < n:
+                    if text[i] == "(":
+                        depth = 1
+                        j = i + 1
+                        while j < n and depth > 0:
+                            ch = text[j]
+                            if ch == "(":
+                                depth += 1
+                            elif ch == ")":
+                                depth -= 1
+                            j += 1
+                        if depth != 0:
+                            # unbalanced, give up
+                            break
+                        content = text[i + 1 : j - 1].strip()
+                        # Find a single top-level comma in content
+                        depth2 = 0
+                        comma_index: int | None = None
+                        for k, ch in enumerate(content):
+                            if ch == "(":
+                                depth2 += 1
+                            elif ch == ")":
+                                depth2 -= 1
+                            elif ch == "," and depth2 == 0:
+                                if comma_index is None:
+                                    comma_index = k
+                                else:
+                                    # more than one top-level comma => not domain
+                                    comma_index = None
+                                    break
+                        if comma_index is not None:
+                            left = content[:comma_index].strip()
+                            right = content[comma_index + 1 :].strip()
+                            if left and right:
+                                # Optional exclusions right after ) like \{a,b}
+                                k2 = j
+                                excl_list: List[float] = []
+                                # skip whitespace
+                                while k2 < n and text[k2].isspace():
+                                    k2 += 1
+                                if k2 < n and text[k2] == "\\":
+                                    k2 += 1
+                                    while k2 < n and text[k2].isspace():
+                                        k2 += 1
+                                    if k2 < n and text[k2] == "{":
+                                        k2 += 1
+                                        excl_start = k2
+                                        # read until matching '}' (no nesting expected here)
+                                        while k2 < n and text[k2] != "}":
+                                            k2 += 1
+                                        excl_content = text[excl_start:k2]
+                                        if k2 < n and text[k2] == "}":
+                                            k2 += 1  # consume '}'
+                                        for tok in [
+                                            t.strip()
+                                            for t in excl_content.split(",")
+                                            if t.strip()
+                                        ]:
+                                            try:
+                                                excl_list.append(_sym_eval_num(tok))
+                                            except Exception:
+                                                pass
+                                # Attempt numeric evaluation of endpoints
+                                dom_tuple: Tuple[float, float] | None = None
+                                try:
+                                    d0 = _sym_eval_num(left)
+                                    d1 = _sym_eval_num(right)
+                                    dom_tuple = (d0, d1)
+                                except Exception:
+                                    dom_tuple = None
+                                # Remove the consumed substring from original text
+                                new_text = (text[:i] + text[k2:]).strip()
+                                return dom_tuple, excl_list, new_text
+                        # Move past this parenthesis group and continue scanning
+                        i = j
+                        continue
+                    i += 1
+                return None, [], text
+
+            domain, excludes, s_wo_dom = _extract_domain_and_exclusions(s)
             # Tokenize on commas to robustly drop empty segments created by domain removal
             parts = [p.strip() for p in s_wo_dom.split(",") if p.strip()]
             if parts:
@@ -652,21 +797,218 @@ class PlotDirective(SphinxDirective):
                     )
                 ]
 
+        # ------------------------------------
+        # Unified numeric expression evaluator
+        # Supports:
+        #  * Plain numbers
+        #  * Arithmetic & SymPy functions (sqrt, pi, sin, ...)
+        #  * References to previously defined function labels: f(2), g(pi/4+1)
+        # Limitations: nested user function calls deeper than 50 rewrites are blocked.
+        # ------------------------------------
+        _num_cache: Dict[str, float] = {}
+
+        def _eval_expr(val) -> float:
+            import sympy, re
+
+            if val is None:
+                raise ValueError("Empty value")
+            if isinstance(val, (int, float)):
+                return float(val)
+            s0 = str(val).strip()
+            if not s0:
+                raise ValueError("Blank numeric expression")
+            if s0 in _num_cache:
+                return _num_cache[s0]
+            s = s0
+            # Replace user function label calls iteratively.
+            # Allow nested parentheses now by a balanced scan: we match label( ... ) at top-level of that paren group.
+            pat = re.compile(r"([A-Za-z_][A-Za-z0-9_]*)\(")
+            # Simpler: fallback to previous non-nested approach but broaden attempt; for safety keep prior pattern.
+            pat_simple = re.compile(r"([A-Za-z_][A-Za-z0-9_]*)\(([^()]+)\)")
+            for _ in range(50):
+                m = pat_simple.search(s)
+                if not m:
+                    break
+                lbl, arg_expr = m.group(1), m.group(2)
+                if lbl in fn_labels_list:
+                    try:
+                        arg_val = _eval_expr(arg_expr)
+                        idx = fn_labels_list.index(lbl)
+                        f = functions[idx]
+                        yv = float(f([arg_val])[0])
+                        s = s[: m.start()] + f"{yv}" + s[m.end() :]
+                        continue
+                    except Exception:
+                        # leave unresolved for sympy
+                        pass
+                # If not user function, just proceed to next occurrence
+                # Remove nothing to avoid infinite loop: break
+                break
+            allowed = {
+                k: getattr(sympy, k)
+                for k in [
+                    "pi",
+                    "E",
+                    "exp",
+                    "sqrt",
+                    "log",
+                    "sin",
+                    "cos",
+                    "tan",
+                    "asin",
+                    "acos",
+                    "atan",
+                    "Rational",
+                ]
+                if hasattr(sympy, k)
+            }
+            try:
+                expr = sympy.sympify(s, locals=allowed)
+                valf = float(expr.evalf())
+                _num_cache[s0] = valf
+                return valf
+            except Exception as e:
+                raise ValueError(f"Kunne ikke tolke numerisk uttrykk '{val}': {e}")
+
         # Points
         point_vals: List[Tuple[float, float]] = []
         for p in lists.get("point", []):
             lit = _safe_literal(p)
             if isinstance(lit, (list, tuple)) and len(lit) == 2:
                 try:
-                    x0 = float(lit[0])
-                    y0 = float(lit[1])
+                    x0 = _eval_expr(lit[0])
+                    y0 = _eval_expr(lit[1])
                     point_vals.append((x0, y0))
                 except Exception:
                     pass
+            else:
+                # Support dynamic evaluation referencing previously defined function labels, e.g. (5, f(5))
+                # Simple pattern match for a parenthesized pair allowing arbitrary (non-comma) inner expressions.
+                ps = str(p).strip()
+                m_pair = re.match(r"^\(\s*([^,]+?)\s*,\s*([^,]+?)\s*\)$", ps)
+                if m_pair:
+                    x_raw = m_pair.group(1).strip()
+                    y_raw = m_pair.group(2).strip()
+                    try:
+                        x_val = _eval_expr(x_raw)
+                    except Exception:
+                        # If x itself references a function call label(arg)
+                        m_fx = re.match(
+                            r"^([A-Za-z_][A-Za-z0-9_]*)\(\s*([+-]?(?:\d+(?:\.\d+)?))\s*\)$",
+                            x_raw,
+                        )
+                        if m_fx:
+                            lbl = m_fx.group(1)
+                            arg = float(m_fx.group(2))
+                            try:
+                                idx = fn_labels_list.index(lbl)
+                                x_val = float(functions[idx]([arg])[0])
+                            except Exception:
+                                continue  # give up on this point
+                        else:
+                            continue
+                    # y may be a direct float or a function label call like f(5)
+                    try:
+                        y_val = _eval_expr(y_raw)
+                    except Exception:
+                        m_fy = re.match(
+                            r"^([A-Za-z_][A-Za-z0-9_]*)\(\s*([+-]?(?:\d+(?:\.\d+)?))\s*\)$",
+                            y_raw,
+                        )
+                        if not m_fy:
+                            continue
+                        lbl = m_fy.group(1)
+                        arg = float(m_fy.group(2))
+                        if lbl in fn_labels_list:
+                            try:
+                                idx = fn_labels_list.index(lbl)
+                                y_val = float(functions[idx]([arg])[0])
+                            except Exception:
+                                continue
+                        else:
+                            continue
+                    try:
+                        point_vals.append((float(x_val), float(y_val)))
+                    except Exception:
+                        pass
 
         # Annotations: [(xytext), (xy), "text", arc] OR without outer brackets:
         # (xytext), (xy), "text"[, arc]
         ann_vals: List[Tuple[Tuple[float, float], Tuple[float, float], str, float]] = []
+
+        def _annotate_fallback_parse(raw: str):
+            """Fallback parser for annotate lines containing arbitrary expressions.
+            Expected pattern: (expr_x1, expr_y1), (expr_x2, expr_y2), "text"[, arc]
+            Returns list of ( (x1,y1), (x2,y2), text, arc_expr|None ).
+            """
+            s = raw.strip()
+            out: List[Tuple[Tuple[str, str], Tuple[str, str], str, str | None]] = []
+
+            # Find first two balanced tuples
+            def _grab_tuple(start_index: int) -> Tuple[int, int, str] | None:
+                if start_index >= len(s) or s[start_index] != "(":
+                    return None
+                depth = 0
+                for j in range(start_index, len(s)):
+                    if s[j] == "(":
+                        depth += 1
+                    elif s[j] == ")":
+                        depth -= 1
+                        if depth == 0:
+                            inner = s[start_index + 1 : j]
+                            return (start_index, j, inner)
+                return None
+
+            # locate first '('
+            i1 = s.find("(")
+            if i1 == -1:
+                return out
+            t1 = _grab_tuple(i1)
+            if not t1:
+                return out
+            i2_search = t1[1] + 1
+            # skip commas/space
+            while i2_search < len(s) and s[i2_search] in " ,":
+                i2_search += 1
+            if i2_search >= len(s) or s[i2_search] != "(":
+                return out
+            t2 = _grab_tuple(i2_search)
+            if not t2:
+                return out
+            rest = s[t2[1] + 1 :].strip()
+
+            # Split tuple inners on top-level comma
+            def _split_pair(inner: str) -> Tuple[str, str] | None:
+                depth = 0
+                for k, ch in enumerate(inner):
+                    if ch == "(":
+                        depth += 1
+                    elif ch == ")":
+                        depth -= 1
+                    elif ch == "," and depth == 0:
+                        left = inner[:k].strip()
+                        right = inner[k + 1 :].strip()
+                        if left and right:
+                            return (left, right)
+                return None
+
+            p1 = _split_pair(t1[2])
+            p2 = _split_pair(t2[2])
+            if not (p1 and p2):
+                return out
+            # Extract quoted text
+            # Regex to capture either a double-quoted or single-quoted string
+            m_txt = re.search(
+                r"\"([^\"\\]*(?:\\.[^\"\\]*)*)\"|'([^'\\]*(?:\\.[^'\\]*)*)'", rest
+            )
+            if not m_txt:
+                return out
+            text = m_txt.group(1) if m_txt.group(1) is not None else m_txt.group(2)
+            after = rest[m_txt.end() :].strip().lstrip(",").strip()
+            arc_expr = after if after else None
+            out.append(((p1[0], p1[1]), (p2[0], p2[1]), text, arc_expr))
+            return out
+
         for a in lists.get("annotate", []):
             lit = _safe_literal(a)
             # If user omitted surrounding brackets, try wrapping in [] for parsing
@@ -674,16 +1016,72 @@ class PlotDirective(SphinxDirective):
                 lit_wrapped = _safe_literal(f"[{a}]")
                 if isinstance(lit_wrapped, list) and len(lit_wrapped) >= 3:
                     lit = lit_wrapped
+            added_before = len(ann_vals)
             if isinstance(lit, (list, tuple)) and len(lit) >= 3:
                 xytext, xy, text = lit[0], lit[1], lit[2]
-                arc = float(lit[3]) if len(lit) > 3 else 0.3
+                # arc (arrow curvature) may be an expression
                 try:
-                    xytext = (float(xytext[0]), float(xytext[1]))
-                    xy = (float(xy[0]), float(xy[1]))
-                    text = str(text)
-                    ann_vals.append((xytext, xy, text, arc))
+                    arc = _eval_expr(str(lit[3])) if len(lit) > 3 else 0.3
                 except Exception:
-                    pass
+                    try:
+                        arc = float(lit[3]) if len(lit) > 3 else 0.3
+                    except Exception:
+                        arc = 0.3
+                try:
+                    # Allow expression coordinates. Expect xytext and xy to be (x,y)-like iterables
+                    xyt0 = _eval_expr(str(xytext[0]))
+                    xyt1 = _eval_expr(str(xytext[1]))
+                    xy0 = _eval_expr(str(xy[0]))
+                    xy1 = _eval_expr(str(xy[1]))
+                    xytext = (float(xyt0), float(xyt1))
+                    xy = (float(xy0), float(xy1))
+                    text = str(text)
+                    ann_vals.append((xytext, xy, text, float(arc)))
+                except Exception:
+                    # Fallback: attempt plain float conversion
+                    try:
+                        xytext = (float(xytext[0]), float(xytext[1]))
+                        xy = (float(xy[0]), float(xy[1]))
+                        text = str(text)
+                        ann_vals.append((xytext, xy, text, float(arc)))
+                    except Exception:
+                        pass
+            # Fallback parsing if nothing appended
+            if len(ann_vals) == added_before:
+                for (
+                    (x1_expr, y1_expr),
+                    (x2_expr, y2_expr),
+                    text_s,
+                    arc_expr,
+                ) in _annotate_fallback_parse(str(a)):
+                    try:
+                        x1 = _eval_expr(x1_expr)
+                        y1 = _eval_expr(y1_expr)
+                    except Exception:
+                        continue
+                    try:
+                        x2 = _eval_expr(x2_expr)
+                        y2 = _eval_expr(y2_expr)
+                    except Exception:
+                        continue
+                    # arc expression optional
+                    arc_val = 0.3
+                    if arc_expr:
+                        try:
+                            arc_val = _eval_expr(arc_expr)
+                        except Exception:
+                            try:
+                                arc_val = float(arc_expr)
+                            except Exception:
+                                pass
+                    ann_vals.append(
+                        (
+                            (float(x1), float(y1)),
+                            (float(x2), float(y2)),
+                            str(text_s),
+                            float(arc_val),
+                        )
+                    )
 
         # Text: x, y, text, optional positioning, optional bbox flag
         # Accepted forms:
@@ -697,8 +1095,9 @@ class PlotDirective(SphinxDirective):
             lit = _safe_literal(t)
             if isinstance(lit, (list, tuple)) and (3 <= len(lit) <= 5):
                 try:
-                    x = float(lit[0])
-                    y = float(lit[1])
+                    # Allow expressions for x and y
+                    x = _eval_expr(str(lit[0]))
+                    y = _eval_expr(str(lit[1]))
                     text = str(lit[2])
                     pos = "top-left"
                     bbox_flag = False
@@ -739,8 +1138,9 @@ class PlotDirective(SphinxDirective):
                 # parse as a single CSV row
                 row = next(csv.reader([s], skipinitialspace=True))
                 if len(row) in (3, 4, 5):
-                    x = float(row[0].strip())
-                    y = float(row[1].strip())
+                    # Evaluate x,y as expressions
+                    x = _eval_expr(row[0].strip())
+                    y = _eval_expr(row[1].strip())
                     text = row[2].strip()
                     pos_keys = {
                         "top-left",
@@ -794,13 +1194,17 @@ class PlotDirective(SphinxDirective):
             else:
                 tokens = [p.strip() for p in str(v).split(",") if p.strip()]
 
-            nums: List[float] = []
-            extras: List[str] = []
+            nums: List[float] = []  # evaluated numeric tokens (expressions allowed)
+            extras: List[str] = []  # potential style/color tokens
             for t in tokens:
+                # Attempt expression evaluation (supports arithmetic & function labels)
                 try:
-                    nums.append(float(t))
+                    val = _eval_expr(t)
+                    nums.append(val)
+                    continue
                 except Exception:
-                    extras.append(t.lower())
+                    pass
+                extras.append(t)
             x_val: float | None = None
             y0_val: float | None = None
             y1_val: float | None = None
@@ -812,7 +1216,8 @@ class PlotDirective(SphinxDirective):
             style: str | None = None
             color: str | None = None
             for e in extras:
-                if e in _allowed_styles and style is None:
+                el = e.lower()
+                if el in _allowed_styles and style is None:
                     style = e
                 elif color is None:
                     color = e
@@ -820,13 +1225,51 @@ class PlotDirective(SphinxDirective):
                 vline_vals.append((x_val, y0_val, y1_val, style, color))
 
         # polygons: (x,y), (x,y), ... [ , show_vertices]
-        # Parse without using literal_eval to avoid escape issues in labels.
+        # Extended: each coordinate may be an expression with user function calls.
         poly_vals: List[Tuple[List[Tuple[float, float]], bool]] = []
-        num_re = r"[+-]?\d+(?:\.\d+)?"
-        tup_pat = re.compile(rf"\(\s*({num_re})\s*,\s*({num_re})\s*\)")
+
+        # We avoid a complex fragile regex here and instead perform a small
+        # balanced-parentheses scan so expressions like (2*sqrt(5), f(3+pi/4)) work.
+        def _extract_coord_pairs(seq: str) -> List[Tuple[str, str]]:
+            pairs: List[Tuple[str, str]] = []
+            i = 0
+            n = len(seq)
+            while i < n:
+                if seq[i] == "(":  # potential tuple start
+                    depth = 0
+                    j = i
+                    while j < n:
+                        ch = seq[j]
+                        if ch == "(":
+                            depth += 1
+                        elif ch == ")":
+                            depth -= 1
+                            if depth == 0:
+                                inner = seq[i + 1 : j].strip()
+                                # split inner on a top-level comma
+                                depth2 = 0
+                                comma_index = -1
+                                for k, ch2 in enumerate(inner):
+                                    if ch2 == "(":
+                                        depth2 += 1
+                                    elif ch2 == ")":
+                                        depth2 -= 1
+                                    elif ch2 == "," and depth2 == 0:
+                                        comma_index = k
+                                        break
+                                if comma_index != -1:
+                                    x_expr = inner[:comma_index].strip()
+                                    y_expr = inner[comma_index + 1 :].strip()
+                                    if x_expr and y_expr:
+                                        pairs.append((x_expr, y_expr))
+                                i = j  # jump to end of tuple
+                                break
+                        j += 1
+                i += 1
+            return pairs
+
         for p in lists.get("polygon", []):
             s = str(p).strip()
-            # Remove an optional 'show_vertices' token (case-insensitive)
             show_vertices = False
             if re.search(r"(^|,)\s*show_vertices\s*(?=,|$)", s, flags=re.IGNORECASE):
                 show_vertices = True
@@ -834,17 +1277,22 @@ class PlotDirective(SphinxDirective):
                     r"(^|,)\s*show_vertices\s*(?=,|$)", ",", s, flags=re.IGNORECASE
                 )
                 s = re.sub(r",{2,}", ",", s).strip().strip(",")
-            # Extract all (x,y) tuples
             pts: List[Tuple[float, float]] = []
-            for m in tup_pat.finditer(s):
+            for x_expr, y_expr in _extract_coord_pairs(s):
                 try:
-                    x = float(m.group(1))
-                    y = float(m.group(2))
-                    pts.append((x, y))
+                    xv = _eval_expr(x_expr)
+                    yv = _eval_expr(y_expr)
+                    pts.append((xv, yv))
                 except Exception:
+                    # Ignore malformed or unevaluable pair
                     pass
             if pts:
                 poly_vals.append((pts, show_vertices))
+
+        # Re-introduce a plain numeric tuple matcher for other primitives still expecting numeric-only coordinates.
+        tup_pat = re.compile(
+            r"\(\s*([+-]?\d+(?:\.\d+)?)\s*,\s*([+-]?\d+(?:\.\d+)?)\s*\)"
+        )
 
         # bar: (x, y), length, orientation
         # Accept both literal list/tuple and CSV-like fallback
@@ -902,13 +1350,16 @@ class PlotDirective(SphinxDirective):
             else:
                 tokens_h = [p.strip() for p in str(h).split(",") if p.strip()]
 
-            nums_h: List[float] = []
-            extras_h: List[str] = []
+            nums_h: List[float] = []  # numeric (expressions) for y, x0, x1
+            extras_h: List[str] = []  # style/color tokens
             for t in tokens_h:
                 try:
-                    nums_h.append(float(t))
+                    val = _eval_expr(t)
+                    nums_h.append(val)
+                    continue
                 except Exception:
-                    extras_h.append(t.lower())
+                    pass
+                extras_h.append(t)
             y_val: float | None = None
             x0_val: float | None = None
             x1_val: float | None = None
@@ -920,7 +1371,8 @@ class PlotDirective(SphinxDirective):
             style_h: str | None = None
             color_h: str | None = None
             for e in extras_h:
-                if e in _allowed_styles and style_h is None:
+                el = e.lower()
+                if el in _allowed_styles and style_h is None:
                     style_h = e
                 elif color_h is None:
                     color_h = e
@@ -1031,25 +1483,33 @@ class PlotDirective(SphinxDirective):
                     line_vals.append((a_val, b_val, style_line, color_line))
 
         # fill-polygons: (x,y), (x,y), ... [, color] [, alpha]
+        # Extended: coordinate expressions support arithmetic & function calls like polygons.
         # Defaults: color -> plotmath.COLORS.get("blue"), alpha -> 0.1
         poly_fill_vals: List[
             Tuple[List[Tuple[float, float]], str | None, float | None]
         ] = []
         for fp in lists.get("fill-polygon", []):
             s = str(fp).strip()
-            # Extract all (x,y) tuples
             pts_fp: List[Tuple[float, float]] = []
-            matches = list(tup_pat.finditer(s))
-            for m in matches:
+            # Reuse polygon balanced-parentheses extractor defined earlier.
+            # We reconstruct remaining extras by removing the matched tuple spans.
+            consumed: List[Tuple[int, int]] = []
+            for x_expr, y_expr in _extract_coord_pairs(s):
+                # Find the substring to mark as consumed (naively search first occurrence of '(' + content + ')')
+                pattern = f"({x_expr},{y_expr})"  # simplified; if spaces existed they were stripped
+                # We'll just evaluate; for extras we approximate removal by replacing once later.
                 try:
-                    pts_fp.append((float(m.group(1)), float(m.group(2))))
+                    xv = _eval_expr(x_expr)
+                    yv = _eval_expr(y_expr)
+                    pts_fp.append((xv, yv))
                 except Exception:
                     pass
-            # Remove the tuple substrings to parse remaining tokens as extras
+            # Remove coordinate tuples crudely: replace occurrences of '(...)' that correspond to points
             rest = s
-            for m in reversed(matches):
-                a, b = m.span()
-                rest = rest[:a] + rest[b:]
+            # Simple loop removing parenthesized pairs counted earlier; risk: may remove unrelated parentheses if same text repeats
+            # but acceptable for directive usage.
+            # A safer approach would replicate extraction with span tracking; to keep patch minimal we do a regex wipe of tuples.
+            rest = re.sub(r"\([^()]*?,[^()]*?\)", "", rest)
             rest = re.sub(r",{2,}", ",", rest)
             extras = [tok.strip() for tok in rest.split(",") if tok.strip()]
             color_fp: str | None = None
@@ -1058,7 +1518,7 @@ class PlotDirective(SphinxDirective):
             for tok in extras:
                 if alpha_fp is None:
                     try:
-                        alpha_fp = float(tok)
+                        alpha_fp = _eval_expr(tok)
                         continue
                     except Exception:
                         pass
@@ -1069,6 +1529,91 @@ class PlotDirective(SphinxDirective):
                     break
             if pts_fp:
                 poly_fill_vals.append((pts_fp, color_fp, alpha_fp))
+
+        # line-segment: (x1,y1), (x2,y2)[, linestyle][, color]  (style/color optional, any order)
+        line_segment_vals: List[
+            Tuple[Tuple[float, float], Tuple[float, float], str | None, str | None]
+        ] = []
+        _allowed_seg_styles = {"solid", "dotted", "dashed", "dashdot"}
+        for ls in lists.get("line-segment", []):
+            s = str(ls).strip()
+            # Use the same balanced extractor as polygons but ensure exactly two points are taken.
+            pairs = _extract_coord_pairs(s)
+            if len(pairs) < 2:
+                continue
+            pcoords: List[Tuple[float, float]] = []
+            for x_expr, y_expr in pairs[:2]:
+                try:
+                    xv = _eval_expr(x_expr)
+                    yv = _eval_expr(y_expr)
+                    pcoords.append((float(xv), float(yv)))
+                except Exception:
+                    pcoords = []
+                    break
+            if len(pcoords) != 2:
+                continue
+            # Precisely remove the first two top-level tuples (with balanced parentheses)
+            spans: List[Tuple[int, int]] = []
+            depth = 0
+            i = 0
+            n = len(s)
+            while i < n and len(spans) < 2:
+                if s[i] == "(":
+                    depth = 1
+                    j = i + 1
+                    while j < n and depth > 0:
+                        if s[j] == "(":
+                            depth += 1
+                        elif s[j] == ")":
+                            depth -= 1
+                        j += 1
+                    if depth == 0:
+                        # captured tuple from i to j
+                        inner = s[i + 1 : j - 1]
+                        # verify it contains a top-level comma (treat as coordinate tuple)
+                        d2 = 0
+                        has_comma = False
+                        for ch in inner:
+                            if ch == "(":
+                                d2 += 1
+                            elif ch == ")":
+                                d2 -= 1
+                            elif ch == "," and d2 == 0:
+                                has_comma = True
+                                break
+                        if has_comma:
+                            spans.append((i, j))
+                    i = j
+                else:
+                    i += 1
+            # Build rest excluding spans
+            if spans:
+                parts_rest: List[str] = []
+                last = 0
+                for a, b in spans:
+                    if a > last:
+                        parts_rest.append(s[last:a])
+                    last = b
+                if last < len(s):
+                    parts_rest.append(s[last:])
+                rest = "".join(parts_rest)
+            else:
+                rest = s
+            rest = re.sub(r",{2,}", ",", rest)
+            tokens = [
+                tok.strip().strip("'\"") for tok in rest.split(",") if tok.strip()
+            ]
+            style_seg: str | None = None
+            color_seg: str | None = None
+            for tok in tokens:
+                low = tok.lower()
+                if low in _allowed_seg_styles and style_seg is None:
+                    style_seg = low
+                    continue
+                if color_seg is None:
+                    # Accept token as color (will map later during draw)
+                    color_seg = tok
+            line_segment_vals.append((pcoords[0], pcoords[1], style_seg, color_seg))
 
         # axis commands: allow repeated keys like axis: equal / axis: off
         axis_cmds: List[str] = []
@@ -1085,8 +1630,430 @@ class PlotDirective(SphinxDirective):
                 if part:
                     axis_cmds.append(part)
 
+        # vectors: x, y, dx, dy[, color] with expression support
+        vector_vals: List[Tuple[float, float, float, float, str]] = []
+        for vline in lists.get("vector", []):
+            s = str(vline).strip()
+            # allow surrounding brackets/parentheses
+            if (s.startswith("[") and s.endswith("]")) or (
+                s.startswith("(") and s.endswith(")")
+            ):
+                s = s[1:-1].strip()
+            # split by top-level commas (vectors unlikely to embed parentheses beyond simple expressions, but keep safe)
+            depth_vec = 0
+            cur_tok: List[str] = []
+            parts: List[str] = []
+            for ch in s:
+                if ch == "(":
+                    depth_vec += 1
+                    cur_tok.append(ch)
+                elif ch == ")":
+                    depth_vec -= 1
+                    cur_tok.append(ch)
+                elif ch == "," and depth_vec == 0:
+                    tok = "".join(cur_tok).strip()
+                    if tok:
+                        parts.append(tok)
+                    cur_tok = []
+                else:
+                    cur_tok.append(ch)
+            tail_tok = "".join(cur_tok).strip()
+            if tail_tok:
+                parts.append(tail_tok)
+            if len(parts) < 4:
+                continue
+            try:
+                x_v = float(_eval_expr(parts[0]))
+                y_v = float(_eval_expr(parts[1]))
+                dx_v = float(_eval_expr(parts[2]))
+                dy_v = float(_eval_expr(parts[3]))
+                color_v = parts[4] if len(parts) >= 5 and parts[4] else "black"
+                vector_vals.append((x_v, y_v, dx_v, dy_v, color_v))
+            except Exception:
+                # skip silently to preserve robustness
+                continue
+
+        # angle-arc: (x, y), radius, start_angle_deg, end_angle_deg[, linestyle][, color]
+        # Expression support for center, radius and angles; optional linestyle/color tokens in any order after the first three numeric expressions.
+        angle_arcs: List[
+            Tuple[float, float, float, float, float, str | None, str | None]
+        ] = []
+        _allowed_arc_styles = {"solid", "dotted", "dashed", "dashdot"}
+        for arc in lists.get("angle-arc", []):
+            raw_arc = str(arc).strip()
+            # Find first balanced parenthesis group for center
+            idx_arc = raw_arc.find("(")
+            if idx_arc == -1:
+                continue
+            depth_arc = 0
+            end_center = -1
+            for j in range(idx_arc, len(raw_arc)):
+                ch = raw_arc[j]
+                if ch == "(":
+                    depth_arc += 1
+                elif ch == ")":
+                    depth_arc -= 1
+                    if depth_arc == 0:
+                        end_center = j
+                        break
+            if end_center == -1:
+                continue
+            center_inner = raw_arc[idx_arc + 1 : end_center]
+            # Split center_inner by top-level comma
+            depth_c = 0
+            cur_bits: List[str] = []
+            center_parts: List[str] = []
+            for ch in center_inner:
+                if ch == "(":
+                    depth_c += 1
+                    cur_bits.append(ch)
+                elif ch == ")":
+                    depth_c -= 1
+                    cur_bits.append(ch)
+                elif ch == "," and depth_c == 0:
+                    token = "".join(cur_bits).strip()
+                    if token:
+                        center_parts.append(token)
+                    cur_bits = []
+                else:
+                    cur_bits.append(ch)
+            tail_cp = "".join(cur_bits).strip()
+            if tail_cp:
+                center_parts.append(tail_cp)
+            if len(center_parts) != 2:
+                continue
+            rest_arc = raw_arc[end_center + 1 :].lstrip(",").strip()
+            if not rest_arc:
+                continue
+            # Split rest by top-level commas
+            depth_r = 0
+            cur_r: List[str] = []
+            tokens_r: List[str] = []
+            for ch in rest_arc:
+                if ch == "(":
+                    depth_r += 1
+                    cur_r.append(ch)
+                elif ch == ")":
+                    depth_r -= 1
+                    cur_r.append(ch)
+                elif ch == "," and depth_r == 0:
+                    tk = "".join(cur_r).strip()
+                    if tk:
+                        tokens_r.append(tk)
+                    cur_r = []
+                else:
+                    cur_r.append(ch)
+            tail_r = "".join(cur_r).strip()
+            if tail_r:
+                tokens_r.append(tail_r)
+            if len(tokens_r) < 3:
+                continue
+            radius_expr = tokens_r[0]
+            start_expr = tokens_r[1]
+            end_expr = tokens_r[2]
+            style_arc: str | None = None
+            color_arc: str | None = None
+            for extra_tok in tokens_r[3:]:
+                low = extra_tok.lower()
+                if low in _allowed_arc_styles and style_arc is None:
+                    style_arc = low
+                elif color_arc is None:
+                    color_arc = extra_tok
+            try:
+                cx_val = float(_eval_expr(center_parts[0]))
+                cy_val = float(_eval_expr(center_parts[1]))
+                r_val = float(_eval_expr(radius_expr))
+                if r_val <= 0:
+                    continue
+                start_deg_val = float(_eval_expr(start_expr))
+                end_deg_val = float(_eval_expr(end_expr))
+                angle_arcs.append(
+                    (
+                        cx_val,
+                        cy_val,
+                        r_val,
+                        start_deg_val,
+                        end_deg_val,
+                        style_arc,
+                        color_arc,
+                    )
+                )
+            except Exception:
+                continue
+
+        # circles: (x,y), radius[, linestyle][, color]  (style/color optional, any order)
+        # Accept expressions for x, y, radius. Optional tokens may appear in any order
+        # after the radius token. Supported linestyles: solid, dotted, dashed, dashdot.
+        circle_vals: List[Tuple[float, float, float, str | None, str | None]] = []
+        _allowed_circle_styles = {"solid", "dotted", "dashed", "dashdot"}
+        for c in lists.get("circle", []):
+            raw = str(c).strip()
+            # Expect something like: (expr_x, expr_y), radius_expr
+            # We'll find first balanced tuple then split remaining by comma for radius.
+            idx = raw.find("(")
+            if idx == -1:
+                continue
+            # Grab balanced tuple
+            depth = 0
+            end_idx = -1
+            for j in range(idx, len(raw)):
+                if raw[j] == "(":
+                    depth += 1
+                elif raw[j] == ")":
+                    depth -= 1
+                    if depth == 0:
+                        end_idx = j
+                        break
+            if end_idx == -1:
+                continue
+            inner = raw[idx + 1 : end_idx]
+            # split inner into x,y
+            depth2 = 0
+            comma_i = -1
+            for k, ch in enumerate(inner):
+                if ch == "(":
+                    depth2 += 1
+                elif ch == ")":
+                    depth2 -= 1
+                elif ch == "," and depth2 == 0:
+                    comma_i = k
+                    break
+            if comma_i == -1:
+                continue
+            x_expr = inner[:comma_i].strip()
+            y_expr = inner[comma_i + 1 :].strip()
+            # Remaining after tuple for radius
+            rest = raw[end_idx + 1 :].strip().lstrip(",").strip()
+            if not rest:
+                continue
+            # Split rest into top-level comma tokens (radius + optional style/color)
+            depth3 = 0
+            tokens: List[str] = []
+            cur: List[str] = []
+            for ch in rest:
+                if ch == "(":
+                    depth3 += 1
+                    cur.append(ch)
+                elif ch == ")":
+                    depth3 -= 1
+                    cur.append(ch)
+                elif ch == "," and depth3 == 0:
+                    part = "".join(cur).strip()
+                    if part:
+                        tokens.append(part)
+                    cur = []
+                else:
+                    cur.append(ch)
+            tail = "".join(cur).strip()
+            if tail:
+                tokens.append(tail)
+            if not tokens:
+                continue
+            r_token = tokens[0]
+            style_circle: str | None = None
+            color_circle: str | None = None
+            for tok in tokens[1:]:
+                low = tok.lower()
+                if low in _allowed_circle_styles and style_circle is None:
+                    style_circle = low
+                elif color_circle is None:
+                    color_circle = tok
+            try:
+                xv = _eval_expr(x_expr)
+                yv = _eval_expr(y_expr)
+                rv = _eval_expr(r_token)
+                if rv <= 0:
+                    continue
+                circle_vals.append(
+                    (float(xv), float(yv), float(rv), style_circle, color_circle)
+                )
+            except Exception:
+                # Silently skip invalid circle
+                pass
+
+        # ellipses: (x0,y0), a, b[, linestyle][, color]
+        # Parameterization: x = x0 + a*cos(t), y = y0 + b*sin(t), t in [0, 2*pi]
+        ellipse_vals: List[
+            Tuple[float, float, float, float, str | None, str | None]
+        ] = []
+        _allowed_ellipse_styles = _allowed_circle_styles
+        for e in lists.get("ellipse", []):
+            raw = str(e).strip()
+            idx = raw.find("(")
+            if idx == -1:
+                continue
+            depth = 0
+            end_idx = -1
+            for j in range(idx, len(raw)):
+                if raw[j] == "(":
+                    depth += 1
+                elif raw[j] == ")":
+                    depth -= 1
+                    if depth == 0:
+                        end_idx = j
+                        break
+            if end_idx == -1:
+                continue
+            inner = raw[idx + 1 : end_idx]
+            # split inner center on top-level comma
+            depth2 = 0
+            comma_i = -1
+            for k, ch in enumerate(inner):
+                if ch == "(":
+                    depth2 += 1
+                elif ch == ")":
+                    depth2 -= 1
+                elif ch == "," and depth2 == 0:
+                    comma_i = k
+                    break
+            if comma_i == -1:
+                continue
+            x0_expr = inner[:comma_i].strip()
+            y0_expr = inner[comma_i + 1 :].strip()
+            rest = raw[end_idx + 1 :].strip().lstrip(",").strip()
+            if not rest:
+                continue
+            # tokenize rest top-level commas
+            depth3 = 0
+            tokens: List[str] = []
+            cur: List[str] = []
+            for ch in rest:
+                if ch == "(":
+                    depth3 += 1
+                    cur.append(ch)
+                elif ch == ")":
+                    depth3 -= 1
+                    cur.append(ch)
+                elif ch == "," and depth3 == 0:
+                    part = "".join(cur).strip()
+                    if part:
+                        tokens.append(part)
+                    cur = []
+                else:
+                    cur.append(ch)
+            tail = "".join(cur).strip()
+            if tail:
+                tokens.append(tail)
+            if len(tokens) < 2:  # need a and b at least
+                continue
+            a_expr = tokens[0]
+            b_expr = tokens[1]
+            style_e: str | None = None
+            color_e: str | None = None
+            for tok in tokens[2:]:
+                low = tok.lower()
+                if low in _allowed_ellipse_styles and style_e is None:
+                    style_e = low
+                elif color_e is None:
+                    color_e = tok
+            try:
+                x0v = _eval_expr(x0_expr)
+                y0v = _eval_expr(y0_expr)
+                av = _eval_expr(a_expr)
+                bv = _eval_expr(b_expr)
+                if av <= 0 or bv <= 0:
+                    continue
+                ellipse_vals.append(
+                    (float(x0v), float(y0v), float(av), float(bv), style_e, color_e)
+                )
+            except Exception:
+                pass
+
         explicit_name = merged.get("name")
         debug_mode = "debug" in merged
+        # curves: x_expr, y_expr, (t_start, t_end)[, linestyle][, color]
+        curve_specs: List[Tuple[str, str, float, float, str | None, str | None]] = []
+        _allowed_curve_styles = {"solid", "dotted", "dashed", "dashdot"}
+        for c_line in lists.get("curve", []):
+            s_line = str(c_line).strip()
+            # Split top-level commas
+            depth_c = 0
+            parts_c: List[str] = []
+            cur_c: List[str] = []
+            for ch in s_line:
+                if ch == "(":
+                    depth_c += 1
+                    cur_c.append(ch)
+                elif ch == ")":
+                    depth_c -= 1
+                    cur_c.append(ch)
+                elif ch == "," and depth_c == 0:
+                    token = "".join(cur_c).strip()
+                    if token:
+                        parts_c.append(token)
+                    cur_c = []
+                else:
+                    cur_c.append(ch)
+            tail_c = "".join(cur_c).strip()
+            if tail_c:
+                parts_c.append(tail_c)
+            if len(parts_c) < 3:
+                continue
+            x_expr_c = parts_c[0]
+            y_expr_c = parts_c[1]
+            interval_token = parts_c[2]
+            m_iv = re.match(r"^\(\s*(.+?)\s*,\s*(.+?)\s*\)$", interval_token)
+            if not m_iv:
+                continue
+            t0_expr = m_iv.group(1)
+            t1_expr = m_iv.group(2)
+            style_cur: str | None = None
+            color_cur: str | None = None
+            for tok in parts_c[3:]:
+                low = tok.lower()
+                if low in _allowed_curve_styles and style_cur is None:
+                    style_cur = low
+                elif color_cur is None:
+                    color_cur = tok
+            try:
+                t0_val = _eval_expr(t0_expr)
+                t1_val = _eval_expr(t1_expr)
+                if t1_val < t0_val:
+                    t0_val, t1_val = t1_val, t0_val
+                curve_specs.append(
+                    (
+                        x_expr_c,
+                        y_expr_c,
+                        float(t0_val),
+                        float(t1_val),
+                        style_cur,
+                        color_cur,
+                    )
+                )
+            except Exception:
+                continue
+
+        # Parse figsize early (string like (6,4) or [6,4]) but apply at end
+        def _parse_figsize(val: Any):
+            if not isinstance(val, str):
+                return None
+            s = val.strip()
+            if not s:
+                return None
+            lit = _safe_literal(s)
+            if isinstance(lit, (list, tuple)) and len(lit) >= 2:
+                try:
+                    w = float(lit[0])
+                    h = float(lit[1])
+                    if w > 0 and h > 0:
+                        return (w, h)
+                except Exception:
+                    return None
+            # fallback simple regex (a,b)
+            m = re.match(
+                r"\(\s*([0-9]+(?:\.[0-9]+)?)\s*,\s*([0-9]+(?:\.[0-9]+)?)\s*\)", s
+            )
+            if m:
+                try:
+                    w = float(m.group(1))
+                    h = float(m.group(2))
+                    if w > 0 and h > 0:
+                        return (w, h)
+                except Exception:
+                    return None
+            return None
+
+        parsed_figsize = _parse_figsize(figsize_raw)
 
         # Hash includes all content affecting the image
         content_hash = _hash_key(
@@ -1133,9 +2100,24 @@ class PlotDirective(SphinxDirective):
             ),
             ";".join(
                 [
+                    f"{p1[0]},{p1[1]}->{p2[0]},{p2[1]}:{(st or '')}:{(col or '')}"
+                    for (p1, p2, st, col) in line_segment_vals
+                ]
+            ),
+            ";".join(
+                [
+                    f"{cx},{cy}:{r}:{sa}:{ea}:{(st or '')}:{(col or '')}"
+                    for (cx, cy, r, sa, ea, st, col) in angle_arcs
+                ]
+            ),
+            ";".join(
+                [
                     f"{xy[0]},{xy[1]}:{length}:{orientation}"
                     for (xy, length, orientation) in bar_vals
                 ]
+            ),
+            ";".join(
+                [f"{x},{y}:{dx},{dy}:{col}" for (x, y, dx, dy, col) in vector_vals]
             ),
             "|".join(axis_cmds),
             ";".join(
@@ -1161,6 +2143,9 @@ class PlotDirective(SphinxDirective):
             str(merged.get("ylabel", "")),
             int(bool(ticks_flag)),
             int(bool(grid_flag)),
+            str(merged.get("xticks", "")),
+            str(merged.get("yticks", "")),
+            str(parsed_figsize),
         )
         base_name = explicit_name or f"plot_{content_hash}"
 
@@ -1176,22 +2161,54 @@ class PlotDirective(SphinxDirective):
 
             matplotlib.use("Agg")
             try:
-                # Create bare axes using plotmath.plot with no functions
-                fig, ax = plotmath.plot(
-                    functions=[],
-                    fn_labels=False,
-                    xmin=xmin,
-                    xmax=xmax,
-                    ymin=ymin,
-                    ymax=ymax,
-                    xstep=xstep,
-                    ystep=ystep,
-                    ticks=ticks_flag,
-                    grid=grid_flag,
-                    lw=lw,
-                    alpha=alpha,
-                    fontsize=fontsize,
-                )
+                # Determine axis flags early
+                axis_off = any(str(c).lower() == "off" for c in axis_cmds)
+                axis_equal = any(str(c).lower() == "equal" for c in axis_cmds)
+
+                if axis_off:
+                    # Create a plain figure/axes (no plotmath.plot) so nothing (ticks/grid)
+                    # is drawn before we hide the axes.
+                    import matplotlib.pyplot as _plt
+
+                    fig, ax = _plt.subplots()
+                    # Provide a reasonable default size similar to plotmath defaults
+                    fig.set_size_inches(6.0, 6.0)
+                    ax.set_xlim(xmin, xmax)
+                    ax.set_ylim(ymin, ymax)
+                    # Hide coordinate system
+                    try:
+                        ax.axis("off")
+                    except Exception:
+                        pass
+                    # Apply equal aspect if requested
+                    if axis_equal:
+                        try:
+                            ax.axis("equal")
+                        except Exception:
+                            pass
+                else:
+                    # Standard path: delegate axis setup (ticks, grid, labels) to plotmath
+                    fig, ax = plotmath.plot(
+                        functions=[],
+                        fn_labels=False,
+                        xmin=xmin,
+                        xmax=xmax,
+                        ymin=ymin,
+                        ymax=ymax,
+                        xstep=xstep,
+                        ystep=ystep,
+                        ticks=ticks_flag,
+                        grid=grid_flag,
+                        lw=lw,
+                        alpha=alpha,
+                        fontsize=fontsize,
+                    )
+                    # If equal requested (without off), apply after plot creation
+                    if axis_equal:
+                        try:
+                            ax.axis("equal")
+                        except Exception:
+                            pass
 
                 # Plot requested functions directly on ax, with optional labels, per-function domains, and exclusions
                 if functions:
@@ -1352,10 +2369,6 @@ class PlotDirective(SphinxDirective):
                                 alpha=alpha,
                             )
 
-                # Plot points
-                for x0, y0 in point_vals:
-                    ax.plot(x0, y0, "o", markersize=10, alpha=0.8, color="black")
-
                 # Bars
                 for xy, length, orientation in bar_vals:
                     try:
@@ -1391,6 +2404,42 @@ class PlotDirective(SphinxDirective):
                                 )
                     except Exception:
                         pass
+
+                # Angle arcs
+                if "angle_arcs" in locals() and angle_arcs:
+                    try:
+                        import numpy as _np_ang
+                    except Exception:
+                        _np_ang = None
+                    if _np_ang is not None:
+                        style_map_arc = {
+                            "solid": "-",
+                            "dotted": ":",
+                            "dashed": "--",
+                            "dashdot": "-.",
+                        }
+                        default_arc_color = plotmath.COLORS.get("black") or "black"
+                        for cx, cy, r, sa_deg, ea_deg, st_a, col_a in angle_arcs:
+                            try:
+                                sa = _np_ang.deg2rad(sa_deg)
+                                ea = _np_ang.deg2rad(ea_deg)
+                                theta = _np_ang.linspace(sa, ea, 1024)
+                                xs = cx + r * _np_ang.cos(theta)
+                                ys = cy + r * _np_ang.sin(theta)
+                                ls_use = style_map_arc.get(
+                                    (st_a or "solid").lower(), "-"
+                                )
+                                # Resolve color via plotmath palette
+                                if col_a:
+                                    _mapped = plotmath.COLORS.get(col_a)
+                                else:
+                                    _mapped = None
+                                col_use = (
+                                    _mapped if _mapped else col_a
+                                ) or default_arc_color
+                                ax.plot(xs, ys, lw=1, color=col_use, linestyle=ls_use)
+                            except Exception:
+                                pass
 
                 # text with optional positioning and optional bbox
 
@@ -1509,6 +2558,161 @@ class PlotDirective(SphinxDirective):
                             x0 + dx, y0 + dy, text, fontsize=int(fontsize), ha=ha, va=va
                         )
 
+                # line segments (draw before vlines/hlines so guides overlay if needed)
+                if "line_segment_vals" in locals() and line_segment_vals:
+                    style_map_seg = {
+                        "solid": "-",
+                        "dotted": ":",
+                        "dashed": "--",
+                        "dashdot": "-.",
+                    }
+                    default_seg_color = plotmath.COLORS.get("red")
+                    try:
+                        from matplotlib import colors as _mcolors_seg
+                    except Exception:
+                        _mcolors_seg = None
+                    for p1, p2, st_seg, col_seg in line_segment_vals:
+                        (x1s, y1s), (x2s, y2s) = p1, p2
+                        ls_use = style_map_seg.get((st_seg or "solid").lower(), "-")
+                        if col_seg:
+                            _mapped_seg = plotmath.COLORS.get(col_seg)
+                        else:
+                            _mapped_seg = None
+                        col_use = (
+                            _mapped_seg if _mapped_seg else col_seg
+                        ) or default_seg_color
+                        if _mcolors_seg is not None:
+                            try:
+                                _ = _mcolors_seg.to_rgba(col_use)
+                            except Exception:
+                                col_use = default_seg_color
+                        try:
+                            ax.plot(
+                                [x1s, x2s],
+                                [y1s, y2s],
+                                linestyle=ls_use,
+                                color=col_use,
+                                lw=lw,
+                            )
+                        except Exception:
+                            pass
+                # Circles
+                if "circle_vals" in locals() and circle_vals:
+                    try:
+                        from matplotlib import patches as _mpatches_c
+                    except Exception:
+                        _mpatches_c = None
+                    if _mpatches_c is not None:
+                        style_map_circle = {
+                            "solid": "-",
+                            "dotted": ":",
+                            "dashed": "--",
+                            "dashdot": "-.",
+                        }
+                        default_circle_color = plotmath.COLORS.get("black") or "black"
+                        for cx, cy, r_c, st_c, col_c in circle_vals:
+                            try:
+                                # Resolve color
+                                if col_c:
+                                    mapped = plotmath.COLORS.get(col_c)
+                                else:
+                                    mapped = None
+                                col_use = (
+                                    mapped if mapped else col_c
+                                ) or default_circle_color
+                                # Resolve linestyle -> we pass as linestyle on patch edge
+                                ls_use = style_map_circle.get(
+                                    (st_c or "solid").lower(), "-"
+                                )
+                                circ = _mpatches_c.Circle(
+                                    (cx, cy),
+                                    r_c,
+                                    fill=False,
+                                    edgecolor=col_use,
+                                    facecolor="none",
+                                    linestyle=ls_use,
+                                    lw=lw,
+                                )
+                                ax.add_patch(circ)
+                            except Exception:
+                                pass
+                # Ellipses
+                if "ellipse_vals" in locals() and ellipse_vals:
+                    try:
+                        import numpy as _np_el
+                    except Exception:
+                        _np_el = None
+                    if _np_el is not None:
+                        style_map_ellipse = {
+                            "solid": "-",
+                            "dotted": ":",
+                            "dashed": "--",
+                            "dashdot": "-.",
+                        }
+                        default_ellipse_color = plotmath.COLORS.get("black") or "black"
+                        for x0e, y0e, a_e, b_e, st_e, col_e in ellipse_vals:
+                            try:
+                                t = _np_el.linspace(0, 2 * _np_el.pi, 1024)
+                                xs = x0e + a_e * _np_el.cos(t)
+                                ys = y0e + b_e * _np_el.sin(t)
+                                if col_e:
+                                    mapped = plotmath.COLORS.get(col_e)
+                                else:
+                                    mapped = None
+                                col_use = (
+                                    mapped if mapped else col_e
+                                ) or default_ellipse_color
+                                ls_use = style_map_ellipse.get(
+                                    (st_e or "solid").lower(), "-"
+                                )
+                                ax.plot(xs, ys, color=col_use, linestyle=ls_use, lw=lw)
+                            except Exception:
+                                pass
+
+                # Curves (parametric x(t), y(t))
+                if "curve_specs" in locals() and curve_specs:
+                    try:
+                        import sympy as _sp_curve
+                        import numpy as _np_curve
+                    except Exception:
+                        _sp_curve = None
+                        _np_curve = None
+                    if _sp_curve is not None and _np_curve is not None:
+                        style_map_curve = {
+                            "solid": "-",
+                            "dotted": ":",
+                            "dashed": "--",
+                            "dashdot": "-.",
+                        }
+                        default_curve_color = plotmath.COLORS.get("black") or "black"
+                        for x_expr_s, y_expr_s, t0_c, t1_c, st_c, col_c in curve_specs:
+                            try:
+                                t_sym = _sp_curve.symbols("t")
+                                # Sympify with local symbol t; rely on SymPy's safe parsing (no arbitrary exec)
+                                x_sym = _sp_curve.sympify(x_expr_s, locals={"t": t_sym})
+                                y_sym = _sp_curve.sympify(y_expr_s, locals={"t": t_sym})
+                                fx = _sp_curve.lambdify(t_sym, x_sym, "numpy")
+                                fy = _sp_curve.lambdify(t_sym, y_sym, "numpy")
+                                t_arr = _np_curve.linspace(t0_c, t1_c, 1024)
+                                xs = fx(t_arr)
+                                ys = fy(t_arr)
+                                # Basic sanity checks
+                                try:
+                                    _ = len(xs)
+                                    _ = len(ys)
+                                except Exception:
+                                    continue
+                                mapped = plotmath.COLORS.get(col_c) if col_c else None
+                                col_use = (
+                                    mapped if mapped else col_c
+                                ) or default_curve_color
+                                ls_use = style_map_curve.get(
+                                    (st_c or "solid").lower(), "-"
+                                )
+                                ax.plot(xs, ys, color=col_use, linestyle=ls_use, lw=lw)
+                            except Exception:
+                                continue
+
                 # vlines
                 style_map = {
                     "solid": "-",
@@ -1520,7 +2724,7 @@ class PlotDirective(SphinxDirective):
                 for x_v, y0, y1, st, col in vline_vals:
                     y_min = ymin if y0 is None else y0
                     y_max = ymax if y1 is None else y1
-                    ls_val = style_map.get((st or "dotted").lower(), ":")
+                    ls_val = style_map.get((st or "dashed").lower(), ":")
                     # Resolve user color through plotmath.COLORS, then fallback to original, then default
                     _mapped = plotmath.COLORS.get(col) if col else None
                     color_to_try = (_mapped if _mapped else col) or default_color
@@ -1549,7 +2753,7 @@ class PlotDirective(SphinxDirective):
                 for y_h, x0, x1, st_h, col_h in hline_vals:
                     x_min = xmin if x0 is None else x0
                     x_max = xmax if x1 is None else x1
-                    ls_val_h = style_map.get((st_h or "dotted").lower(), ":")
+                    ls_val_h = style_map.get((st_h or "dashed").lower(), ":")
                     # Resolve user color through plotmath.COLORS, then fallback to original, then default
                     _mapped_h = plotmath.COLORS.get(col_h) if col_h else None
                     color_to_try_h = (
@@ -1603,7 +2807,42 @@ class PlotDirective(SphinxDirective):
                         except Exception:
                             plotmath.polygon(*pts, edges=False, alpha=a)
 
-                # axis commands (run sequentially)
+                # Vectors (quiver) drawn before points so markers overlay arrow heads
+                if vector_vals:
+                    default_vector_color = plotmath.COLORS.get("black") or "black"
+                    try:
+                        for x_v, y_v, dx_v, dy_v, col_v in vector_vals:
+                            # Resolve color through palette first
+                            if col_v:
+                                _mapped_vec = plotmath.COLORS.get(col_v)
+                            else:
+                                _mapped_vec = None
+                            color_use = (
+                                _mapped_vec if _mapped_vec else col_v
+                            ) or default_vector_color
+                            ax.quiver(
+                                x_v,
+                                y_v,
+                                dx_v,
+                                dy_v,
+                                angles="xy",
+                                scale_units="xy",
+                                scale=1,
+                                width=0.0065,
+                                headwidth=4,
+                                headlength=4.5,
+                                color=color_use,
+                            )
+                    except Exception:
+                        pass
+
+                # Plot points
+                for x0, y0 in point_vals:
+                    ax.plot(x0, y0, "o", markersize=10, alpha=0.8, color="black")
+
+                # axis commands (run sequentially) — retain for legacy commands; we
+                # skip reapplying 'off'/'equal' earlier logic is already applied but
+                # they are harmless if repeated.
                 for cmd in axis_cmds:
                     try:
                         ax.axis(cmd)
@@ -1663,8 +2902,39 @@ class PlotDirective(SphinxDirective):
                     except Exception:
                         ax.set_xlabel(xl_text, fontsize=int(fontsize))
 
+                # Apply user figsize at the very end if provided
+                if parsed_figsize is not None:
+                    try:
+                        fig.set_size_inches(*parsed_figsize)
+                    except Exception:
+                        pass
+
+                # Handle individual tick control (xticks/yticks off)
+                xticks_raw = merged.get("xticks")
+                yticks_raw = merged.get("yticks")
+
+                if isinstance(xticks_raw, str) and xticks_raw.strip().lower() == "off":
+                    try:
+                        ax.set_xticks([])
+                    except Exception:
+                        pass
+
+                if isinstance(yticks_raw, str) and yticks_raw.strip().lower() == "off":
+                    try:
+                        ax.set_yticks([])
+                    except Exception:
+                        pass
+
+                # Apply tight_layout to prevent label clipping
+                try:
+                    fig.tight_layout()
+                except Exception:
+                    pass
+
                 fig.savefig(
-                    abs_svg, format="svg", bbox_inches="tight", transparent=True
+                    abs_svg,
+                    format="svg",
+                    transparent=True,
                 )
                 if debug_mode:
                     # Sidecar PDF (optional for debugging)
@@ -1672,7 +2942,6 @@ class PlotDirective(SphinxDirective):
                         fig.savefig(
                             os.path.join(abs_dir, f"{base_name}.pdf"),
                             format="pdf",
-                            bbox_inches="tight",
                             transparent=True,
                         )
                     except Exception:
@@ -1753,13 +3022,11 @@ class PlotDirective(SphinxDirective):
             return tag
 
         raw_svg = re.sub(r"<svg\b[^>]*>", _augment, raw_svg, count=1)
-        if alt and "<title" not in raw_svg:
-            raw_svg = re.sub(
-                r"(<svg\b[^>]*>)",
-                r"\1<title>" + re.escape(alt) + r"</title>",
-                raw_svg,
-                count=1,
-            )
+        # Deliberately do not inject a <title> element: browsers display it as a tooltip
+        # on hover which is distracting for readers. Accessibility is still ensured via
+        # role="img" and aria-label attributes already added in _augment(). If a title
+        # is ever desired for a specific figure, that can be added manually after build
+        # or a future directive option could re-enable this behavior.
 
         figure = nodes.figure()
         figure.setdefault("classes", []).extend(

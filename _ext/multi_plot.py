@@ -1,21 +1,215 @@
-"""multi-plot directive: create a grid of function plots using plotmath.multiplot.
+"""multi-plot directive
+=================================
 
-Features:
- - Accepts a list of function expressions and plots each in a grid (rows x cols)
- - Expressions compiled safely with sympy -> numpy (vectorized)
- - Caching via hashed parameters unless :nocache: set
- - Optional :debug: preserves original SVG (no stripping / id rewrite) and also saves PDF copy
- - Width control and safe ID rewriting for multiple instances on same page
- - YAML front matter (--- ... ---) or simple key: value lines before caption
+Create a responsive grid (rows × cols) of mathematical function plots using
+``plotmath.multiplot`` and a collection of numpy / matplotlib transformations.
+The directive focuses on pedagogical clarity, robust domain / exclusion handling,
+and clean SVG output (sanitized IDs, no fixed width/height, optional width styling).
 
-Usage (MyST):
-
+Quick Example (MyST)
+--------------------
 :::{multi-plot}
 functions: [x**2 - 2*x, -x + 2, x - 3]
 rows: 1
 cols: 3
 width: 100%
+alt: Tre grafer som sammenligner funksjoner
 :::
+
+Minimal Example
+---------------
+:::{multi-plot}
+functions: [x**2, sin(x), exp(x)]
+:::
+
+Front‑Matter vs Inline Options
+------------------------------
+You can either:
+
+1. Supply key/value pairs directly at the top (each ``key: value`` line) until a
+     blank or non-matching line is encountered.
+2. Use a fenced *YAML-like* block delimited by ``---`` lines, then an empty line,
+     followed by an optional caption.
+
+Example with front‑matter + caption:
+:::{multi-plot}
+---
+functions: [x**2, -x, x**3]
+rows: 1
+cols: 3
+width: 80%
+alt: Tre forskjellige funksjoner
+---
+Sammenligning av tre funksjoner.
+:::
+
+Caching & Regeneration
+----------------------
+All parameters (functions, domains, lines, style flags, etc.) are hashed to form
+an SVG cache filename under ``_static/multi_plot``. Use ``:nocache:`` (or
+``nocache:`` in front‑matter) to force regeneration. The hash includes axis
+limits, domain exclusions, per-axis lines, and labeling flags to minimize stale
+outputs.
+
+Safety & ID Rewriting
+---------------------
+All non-font glyph IDs within the generated SVG are rewritten with a unique
+prefix to avoid collisions when embedding multiple multi-plot figures on the
+same page. URL and href references (including gradients, clips, etc.) are
+updated accordingly.
+
+Accessibility
+-------------
+The root ``<svg>`` receives ``role="img"`` and ``aria-label="..."`` (from the
+``alt`` option or a generated default) instead of a ``<title>`` tag to avert
+hover tooltips while retaining screen reader context.
+
+Width & Layout
+--------------
+``width`` may be a percentage (e.g. ``60%``, ``100%``) or an absolute size
+(``400`` or ``400px``). Percent widths get ``display:block; margin:0 auto;`` for
+centering. If you need left/right alignment, supply ``align: left`` or
+``align: right`` (the directive's figure container alignment plus CSS handles the rest).
+
+Function Expressions
+--------------------
+Provide a comma-separated or bracketed list (``[ ... ]``). Each expression is
+sympified via SymPy, then vectorized with ``lambdify``. Example accepted forms:
+* ``x**2 - 2*x``
+* ``sin(x)``
+* ``exp(x)``
+
+Labels
+------
+Use either ``fn_labels`` or its alias ``function-names``. If the number of
+labels matches the number of functions, they are shown (LaTeX math wrapped in
+``$...$``). Otherwise, labels are auto-inferred / hidden depending on plotmath
+defaults. Example:
+``fn_labels: [f(x)=x^2, g(x)=-x, h(x)=x^3]``
+
+Per-Function Domains & Exclusions
+---------------------------------
+``domains`` accepts top-level comma-separated domain specs with optional
+exclusion points using a set difference notation ``(a,b) \ {x1, x2, ...}``.
+Example:
+``domains: [( -5,5 ) \ {0}, ( -2,2 ), (0, 6) \ {1,2}]``
+
+Excluded x-values are widened internally (with a small numeric halo + neighbor
+NaNs) to create visible breaks instead of spuriously connecting across
+discontinuities.
+
+Vertical & Horizontal Lines
+---------------------------
+``vlines`` / ``hlines`` accept lists of x or y locations per function panel. Each
+panel’s list is expressed as a top-level comma-separated group. Example:
+``vlines: [[-2,0,2], None, [1]]`` or ``vlines: [-2; None; 1]`` (semicolons treated as commas).
+
+Axis-Specific Limits
+--------------------
+``xlims`` / ``ylims`` allow per-plot overrides: ``xlims: [(-3,3), None, (-1,5)]``.
+Where omitted or ``None``, the global ``xmin/xmax`` or ``ymin/ymax`` apply.
+
+Reference Line (y = a*x + b)
+----------------------------
+``lines`` takes per-axis slope/intercept specs. Each element may be a two-element
+sequence ``[a, b]`` or ``(a, b)``, or an extended form ``[a, (x0,y0)]`` from which
+``b`` is derived as ``y0 - a*x0``.
+
+Alpha / Line Width / Font Size
+------------------------------
+* ``alpha`` – global transparency for function curves.
+* ``lw`` – line width (float-like).
+* ``fontsize`` – base font size applied to axes labels, tick labels, and legends.
+
+Ticks & Grid
+------------
+* ``ticks`` – truthy/falsey values (``true``, ``false``, ``on``, ``off``...). Defaults to True.
+* ``grid`` – same parsing as ``ticks``.
+
+Rows & Cols Auto Layout
+-----------------------
+``rows`` and ``cols`` determine the subplot grid. If you omit ``cols`` we compute a
+default that fits all functions given the specified rows.
+
+Parsing Nuances
+---------------
+The directive tolerates:
+* Bracketed lists ``[a, b, c]`` or raw ``a, b, c`` strings.
+* Semicolons as separators (converted to commas).
+* Per-item parentheses / brackets / braces inside domain or line specs.
+
+Debug Mode
+----------
+``:debug:`` (or ``debug:``) disables ID rewriting and size stripping so you can
+inspect the raw produced SVG. (A PDF sidecar snippet is present in code but
+commented out.)
+
+No Hover Tooltips
+-----------------
+We intentionally do not inject ``<title>`` elements; they created distracting
+hover popups. Accessibility is preserved through ``aria-label``.
+
+Error Handling
+--------------
+If an expression fails SymPy parsing or evaluation, the build emits a Sphinx
+error node indicating which function failed. Numerical issues (NaNs, infs) are
+neutralized into ``NaN`` gaps, avoiding Matplotlib from drawing misleading spikes.
+
+Option Reference (Summary)
+--------------------------
+Required:
+* ``functions`` – list of function expressions.
+
+Styling & Layout:
+* ``width`` – percentage or px (auto-centers if %).
+* ``rows`` / ``cols`` – grid shape.
+* ``align`` – left | center | right (figure alignment class).
+* ``class`` – extra CSS classes appended to figure container.
+* ``alt`` – accessible description (defaults to generic text).
+
+Axes & Appearance:
+* ``xmin``, ``xmax``, ``ymin``, ``ymax`` – global ranges.
+* ``xstep``, ``ystep`` – tick spacing.
+* ``fontsize`` – base font size.
+* ``lw`` – line width.
+* ``alpha`` – line alpha (float).
+* ``grid`` – toggle grid.
+* ``ticks`` – toggle ticks.
+
+Per-Function / Per-Axis:
+* ``domains`` – list of domain specs with optional exclusions ``(a,b) \ {e1,e2}``.
+* ``points`` – per-axis point lists. Each element can be ``None`` (or omitted) or a
+    single tuple ``(x,y)`` or a list/tuple of tuples ``[(x1,y1),(x2,y2)]``. Examples:
+    ``points: [ (0,0), None, [(1,2),(2,3)] ]`` or using bracketless top-level splitting
+    ``points: [(0,0), None, ((1,2),(2,3))]``. Points are drawn as filled blue circles
+    with black edges after the function curve so they appear on top.
+* ``vlines`` / ``hlines`` – vertical / horizontal reference lines.
+* ``xlims`` / ``ylims`` – per-axis limits.
+* ``lines`` – reference lines y = a*x + b or derived from basepoint.
+* ``fn_labels`` / ``function-names`` – labels.
+
+Meta / Control:
+* ``nocache`` – force regeneration.
+* ``debug`` – keep raw SVG + skip ID rewriting.
+* ``name`` – explicit figure base name (influences cache filename).
+
+Caption
+-------
+Any content after the parsed key/value block (or after inline key/value lines)
+is treated as the caption and wrapped in a Sphinx ``<caption>`` node.
+
+Implementation Notes
+--------------------
+* Expressions are compiled once per build variant and cached.
+* Domain exclusions create widened gaps (± a few samples) for visual clarity.
+* ID rewriting avoids collisions of gradients / clips when multiple multi-plot
+    images exist on the same page.
+* Inline width styling is injected only once by a regex match on the first
+    ``<svg>`` tag; subsequent styling merges if a style attribute already exists.
+
+This directive is specifically tuned for the pedagogical needs of the material
+in this repository; tweak or extend as needed. If you add new options, please
+update this docstring to keep the self-documenting pattern intact.
 """
 
 from __future__ import annotations
@@ -208,6 +402,7 @@ class MultiPlotDirective(SphinxDirective):
         "xlims": directives.unchanged,  # per-function xlim tuple or None
         "ylims": directives.unchanged,  # per-function ylim tuple or None
         "lines": directives.unchanged,  # per-axis line spec: (a,b) or (a,(x,y)) or None
+        "points": directives.unchanged,  # per-axis point lists: [(x,y),(x,y)] or None
         "xmin": directives.unchanged,
         "xmax": directives.unchanged,
         "ymin": directives.unchanged,
@@ -411,6 +606,7 @@ class MultiPlotDirective(SphinxDirective):
         xlims_raw = _split_top_level(str(merged.get("xlims", "")))
         ylims_raw = _split_top_level(str(merged.get("ylims", "")))
         lines_raw = _split_top_level(str(merged.get("lines", "")))
+        points_raw = _split_top_level(str(merged.get("points", "")))
 
         # Normalize sizes to match number of functions
         n = len(functions)
@@ -424,6 +620,7 @@ class MultiPlotDirective(SphinxDirective):
         xlims_raw = _pad(xlims_raw)
         ylims_raw = _pad(ylims_raw)
         lines_raw = _pad(lines_raw)
+        points_raw = _pad(points_raw)
 
         dom_list: List[Tuple[float, float] | None] = []
         excl_list: List[List[float]] = []
@@ -481,6 +678,62 @@ class MultiPlotDirective(SphinxDirective):
         line_specs: List[Tuple[float, float] | None] = [
             _parse_line_spec(s) for s in lines_raw[:n]
         ]
+
+        # Parse per-axis points. Each entry can be:
+        #  - "None" or empty => no points for that axis
+        #  - a single tuple like (x,y)
+        #  - a list/tuple of tuples: [(x1,y1),(x2,y2)] or ((x1,y1),(x2,y2))
+        #  - a loose comma form: (x1,y1); (x2,y2)
+        def _parse_points_entry(s: str):
+            if not isinstance(s, str):
+                return None
+            st = s.strip()
+            if not st or st.lower() == "none":
+                return None
+            lit = _safe_literal(st)
+            points_list: List[Tuple[float, float]] = []
+
+            def _coerce_pair(obj):
+                try:
+                    if (
+                        isinstance(obj, (list, tuple))
+                        and len(obj) == 2
+                        and all(isinstance(v, (int, float)) for v in obj)
+                    ):
+                        return (float(obj[0]), float(obj[1]))
+                except Exception:
+                    return None
+                return None
+
+            if isinstance(lit, (list, tuple)):
+                # Could be list of pairs or a single pair
+                if len(lit) == 2 and all(isinstance(v, (int, float)) for v in lit):
+                    p = _coerce_pair(lit)
+                    if p:
+                        points_list.append(p)
+                else:
+                    for item in lit:
+                        p = _coerce_pair(item)
+                        if p:
+                            points_list.append(p)
+                return points_list or None
+            # Fallback: find all (x,y) pattern occurrences
+            import re as _re
+
+            matches = _re.findall(
+                r"\(\s*([-+]?\d*\.?\d+(?:[eE][-+]?\d+)?)\s*,\s*([-+]?\d*\.?\d+(?:[eE][-+]?\d+)?)\s*\)",
+                st,
+            )
+            for a, b in matches:
+                try:
+                    points_list.append((float(a), float(b)))
+                except Exception:
+                    pass
+            return points_list or None
+
+        points_vals: List[List[Tuple[float, float]] | None] = [
+            _parse_points_entry(s) for s in points_raw[:n]
+        ]
         explicit_name = merged.get("name")
         debug_mode = "debug" in merged
         rows = int(float(merged.get("rows", 1)))
@@ -512,6 +765,12 @@ class MultiPlotDirective(SphinxDirective):
             "|".join(["" if xl is None else f"{xl[0]},{xl[1]}" for xl in xlim_vals]),
             "|".join(["" if yl is None else f"{yl[0]},{yl[1]}" for yl in ylim_vals]),
             "|".join(["" if ls is None else f"{ls[0]},{ls[1]}" for ls in line_specs]),
+            "|".join(
+                [
+                    "" if pv is None else ";".join([f"{p[0]},{p[1]}" for p in pv])
+                    for pv in points_vals
+                ]
+            ),
         )
         base_name = explicit_name or f"multi_plot_{content_hash}"
 
@@ -555,6 +814,16 @@ class MultiPlotDirective(SphinxDirective):
                     )
                 except Exception:
                     axes_list = axes if isinstance(axes, (list, tuple)) else [axes]
+
+                # Ensure tick label font size matches provided fontsize (legend handled later)
+                try:
+                    for _ax in axes_list:
+                        try:
+                            _ax.tick_params(labelsize=int(fontsize))
+                        except Exception:
+                            pass
+                except Exception:
+                    pass
 
                 # Manual plotting per-axis
                 import numpy as np
@@ -633,6 +902,23 @@ class MultiPlotDirective(SphinxDirective):
                         ax.legend(fontsize=int(fontsize))
                     else:
                         ax.plot(x, y, lw=lw, alpha=alpha)
+                    # Plot per-axis points if provided
+                    try:
+                        pv = points_vals[idx]
+                        if pv:
+                            xs = [p[0] for p in pv]
+                            ys = [p[1] for p in pv]
+                            ax.plot(
+                                xs,
+                                ys,
+                                linestyle="none",
+                                marker="o",
+                                markersize=max(4, min(12, int(fontsize) // 2)),
+                                color="black",
+                                alpha=0.8,
+                            )
+                    except Exception:
+                        pass
                     # Optional line y = a*x + b per axis
                     if line_specs[idx] is not None:
                         try:
@@ -827,13 +1113,8 @@ class MultiPlotDirective(SphinxDirective):
             return tag
 
         raw_svg = re.sub(r"<svg\b[^>]*>", _augment, raw_svg, count=1)
-        if alt and "<title" not in raw_svg:
-            raw_svg = re.sub(
-                r"(<svg\b[^>]*>)",
-                r"\1<title>" + re.escape(alt) + r"</title>",
-                raw_svg,
-                count=1,
-            )
+        # Intentionally do not inject a <title> element to avoid hover tooltips; accessibility
+        # remains via role="img" and aria-label attributes. Add manually later if truly needed.
 
         figure = nodes.figure()
         figure.setdefault("classes", []).extend(

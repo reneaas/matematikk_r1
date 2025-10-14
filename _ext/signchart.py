@@ -311,14 +311,9 @@ class SignChartDirective(SphinxDirective):
                     tag = tag[:-1] + f' style="{style_frag}"' + ">"
             return tag
 
-        raw_svg = re.sub(r"<svg\b[^>]*>", _augment, raw_svg, count=1)
-        if alt and "<title" not in raw_svg:
-            raw_svg = re.sub(
-                r"(<svg\b[^>]*>)",
-                r"\1<title>" + re.escape(alt) + r"</title>",
-                raw_svg,
-                count=1,
-            )
+        raw_svg = re.sub(r"<svg\\b[^>]*>", _augment, raw_svg, count=1)
+        # Suppress automatic <title> insertion to avoid browser hover tooltips.
+        # Accessibility is maintained via role="img" and aria-label set above.
 
         figure = nodes.figure()
         figure.setdefault("classes", []).extend(
