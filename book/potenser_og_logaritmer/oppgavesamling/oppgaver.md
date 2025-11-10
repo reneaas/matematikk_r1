@@ -1183,6 +1183,7 @@ xstep: 0.1
 ymin: -1
 ymax: 11
 ystep: 1
+fontsize: 16
 :::
 
 
@@ -1264,6 +1265,7 @@ xstep: 0.1
 ymin: -0.5
 ymax: 4
 ystep: 0.5
+fontsize: 16
 :::
 
 
@@ -1351,11 +1353,12 @@ Bestem $a$.
 width: 80%
 function: log(x)/log(5)
 xmin: -1
-xmax: 16
+xmax: 13
 xstep: 1
 ymin: -2
 ymax: 6
 ystep: 1
+fontsize: 16
 :::
 
 

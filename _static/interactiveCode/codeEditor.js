@@ -279,6 +279,10 @@ class CodeEditor {
                 template: "print(f\"{variabel = }\")",
                 caretWords: ["variabel"]
             },
+            "likning": {
+                template: "for x in range(start, stopp, avstand):\n    if venstre_side == høyre_side:\n        print(x)",
+                caretWords: ["start", "stopp", "avstand", "venstre_side", "høyre_side"]
+            },
         };
     }
 

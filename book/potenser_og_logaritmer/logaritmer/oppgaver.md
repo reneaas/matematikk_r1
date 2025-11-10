@@ -657,13 +657,14 @@ $$
 
 :::{plot}
 width: 80%
-function: log(x) / log(3)
+function: log(x) / log(3), f
 xmin: -2
 xmax: 30
 ymin: -0.2
 xstep: 2
 ymax: 3
 ystep: 0.2
+fontsize: 15
 :::
 
 > Bruk grafen ovenfor til å finne omtrentlige svar i oppgavene nedenfor.
@@ -784,6 +785,7 @@ xstep: 0.2
 ymin: -5
 ymax: 10
 ystep: 1
+fontsize: 16
 :::
 
 > Du må her også lese av omtrentlige verdier. Men lurt å tenke på hvordan du kan faktorisere tallet ditt så du kan bruke produktregelen for logaritmer.

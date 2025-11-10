@@ -65,6 +65,7 @@ name           Stable output filename / anchor.
 alt            Alt text (accessibility).
 nocache        Force regeneration (ignore cache).
 debug          Keep raw SVG size & emit sidecar PDF if possible.
+usetex         ``true|false`` force LaTeX text rendering via matplotlib (default ``true``; can be set globally via ``plot_default_usetex`` in ``conf.py``).
 fontsize       Base font size (default 20).
 lw             Default line width for plotted curves (default 2.5).
 alpha          Global alpha for function / curve lines (optional).
@@ -395,6 +396,8 @@ class PlotDirective(SphinxDirective):
         "nocache": directives.flag,
         "debug": directives.flag,
         "alt": directives.unchanged,
+        # text rendering
+        "usetex": directives.unchanged,
         # axes options (optional in YAML too)
         "xmin": directives.unchanged,
         "xmax": directives.unchanged,
@@ -2055,6 +2058,12 @@ class PlotDirective(SphinxDirective):
 
         parsed_figsize = _parse_figsize(figsize_raw)
 
+        # Explicit LaTeX text rendering control. Default to True for consistent LaTeX fonts.
+        # If the directive option is omitted, fall back to global config value 'plot_default_usetex' (defaults True).
+        usetex_opt = _parse_bool(merged.get("usetex"), default=None)
+        default_cfg = getattr(env.config, "plot_default_usetex", True)
+        use_usetex = bool(usetex_opt) if usetex_opt is not None else bool(default_cfg)
+
         # Hash includes all content affecting the image
         content_hash = _hash_key(
             "|".join(fn_exprs),
@@ -2146,6 +2155,7 @@ class PlotDirective(SphinxDirective):
             str(merged.get("xticks", "")),
             str(merged.get("yticks", "")),
             str(parsed_figsize),
+            int(bool(use_usetex)),
         )
         base_name = explicit_name or f"plot_{content_hash}"
 
@@ -2161,6 +2171,16 @@ class PlotDirective(SphinxDirective):
 
             matplotlib.use("Agg")
             try:
+                # Ensure consistent text rendering from drawing through save.
+                _old_usetex = matplotlib.rcParams.get("text.usetex")
+                _old_mathtext = matplotlib.rcParams.get("mathtext.fontset")
+                try:
+                    matplotlib.rcParams["text.usetex"] = use_usetex
+                    # Prefer Computer Modern math text when not using external LaTeX
+                    if not use_usetex:
+                        matplotlib.rcParams["mathtext.fontset"] = "cm"
+                except Exception:
+                    pass
                 # Determine axis flags early
                 axis_off = any(str(c).lower() == "off" for c in axis_cmds)
                 axis_equal = any(str(c).lower() == "equal" for c in axis_cmds)
@@ -2927,6 +2947,11 @@ class PlotDirective(SphinxDirective):
 
                 # Apply tight_layout to prevent label clipping
                 try:
+                    # Make sure text extents are realized before layout when using TeX
+                    try:
+                        fig.canvas.draw()
+                    except Exception:
+                        pass
                     fig.tight_layout()
                 except Exception:
                     pass
@@ -2948,7 +2973,19 @@ class PlotDirective(SphinxDirective):
                         pass
 
                 matplotlib.pyplot.close(fig)
+                # Restore rcParams modified for this figure
+                try:
+                    matplotlib.rcParams["text.usetex"] = _old_usetex
+                    matplotlib.rcParams["mathtext.fontset"] = _old_mathtext
+                except Exception:
+                    pass
             except Exception as e:
+                # Best-effort rcParams restoration on error
+                try:
+                    matplotlib.rcParams["text.usetex"] = _old_usetex
+                    matplotlib.rcParams["mathtext.fontset"] = _old_mathtext
+                except Exception:
+                    pass
                 return [
                     self.state_machine.reporter.error(
                         f"Feil under generering av figur: {e}", line=self.lineno
@@ -3058,4 +3095,6 @@ class PlotDirective(SphinxDirective):
 
 def setup(app):  # pragma: no cover
     app.add_directive("plot", PlotDirective)
+    # Global default for LaTeX usage in plots; can be overridden per-figure via 'usetex:'
+    app.add_config_value("plot_default_usetex", True, "env")
     return {"version": "0.1", "parallel_read_safe": True, "parallel_write_safe": True}
