@@ -47,6 +47,7 @@ xstep: 0.1
 ymin: -1
 ymax: 11
 ystep: 1
+fontsize: 16
 :::
 
 
@@ -70,6 +71,7 @@ ystep: 1
 hline: 2, 0, 0.3, dashed
 vline: 0.3, 0, 2, dashed
 point: (0.3, 2)
+fontsize: 16
 :::
 
 
@@ -229,6 +231,7 @@ xmin: -1
 xmax: 8
 ymin: -6
 ymax: 6
+fontsize: 16
 :::
 
 
@@ -295,7 +298,7 @@ $$
 ---
 
 
-:::::::::::::::{example} Eksempel 3
+:::::::::::::::{example} Eksempel 4
 Grafen til eksponentialfunksjonen $f(x) = 5^x$ er vist i figuren nedenfor.
 
 Bruk grafen til å bestemme en tilnærmet verdi for $\log_5(36)$
@@ -309,6 +312,7 @@ ystep: 2
 xmin: -0.2
 xmax: 2.5
 xstep: 0.2
+fontsize: 16
 :::
 
 
@@ -383,7 +387,7 @@ $$
 ---
 
 
-:::::::::::::::{example} Eksempel 4
+:::::::::::::::{example} Eksempel 5
 I figuren nedenfor vises grafen til $f(x) = 3^x$. 
 
 Bruk grafen til å bestemme $\log_3\left(\dfrac{3}{27}\right)$.
@@ -396,6 +400,7 @@ xmax: 4
 ymin: -3
 ymax: 30
 ystep: 3
+fontsize: 18
 :::
 
 
