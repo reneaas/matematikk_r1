@@ -55,7 +55,7 @@ Category: Produktregelen
 
 300:
     Q: Bestem $f'(x)$ når $$f(x) = x\sqrt{10 - x^2}$$
-    A: $$f'(x) = \dfrac{10 - 2x^2}{\sqrt{10 - x^2}}$$
+    A: $$f'(x) = \dfrac{-x^2 - x + 10}{\sqrt{10 - x^2}}$$
 
 400:
     Q: Bestem $f'(x)$ når $$f(x) = \sqrt{x} \, e^{-2x}$$
