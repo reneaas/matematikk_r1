@@ -1154,7 +1154,6 @@ text: 0.5 * cos(-pi/6), sin(-pi/6) - 0.1, "$r$", center-center
 bar: (1.1, -0.5), 1.5, vertical
 text: 1.05, 0.25, "$h$", center-right
 fontsize: 30
-nocache:
 lw: 3
 text: 0 - 0.1, 0.5 * sin(-pi/6), "$\ell$", center-center
 text: 0.5 * cos(-pi/6), 0 - 0.1, "$1$", center-center
