@@ -1106,7 +1106,7 @@ layout: sidebar
 
 En kjegle med sirkulær grunnflate med radius $r$ og høyde $h$ er innskrevet i en kule med radius $1$. 
 
-Tverrsnittet til kjeglen og kulen er vist i figuren nedenfor.
+Se figuren nedenfor.
 
 :::{plot}
 width: 50%
@@ -1122,7 +1122,6 @@ text: 0.5 * cos(-pi/6), sin(-pi/6) - 0.1, "$r$", center-center
 bar: (1.1, -0.5), 1.5, vertical
 text: 1.05, 0.25, "$h$", center-right
 fontsize: 30
-nocache:
 lw: 3
 :::
 
