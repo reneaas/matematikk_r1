@@ -566,7 +566,9 @@ $$
 f(x) = -e^{2x} + 3e^x - 2
 $$
 
-En av grafene nedenfor viser grafen til $f$. Avgjør hvilken graf som viser grafen til $f$.
+Én av grafene nedenfor viser grafen til $f$. 
+
+Avgjør hvilken graf som viser grafen til $f$.
 
 
 :::{multi-plot}
