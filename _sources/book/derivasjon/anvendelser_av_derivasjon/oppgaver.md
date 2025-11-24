@@ -157,7 +157,7 @@ $$
 ## Vendepunkter og vendetangenter
 
 :::::::::::::::{summary} Vendepunktene til en funksjon $f$
-**Vendepunktene** er punkter på grafen til $f$ der $f''(x) = 0$. Det er punkter hvor grafen snur fra å være konkav til å bli konveks, eller omvendt. Se figuren nedenfor.
+Et **vendepunkt** er et punkt der $f''(x)$ skifter fortegn. Vendepunktene er typisk punter på grafen til $f$ der $f''(x) = 0$. Det er punkter hvor grafen snur fra å være konkav til å bli konveks, eller omvendt. Se figuren nedenfor.
 * En **vendetangent** er en tangent til grafen i et vendepunkt.
 * Vendepunktene er punkter hvor grafen er **brattest** eller **slakest** (*lokalt* – opplagt er den mye brattere helt til venstre i figuren nedenfor).
 
