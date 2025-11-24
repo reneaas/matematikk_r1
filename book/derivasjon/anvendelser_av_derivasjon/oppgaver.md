@@ -175,7 +175,6 @@ tangent: 2 + sqrt(3), f
 tangent: 2 - sqrt(3), f
 annotate: (2, -0.5), (2 + sqrt(3), f(2 + sqrt(3))), "Vendepunkter"
 annotate: (2, -0.5), (2 - sqrt(3), f(2 - sqrt(3))), "Vendepunkter", -0.3
-nocache:
 :::
 
 
