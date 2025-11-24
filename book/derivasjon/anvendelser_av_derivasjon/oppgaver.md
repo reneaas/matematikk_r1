@@ -582,7 +582,6 @@ ymax: 2
 ymin: -2
 xmin: -2
 xmax: 3
-nocache:
 :::
 
 
