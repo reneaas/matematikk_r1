@@ -1085,7 +1085,7 @@ $$
 
 
 :::{margin}
-Volumet av en kjegle med grunnflate $G$ og høyde $h$ er gitt ved
+Volumet av en kjegle med grunnflateareal $G$ og høyde $h$ er gitt ved
 
 $$
 V = \dfrac{Gh}{3}

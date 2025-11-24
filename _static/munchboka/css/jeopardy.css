@@ -307,6 +307,33 @@ html[data-theme='dark'] .jeopardy-modal-body,
 body[data-theme='dark'] .jeopardy-modal-body,
 [data-mode='dark'] .jeopardy-modal-body { background: var(--jp-modal-bg) !important; color: var(--jp-modal-fg) !important; }
 
+/* Code inside Jeopardy content should fully follow the site's
+   syntax-highlighting theme. Do not touch colors, only allow
+   small layout tweaks if needed. */
+.jeopardy-modal-body pre,
+.jeopardy-modal-body code {
+  /* no color overrides here; let global syntax theme win */
+  margin-top: 0.5rem;
+}
+
+/* Light theme: rely entirely on the site's light code theme. */
+html.light-mode .jeopardy-modal-body pre,
+body.light-mode .jeopardy-modal-body pre,
+html[data-theme='light'] .jeopardy-modal-body pre,
+body[data-theme='light'] .jeopardy-modal-body pre,
+[data-mode='light'] .jeopardy-modal-body pre {
+  /* intentionally empty */
+}
+
+/* Dark theme: rely entirely on the site's dark code theme. */
+html.dark-mode .jeopardy-modal-body pre,
+body.dark-mode .jeopardy-modal-body pre,
+html[data-theme='dark'] .jeopardy-modal-body pre,
+body[data-theme='dark'] .jeopardy-modal-body pre,
+[data-mode='dark'] .jeopardy-modal-body pre {
+  /* intentionally empty */
+}
+
 .jeopardy-q { font-size: 1.05rem; margin-bottom: 1rem; background: inherit !important; }
 .jeopardy-a { display: none; margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--jp-outline); }
 
@@ -340,8 +367,52 @@ body[data-theme='dark'] .jeopardy-modal-body,
 .j-btn.accent:hover { filter: brightness(1.05); }
 .j-btn:focus { outline: 2px solid var(--jp-outline); outline-offset: 2px; }
 
-.jeopardy-team-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; }
+.jeopardy-team-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+.jeopardy-team-actions .jeopardy-team-column {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.35rem;
+  min-width: 7rem;
+}
+.jeopardy-team-actions .jeopardy-team-label {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
 .jeopardy-team-actions .j-btn { font-size: 0.9rem; }
+
+/* Per-team scoring buttons in the modal: make choices visually distinct
+   and slightly fade once used to signal that the option is consumed. */
+.jeopardy-team-actions .j-btn.primary {
+  border: 2px solid var(--jp-success-border);
+  background: var(--jp-success);
+  color: #fff;
+}
+.jeopardy-team-actions .j-btn.secondary {
+  border: 2px solid var(--jp-outline);
+  /* Neutral grey with good contrast in both light/dark contexts */
+  background: #4b5563;
+  color: #f9fafb;
+}
+.jeopardy-team-actions .j-btn.used-choice {
+  opacity: 0.55;
+  cursor: default;
+}
+
+/* Keep the selected choice visually strong even when faded by adding
+   an explicit ring and subtle background tint. */
+.jeopardy-team-actions .j-btn.used-choice.primary {
+  box-shadow: 0 0 0 2px var(--jp-success-border);
+}
+.jeopardy-team-actions .j-btn.used-choice.secondary {
+  box-shadow: 0 0 0 2px var(--jp-outline);
+  background: #374151;
+}
 
 /* Images inside content */
 .jeopardy-image-container {
