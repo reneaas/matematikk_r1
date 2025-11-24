@@ -290,15 +290,13 @@ $$
 f(x) = (x^2 + 1)e^{-x}
 $$
 
-Bestem koordinatene til eventuelle vendepunkter på grafen til $f$.
-
 
 ::::::::::::::{tab-set}
 ---
 class: tabs-parts
 ---
 :::::::::::::{tab-item} a
-Bestem vendepunktene til $f$.
+Bestem koordinatene til eventuelle vendepunkter til $f$.
 
 
 ::::{answer}
