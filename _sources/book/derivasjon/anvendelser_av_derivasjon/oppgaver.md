@@ -674,3 +674,45 @@ Påstanden er sann.
 ::::::::::::::
 
 :::::::::::::::
+
+
+
+
+---
+
+
+
+:::::::::::::::{exercise} Oppgave 16
+En funksjon $f$ er gitt ved 
+
+$$
+f(x) = 2 - \ln x, \quad x > 0
+$$
+
+Et rektangel har hjørnene $(0, 0)$ og $(0, a)$ og $(a, f(a))$ og $(0, f(a))$.
+
+Bestem $a$ slik at arealet av rektangelet er minst mulig.
+
+
+:::{plot}
+width: 70%
+function: 2 - log(x), f
+point: (0, 0)
+point: (1.5, 0)
+point: (1.5, f(1.5))
+point: (0, f(1.5))
+
+polygon: (0, 0), (1.5, 0), (1.5, f(1.5)), (0, f(1.5))
+xmin: -0.2
+xmax: 5
+ymin: -0.2
+ymax: 6
+ticks: off
+:::
+
+::::{answer}
+$$
+a = e
+$$
+::::
+:::::::::::::::
