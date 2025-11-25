@@ -708,6 +708,7 @@ xmax: 5
 ymin: -0.2
 ymax: 6
 ticks: off
+text: 1.5, f(1.5), "$(a, f(a))$", top-right
 :::
 
 ::::{answer}
