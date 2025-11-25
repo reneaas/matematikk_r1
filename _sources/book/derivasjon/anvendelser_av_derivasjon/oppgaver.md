@@ -691,7 +691,7 @@ $$
 
 Et rektangel har hjørnene $(0, 0)$ og $(0, a)$ og $(a, f(a))$ og $(0, f(a))$.
 
-Bestem $a$ slik at arealet av rektangelet er minst mulig.
+Bestem $a$ slik at arealet av rektangelet er størst mulig.
 
 
 :::{plot}
