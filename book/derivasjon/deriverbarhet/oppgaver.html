@@ -532,7 +532,7 @@ f(x) =
 <p>Hvis <span class="math notranslate nohighlight">\(g(x)\)</span> er kontinuerlig og deriverbar i <span class="math notranslate nohighlight">\(x = a\)</span> og <span class="math notranslate nohighlight">\(h(x)\)</span> er kontinuerlig og deriverbar i <span class="math notranslate nohighlight">\(x = a\)</span>, så er <span class="math notranslate nohighlight">\(f\)</span> deriverbar i <span class="math notranslate nohighlight">\(x = a\)</span> hvis og bare hvis</p>
 <div class="math notranslate nohighlight">
 \[
-g'(a) = h'(a)
+g(a) = h(a) \qog g'(a) = h'(a)
 \]</div>
 </div>
 <div class="admonition exercise">
@@ -555,6 +555,25 @@ f(x) =
 f'(1) = 2
 \]</div>
 </div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi lar <span class="math notranslate nohighlight">\(g(x) = x^2\)</span> og <span class="math notranslate nohighlight">\(h(x) = 2x - 1\)</span>. Begge funksjonene er kontinuerlige og deriverbare i <span class="math notranslate nohighlight">\(x = 1\)</span>, så vi sjekker bare om <span class="math notranslate nohighlight">\(g(1) = h(1)\)</span> og <span class="math notranslate nohighlight">\(g'(1) = h'(1)\)</span>. Først sjekker vi kontinuiteten:</p>
+<div class="math notranslate nohighlight">
+\[
+g(1) = 1^2 = 1 \and h(1) = 2 \cdot 1 - 1 = 1
+\]</div>
+<p>Altså er <span class="math notranslate nohighlight">\(f\)</span> kontinuerlig i <span class="math notranslate nohighlight">\(x = 1\)</span>. Nå sjekker vi deriverbarheten:</p>
+<div class="math notranslate nohighlight">
+\[
+g'(x) = 2x \limplies g'(1) = 2 \cdot 1 = 2
+\]</div>
+<p>og</p>
+<div class="math notranslate nohighlight">
+\[
+h'(x) = 2 \limplies h'(1) = 2
+\]</div>
+<p>Altså er <span class="math notranslate nohighlight">\(h'(1) = g'(1)\)</span> så <span class="math notranslate nohighlight">\(f\)</span> er deriverbar i <span class="math notranslate nohighlight">\(x = 1\)</span> og <span class="math notranslate nohighlight">\(f'(1) = 2\)</span>.</p>
+</div>
 </div>
 <hr class="docutils" />
 <div class="admonition exercise">
@@ -572,6 +591,20 @@ f'(1) = 2
 <div class="admonition answer dropdown">
 <p class="admonition-title">Fasit</p>
 <p><span class="math notranslate nohighlight">\(f\)</span> er ikke kontinuerlig i <span class="math notranslate nohighlight">\(x = 1\)</span>, så <span class="math notranslate nohighlight">\(f'(1)\)</span> eksisterer ikke.</p>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi lar</p>
+<div class="math notranslate nohighlight">
+\[
+g(x) = x^2 + 2 \qog h(x) = -x^2 + 2x
+\]</div>
+<p>Vi sjekker først om <span class="math notranslate nohighlight">\(f\)</span> er kontinuerlig i <span class="math notranslate nohighlight">\(x = 1\)</span> ved å sjekke at <span class="math notranslate nohighlight">\(g(1) = h(1)\)</span>. Vi har</p>
+<div class="math notranslate nohighlight">
+\[
+g(1) = 1^2 + 2 = 3 \qog h(1) = -1^2 + 2\cdot 1 = -1 + 2 = 1
+\]</div>
+<p>Altså er <span class="math notranslate nohighlight">\(g(1) \neq h(1)\)</span>, så <span class="math notranslate nohighlight">\(f\)</span> er ikke kontinuerlig i <span class="math notranslate nohighlight">\(x = 1\)</span>. Men da er ikke <span class="math notranslate nohighlight">\(f\)</span> deriverbar i <span class="math notranslate nohighlight">\(x = 1\)</span> heller.</p>
 </div>
 </div>
 <hr class="docutils" />
@@ -599,6 +632,26 @@ a</label><div class="sd-tab-content docutils">
 a = 12
 \]</div>
 </div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>For å bestemme verdien til <span class="math notranslate nohighlight">\(a\)</span> som gjør at <span class="math notranslate nohighlight">\(f\)</span> er kontinuerlig i <span class="math notranslate nohighlight">\(x = -2\)</span>, så må vi bruke definisjonen av kontinuitet:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to -2} f(x) = f(-2)
+\]</div>
+<p>Vi har at <span class="math notranslate nohighlight">\(f(-2) = a\)</span>, så vi må finne grenseverdien <span class="math notranslate nohighlight">\(\lim_{x \to -2} f(x)\)</span>. Vi har</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    \lim_{x \to -2} f(x) &amp;= \lim_{x \to -2} \dfrac{x^3 + 8}{x + 2} \\
+    \\
+    &amp;\overset{[\frac{0}{0}]}{=} \lim_{x} \to -2} \dfrac{3x^2}{1} \\
+    \\
+    &amp;= 3 \cdot (-2)^2 = 12
+\end{align*}
+\end{split}\]</div>
+<p>Altså må <span class="math notranslate nohighlight">\(a = 12\)</span> for at <span class="math notranslate nohighlight">\(f\)</span> skal være kontinuerlig i <span class="math notranslate nohighlight">\(x = -2\)</span>.</p>
+</div>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-1">
@@ -610,6 +663,28 @@ b</label><div class="sd-tab-content docutils">
 \[
 f'(-2) = -6
 \]</div>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi bruker definisjonen av den deriverte til å se om vi kan bestemme en verdi for <span class="math notranslate nohighlight">\(f'(-2)\)</span>. Da får vi</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    f'(-2) &amp;= \lim_{x \to -2} \dfrac{f(x) - f(-2)}{x - (-2)} \\
+    \\
+    &amp;= \lim_{x \to -2} \dfrac{\dfrac{x^3 + 8}{x + 2} - 12}{x + 2} \\
+    \\
+    &amp;= \lim_{x \to -2} \dfrac{\dfrac{x^3 + 8 - 12(x + 2)}{x + 2}}{x + 2} \\
+    \\
+    &amp;= \lim_{x \to -2} \dfrac{x^3 - 12x - 16}{(x + 2)^2} \\
+    \\
+    &amp; \overset{[\frac{0}{0}]}{=} \lim_{x \to -2} \dfrac{3x^2 - 12}{2(x + 2)} \\
+    \\
+    &amp;\overset{[\frac{0}{0}]}{=} \lim_{x \to -2} \dfrac{6x}{2} \\
+    \\
+    &amp;= \dfrac{6 \cdot (-2)}{2} = -6
+\end{align*}
+\end{split}\]</div>
 </div>
 </div>
 </div>
@@ -639,6 +714,26 @@ a</label><div class="sd-tab-content docutils">
 a = 27
 \]</div>
 </div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>For å bestemme <span class="math notranslate nohighlight">\(a\)</span>, må vi bruke definisjonen av kontinuitet:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to 3} f(x) = f(3)
+\]</div>
+<p>Vi har at <span class="math notranslate nohighlight">\(f(3) = a\)</span>, så vi må finne grenseverdien <span class="math notranslate nohighlight">\(\lim_{x \to 3} f(x)\)</span>. Vi har</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    \lim_{x \to 3} f(x) &amp;= \lim_{x \to 3} \dfrac{x^3 - 27}{x - 3} \\
+    \\
+    &amp;\overset{[\frac{0}{0}]}{=} \lim_{x \to 3} \dfrac{3x^2}{1} \\
+    \\
+    &amp;= 3 \cdot 3^2 = 27
+\end{align*}
+\end{split}\]</div>
+<p>Altså må <span class="math notranslate nohighlight">\(a = 27\)</span> for at <span class="math notranslate nohighlight">\(f\)</span> skal være kontinuerlig i <span class="math notranslate nohighlight">\(x = 3\)</span>.</p>
+</div>
 </div>
 <input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-3">
@@ -650,6 +745,28 @@ b</label><div class="sd-tab-content docutils">
 \[
 f'(3) = 9
 \]</div>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi bruker definisjonen av den deriverte til å se om vi kan bestemme en verdi for <span class="math notranslate nohighlight">\(f'(3)\)</span>. Da får vi</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    f'(3) &amp;= \lim_{x \to 3} \dfrac{f(x) - f(3)}{x - 3} \\
+    \\
+    &amp;= \lim_{x \to 3} \dfrac{\dfrac{x^3 - 27}{x - 3} - 27}{x - 3} \\
+    \\
+    &amp;= \lim_{x \to 3} \dfrac{\dfrac{x^3 - 27 - 27(x - 3)}{x - 3}}{x - 3} \\
+    \\
+    &amp;= \lim_{x \to 3} \dfrac{x^3 - 27x + 81}{(x - 3)^2} \\
+    \\
+    &amp; \overset{[\frac{0}{0}]}{=} \lim_{x \to 3} \dfrac{3x^2 - 27}{2(x - 3)} \\
+    \\
+    &amp;\overset{[\frac{0}{0}]}{=} \lim_{x \to 3} \dfrac{6x}{2} \\
+    \\
+    &amp;= \dfrac{6 \cdot 3}{2} = 9
+\end{align*}
+\end{split}\]</div>
 </div>
 </div>
 </div>
@@ -681,6 +798,36 @@ a</label><div class="sd-tab-content docutils">
 a = 0
 \]</div>
 </div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Her må vi bruke definisjonen av kontinuitet:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x\to 0^-} f(x) = \lim_{x \to 0^+} f(x) = f(0)
+\]</div>
+<p>Vi har at <span class="math notranslate nohighlight">\(f(0) = a\)</span>, så vi må bestemme de ensidige grenseverdiene og sjekke at de begge nærmer seg samme verdi.</p>
+<p>Vi tar først grenseverdien fra venstre:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    \lim_{x \to 0^-} f(x) &amp;= \lim_{x \to 0^-} \dfrac{e^x - 1 - x}{x} \\
+    \\
+    &amp;\overset{[\frac{0}{0}]}{=} \lim_{x \to 0^-} \dfrac{e^x - 1}{1} \\
+    \\
+    &amp;= e^0 - 1 = 0
+\end{align*}
+\end{split}\]</div>
+<p>Så tar vi grenseverdien fra høyre:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    \lim_{x \to 0^+} f(x) &amp;= \lim_{x \to 0^+} \dfrac{1}{2} \ln (x + 1) \\
+    \\
+    &amp;= \dfrac{1}{2} \ln (0 + 1) = \dfrac{1}{2} \cdot 0 = 0
+\end{align*}
+\end{split}\]</div>
+<p>Altså må <span class="math notranslate nohighlight">\(a = 0\)</span> for at <span class="math notranslate nohighlight">\(f\)</span> skal være kontinuerlig i <span class="math notranslate nohighlight">\(x = 0\)</span>.</p>
+</div>
 </div>
 <input id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-5">
@@ -688,6 +835,52 @@ b</label><div class="sd-tab-content docutils">
 <p>Bestem <span class="math notranslate nohighlight">\(f'(0)\)</span> hvis den eksisterer.</p>
 <div class="admonition answer dropdown">
 <p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+f'(0) = \dfrac{1}{2}
+\]</div>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi bruker definisjonen av den deriverte som sier at</p>
+<div class="math notranslate nohighlight">
+\[
+f'(0) = \lim_{x\to 0}\dfrac{f(x) - f(0)}{x - 0} =  \lim_{x\to 0}\dfrac{f(x) - f(0)}{x}
+\]</div>
+<p>Vi må ta de ensidige grensene, og hvis disse er like, så vil <span class="math notranslate nohighlight">\(f'(0)\)</span> eksistere.</p>
+<p>Vi tar grensen fra venstre først:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    f'(0) &amp;= \lim_{x \to 0^-} \dfrac{f(x) - f(0)}{x} \\
+    \\
+    &amp;= \lim_{x \to 0^-} \dfrac{\dfrac{e^x - 1 - x}{x} - 0}{x} \\
+    \\
+    &amp;= \lim_{x \to 0^-} \dfrac{e^x - 1 - x}{x^2} \\
+    \\
+    &amp;\overset{[\frac{0}{0}]}{=} \lim_{x \to 0^-} \dfrac{e^x - 1}{2x} \\
+    \\
+    &amp;\overset{[\frac{0}{0}]}{=} \lim_{x \to 0^-} \dfrac{e^x}{2} \\
+    \\
+    &amp;= \dfrac{e^0}{2} = \dfrac{1}{2}
+\end{align*}
+\end{split}\]</div>
+<p>Så tar vi grenseverdien fra høyre:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    f'(0) &amp;= \lim_{x \to 0^+} \dfrac{f(x) - f(0)}{x} \\
+    \\
+    &amp;= \lim_{x \to 0^+} \dfrac{\dfrac{1}{2} \ln (x + 1) - 0}{x} \\
+    \\
+    &amp;= \lim_{x \to 0^+} \dfrac{\ln (x + 1)}{2x} \\
+    \\
+    &amp;\overset{[\frac{0}{0}]}{=} \lim_{x \to 0^+} \dfrac{\dfrac{1}{x + 1}}{2} \\
+    \\
+    &amp;= \dfrac{1}{2 \cdot (0 + 1)} = \dfrac{1}{2}
+\end{align*}
+\end{split}\]</div>
+<p>De to grensene er like som betyr at <span class="math notranslate nohighlight">\(f'(0)\)</span> eksisterer og er gitt ved</p>
 <div class="math notranslate nohighlight">
 \[
 f'(0) = \dfrac{1}{2}
@@ -713,6 +906,30 @@ f(x) =
 <div class="admonition answer dropdown">
 <p class="admonition-title">Fasit</p>
 <p><span class="math notranslate nohighlight">\(f'(0)\)</span> eksisterer ikke.</p>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi må først sjekke at <span class="math notranslate nohighlight">\(f\)</span> er kontinuerlig. Begge forskrifter er kontinuerlig og deriverbare i <span class="math notranslate nohighlight">\(x = 0\)</span>. La <span class="math notranslate nohighlight">\(g(x) = e^x - 1\)</span> og <span class="math notranslate nohighlight">\(h(x) = x \ln (x + 1)\)</span>. Vi sjekker først kontinuiteten. <span class="math notranslate nohighlight">\(f\)</span> vil være kontinuerlig dersom <span class="math notranslate nohighlight">\(g(0) = h(0)\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+g(0) = e^0 - 1 = 0 \qog h(0) = 0 \cdot \ln (0 + 1) = 0
+\]</div>
+<p>Ergo er <span class="math notranslate nohighlight">\(f\)</span> kontinuerlig i <span class="math notranslate nohighlight">\(x = 0\)</span>. Så sjekker vi deriverbarhet. Vi kan prøve oss på å sjekke om</p>
+<div class="math notranslate nohighlight">
+\[
+g'(0) = h'(0)
+\]</div>
+<p>Vi har</p>
+<div class="math notranslate nohighlight">
+\[
+g'(x) = e^x \limplies g'(0) = e^0 = 1
+\]</div>
+<p>Så sjekker vi <span class="math notranslate nohighlight">\(h'(0)\)</span>. Vi bruker produktregelen:</p>
+<div class="math notranslate nohighlight">
+\[
+h'(x) = \ln (x + 1) + \dfrac{x}{x + 1} \limplies h'(0) = \ln (0 + 1) + \dfrac{0}{0 + 1} = 0
+\]</div>
+<p>Altså er <span class="math notranslate nohighlight">\(g'(0) \neq h'(0)\)</span>, så <span class="math notranslate nohighlight">\(f\)</span> er ikke deriverbar i <span class="math notranslate nohighlight">\(x = 0\)</span> og dermed eksisterer ikke <span class="math notranslate nohighlight">\(f'(0)\)</span>.</p>
 </div>
 </div>
 <hr class="docutils" />
@@ -740,6 +957,29 @@ a</label><div class="sd-tab-content docutils">
 a = 4
 \]</div>
 </div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Uttrykket for <span class="math notranslate nohighlight">\(f(x)\)</span> når <span class="math notranslate nohighlight">\(x \neq 4\)</span> er ikke definert i <span class="math notranslate nohighlight">\(x = 4\)</span>, så vi er nødt til å bruke definisjonen av kontinuitet:</p>
+<div class="math notranslate nohighlight">
+\[
+\lim_{x \to 4} f(x) = f(4)
+\]</div>
+<p>Vi vet at <span class="math notranslate nohighlight">\(f(4) = a\)</span>, så vi må finne grenseverdien <span class="math notranslate nohighlight">\(\lim_{x \to 4} f(x)\)</span>. Vi har</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    \lim_{x \to 4} f(x) &amp;= \lim_{x \to 4} \dfrac{x - 4}{\sqrt{x} - 2} \\
+    \\
+    &amp;\overset{[\frac{0}{0}]}{=} \lim_{x \to 4} \dfrac{1}{\left(\dfrac{1}{2\sqrt{x}}\right)} \\
+    \\
+    \\
+    &amp;= \lim_{x \to 4} 2 \sqrt{x} \\
+    \\
+    &amp;= 2 \sqrt{4} = 4
+\end{align*}
+\end{split}\]</div>
+<p>Altså må <span class="math notranslate nohighlight">\(a = 4\)</span> for at <span class="math notranslate nohighlight">\(f\)</span> skal være kontinuerlig i <span class="math notranslate nohighlight">\(x = 4\)</span>.</p>
+</div>
 </div>
 <input id="sd-tab-item-7" name="sd-tab-set-3" type="radio">
 <label class="sd-tab-label" for="sd-tab-item-7">
@@ -752,59 +992,49 @@ b</label><div class="sd-tab-content docutils">
 f'(4) = \dfrac{1}{4}
 \]</div>
 </div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi bruker definisjonen av den deriverte til å bestemme <span class="math notranslate nohighlight">\(f'(4)\)</span> dersom den finnes:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    f'(4) &amp;= \lim_{x \to 4} \dfrac{f(x) - f(4)}{x - 4} \\
+    \\
+    &amp;= \lim_{x \to 4} \dfrac{\dfrac{x - 4}{\sqrt{x} - 2} - 4}{x - 4} \\
+    \\
+    &amp;= \lim_{x \to 4} \dfrac{\dfrac{x - 4}{\sqrt{x} - 2} - \dfrac{4(\sqrt{x} - 2)}{\sqrt{x} - 2}}{x - 4} \\
+    \\
+    &amp;= \lim_{x \to 4} \dfrac{\dfrac{x - 4 - 4\sqrt{x} + 8}{\sqrt{x} - 2}}{x - 4} \\
+    \\
+    &amp;= \lim_{x \to 4} \dfrac{\dfrac{x - 4 \sqrt{x} + 4}{\sqrt{x} - 2}}{x - 4} \\
+    \\
+    &amp;= \lim_{x \to 4} \dfrac{x - 4\sqrt{x} + 4}{(\sqrt{x} - 2)(x - 4)} \\
+\end{align*}
+\end{split}\]</div>
+<p>Herfra blir det enklere ved å innse at</p>
+<div class="math notranslate nohighlight">
+\[
+x - 4\sqrt{x} + 4 = (\sqrt{x})^2 - 2 \cdot 2 \cdot \sqrt{x} + 2^2 = (\sqrt{x} - 2)^2
+\]</div>
+<p>der vi har brukt 2.kvadratsetning. Da får vi</p>
+<div class="math notranslate nohighlight">
+\[
+f'(4) = \lim_{x \to 4} \dfrac{(\sqrt{x} - 2)^2}{(\sqrt{x} - 2)(x - 4)} = \lim_{x \to 4} \dfrac{\sqrt{x} - 2}{x - 4} \overset{[\frac{0}{0}]}{=} \lim_{x \to 4} \dfrac{\dfrac{1}{2\sqrt{x}}}{1} = \dfrac{1}{2 \cdot 2} = \dfrac{1}{4}
+\]</div>
+</div>
 </div>
 </div>
 </div>
 <hr class="docutils" />
 <div class="admonition exercise">
 <p class="admonition-title">Oppgave 8</p>
-<p>En funksjon <span class="math notranslate nohighlight">\(f\)</span> er gitt ved</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-f(x) =
-\begin{cases}
-    \dfrac{\sqrt{x} - 1}{x - 1} \qfor x \neq 1 \qog x \geq 0 \\
-    \\
-    a \qfor x = 1
-\end{cases}
-\end{split}\]</div>
-<div class="sd-tab-set tabs-parts docutils">
-<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-8">
-a</label><div class="sd-tab-content docutils">
-<p>Bestem <span class="math notranslate nohighlight">\(a\)</span> slik at <span class="math notranslate nohighlight">\(f\)</span> er kontinuerlig i <span class="math notranslate nohighlight">\(x = 1\)</span>.</p>
-<div class="admonition answer dropdown">
-<p class="admonition-title">Fasit</p>
-<div class="math notranslate nohighlight">
-\[
-a = \dfrac{1}{2}
-\]</div>
-</div>
-</div>
-<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-9">
-b</label><div class="sd-tab-content docutils">
-<p>Bestem <span class="math notranslate nohighlight">\(f'(1)\)</span> hvis den eksisterer.</p>
-<div class="admonition answer dropdown">
-<p class="admonition-title">Fasit</p>
-<div class="math notranslate nohighlight">
-\[
-f'(1) = - \dfrac{1}{8}
-\]</div>
-</div>
-</div>
-</div>
-</div>
-<hr class="docutils" />
-<div class="admonition exercise">
-<p class="admonition-title">Oppgave 9</p>
 
 <div class="sidebar-cas">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<button id="button-ggb-cas-422b15ee" class="ggb-cas-button">Åpne CAS‑vindu</button>
-<div id="dialog-ggb-cas-422b15ee" title="CAS‑vindu" style="display:none;">
-    <div id="ggb-cas-422b15ee" class="ggb-window"></div>
+<button id="button-ggb-cas-0e4fbd28" class="ggb-cas-button">Åpne CAS‑vindu</button>
+<div id="dialog-ggb-cas-0e4fbd28" title="CAS‑vindu" style="display:none;">
+    <div id="ggb-cas-0e4fbd28" class="ggb-window"></div>
 </div>
 
 <style>
@@ -821,12 +1051,12 @@ f'(1) = - \dfrac{1}{8}
 
     function applySize() {
       if (!ggbReady) return;
-      const w = $("#ggb-cas-422b15ee").width(),
-            h = $("#ggb-cas-422b15ee").height();
+      const w = $("#ggb-cas-0e4fbd28").width(),
+            h = $("#ggb-cas-0e4fbd28").height();
       window.ggbApplet.setSize(Math.round(w), Math.round(h));
     }
 
-    const $dlg = $("#dialog-ggb-cas-422b15ee").dialog({
+    const $dlg = $("#dialog-ggb-cas-0e4fbd28").dialog({
       autoOpen: false,
       width: 390, height: 580,
       resizable: true, draggable: true,
@@ -835,14 +1065,14 @@ f'(1) = - \dfrac{1}{8}
       open: function() {
         if (!ggbReady) {
           new GGBApplet({
-            appName: "classic", id: "ggb-cas-422b15ee",
+            appName: "classic", id: "ggb-cas-0e4fbd28",
             width: 350, height: 500,
             perspective: "C", language: "nb",
             showToolBar: true, showAlgebraInput: true,
             borderRadius: 8, enableRightClick: true, showKeyboardOnFocus: false,
             customToolBar: "1001 | 1002 | 1007 | 1010 | 6",
             appletOnLoad: () => { ggbReady = true; applySize(); }
-          }, true).inject("ggb-cas-422b15ee");
+          }, true).inject("ggb-cas-0e4fbd28");
         } else {
           applySize();
         }
@@ -885,7 +1115,7 @@ f'(1) = - \dfrac{1}{8}
             target = target.parentElement;
           }
           // Prevent page scroll but don't stop the event from reaching GeoGebra
-          if (!e.target.closest('#ggb-cas-422b15ee')) {
+          if (!e.target.closest('#ggb-cas-0e4fbd28')) {
             e.preventDefault();
             e.stopPropagation();
           }
@@ -913,7 +1143,7 @@ f'(1) = - \dfrac{1}{8}
     
     // Monitor GeoGebra applet focus/interaction to control scroll lock
     function bindScrollLock() {
-      const ggbContainer = document.getElementById('ggb-cas-422b15ee');
+      const ggbContainer = document.getElementById('ggb-cas-0e4fbd28');
       if (!ggbContainer) {
         setTimeout(bindScrollLock, 300);
         return;
@@ -959,10 +1189,10 @@ f'(1) = - \dfrac{1}{8}
     // Cleanup on dialog close
     $dlg.on('dialogclose', unlockScroll);
 
-    $("#button-ggb-cas-422b15ee").button()
+    $("#button-ggb-cas-0e4fbd28").button()
       .on("click touchend pointerup", e => {
         e.preventDefault();
-        $("#dialog-ggb-cas-422b15ee").dialog("open");
+        $("#dialog-ggb-cas-0e4fbd28").dialog("open");
       });
   });
 })();
@@ -989,17 +1219,44 @@ f(x) =
 a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfrac{113}{27}
 \]</div>
 </div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Hver forskrift i uttrykket for <span class="math notranslate nohighlight">\(f(x)\)</span> er polynomer som er kontinuerlige og deriverbare der de møtes. Vi lar</p>
+<div class="math notranslate nohighlight">
+\[
+p(x) = -9x - 15 \qog q(x) = \dfrac{x^2}{2} - x - \dfrac{7}{2}
+\]</div>
+<p><span class="math notranslate nohighlight">\(g\)</span> skal være en tredjegradsfunksjon som kan skrives på formen</p>
+<div class="math notranslate nohighlight">
+\[
+g(x) = ax^3 + bx^2 + cx + d
+\]</div>
+<p>Siden <span class="math notranslate nohighlight">\(f\)</span> skal være kontinuerlig og deriverbar overalt, så må <span class="math notranslate nohighlight">\(f\)</span> være kontinuerlig og deriverbar i <span class="math notranslate nohighlight">\(x = -2\)</span> og i <span class="math notranslate nohighlight">\(x = 1\)</span>. Funksjonen er ellers kontinuerlig og deriverbar fordi den består av polynomer. For at vi skal oppnå dette, må vi sette</p>
+<div class="math notranslate nohighlight">
+\[
+p(-2) = g(-2) \and p'(-2) = g'(-2) \and g(1) = q(1) \and g'(1) = q'(1)
+\]</div>
+<p>Da får vi et likningssystem, så er enklest å løse med CAS:</p>
+<figure class="align-default">
+<a class="no-click adaptive-figure reference internal image-reference" href="../../../_images/sol.png"><img alt="../../../_images/sol.png" class="no-click adaptive-figure" src="../../../_images/sol.png" style="width: 60%;" /></a>
+</figure>
+<p>Det blir ikke pent, men vi får at</p>
+<div class="math notranslate nohighlight">
+\[
+a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfrac{113}{27}
+\]</div>
+</div>
 </div>
 <hr class="docutils" />
 <div class="admonition exercise">
-<p class="admonition-title">Oppgave 10</p>
+<p class="admonition-title">Oppgave 9</p>
 
 <div class="sidebar-cas">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<button id="button-ggb-cas-79b0738a" class="ggb-cas-button">Åpne CAS‑vindu</button>
-<div id="dialog-ggb-cas-79b0738a" title="CAS‑vindu" style="display:none;">
-    <div id="ggb-cas-79b0738a" class="ggb-window"></div>
+<button id="button-ggb-cas-3e36c382" class="ggb-cas-button">Åpne CAS‑vindu</button>
+<div id="dialog-ggb-cas-3e36c382" title="CAS‑vindu" style="display:none;">
+    <div id="ggb-cas-3e36c382" class="ggb-window"></div>
 </div>
 
 <style>
@@ -1016,12 +1273,12 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
 
     function applySize() {
       if (!ggbReady) return;
-      const w = $("#ggb-cas-79b0738a").width(),
-            h = $("#ggb-cas-79b0738a").height();
+      const w = $("#ggb-cas-3e36c382").width(),
+            h = $("#ggb-cas-3e36c382").height();
       window.ggbApplet.setSize(Math.round(w), Math.round(h));
     }
 
-    const $dlg = $("#dialog-ggb-cas-79b0738a").dialog({
+    const $dlg = $("#dialog-ggb-cas-3e36c382").dialog({
       autoOpen: false,
       width: 390, height: 580,
       resizable: true, draggable: true,
@@ -1030,14 +1287,14 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
       open: function() {
         if (!ggbReady) {
           new GGBApplet({
-            appName: "classic", id: "ggb-cas-79b0738a",
+            appName: "classic", id: "ggb-cas-3e36c382",
             width: 350, height: 500,
             perspective: "C", language: "nb",
             showToolBar: true, showAlgebraInput: true,
             borderRadius: 8, enableRightClick: true, showKeyboardOnFocus: false,
             customToolBar: "1001 | 1002 | 1007 | 1010 | 6",
             appletOnLoad: () => { ggbReady = true; applySize(); }
-          }, true).inject("ggb-cas-79b0738a");
+          }, true).inject("ggb-cas-3e36c382");
         } else {
           applySize();
         }
@@ -1080,7 +1337,7 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
             target = target.parentElement;
           }
           // Prevent page scroll but don't stop the event from reaching GeoGebra
-          if (!e.target.closest('#ggb-cas-79b0738a')) {
+          if (!e.target.closest('#ggb-cas-3e36c382')) {
             e.preventDefault();
             e.stopPropagation();
           }
@@ -1108,7 +1365,7 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
     
     // Monitor GeoGebra applet focus/interaction to control scroll lock
     function bindScrollLock() {
-      const ggbContainer = document.getElementById('ggb-cas-79b0738a');
+      const ggbContainer = document.getElementById('ggb-cas-3e36c382');
       if (!ggbContainer) {
         setTimeout(bindScrollLock, 300);
         return;
@@ -1154,10 +1411,10 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
     // Cleanup on dialog close
     $dlg.on('dialogclose', unlockScroll);
 
-    $("#button-ggb-cas-79b0738a").button()
+    $("#button-ggb-cas-3e36c382").button()
       .on("click touchend pointerup", e => {
         e.preventDefault();
-        $("#dialog-ggb-cas-79b0738a").dialog("open");
+        $("#dialog-ggb-cas-3e36c382").dialog("open");
       });
   });
 })();
@@ -1168,7 +1425,7 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
 \[\begin{split}
 f(x) = 
 \begin{cases}
-    ax + b \qfor x &lt; 2 \\
+    ax + b \qfor x &lt; -2 \\
     \\
     2x^3 + 2x^2 - 2x \qfor -2 &lt; x &lt; k \\
     \\
@@ -1177,8 +1434,8 @@ f(x) =
 \end{split}\]</div>
 <p>der <span class="math notranslate nohighlight">\(a, b, c \in \mathbb{R}\)</span> og <span class="math notranslate nohighlight">\(k &gt; -2\)</span>.</p>
 <div class="sd-tab-set tabs-parts docutils">
-<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-5" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-10">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
 a</label><div class="sd-tab-content docutils">
 <p>Avgjør om <span class="math notranslate nohighlight">\(f\)</span> er kontinuerlig i <span class="math notranslate nohighlight">\(x = -2\)</span> dersom <span class="math notranslate nohighlight">\(a = 2\)</span> og <span class="math notranslate nohighlight">\(b = -2\)</span>.</p>
 <div class="admonition answer dropdown">
@@ -1186,8 +1443,8 @@ a</label><div class="sd-tab-content docutils">
 <p>Nei</p>
 </div>
 </div>
-<input id="sd-tab-item-11" name="sd-tab-set-5" type="radio">
-<label class="sd-tab-label" for="sd-tab-item-11">
+<input id="sd-tab-item-9" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
 b</label><div class="sd-tab-content docutils">
 <p>Bestem <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, <span class="math notranslate nohighlight">\(c\)</span>, og <span class="math notranslate nohighlight">\(k\)</span> slik at <span class="math notranslate nohighlight">\(f\)</span> er kontinuerlig og deriverbar i <span class="math notranslate nohighlight">\(x = -2\)</span> og <span class="math notranslate nohighlight">\(x = k\)</span>.</p>
 <div class="admonition answer dropdown">
@@ -1199,6 +1456,44 @@ b</label><div class="sd-tab-content docutils">
 a = 14 \and b = 24 \and c = 2 \and k = -1
 \]</div>
 <p>Mulighet 2:</p>
+<div class="math notranslate nohighlight">
+\[
+a = 14 \and b = 24 \and c = -\dfrac{10}{27} \and k = \dfrac{1}{3}
+\]</div>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi lar</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+    p(x) &amp;= ax + b \\
+    \\
+    g(x) &amp;= 2x^3 + 2x^2 - 2x \\
+    \\
+    h(x) &amp;= c
+\end{align*}
+\end{split}\]</div>
+<p>For at <span class="math notranslate nohighlight">\(f\)</span> skal være kontinuerlig og deriverbar i <span class="math notranslate nohighlight">\(x = -2\)</span>, så må følgende likninger være oppfylt:</p>
+<div class="math notranslate nohighlight">
+\[
+p(-2) = g(-2) \and p'(-2) = g'(-2)
+\]</div>
+<p>For at <span class="math notranslate nohighlight">\(f\)</span> skal være kontinuerlig og deriverbar i <span class="math notranslate nohighlight">\(x = k\)</span>, så må følgende likninger være oppfylt:</p>
+<div class="math notranslate nohighlight">
+\[
+g(k) = h(k) \and g'(k) = h'(k)
+\]</div>
+<p>Dette gir oss et likningssystem som vi kan løse med CAS:</p>
+<figure class="align-default">
+<a class="no-click adaptive-figure reference internal image-reference" href="../../../_images/sol1.png"><img alt="../../../_images/sol1.png" class="no-click adaptive-figure" src="../../../_images/sol1.png" style="width: 85%;" /></a>
+</figure>
+<p>Vi får dermed to mulige løsninger:</p>
+<div class="math notranslate nohighlight">
+\[
+a = 14 \and b = 24 \and c = 2 \and k = -1
+\]</div>
+<p>eller</p>
 <div class="math notranslate nohighlight">
 \[
 a = 14 \and b = 24 \and c = -\dfrac{10}{27} \and k = \dfrac{1}{3}
