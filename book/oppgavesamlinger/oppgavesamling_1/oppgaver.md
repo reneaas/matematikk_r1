@@ -1184,7 +1184,6 @@ function-names: A, B, C, D
 rows: 2
 cols: 2
 ticks: off
-nocache:
 :::
 
 
