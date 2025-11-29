@@ -1971,7 +1971,7 @@ Alternativ 3
 :::{plot}
 align: right
 width: 100%
-function: exp(-x**2)
+function: exp(-x**2), f'
 ticks: off
 ymin: -1.5
 ymax: 1.5
