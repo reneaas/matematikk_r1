@@ -1,6 +1,6 @@
 # Oppgavesamling 1
 
-
+> Oppgaver der en CAS-knapp er vist, kan tenkes på som en "del 2"-opppgave
 
 :::::::::::::::{exercise} Oppgave 1
 
