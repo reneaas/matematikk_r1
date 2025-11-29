@@ -1102,59 +1102,120 @@ $$
 
 
 :::::::::::::::{exercise} Oppgave 10
-Om en funksjon $f$ får du vite at 
+:::{plot}
+align: right
+width: 100%
+function: -x + 5 - 1 / (x - 1) ** 2, f
+ticks: off
+vline: 1
+line: -1, 5
+ymax: 20
+ymin: -20
+lw: 4
+fontsize: 30
+:::
 
+Grafen til en funksjon $f$ er vist i figuren til høyre.
+
+
+:::{clear}
+:::
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Nedenfor vises fire alternativer om egenskaper ved grafen til $f$. Kun én av de stemmer – hvilken?
+
+
+::::{grid}
+---
+gutter: 2
+---
+:::{grid-item-card} Alternativ 1
 $$
 \begin{align*}
-    & \lim\limits_{x \to \pm\infty} \left(f(x) - (x + 1)\right) = 0 \\
-    \\
-    & \lim\limits_{x \to 1^-} f(x) = -\infty && \lim\limits_{x \to 1^+} f(x) = \infty 
+\lim_{x \to 1^+} f(x) &= \infty \\
+\\
+\lim_{x \to -\infty} \left(f(x) - x\right) &= 5
 \end{align*}
 $$
+:::
 
-Avgjør hvilken av figurene nedenfor som viser grafen til $f$.
+:::{grid-item-card} Alternativ 2
+$$
+\begin{align*}
+\lim_{x \to 1^-} f(x) &= -\infty \\
+\\
+\lim_{x \to \infty} \left(f(x) + x\right) &= 5 \\
+\end{align*}
+$$
+:::
 
-Husk å begrunne svaret ditt. 
+:::{grid-item-card} Alternativ 3
+$$
+\begin{align*}
+\lim_{x \to 1^+} f(x) &= \infty \\
+\\
+\lim_{x \to \infty} \left(f(x) - (x - 5)\right) &= 0 \\
+\end{align*}
+$$
+:::
+
+:::{grid-item-card} Alternativ 4
+$$
+\begin{align*}
+\lim_{x \to 1^-} f(x) &= -\infty \\
+\\
+\lim_{x \to \infty} \left(f(x) - x\right) &= 5 \\
+\end{align*}
+$$
+:::
+
+
+::::
+
+::::{answer}
+Alternativ 2
+::::
+
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Én av figurene nedenfor viser grafen til $f'$. Bestem hvilken.
 
 
 :::{multi-plot}
 width: 100%
-functions: -x + 1 + 1/(x - 1), x + 1 + 1/(x - 1), -x + 1 - 1/(x - 1)**2, x + 1 - 1/(x - 1)
+functions: 1 + 2 / (x - 1)**3, 1 - 2 / (x - 1)**3, -1 + 2 / (x - 1)**3, -1 - 2 / (x - 1)**3
 function-names: A, B, C, D
 rows: 2
 cols: 2
-ticks: off
-lines: [(-1, 1), (1, 1), (-1, 1), (1, 1)]
-vlines: 1, 1, 1, 1
-ymax: 10
 ymin: -10
+ymax: 10
+ticks: off
+vlines: 1, 1, 1, 1
+hlines: 1, 1, -1, -1
 :::
 
 
 ::::{answer}
-Figur B viser grafen til $f$.
+Graf C.
 ::::
 
 
-::::{solution}
-Den første egenskapen
+:::::::::::::
 
-$$
-\lim\limits_{x \to \pm\infty} \left(f(x) - (x + 1)\right) = 0 
-$$
 
-forteller oss at grafen til $f$ har en skrå asymptote gitt ved linjen $y = x + 1$. Dette stemmer for graf B og D.
+::::::::::::::
 
-Den andre egenskapen 
 
-$$
-\lim\limits_{x \to 1^-} f(x) = -\infty \and \lim\limits_{x \to 1^+} f(x) = \infty 
-$$
 
-forteller oss at grafen til $f$ har en vertikal asymptote i $x = 1$ der grafen synker mot $-\infty$ på venstre side og stiger mot $+\infty$ på høyre side. Dette stemmer bare for graf B.
-
-Dermed er graf B grafen til $f$.
-::::
 
 
 
@@ -1417,41 +1478,49 @@ $$
 ---
 
 
-
 :::::::::::::::{exercise} Oppgave 16
-Nedenfor vises tre figurer der
-* Én viser grafen til $f$
-* Én viser grafen til $f'$
-* Én viser grafen til $f''$.
 
-Avgjør hvilken figur som viser $f$, $f'$ og $f''$. 
+:::{plot}
+align: right
+width: 100%
+function: log(x**2 + 1) / (exp(x**2 - 1)), f
+xmin: -3
+xmax: 3
+ymin: -1
+ymax: 1
+fontsize: 30
+lw: 4
+ticks: off
+:::
+
+
+I figuren til høyre vises grafen til en funksjon $f$. 
+
+Nedenfor vises fire figurer der én viser grafen til $f'$ og én viser grafen til $f''$. 
+
+Bestem hvilken figur som viser $f'$ og hvilken som viser $f''$.
 
 
 
 :::{multi-plot}
-width: 100%
-functions: ( -2*x * log(x**2 + 1) * exp(x**2 - 1) + 2*x * exp(x**2 - 1) / (x**2 + 1) ) / exp(x**2 - 1)**2, (-2 * log(x**2 + 1) + 6 * x**4 * log(x**2 + 1) + 4 * x**6 * log(x**2 + 1) - 8 * x**4 - 10 * x**2 + 2) / ((1 + 2 * x**2 + x**4) * exp(x**2 - 1)), log(x**2 + 1) / (exp(x**2 - 1))
-function-names: A, B, C
-rows: 1
-cols: 3
+width: 90%
+functions: ( -2*x * log(x**2 + 1) * exp(x**2 - 1) + 2*x * exp(x**2 - 1) / (x**2 + 1) ) / exp(x**2 - 1)**2, -( -2*x * log(x**2 + 1) * exp(x**2 - 1) + 2*x * exp(x**2 - 1) / (x**2 + 1) ) / exp(x**2 - 1)**2, -(-2 * log(x**2 + 1) + 6 * x**4 * log(x**2 + 1) + 4 * x**6 * log(x**2 + 1) - 8 * x**4 - 10 * x**2 + 2) / ((1 + 2 * x**2 + x**4) * exp(x**2 - 1)), (-2 * log(x**2 + 1) + 6 * x**4 * log(x**2 + 1) + 4 * x**6 * log(x**2 + 1) - 8 * x**4 - 10 * x**2 + 2) / ((1 + 2 * x**2 + x**4) * exp(x**2 - 1))
+function-names: A, B, C, D
+rows: 2
+cols: 2
 ticks: off
-ylims: [(-2, 2), (-6, 7), (-2, 2)]
+ylims: [(-2, 2), (-2, 2), (-8, 8), (-8, 8)]
 xmin: -3
 xmax: 3
 :::
 
-
 ::::{answer}
 * Figur A viser grafen til $f'$
-* Figur B viser grafen til $f''$
-* Figur C viser grafen til $f$
+* Figur D viser grafen til $f''$
 ::::
 
 
-
 :::::::::::::::
-
-
 
 
 
