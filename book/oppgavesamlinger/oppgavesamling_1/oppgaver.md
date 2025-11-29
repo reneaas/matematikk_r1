@@ -1754,6 +1754,274 @@ print(t)
 
 
 
+---
+
+
+
+:::::::::::::::{exercise} Oppgave 21
+
+
+:::{cas-popup}
+---
+layout: sidebar
+---
+:::
+
+
+
+En funksjon $f$ er gitt ved
+
+$$
+f(x) = 
+\begin{cases}
+    2x^2 + 3x + a & \qhvis x < 1 \\
+    \\
+    -2x^2 + bx & \qhvis x \geq 1
+\end{cases}
+$$
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bestem $a$ og $b$ slik at $f$ er deriverbar i $x = 1$
+
+
+::::{answer}
+$$
+a = 4 \and b = 11
+$$
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Avgjør om grafen til $f$ har et vendepunkt.
+
+
+:::::::::::::
+
+
+::::::::::::::
+
+
+:::::::::::::::
+
+
+
+---
+
+
+
+:::::::::::::::{exercise} Oppgave 22
+
+:::{plot}
+align: right
+width: 100%
+function: exp(-x**2), f
+point: (-1, 0)
+point: (-1, f(-1))
+point: (1, 0)
+point: (1, f(1))
+polygon: (-1, 0), (-1, f(-1)), (1, f(1)), (1, 0)
+ymin: -0.2
+ymax: 1.5
+xmin: -3
+xmax: 3
+ticks: off
+fontsize: 30
+lw: 4
+text: 1, 0, "$a$", bottom-center
+text: -1, 0, "$-a$", bottom-center
+:::
+
+
+I figuren til høyre vises grafen til 
+
+$$
+f(x) = e^{-x^2}
+$$
+
+og et rektangel som er innskrevet under grafen.
+
+Bestem det største mulige arealet et slikt rektangel kan ha.
+
+
+:::{clear}
+:::
+
+::::{answer}
+$$
+\sqrt{\dfrac{2}{e}}
+$$
+::::
+
+
+:::::::::::::::
+
+
+
+---
+
+
+
+:::::::::::::::{exercise} Oppgave 23
+
+:::{plot}
+align: right
+width: 100%
+function: 3*x - 4 - 1/(x + 1), f
+ticks: off
+ymin: -20
+ymax: 20
+line: 3, -4
+vline: -1
+fontsize: 30
+lw: 4
+:::
+
+
+Grafen til en funksjon $f$ er vist i figuren til høyre.
+
+
+Nedenfor vises fire alternativer med mulige egenskaper for grafen til $f'$. 
+
+Kun ett alternativ stemmer – hvilket?
+
+<br><br><br><br>
+
+::::{grid} 1 2 2 2
+---
+gutter: 2
+---
+
+:::{grid-item-card} Alternativ 1
+$$
+\begin{align*}
+\lim_{x \to -1^-} f'(x) &= \infty \\
+\\
+\lim_{x\to -1^+} f'(x) &= -\infty \\
+\\
+\lim_{x \to -\infty} f'(x) &= 3
+\end{align*}
+$$
+:::
+
+:::{grid-item-card} Alternativ 2
+$$
+\begin{align*}
+\lim_{x \to -1^-} f'(x) &= -\infty \\
+\\
+\lim_{x\to -1^+} f'(x) &= -\infty \\
+\\
+\lim_{x \to \infty} f'(x) &= -3
+\end{align*}
+$$
+:::
+
+
+:::{grid-item-card} Alternativ 3
+$$
+\begin{align*}
+\lim_{x \to -1^-} f'(x) &= \infty \\
+\\
+\lim_{x\to -1^+} f'(x) &= \infty \\
+\\
+\lim_{x \to -\infty} f'(x) &= 3
+\end{align*}
+$$
+:::
+
+
+:::{grid-item-card} Alternativ 4
+$$
+\begin{align*}
+\lim_{x \to -1^-} f'(x) &= \infty \\
+\\
+\lim_{x\to -1^+} f'(x) &= \infty \\
+\\
+\lim_{x \to \infty} f'(x) &= -3
+\end{align*}
+$$
+:::
+
+
+
+::::
+
+
+::::{answer}
+Alternativ 3
+::::
+
+:::::::::::::::
+
+
+
+---
+
+
+
+:::::::::::::::{exercise} Oppgave 24
+
+:::{plot}
+align: right
+width: 100%
+function: exp(-x**2)
+ticks: off
+ymin: -1.5
+ymax: 1.5
+xmin: -3
+xmax: 3
+fontsize: 30
+lw: 4
+:::
+
+
+Grafen til $f'$ er vist i figuren til høyre.
+
+Nedenfor vises fire grafer der én viser grafen til $f$ og én viser grafen til $f''$.
+
+Bestem hvilken graf som viser $f$ og hvilken som viser $f''$.
+
+
+
+:::{multi-plot}
+width: 90%
+functions: 1/2 * erf(x), -2*x * exp(-x**2), -1/2 * erf(x), 2*x * exp(-x**2)
+rows: 2
+cols: 2
+function-names: A, B, C, D
+ticks: off
+xmin: -3
+xmax: 3
+ymin: -1.5
+ymax: 1.5
+:::
+
+
+::::{answer}
+* Figur A viser grafen til $f$
+* Figur B viser grafen til $f''$
+::::
+
+
+
+
+
+
+:::::::::::::::
+
+
+
+
+
+
+
 
 
 
