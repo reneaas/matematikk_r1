@@ -379,53 +379,15 @@ Bunnpunkt i $\left(e^2 , -1\right)$.
 
 
 
+
+
 ---
+
+
 
 
 
 :::::::::::::::{exercise} Oppgave 10
-Nedenfor vises tre figurer der 
-* Én figur viser grafen til $f$ 
-* Én figur viser grafen til $f'$
-* Én figur viser grafen til $f''$
-
-Avgjør hvilken figur som viser grafen til $f$ og $f'$ og $f''$. 
-
-
-
-:::{multi-plot}
-width: 100%
-functions: x*exp(-x), -2*exp(-x) + x*exp(-x), exp(-x) - x*exp(-x)
-function-names: A, B, C
-rows: 1
-cols: 3
-xmin: -1
-xmax: 5
-ymin: -0.7
-ymax: 0.7
-ticks: off
-:::
-
-
-
-::::{answer}
-* Figur A viser $f$
-* Figur C viser $f'$
-* Figur B viser $f''$
-::::
-
-
-
-:::::::::::::::
-
-
-
----
-
-
-
-
-:::::::::::::::{exercise} Oppgave 11
 En funksjon $f$ er gitt ved
 
 $$
@@ -517,13 +479,10 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 12
-Nedenfor vises tre figurer der 
-* Én figur viser grafen til $f$ 
-* Én figur viser grafen til $f'$
-* Én figur viser grafen til $f''$
+:::::::::::::::{exercise} Oppgave 11
+Nedenfor vises tre figurer der en viser grafen til $f$, en viser grafen til $f'$ og en viser grafen til $f''$. 
 
-Avgjør hvilken figur som viser grafen til $f$ og $f'$ og $f''$. 
+Bestem hvilke.
 
 
 
@@ -558,7 +517,7 @@ ticks: off
 
 
 
-:::::::::::::::{exercise} Oppgave 13
+:::::::::::::::{exercise} Oppgave 12
 En funksjon $f$ er gitt ved
 
 $$
@@ -597,7 +556,7 @@ Graf A viser grafen til $f$.
 
 
 
-:::::::::::::::{exercise} Oppgave 14
+:::::::::::::::{exercise} Oppgave 13
 For en funksjon $f$ vises fortegnslinjen til $f'(x)$.
 
 Bestem hvilket ekstremalpunkt som er et bunnpunkt og hvilket som er et toppunkt.
@@ -624,7 +583,7 @@ $x = -e$ er et toppunkt og $x = e$ er et bunnpunkt.
 
 
 
-:::::::::::::::{exercise} Oppgave 15
+:::::::::::::::{exercise} Oppgave 14
 En funksjon $f$ er kontinuerlig og dobbelt deriverbar for alle $x \in \mathbb{R}$.
 
 
@@ -682,7 +641,7 @@ Påstanden er sann.
 
 
 
-:::::::::::::::{exercise} Oppgave 16
+:::::::::::::::{exercise} Oppgave 15
 En funksjon $f$ er gitt ved 
 
 $$
