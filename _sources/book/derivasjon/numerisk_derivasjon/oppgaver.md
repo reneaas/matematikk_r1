@@ -172,19 +172,161 @@ print(p_derivert)
 :::::::::::::::
 
 
+
 ---
 
 
 
 
+:::::::::::::::{exercise} Oppgave 3
 
-:::::::::::::::{exercise} Oppgave X
-> I denne oppgaven skal vi se på hvordan valget av $h$ påvirker hvor nøyaktig svaret vårt blir når vi deriverer numerisk.
 
-En funksjon $f$ er gitt ved
+:::{plot}
+align: right
+width: 100%
+function: exp(-x**2 + x)
+xmin: -3
+xmax: 3
+yticks: off
+ymin: -1
+ymax: 3
+fontsize: 30
+lw: 4
+grid: off
+:::
+
+
+
+I figuren til høyre vises grafen til en funksjon $f$ gitt ved
 
 $$
-f(x) = x^2 e^{-x}
+f(x) = e^{-x^2 + x}
+$$
+
+
+
+Nedenfor vises et program.
+
+1. Hva er det programmet finner når det kjøres? 
+2. Bestem en eksakt verdi for det programmet skriver ut. Sjekk svaret ved å kjøre programmet!
+
+
+:::{clear}
+:::
+
+:::{interactive-code}
+---
+predict:
+---
+def f(x):
+    from math import e
+    return e**(-x**2 + x)
+
+
+x = -2
+h = 1e-7
+while f(x) < f(x + h):
+    x += 0.01
+
+print(x)
+:::
+
+
+
+:::::::::::::::
+
+
+
+
+---
+
+
+
+:::::::::::::::{exercise} Oppgave 4
+
+:::{plot}
+align: right
+width: 100%
+function: x * log(x**2)
+xmin: -2
+xmax: 2
+yticks: off
+grid: off
+ymin: -3
+ymax: 3
+fontsize: 30
+lw: 4
+:::
+
+
+I figuren til høyre vises grafen til en funksjon $f$ gitt ved
+
+$$
+f(x) = x \ln x^2
+$$
+
+
+Nedenfor vises et program.
+
+:::{clear}
+:::
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+1. Hva er det programmet finner når det kjøres?
+2. Bestem en eksakt verdi for det programmet skriver ut. Sjekk svaret ved å kjøre programmet!
+
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Gjør nødvendige endringer og bruk det til å bestemme koordinatene til toppunktet til $f$.
+
+
+:::::::::::::
+
+
+
+::::::::::::::
+
+
+
+
+:::{interactive-code}
+---
+predict:
+---
+def f(x):
+    from math import log
+    return x * log(x**2)
+
+
+x = 0.0001
+h = 1e-7
+while (f(x + h) - f(x)) / h < 0:
+    x += 0.0001
+
+print(x)
+:::
+
+:::::::::::::::
+
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 5
+En strategi for å bestemme $f'(x)$ numerisk er å kombinere formlene
+
+$$
+f'(x) \approx \frac{f(x + h) - f(x)}{h} \and f'(x) \approx \frac{f(x) - f(x - h)}{h}
 $$
 
 
@@ -193,14 +335,54 @@ $$
 class: tabs-parts
 ---
 :::::::::::::{tab-item} a
-Bestem $f'(x)$
+Vis at ved å kombinere disse to tilnærmingene får vi formelen
 
+$$
+f'(x) \approx \frac{f(x + h) - f(x - h)}{2h}
+$$
+
+
+
+::::{hints} Hint
+Prøv å plusse de to likningene sammen, og løs for $f'(x)$.
+::::
 
 :::::::::::::
 
 
+
 :::::::::::::{tab-item} b
-I programmet nedenfor er det noen kodelinjer som ikke er fullstendig. Skriv ferdig programmet og kjør det.
+En funksjon $f$ er gitt ved
+
+$$
+f(x) =
+\begin{cases}
+    \dfrac{1 - \sqrt{x}}{1 - x} & \qhvis x \neq 1 \qog x \geq 0 \\
+    \\
+    -\dfrac{1}{2} & \qhvis x = 1
+\end{cases}
+$$
+
+Bruk den nye formelen til å bestemme $f'(1)$ numerisk med programmet nedenfor.
+
+
+:::{interactive-code}
+def f(x):
+    if x != 1:
+        return ????
+    else:
+        return ????
+
+
+x = 1
+h = 1e-7
+
+f_derivert = ????
+
+print(f_derivert)
+:::
+
+
 
 
 :::::::::::::
@@ -208,37 +390,11 @@ I programmet nedenfor er det noen kodelinjer som ikke er fullstendig. Skriv ferd
 
 ::::::::::::::
 
-
-:::{interactive-code}
-def f(x):
-    from math import e
-    return ????
-
-def f_derivert(x, h):
-    return ????
-
-
-x = 2
-f_derivert_eksakt = ????
-f_derivert_numerisk = f_derivert(x)
-
-
-steglengder = []
-relativ_feilverdier = []
-h = 1
-while h > 1e-6:
-    relativ_feil = abs(f_derivert_eksakt - f_derivert_numerisk) / abs(f_derivert_eksakt)
-
-    # Lagrer verdiene for h og relativ feil så vi plotte dem
-    steglengder.append(h)
-    relativ_feilverdier.append(relativ_feil)
-
-
-import plotmath
-fig, ax = plotmath.plot(steglengder, relativ_feilverdier)
-ax.xscale("log")
-ax.yscale("log")
-plotmath.show()
-:::
-
 :::::::::::::::
+
+
+
+---
+
+
+

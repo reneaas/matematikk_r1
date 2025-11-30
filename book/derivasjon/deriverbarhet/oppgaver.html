@@ -173,7 +173,7 @@
     <link rel="icon" href="../../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Oppgavesamling 1" href="../../oppgavesamlinger/oppgavesamling_1/oppgaver.html" />
+    <link rel="next" title="11. Numerisk derivasjon" href="../numerisk_derivasjon/oppgaver.html" />
     <link rel="prev" title="9. Anvendelser av derivasjon" href="../anvendelser_av_derivasjon/oppgaver.html" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -345,6 +345,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../optimering/oppgaver.html">8. Størst og minst verdi</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../anvendelser_av_derivasjon/oppgaver.html">9. Anvendelser av derivasjon</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">10. Deriverbarhet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../numerisk_derivasjon/oppgaver.html">11. Numerisk derivasjon</a></li>
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Oppgavesamlinger</span></p>
 <ul class="nav bd-sidenav">
@@ -353,6 +354,10 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Jeopardy</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../jeopardy/derivasjon/jeopardy.html">Derivasjonsregler</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Oversikt</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../oversikt/formler.html">Formler</a></li>
 </ul>
 
     </div>
@@ -1038,9 +1043,9 @@ f'(4) = \lim_{x \to 4} \dfrac{(\sqrt{x} - 2)^2}{(\sqrt{x} - 2)(x - 4)} = \lim_{x
 <div class="sidebar-cas">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<button id="button-ggb-cas-46fcb6b4" class="ggb-cas-button">Åpne CAS‑vindu</button>
-<div id="dialog-ggb-cas-46fcb6b4" title="CAS‑vindu" style="display:none;">
-    <div id="ggb-cas-46fcb6b4" class="ggb-window"></div>
+<button id="button-ggb-cas-57f40461" class="ggb-cas-button">Åpne CAS‑vindu</button>
+<div id="dialog-ggb-cas-57f40461" title="CAS‑vindu" style="display:none;">
+    <div id="ggb-cas-57f40461" class="ggb-window"></div>
 </div>
 
 <style>
@@ -1057,12 +1062,12 @@ f'(4) = \lim_{x \to 4} \dfrac{(\sqrt{x} - 2)^2}{(\sqrt{x} - 2)(x - 4)} = \lim_{x
 
     function applySize() {
       if (!ggbReady) return;
-      const w = $("#ggb-cas-46fcb6b4").width(),
-            h = $("#ggb-cas-46fcb6b4").height();
+      const w = $("#ggb-cas-57f40461").width(),
+            h = $("#ggb-cas-57f40461").height();
       window.ggbApplet.setSize(Math.round(w), Math.round(h));
     }
 
-    const $dlg = $("#dialog-ggb-cas-46fcb6b4").dialog({
+    const $dlg = $("#dialog-ggb-cas-57f40461").dialog({
       autoOpen: false,
       width: 390, height: 580,
       resizable: true, draggable: true,
@@ -1071,14 +1076,14 @@ f'(4) = \lim_{x \to 4} \dfrac{(\sqrt{x} - 2)^2}{(\sqrt{x} - 2)(x - 4)} = \lim_{x
       open: function() {
         if (!ggbReady) {
           new GGBApplet({
-            appName: "classic", id: "ggb-cas-46fcb6b4",
+            appName: "classic", id: "ggb-cas-57f40461",
             width: 350, height: 500,
             perspective: "C", language: "nb",
             showToolBar: true, showAlgebraInput: true,
             borderRadius: 8, enableRightClick: true, showKeyboardOnFocus: false,
             customToolBar: "1001 | 1002 | 1007 | 1010 | 6",
             appletOnLoad: () => { ggbReady = true; applySize(); }
-          }, true).inject("ggb-cas-46fcb6b4");
+          }, true).inject("ggb-cas-57f40461");
         } else {
           applySize();
         }
@@ -1121,7 +1126,7 @@ f'(4) = \lim_{x \to 4} \dfrac{(\sqrt{x} - 2)^2}{(\sqrt{x} - 2)(x - 4)} = \lim_{x
             target = target.parentElement;
           }
           // Prevent page scroll but don't stop the event from reaching GeoGebra
-          if (!e.target.closest('#ggb-cas-46fcb6b4')) {
+          if (!e.target.closest('#ggb-cas-57f40461')) {
             e.preventDefault();
             e.stopPropagation();
           }
@@ -1149,7 +1154,7 @@ f'(4) = \lim_{x \to 4} \dfrac{(\sqrt{x} - 2)^2}{(\sqrt{x} - 2)(x - 4)} = \lim_{x
     
     // Monitor GeoGebra applet focus/interaction to control scroll lock
     function bindScrollLock() {
-      const ggbContainer = document.getElementById('ggb-cas-46fcb6b4');
+      const ggbContainer = document.getElementById('ggb-cas-57f40461');
       if (!ggbContainer) {
         setTimeout(bindScrollLock, 300);
         return;
@@ -1195,10 +1200,10 @@ f'(4) = \lim_{x \to 4} \dfrac{(\sqrt{x} - 2)^2}{(\sqrt{x} - 2)(x - 4)} = \lim_{x
     // Cleanup on dialog close
     $dlg.on('dialogclose', unlockScroll);
 
-    $("#button-ggb-cas-46fcb6b4").button()
+    $("#button-ggb-cas-57f40461").button()
       .on("click touchend pointerup", e => {
         e.preventDefault();
-        $("#dialog-ggb-cas-46fcb6b4").dialog("open");
+        $("#dialog-ggb-cas-57f40461").dialog("open");
       });
   });
 })();
@@ -1260,9 +1265,9 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
 <div class="sidebar-cas">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<button id="button-ggb-cas-ad21c3e3" class="ggb-cas-button">Åpne CAS‑vindu</button>
-<div id="dialog-ggb-cas-ad21c3e3" title="CAS‑vindu" style="display:none;">
-    <div id="ggb-cas-ad21c3e3" class="ggb-window"></div>
+<button id="button-ggb-cas-e414b584" class="ggb-cas-button">Åpne CAS‑vindu</button>
+<div id="dialog-ggb-cas-e414b584" title="CAS‑vindu" style="display:none;">
+    <div id="ggb-cas-e414b584" class="ggb-window"></div>
 </div>
 
 <style>
@@ -1279,12 +1284,12 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
 
     function applySize() {
       if (!ggbReady) return;
-      const w = $("#ggb-cas-ad21c3e3").width(),
-            h = $("#ggb-cas-ad21c3e3").height();
+      const w = $("#ggb-cas-e414b584").width(),
+            h = $("#ggb-cas-e414b584").height();
       window.ggbApplet.setSize(Math.round(w), Math.round(h));
     }
 
-    const $dlg = $("#dialog-ggb-cas-ad21c3e3").dialog({
+    const $dlg = $("#dialog-ggb-cas-e414b584").dialog({
       autoOpen: false,
       width: 390, height: 580,
       resizable: true, draggable: true,
@@ -1293,14 +1298,14 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
       open: function() {
         if (!ggbReady) {
           new GGBApplet({
-            appName: "classic", id: "ggb-cas-ad21c3e3",
+            appName: "classic", id: "ggb-cas-e414b584",
             width: 350, height: 500,
             perspective: "C", language: "nb",
             showToolBar: true, showAlgebraInput: true,
             borderRadius: 8, enableRightClick: true, showKeyboardOnFocus: false,
             customToolBar: "1001 | 1002 | 1007 | 1010 | 6",
             appletOnLoad: () => { ggbReady = true; applySize(); }
-          }, true).inject("ggb-cas-ad21c3e3");
+          }, true).inject("ggb-cas-e414b584");
         } else {
           applySize();
         }
@@ -1343,7 +1348,7 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
             target = target.parentElement;
           }
           // Prevent page scroll but don't stop the event from reaching GeoGebra
-          if (!e.target.closest('#ggb-cas-ad21c3e3')) {
+          if (!e.target.closest('#ggb-cas-e414b584')) {
             e.preventDefault();
             e.stopPropagation();
           }
@@ -1371,7 +1376,7 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
     
     // Monitor GeoGebra applet focus/interaction to control scroll lock
     function bindScrollLock() {
-      const ggbContainer = document.getElementById('ggb-cas-ad21c3e3');
+      const ggbContainer = document.getElementById('ggb-cas-e414b584');
       if (!ggbContainer) {
         setTimeout(bindScrollLock, 300);
         return;
@@ -1417,10 +1422,10 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
     // Cleanup on dialog close
     $dlg.on('dialogclose', unlockScroll);
 
-    $("#button-ggb-cas-ad21c3e3").button()
+    $("#button-ggb-cas-e414b584").button()
       .on("click touchend pointerup", e => {
         e.preventDefault();
-        $("#dialog-ggb-cas-ad21c3e3").dialog("open");
+        $("#dialog-ggb-cas-e414b584").dialog("open");
       });
   });
 })();
@@ -1550,11 +1555,11 @@ a = 14 \and b = 24 \and c = -\dfrac{10}{27} \and k = \dfrac{1}{3}
       </div>
     </a>
     <a class="right-next"
-       href="../../oppgavesamlinger/oppgavesamling_1/oppgaver.html"
+       href="../numerisk_derivasjon/oppgaver.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Oppgavesamling 1</p>
+        <p class="prev-next-title"><span class="section-number">11. </span>Numerisk derivasjon</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

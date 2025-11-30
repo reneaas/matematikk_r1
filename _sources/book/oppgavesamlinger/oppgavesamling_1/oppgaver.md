@@ -2018,6 +2018,212 @@ ymax: 1.5
 
 
 
+---
+
+
+
+:::::::::::::::{exercise} Oppgave 25
+En funksjon $f$ er gitt ved
+
+$$
+f(x) =
+\begin{cases}
+    \sqrt{x + a} &\qhvis -a < x < 0 \\
+    \\
+    x^2 + bx + 4 &\qhvis x \geq 0
+\end{cases}
+$$
+
+
+Bestem $a$ og $b$ slik at $f$ er deriverbar i $x = 0$.
+
+
+::::{answer}
+$$
+a = 16 \and b = \dfrac{1}{8}
+$$
+::::
+
+:::::::::::::::
+
+
+
+
+---
+
+
+
+
+:::::::::::::::{exercise} Oppgave 26
+:::{cas-popup}
+---
+layout: sidebar
+---
+:::
+
+En funksjon $f$ er gitt ved
+
+$$
+f(x) = 6x - x^2 \qfor x \in [0, 6]
+$$
+
+Nedenfor vises grafen til $f$ sammen med et rektangel $ABCD$.
+
+I rektangelet er $A(a, 0)$ og $D(a, f(a))$ der $a \in \langle 0, 3\rangle$. Punktet $C$ ligger på grafen til $f$.
+
+Bestem $a$ slik at arealet av rektangelet $ABCD$ er størst mulig.
+
+:::{plot}
+width: 70%
+function: 6*x - x**2, (0, 6), f
+polygon: (1, 0), (1, f(1)), (5, f(5)), (5, 0)
+xmin: -1
+ymin: -1
+ymax: 10
+xmax: 7
+ticks: off
+point: (1, 0)
+point: (1, f(1))
+point: (5, f(5))
+point: (5, 0)
+text: 1, 0, "$A$", bottom-left
+text: 1, f(1), "$D$", top-left
+text: 5, f(5), "$C$", top-right
+text: 5, 0, "$B$", bottom-right
+:::
+
+
+
+::::{answer}
+$$
+a = -\sqrt{3} + 3
+$$
+::::
+
+
+
+
+
+:::::::::::::::
+
+
+
+
+---
+
+
+
+
+:::::::::::::::{exercise} Oppgave 27
+En funksjon $f$ er gitt ved
+
+
+$$
+f(x) = 
+\begin{cases}
+    2x^2 - 3x - 2 &\qhvis x \leq a \\
+    \\
+    x^2 + x + 3 &\qhvis x > a
+\end{cases}
+$$
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+For hvilke verdier av $a$ er $f$ kontinuerlig?
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Undersøk om $f$ er deriverbar for verdiene av $a$ du fant. 
+
+
+:::::::::::::
+
+
+::::::::::::::
+
+:::::::::::::::
+
+
+
+---
+
+
+
+:::::::::::::::{exercise} Oppgave 28
+:::{cas-popup}
+---
+layout: sidebar
+---
+:::
+
+
+Fire byer $A$, $B$, $C$ og $D$ ligger plassert slik at de danner et kvadrat med sidelengde $10$ km. 
+
+Vi skal lage en veiforbindelse mellom disse fire byene. Veilengden mellom de fire byene blir kortest mulig dersom vi lager veiene via to punkter $E$ og $F$. Se figuren nedenfor.
+
+Vi lar $x$ være avstanden mellom $E$ og $F$. 
+
+Bestem $x$ slik at den samlede veilengden mellom byene blir kortest mulig.
+
+
+:::{plot}
+width: 70%
+point: (0, 0)
+point: (10, 0)
+point: (10, 10)
+point: (0, 10)
+axis: off
+axis: equal
+point: (5, 2)
+point: (5, 8)
+line-segment: (0, 0), (5, 2)
+line-segment: (10, 0), (5, 2)
+line-segment: (10, 10), (5, 8)
+line-segment: (0, 10), (5, 8)
+line-segment: (5, 2), (5, 8)
+line-segment: (0, 0), (10, 0), dashed, gray
+line-segment: (10, 0), (10, 10), dashed, gray
+line-segment: (10, 10), (0, 10), dashed, gray
+line-segment: (0, 10), (0, 0), dashed, gray
+text: 0, 0, "$A$", bottom-left
+text: 10, 0, "$B$", bottom-right
+text: 10, 10, "$C$", top-right
+text: 0, 10, "$D$", top-left
+text: 5, 2, "$E$", bottom-center
+text: 5, 8, "$F$", top-center
+text: 5, 5, "$x$", center-right
+text: 2.5, 1, "$s$", top-left
+text: 10 - 2.5, 1, "$s$", top-right
+text: 2.5, 9, "$s$", bottom-left
+text: 10 - 2.5, 9, "$s$", bottom-right
+text: 5, 0, "$10$", bottom-center
+text: 10, 5, "$10$", center-right
+:::
+
+
+
+::::{answer}
+$$
+x = \dfrac{-10\sqrt{3} + 30}{3}
+$$
+::::
+
+
+
+
+:::::::::::::::
+
+
+
+
+
+
+
 
 
 
