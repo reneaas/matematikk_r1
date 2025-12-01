@@ -167,12 +167,16 @@ $$
 
 :::{plot}
 width: 100%
-function: x + 1 - 1/(x + 1) + 1 / (x - 2)**2
+function: x + 1 - 1/(x + 1) + 1 / (x - 2)**2, (-1, 20)
+function: (x - 1) / (x + 1), (-20, -1), blue
 vline: -1
 vline: 2
+hline: 1
 line: 1, 1
 ticks: off
 ymax: 10
+xmin: -6
+xmax: 6
 :::
 
 Skrå asymptote $y = ax + b$
@@ -191,11 +195,27 @@ Horisontal asymptote $y = a$
 **Kontinuitet og deriverbarhet**
 ^^^
 
+Eksistens av grenseverdi
+: $\lim\limits_{x \to a} f(x)$ finnes hvis $\lim\limits_{x \to a^-} f(x) = \lim\limits_{x \to a^+} f(x)$
+
 Kontinuitet i $x = a$
-: $\lim\limits_{x \to a^-} f(x) = \lim\limits_{x \to a^+} f(x) = f(a)$
+: $\lim\limits_{x \to a} f(x) = f(a)$
 
 Deriverbarhet i $x = a$
 : $f'(a) = \lim\limits_{x \to a} \dfrac{f(x) - f(a)}{x - a}$ må eksistere
+
+Funksjon med delt forskrift
+: $
+f(x) =
+\begin{cases}
+    g(x) & \qhvis x < a \\
+    \\
+    h(x) & \qhvis x \geq a
+\end{cases}
+$
+
+: Kontinuerlig i $a$ hvis $g(a) = h(a)$
+: Deriverbar i $a$ hvis kontinuerlig i $a$ og $g'(a) = h'(a)$
 
 ::::::
 
