@@ -923,7 +923,10 @@ Nedenfor vises løsningene til Anna og Bjørn for å bestemme $x$:
 ---
 gutter: 3
 ---
-:::{grid-item-card} Annas løsning
+:::{grid-item-card}
+
+**Annas løsning**
+^^^
 
 $$
 2^x = a
@@ -938,7 +941,9 @@ x = \log_2 a
 $$
 :::
 
-:::{grid-item-card} Bjørns løsning
+:::{grid-item-card}
+**Bjørns løsning**
+^^^
 
 $$
 2^x = a

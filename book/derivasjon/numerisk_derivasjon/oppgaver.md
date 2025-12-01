@@ -323,35 +323,6 @@ print(x)
 
 
 :::::::::::::::{exercise} Oppgave 5
-En strategi for å bestemme $f'(x)$ numerisk er å kombinere formlene
-
-$$
-f'(x) \approx \frac{f(x + h) - f(x)}{h} \and f'(x) \approx \frac{f(x) - f(x - h)}{h}
-$$
-
-
-::::::::::::::{tab-set}
----
-class: tabs-parts
----
-:::::::::::::{tab-item} a
-Vis at ved å kombinere disse to tilnærmingene får vi formelen
-
-$$
-f'(x) \approx \frac{f(x + h) - f(x - h)}{2h}
-$$
-
-
-
-::::{hints} Hint
-Prøv å plusse de to likningene sammen, og løs for $f'(x)$.
-::::
-
-:::::::::::::
-
-
-
-:::::::::::::{tab-item} b
 En funksjon $f$ er gitt ved
 
 $$
@@ -359,42 +330,36 @@ f(x) =
 \begin{cases}
     \dfrac{1 - \sqrt{x}}{1 - x} & \qhvis x \neq 1 \qog x \geq 0 \\
     \\
-    -\dfrac{1}{2} & \qhvis x = 1
+    \dfrac{1}{2} & \qhvis x = 1
 \end{cases}
 $$
 
-Bruk den nye formelen til å bestemme $f'(1)$ numerisk med programmet nedenfor.
+
+Bruk programmet nedenfor til å bestemme $f'(1)$.
 
 
 :::{interactive-code}
 def f(x):
-    if x != 1:
+    if x != 1 and x >= 0:
         return ????
     else:
         return ????
 
 
 x = 1
-h = 1e-7
+h = 1e-6
 
 f_derivert = ????
 
 print(f_derivert)
 :::
 
-
-
-
-:::::::::::::
-
-
-::::::::::::::
-
 :::::::::::::::
 
 
 
 ---
+
 
 
 
