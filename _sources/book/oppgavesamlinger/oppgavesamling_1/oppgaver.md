@@ -1139,7 +1139,10 @@ Nedenfor vises fire alternativer om egenskaper ved grafen til $f$. Kun én av de
 ---
 gutter: 2
 ---
-:::{grid-item-card} Alternativ 1
+:::{grid-item-card}
+**Alternativ 1**
+^^^
+
 $$
 \begin{align*}
 \lim_{x \to 1^+} f(x) &= \infty \\
@@ -1149,7 +1152,10 @@ $$
 $$
 :::
 
-:::{grid-item-card} Alternativ 2
+:::{grid-item-card}
+**Alternativ 2**
+^^^
+
 $$
 \begin{align*}
 \lim_{x \to 1^-} f(x) &= -\infty \\
@@ -1159,7 +1165,10 @@ $$
 $$
 :::
 
-:::{grid-item-card} Alternativ 3
+:::{grid-item-card}
+**Alternativ 3**
+^^^
+
 $$
 \begin{align*}
 \lim_{x \to 1^+} f(x) &= \infty \\
@@ -1169,7 +1178,10 @@ $$
 $$
 :::
 
-:::{grid-item-card} Alternativ 4
+:::{grid-item-card}
+**Alternativ 4**
+^^^
+
 $$
 \begin{align*}
 \lim_{x \to 1^-} f(x) &= -\infty \\
@@ -1904,7 +1916,10 @@ Kun ett alternativ stemmer – hvilket?
 gutter: 2
 ---
 
-:::{grid-item-card} Alternativ 1
+:::{grid-item-card}
+**Alternativ 1**
+^^^
+
 $$
 \begin{align*}
 \lim_{x \to -1^-} f'(x) &= \infty \\
@@ -1916,7 +1931,10 @@ $$
 $$
 :::
 
-:::{grid-item-card} Alternativ 2
+:::{grid-item-card}
+**Alternativ 2**
+^^^
+
 $$
 \begin{align*}
 \lim_{x \to -1^-} f'(x) &= -\infty \\
@@ -1929,7 +1947,10 @@ $$
 :::
 
 
-:::{grid-item-card} Alternativ 3
+:::{grid-item-card}
+**Alternativ 3**
+^^^
+
 $$
 \begin{align*}
 \lim_{x \to -1^-} f'(x) &= \infty \\
@@ -1942,7 +1963,10 @@ $$
 :::
 
 
-:::{grid-item-card} Alternativ 4
+:::{grid-item-card}
+**Alternativ 4**
+^^^
+
 $$
 \begin{align*}
 \lim_{x \to -1^-} f'(x) &= \infty \\
