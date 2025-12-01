@@ -1,6 +1,6 @@
 # Oppgavesamling 1
 
-> Oppgaver der en CAS-knapp er vist, kan tenkes på som en "del 2"-opppgave
+> Oppgaver der en CAS-knapp er vist, kan tenkes på som en "del 2"-oppgave
 
 :::::::::::::::{exercise} Oppgave 1
 
@@ -625,11 +625,90 @@ Altså har grafen til $f$ et toppunkt i $(0, 1)$.
 :::::::::::::::
 
 
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 6
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+En funksjon $f$ er gitt ved
+
+$$
+f(x) = e^{-2x} + \dfrac{1}{5}x^5 - 2\pi
+$$
+
+Bestem likningen for tangenten til grafen til $f$ i punktet $(0, f(0))$.
+
+::::{answer}
+$$
+y = -2x + 1 - 2\pi
+$$
+::::
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} b
+En funksjon $g$ er gitt ved
+
+$$
+g(x) = xe^{-x} + 1
+$$
+
+
+Bestem likningen for tangenten til grafen til $g$ i $(2, g(2))$.
+
+
+::::{answer}
+$$
+y = -\dfrac{1}{e^2}x + \dfrac{4}{e^2} + 1
+$$
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+En funksjon $h$ er gitt ved
+
+$$
+h(x) = \ln (x^2 + e^2)
+$$
+
+Bestem liknngen til tangenten til grafen til $h$ i punktet $(e, h(e))$.
+
+::::{answer}
+$$
+y = \dfrac{1}{e}x + \ln 2 + 1
+$$
+::::
+
+
+:::::::::::::
+
+
+
+
+::::::::::::::
+
+
+
+
+
+
+:::::::::::::::
+
+
+
 ---
 
 
 
-:::::::::::::::{exercise} Oppgave 6
+:::::::::::::::{exercise} Oppgave 7
 
 :::{cas-popup}
 ---
@@ -768,11 +847,66 @@ Funksjonen vil ellers ikke ha noen vertikale asymptoter fordi vi ikke kan få ne
 :::::::::::::::
 
 
+
 ---
 
 
 
-:::{margin} Tips: Oppgave 7
+:::::::::::::::{exercise} Oppgave 8
+En funksjon $f$ er gitt ved
+
+$$
+f(x) = \dfrac{1}{2}e^x (2x - 1)^2
+$$
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bestem eventuelle nullpunkter til $f$.
+
+::::{answer}
+$$
+x = \dfrac{1}{2}
+$$
+::::
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Vis at 
+
+$$
+f'(x) = \dfrac{1}{2}e^x (2x - 1)(2x + 3)
+$$
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} c
+Bestem koordinatene til eventuelle topp- og bunnpunkter på grafen til $f$.
+
+::::{answer}
+* Toppunkt i $\left(-\dfrac{3}{2}, \dfrac{8}{\sqrt{e^3}}\right)$
+* Bunnpunkt i $\left(\dfrac{1}{2}, 0\right)$
+::::
+
+:::::::::::::
+
+
+
+::::::::::::::
+
+:::::::::::::::
+
+
+---
+
+
+
+:::{margin} Tips: Oppgave 9
 For å angripe oppgaver av denne typen kan det være lurt å finne ut en del om funksjonen først. Prøv å se etter 
 * Nullpunkter
 * Topp- og bunnpunkter
@@ -781,7 +915,7 @@ For å angripe oppgaver av denne typen kan det være lurt å finne ut en del om 
 
 
 
-:::::::::::::::{exercise} Oppgave 7
+:::::::::::::::{exercise} Oppgave 9
 En funksjon $f$ er gitt ved
 
 $$
@@ -909,7 +1043,7 @@ Derfor er graf D grafen til $f$.
 ---
 
 
-:::::::::::::::{exercise} Oppgave 8
+:::::::::::::::{exercise} Oppgave 10
 Anna og Bjørn ser på eksponentiallikningen
 
 $$
@@ -994,7 +1128,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 9
+:::::::::::::::{exercise} Oppgave 11
 En funksjon $f$ er gitt ved
 
 $$
@@ -1106,7 +1240,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 10
+:::::::::::::::{exercise} Oppgave 12
 :::{plot}
 align: right
 width: 100%
@@ -1240,11 +1374,54 @@ Graf C.
 
 
 
+---
+
+
+
+:::::::::::::::{exercise} Oppgave 13
+En funksjon $f$ er gitt ved
+
+$$
+f(x) = \dfrac{2x - 3}{e^x}
+$$
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bestem i hvilke punkter grafen til $f$ skjærer $x$-aksen.
+
+::::{answer}
+$$
+x = \frac{3}{2}
+$$
+::::
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} b
+Bestem koordinatene til eventuelle topp- og bunnpunkter på grafen til $f$.
+
+::::{answer}
+Toppunkt i $\left(\dfrac{5}{2}, e^{5/2}\right)$
+::::
+:::::::::::::
+
+
+::::::::::::::
+
+:::::::::::::::
+
+
+
 
 ---
 
 
-:::::::::::::::{exercise} Oppgave 11
+:::::::::::::::{exercise} Oppgave 14
 En funksjon $f$ er gitt ved
 
 
@@ -1333,7 +1510,7 @@ Dermed vil ikke $f$ ha en horisontal asymptote når $x \to -\infty$. Men da kan 
 
 
 
-:::::::::::::::{exercise} Oppgave 12
+:::::::::::::::{exercise} Oppgave 15
 
 :::{cas-popup}
 ---
@@ -1378,7 +1555,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 13
+:::::::::::::::{exercise} Oppgave 16
 :::{plot}
 align: right
 width: 100%
@@ -1426,7 +1603,7 @@ Graf C
 
 
 
-:::::::::::::::{exercise} Oppgave 14
+:::::::::::::::{exercise} Oppgave 17
 Anna jobber med en funksjon $f$ gitt ved
 
 $$
@@ -1469,7 +1646,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 15
+:::::::::::::::{exercise} Oppgave 18
 Nedenfor vises en grenseverdi.
 
 $$
@@ -1495,7 +1672,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 16
+:::::::::::::::{exercise} Oppgave 19
 
 :::{plot}
 align: right
@@ -1545,7 +1722,7 @@ xmax: 3
 
 
 
-:::::::::::::::{exercise} Oppgave 17
+:::::::::::::::{exercise} Oppgave 20
 
 :::{cas-popup}
 ---
@@ -1598,7 +1775,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 18
+:::::::::::::::{exercise} Oppgave 21
 Bjørn jobber med funksjonen
 
 $$
@@ -1675,7 +1852,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 19
+:::::::::::::::{exercise} Oppgave 22
 
 :::{cas-popup}
 ---
@@ -1709,7 +1886,7 @@ ca. 51 minutter.
 
 
 
-:::::::::::::::{exercise} Oppgave 20
+:::::::::::::::{exercise} Oppgave 23
 
 :::{plot}
 align: right
@@ -1775,7 +1952,7 @@ print(t)
 
 
 
-:::::::::::::::{exercise} Oppgave 21
+:::::::::::::::{exercise} Oppgave 24
 
 
 :::{cas-popup}
@@ -1834,7 +2011,7 @@ Avgjør om grafen til $f$ har et vendepunkt.
 
 
 
-:::::::::::::::{exercise} Oppgave 22
+:::::::::::::::{exercise} Oppgave 25
 
 :::{plot}
 align: right
@@ -1886,7 +2063,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 23
+:::::::::::::::{exercise} Oppgave 26
 
 :::{plot}
 align: right
@@ -1995,7 +2172,7 @@ Alternativ 3
 
 
 
-:::::::::::::::{exercise} Oppgave 24
+:::::::::::::::{exercise} Oppgave 27
 
 :::{plot}
 align: right
@@ -2051,7 +2228,7 @@ ymax: 1.5
 
 
 
-:::::::::::::::{exercise} Oppgave 25
+:::::::::::::::{exercise} Oppgave 28
 En funksjon $f$ er gitt ved
 
 $$
@@ -2083,7 +2260,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 26
+:::::::::::::::{exercise} Oppgave 29
 :::{cas-popup}
 ---
 layout: sidebar
@@ -2143,7 +2320,16 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 27
+:::::::::::::::{exercise} Oppgave 30
+
+:::{cas-popup}
+---
+layout: sidebar
+---
+:::
+
+
+
 En funksjon $f$ er gitt ved
 
 
@@ -2162,6 +2348,13 @@ class: tabs-parts
 ---
 :::::::::::::{tab-item} a
 For hvilke verdier av $a$ er $f$ kontinuerlig?
+
+
+::::{answer}
+$$
+a = -1 \or a = 5
+$$
+::::
 
 :::::::::::::
 
@@ -2183,7 +2376,7 @@ Undersøk om $f$ er deriverbar for verdiene av $a$ du fant.
 
 
 
-:::::::::::::::{exercise} Oppgave 28
+:::::::::::::::{exercise} Oppgave 31
 :::{cas-popup}
 ---
 layout: sidebar

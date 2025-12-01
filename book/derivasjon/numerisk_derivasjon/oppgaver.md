@@ -358,8 +358,5 @@ print(f_derivert)
 
 
 
----
-
-
 
 
