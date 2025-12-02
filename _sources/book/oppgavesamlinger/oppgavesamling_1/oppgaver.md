@@ -1545,6 +1545,19 @@ $$
 
 
 :::::::::::::{tab-item} b
+Bestem $R'(5)$ og gi en praktisk tolkning av svaret.
+
+::::{answer}
+$$
+R'(5) \approx 28.67
+$$
+
+som betyr at det kom omtrent 29 nye rotter til Jul i Vinterland i løpet av dag 5.
+::::
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
 Hvilken dag i desember vil det komme flest rotter til Jul i Vinterland? Hvor mange rotter kom inn til Jul i Vinterland den dagen?
 
 ::::{answer}
@@ -1554,7 +1567,8 @@ Etter ca. 9 dager, så den 10.desember. Da kom det ca. 45 rotter til Jul i Vinte
 :::::::::::::
 
 
-:::::::::::::{tab-item} c
+
+:::::::::::::{tab-item} d
 Hvor mange rotter vil kan det maksimalt bli, ifølge modellen?
 
 ::::{answer}
