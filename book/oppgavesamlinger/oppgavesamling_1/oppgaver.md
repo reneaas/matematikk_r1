@@ -833,7 +833,7 @@ $$
 \lim_{t \to -\infty} S(t) = \lim_{t \to -\infty} \dfrac{300}{1 + 28 \cdot e^{-0.3t}} = \dfrac{300}{1 + 28 \cdot \infty} = 0
 $$
 
-Den første grenseverdien forteller oss at maksimalt 300 elever kan bli smittet i løpet av epidemien, mens den andre grenseverdien forteller oss at ingen var smittet lenge før epidemien startet (*duh*).
+Den første grenseverdien forteller oss at maksimalt 300 elever kan bli smittet i løpet av epidemien, mens den andre grenseverdien forteller oss at ingen var smittet lenge før epidemien startet.
 
 Funksjonen vil ellers ikke ha noen vertikale asymptoter fordi vi ikke kan få nevneren til å bli null på noe vis.
 
@@ -1269,7 +1269,7 @@ class: tabs-parts
 Nedenfor vises fire alternativer om egenskaper ved grafen til $f$. Kun én av de stemmer – hvilken?
 
 
-::::{grid}
+::::{grid} 1 1 2 2
 ---
 gutter: 2
 ---
@@ -1509,8 +1509,73 @@ Dermed vil ikke $f$ ha en horisontal asymptote når $x \to -\infty$. Men da kan 
 ---
 
 
-
 :::::::::::::::{exercise} Oppgave 15
+
+:::{cas-popup}
+---
+layout: sidebar
+---
+:::
+
+
+Antall rotter som har forvillet seg inn i Jul i Vinterland kan antas å følge en modell på formen
+
+$$
+R(x) = \dfrac{100}{1 + ae^{-bx}}
+$$
+
+der $a$ og $b$ er konstanter, og $x$ er antall dager etter 1. desember. Vi antar at det var 20 rotter den 1. desember og at antall rotter etter 5 dager vil ha doblet seg. 
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bestem $a$ og $b$.
+
+::::{answer}
+$$
+a = 4 \and b = -\dfrac{1}{5}\ln \dfrac{3}{8}
+$$
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Hvilken dag i desember vil det komme flest rotter til Jul i Vinterland, ifølge modellen?
+
+::::{answer}
+Etter ca. 7 dager, så den 8.desember. 
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+Hvor mange rotter vil kan det maksimalt bli, ifølge modellen?
+
+::::{answer}
+100
+::::
+
+:::::::::::::
+
+
+::::::::::::::
+
+
+
+
+:::::::::::::::
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 16
 
 :::{cas-popup}
 ---
@@ -1555,7 +1620,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 16
+:::::::::::::::{exercise} Oppgave 17
 :::{plot}
 align: right
 width: 100%
@@ -1603,7 +1668,7 @@ Graf C
 
 
 
-:::::::::::::::{exercise} Oppgave 17
+:::::::::::::::{exercise} Oppgave 18
 Anna jobber med en funksjon $f$ gitt ved
 
 $$
@@ -1646,15 +1711,38 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 18
+:::::::::::::::{exercise} Oppgave 19
 Nedenfor vises en grenseverdi.
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bestem grenseverdien dersom den eksisterer.
+
+$$
+\lim_{x \to -2} \dfrac{x^2 - x + 2}{x^2 - 2x - 8}
+$$
+
+
+::::{answer}
+$$
+\lim_{x \to -2} \dfrac{x^2 - x + 2}{x^2 - 2x - 8} = \pm\infty
+$$
+::::
+
+:::::::::::::
+
+:::::::::::::{tab-item} b
+1. Bestem $a$ slik at grenseverdien eksisterer
 
 $$
 \lim_{x \to -2} \dfrac{x^2 + ax + 2}{x^2 - 2x - 8}
 $$
 
-1) Bestem $a$ slik at grenseverdien eksisterer.
-2) Bestem grenseverdien for denne verdien av $a$.
+
+2. Bestem grenseverdien for denne verdien av $a$.
 
 
 ::::{answer}
@@ -1662,6 +1750,15 @@ $$
 a = 3 \qog \lim_{x \to -2} \dfrac{x^2 + 3x + 2}{x^2 - 2x - 8} = \dfrac{1}{6}
 $$
 ::::
+
+
+:::::::::::::
+
+
+::::::::::::::
+
+
+
 
 
 :::::::::::::::
@@ -1672,7 +1769,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 19
+:::::::::::::::{exercise} Oppgave 20
 
 :::{plot}
 align: right
@@ -1722,7 +1819,7 @@ xmax: 3
 
 
 
-:::::::::::::::{exercise} Oppgave 20
+:::::::::::::::{exercise} Oppgave 21
 
 :::{cas-popup}
 ---
@@ -1775,7 +1872,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 21
+:::::::::::::::{exercise} Oppgave 22
 Bjørn jobber med funksjonen
 
 $$
@@ -1852,7 +1949,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 22
+:::::::::::::::{exercise} Oppgave 23
 
 :::{cas-popup}
 ---
@@ -1873,9 +1970,12 @@ I et rom med temperatur $22 \degree \mathrm{C}$ setter vi en kopp med kaffe. Ved
 
 Hvor lang tid vil det ta før temperaturen i kaffen er mindre enn $30 \degree \mathrm{C}$?
 
+
 ::::{answer}
 ca. 51 minutter.
 ::::
+
+
 :::::::::::::::
 
 
@@ -1886,7 +1986,7 @@ ca. 51 minutter.
 
 
 
-:::::::::::::::{exercise} Oppgave 23
+:::::::::::::::{exercise} Oppgave 24
 
 :::{plot}
 align: right
@@ -1952,7 +2052,7 @@ print(t)
 
 
 
-:::::::::::::::{exercise} Oppgave 24
+:::::::::::::::{exercise} Oppgave 25
 
 
 :::{cas-popup}
@@ -1975,11 +2075,6 @@ f(x) =
 $$
 
 
-::::::::::::::{tab-set}
----
-class: tabs-parts
----
-:::::::::::::{tab-item} a
 Bestem $a$ og $b$ slik at $f$ er deriverbar i $x = 1$
 
 
@@ -1990,19 +2085,6 @@ $$
 ::::
 
 
-:::::::::::::
-
-
-:::::::::::::{tab-item} b
-Avgjør om grafen til $f$ har et vendepunkt.
-
-
-:::::::::::::
-
-
-::::::::::::::
-
-
 :::::::::::::::
 
 
@@ -2011,7 +2093,7 @@ Avgjør om grafen til $f$ har et vendepunkt.
 
 
 
-:::::::::::::::{exercise} Oppgave 25
+:::::::::::::::{exercise} Oppgave 26
 
 :::{plot}
 align: right
@@ -2063,7 +2145,45 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 26
+:::::::::::::::{exercise} Oppgave 27
+:::{cas-popup}
+---
+layout: sidebar
+---
+:::
+
+
+En funksjon $f$ er gitt ved
+
+$$
+f(x) =
+\begin{cases}
+    a(x - 2)^2 + b &\qhvis x < 0 \\
+    \\
+    cx + 1 &\qhvis 0 \leq x < 2 \\
+    \\
+    -x^3 + dx^2 + 1 &\qhvis x \geq 2
+\end{cases}
+$$
+
+
+Bestem $a$, $b$, $c$ og $k$ slik at $f$ er deriverbar i $x = 0$ og $x = 2$.
+
+::::{answer}
+$$
+a = -1 \and b = 5 \and c = 4 \and d = 4
+$$
+::::
+
+:::::::::::::::
+
+
+
+---
+
+
+
+:::::::::::::::{exercise} Oppgave 28
 
 :::{plot}
 align: right
@@ -2172,7 +2292,7 @@ Alternativ 3
 
 
 
-:::::::::::::::{exercise} Oppgave 27
+:::::::::::::::{exercise} Oppgave 29
 
 :::{plot}
 align: right
@@ -2228,7 +2348,7 @@ ymax: 1.5
 
 
 
-:::::::::::::::{exercise} Oppgave 28
+:::::::::::::::{exercise} Oppgave 30
 En funksjon $f$ er gitt ved
 
 $$
@@ -2260,7 +2380,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 29
+:::::::::::::::{exercise} Oppgave 31
 :::{cas-popup}
 ---
 layout: sidebar
@@ -2320,7 +2440,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 30
+:::::::::::::::{exercise} Oppgave 32
 
 :::{cas-popup}
 ---
@@ -2360,9 +2480,12 @@ $$
 
 
 :::::::::::::{tab-item} b
-Undersøk om $f$ er deriverbar for verdiene av $a$ du fant. 
+Undersøk om $f$ er deriverbar i $x = a$ for verdiene av $a$ du fant. 
 
 
+::::{answer}
+$f$ er ikke deriverbar for verdiene noen av verdiene. 
+::::
 :::::::::::::
 
 
@@ -2372,11 +2495,13 @@ Undersøk om $f$ er deriverbar for verdiene av $a$ du fant.
 
 
 
+
 ---
 
 
 
-:::::::::::::::{exercise} Oppgave 31
+
+:::::::::::::::{exercise} Oppgave 33
 :::{cas-popup}
 ---
 layout: sidebar
