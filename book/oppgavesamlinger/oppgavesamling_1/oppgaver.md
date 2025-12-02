@@ -1417,11 +1417,51 @@ Toppunkt i $\left(\dfrac{5}{2}, e^{5/2}\right)$
 
 
 
+---
+
+
+
+:::::::::::::::{exercise} Oppgave 14
+Anna har skrevet programmet nedenfor.
+
+
+Bestem en eksakt verdi for verdien programmet skriver ut når det kjøres. 
+
+Kjør programmet og sjekk svaret ditt.
+
+:::{interactive-code}
+---
+predict:
+---
+def f(x):
+    return (20 - x**2) ** 0.5
+
+x = 2
+h = 1e-6
+
+dfdx = (f(x + h) - f(x)) / h
+print(dfdx)
+:::
+
+
+::::{answer}
+Programmet skriver ut en numerisk tilnærming til
+
+$$
+f'(2) = -\dfrac{1}{2}
+$$
+::::
+
+
+:::::::::::::::
+
+
+
 
 ---
 
 
-:::::::::::::::{exercise} Oppgave 14
+:::::::::::::::{exercise} Oppgave 15
 En funksjon $f$ er gitt ved
 
 
@@ -1509,7 +1549,7 @@ Dermed vil ikke $f$ ha en horisontal asymptote når $x \to -\infty$. Men da kan 
 ---
 
 
-:::::::::::::::{exercise} Oppgave 15
+:::::::::::::::{exercise} Oppgave 16
 
 :::{cas-popup}
 ---
@@ -1589,7 +1629,7 @@ Hvor mange rotter vil kan det maksimalt bli, ifølge modellen?
 ---
 
 
-:::::::::::::::{exercise} Oppgave 16
+:::::::::::::::{exercise} Oppgave 17
 
 :::{cas-popup}
 ---
@@ -1634,7 +1674,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 17
+:::::::::::::::{exercise} Oppgave 18
 :::{plot}
 align: right
 width: 100%
@@ -1682,7 +1722,7 @@ Graf C
 
 
 
-:::::::::::::::{exercise} Oppgave 18
+:::::::::::::::{exercise} Oppgave 19
 Anna jobber med en funksjon $f$ gitt ved
 
 $$
@@ -1725,7 +1765,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 19
+:::::::::::::::{exercise} Oppgave 20
 Nedenfor vises en grenseverdi.
 
 ::::::::::::::{tab-set}
@@ -1783,7 +1823,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 20
+:::::::::::::::{exercise} Oppgave 21
 
 :::{plot}
 align: right
@@ -1833,7 +1873,7 @@ xmax: 3
 
 
 
-:::::::::::::::{exercise} Oppgave 21
+:::::::::::::::{exercise} Oppgave 22
 
 :::{cas-popup}
 ---
@@ -1886,7 +1926,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 22
+:::::::::::::::{exercise} Oppgave 23
 Bjørn jobber med funksjonen
 
 $$
@@ -1963,7 +2003,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 23
+:::::::::::::::{exercise} Oppgave 24
 
 :::{cas-popup}
 ---
@@ -2000,7 +2040,7 @@ ca. 51 minutter.
 
 
 
-:::::::::::::::{exercise} Oppgave 24
+:::::::::::::::{exercise} Oppgave 25
 
 :::{plot}
 align: right
@@ -2066,7 +2106,7 @@ print(t)
 
 
 
-:::::::::::::::{exercise} Oppgave 25
+:::::::::::::::{exercise} Oppgave 26
 
 
 :::{cas-popup}
@@ -2107,7 +2147,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 26
+:::::::::::::::{exercise} Oppgave 27
 
 :::{plot}
 align: right
@@ -2159,7 +2199,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 27
+:::::::::::::::{exercise} Oppgave 28
 :::{cas-popup}
 ---
 layout: sidebar
@@ -2197,7 +2237,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 28
+:::::::::::::::{exercise} Oppgave 29
 
 :::{plot}
 align: right
@@ -2306,7 +2346,7 @@ Alternativ 3
 
 
 
-:::::::::::::::{exercise} Oppgave 29
+:::::::::::::::{exercise} Oppgave 30
 
 :::{plot}
 align: right
@@ -2362,7 +2402,7 @@ ymax: 1.5
 
 
 
-:::::::::::::::{exercise} Oppgave 30
+:::::::::::::::{exercise} Oppgave 31
 En funksjon $f$ er gitt ved
 
 $$
@@ -2394,7 +2434,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 31
+:::::::::::::::{exercise} Oppgave 32
 :::{cas-popup}
 ---
 layout: sidebar
@@ -2454,7 +2494,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 32
+:::::::::::::::{exercise} Oppgave 33
 
 :::{cas-popup}
 ---
@@ -2515,7 +2555,7 @@ $f$ er ikke deriverbar for verdiene noen av verdiene.
 
 
 
-:::::::::::::::{exercise} Oppgave 33
+:::::::::::::::{exercise} Oppgave 34
 :::{cas-popup}
 ---
 layout: sidebar
