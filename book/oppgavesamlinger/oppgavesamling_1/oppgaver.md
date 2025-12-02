@@ -1521,10 +1521,10 @@ layout: sidebar
 Antall rotter som har forvillet seg inn i Jul i Vinterland kan antas å følge en modell på formen
 
 $$
-R(x) = \dfrac{100}{1 + ae^{-bx}}
+R(x) = \dfrac{500}{1 + ae^{-bx}}
 $$
 
-der $a$ og $b$ er konstanter, og $x$ er antall dager etter 1. desember. Vi antar at det var 20 rotter den 1. desember og at antall rotter etter 5 dager vil ha doblet seg. 
+der $a$ og $b$ er konstanter, og $x$ er antall dager etter 1. desember. Vi antar at det var 20 rotter den 1. desember og at antall rotter etter 5 dager vil være 100.  
 
 
 ::::::::::::::{tab-set}
@@ -1536,7 +1536,7 @@ Bestem $a$ og $b$.
 
 ::::{answer}
 $$
-a = 4 \and b = -\dfrac{1}{5}\ln \dfrac{3}{8}
+a = 24 \and b = \dfrac{1}{5} \ln 6
 $$
 ::::
 
@@ -1545,10 +1545,10 @@ $$
 
 
 :::::::::::::{tab-item} b
-Hvilken dag i desember vil det komme flest rotter til Jul i Vinterland, ifølge modellen?
+Hvilken dag i desember vil det komme flest rotter til Jul i Vinterland? Hvor mange rotter kom inn til Jul i Vinterland den dagen?
 
 ::::{answer}
-Etter ca. 7 dager, så den 8.desember. 
+Etter ca. 9 dager, så den 10.desember. Da kom det ca. 45 rotter til Jul i Vinterland.
 ::::
 
 :::::::::::::
@@ -1558,7 +1558,7 @@ Etter ca. 7 dager, så den 8.desember.
 Hvor mange rotter vil kan det maksimalt bli, ifølge modellen?
 
 ::::{answer}
-100
+500
 ::::
 
 :::::::::::::
