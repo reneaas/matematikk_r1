@@ -2022,12 +2022,61 @@ hvor $T_0$ er romtemperaturen, og $k$ og $r$ er konstanter.
 
 I et rom med temperatur $22 \degree \mathrm{C}$ setter vi en kopp med kaffe. Ved tidspunktet $t = 0$ er temperaturen i kaffen $96 \degree \mathrm{C}$, og etter 10 minutter er temperaturen $70 \degree \mathrm{C}$.
 
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Vis at 
+
+$$
+T(t) = T_0 + e^{-kt + r}
+$$
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Bestem $T_0$, $k$ og $r$. 
+
+
+::::{answer}
+$$
+T_0 = 22 \and k = -\dfrac{3 \ln 2 + \ln 3}{10} \and r = \ln 2 + \ln 37
+$$
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
 Hvor lang tid vil det ta før temperaturen i kaffen er mindre enn $30 \degree \mathrm{C}$?
 
 
 ::::{answer}
 ca. 51 minutter.
 ::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+Når vil temperaturen synke med $1 \, \degree \mathrm{C}$ per minutt?
+
+
+::::{answer}
+Etter ca. 27 minutter.
+::::
+
+
+:::::::::::::
+
+
+::::::::::::::
+
+
 
 
 :::::::::::::::
