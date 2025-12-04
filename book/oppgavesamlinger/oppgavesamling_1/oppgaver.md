@@ -1406,7 +1406,7 @@ $$
 Bestem koordinatene til eventuelle topp- og bunnpunkter på grafen til $f$.
 
 ::::{answer}
-Toppunkt i $\left(\dfrac{5}{2}, e^{5/2}\right)$
+Toppunkt i $\left(\dfrac{5}{2}, \dfrac{2}{e^{5/2}}\right)$
 ::::
 :::::::::::::
 
