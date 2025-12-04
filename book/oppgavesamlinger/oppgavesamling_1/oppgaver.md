@@ -252,7 +252,7 @@ $$
 ::::{solution}
 $$
 \begin{align*}
-    \lim_{x \to \infty} \dfrac{3x^2 + 4x + 1}{2x^2 - x + 5} & \overset{[\frac{0}{0}]}{=} \lim_{x \to \infty} \dfrac{6x + 4}{4x - 1} \overset{[\frac{0}{0}]}{=} \lim_{x \to \infty} \dfrac{6}{4} = \dfrac{3}{2}
+    \lim_{x \to \infty} \dfrac{3x^2 + 4x + 1}{2x^2 - x + 5} & \overset{[\frac{\infty}{\infty}]}{=} \lim_{x \to \infty} \dfrac{6x + 4}{4x - 1} \overset{[\frac{0}{0}]}{=} \lim_{x \to \infty} \dfrac{6}{4} = \dfrac{3}{2}
 \end{align*}
 $$
 ::::
