@@ -1114,7 +1114,7 @@ Bestem $f'(x)$.
 
 
 ::::{hints}
-Tenk på sammenhengen mellom $\log_2 x$ og $\ln x$ som du fant i oppgave 8 og bruk denne til å bestemme $f'(x)$. 
+Tenk på sammenhengen mellom $\log_2 x$ og $\ln x$ som du fant i oppgave 10 og bruk denne til å bestemme $f'(x)$. 
 ::::
 
 
@@ -2505,7 +2505,7 @@ $$
 
 :::{plot}
 align: right
-width: 100%
+width: 350
 function: exp(-x**2), f
 point: (-1, 0)
 point: (-1, f(-1))
