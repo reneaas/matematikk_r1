@@ -252,7 +252,7 @@ $$
 ::::{solution}
 $$
 \begin{align*}
-    \lim_{x \to \infty} \dfrac{3x^2 + 4x + 1}{2x^2 - x + 5} & \overset{[\frac{\infty}{\infty}]}{=} \lim_{x \to \infty} \dfrac{6x + 4}{4x - 1} \overset{[\frac{0}{0}]}{=} \lim_{x \to \infty} \dfrac{6}{4} = \dfrac{3}{2}
+    \lim_{x \to \infty} \dfrac{3x^2 + 4x + 1}{2x^2 - x + 5} & \overset{[\frac{\infty}{\infty}]}{=} \lim_{x \to \infty} \dfrac{6x + 4}{4x - 1} \overset{[\frac{\infty}{\infty}]}{=} \lim_{x \to \infty} \dfrac{6}{4} = \dfrac{3}{2}
 \end{align*}
 $$
 ::::
@@ -446,6 +446,12 @@ $$
 h(x) = \dfrac{\ln x}{x}
 $$
 
+
+::::{answer}
+$$
+h'(x) = \dfrac{1 - \ln x}{x^2}
+$$
+::::
 
 ::::{solution}
 $$
@@ -648,6 +654,49 @@ $$
 y = -2x + 1 - 2\pi
 $$
 ::::
+
+
+::::{solution}
+Likningen til tangenten er gitt ved 
+
+$$
+y = f(0) + f'(0)\cdot (x - 0) = f(0) + f'(0) \cdot x.
+$$
+
+Vi har at 
+
+$$
+f(0) = e^{-2\cdot 0} + \dfrac{1}{5}\cdot 0^5 - 2\pi = 1 + 0 - 2\pi 1 - 2\pi
+$$
+
+Så deriverer vi for å bestemme $f'(0)$. Da har vi 
+
+$$
+\begin{align*}
+f'(x) &= \left(e^{-2x} + \dfrac{1}{5}x^5 - 2\pi\right)' \\
+\\
+&= (e^{-2x})' + \left(\dfrac{1}{5}x^5\right)' - (2\pi)' \\
+\\
+&= -2e^{-2x} + \dfrac{1}{5}\cdot 5 x^4 - 0 \\
+\\
+&= -2e^{-2x} + x^4
+\end{align*}
+$$
+
+Så regner vi ut $f'(0)$:
+
+$$
+f'(0) = -2e^{-2\cdot 0} + 0^4 = -2 \cdot 1 + 0 = -2
+$$
+
+Dermed er likningen til tangenten gitt ved
+
+$$
+y = f(0) + f'(0)x = 1 - 2\pi - 2x = -2x + 1 - 2\pi
+$$
+::::
+
+
 :::::::::::::
 
 
@@ -907,10 +956,12 @@ Bestem koordinatene til eventuelle topp- og bunnpunkter på grafen til $f$.
 
 
 :::{margin} Tips: Oppgave 9
-For å angripe oppgaver av denne typen kan det være lurt å finne ut en del om funksjonen først. Prøv å se etter 
+For å angripe oppgaver av denne typen kan det være lurt å først se etter hva som skiller de ulike grafene fra hverandre. Deretter kan du velge å undersøke egenskaper som:
 * Nullpunkter
 * Topp- og bunnpunkter
 * Asymptoter
+
+Bruk de egenskapene som lar deg skille mellom de ulike grafene.
 :::
 
 
@@ -942,97 +993,13 @@ Graf D.
 
 
 ::::{solution}
-For å avgjøre hvilken figur som viser grafen til $f$, så bør vi finne ut mer om funksjonen. Vi tar utgangspunkt i bestemme
-1. Nullpunkter
-2. Topp- og bunnpunkter
-3. Eventuelle asymptoter
-
-Det er ikke sikkert vi trenger alt dette, men det er en liten sjekkliste vi kan ta utgangspunkt i.
-
-Vi starter med nullpunkter. Vi bestemmer nullpunktene ved å løse likningen
+Vi kan se at grafene har ulik oppførsel når $x\to \infty$ og når $x \to -\infty$. Derfor kan det være hensiktsmessig å sjekke disse grensene først:
 
 $$
-f(x) = 0 \liff (1 - x^2) e^x = 0
+\lim_{x \to \infty} f(x) = \lim_{x \to \infty} (1 - x^2)e^x = -\infty
 $$
 
-Det gir oss at
-
-$$
-1 - x^2 = 0 \or e^x = 0
-$$
-
-Den andre likningen har ingen løsning, siden $e^x$ aldri er lik null. Dermed får vi bare
-
-$$
-1 - x^2 = 0 \liff x^2 = 1 \liff x = \pm 1
-$$
-
-Så går vi videre for å bestemme eventuelle topp- og bunnpunkter ved å løse likningen
-
-$$
-f'(x) = 0 
-$$
-
-Først trenger vi den deriverte:
-
-$$
-\begin{align*}
-f'(x) &= \left((1 - x^2) e^x\right)' \\
-\\
-&= (1 - x^2)' \cdot e^x + (1 - x^2) \cdot (e^x)' \\
-\\
-&= (-2x) \cdot e^x + (1 - x^2) \cdot e^x \\
-\\
-&= (-2x + 1 - x^2) e^x \\
-\\
-&= (-x^2 - 2x + 1) e^x
-\end{align*}
-$$
-
-Så løser vi likningen $f'(x) = 0$:
-
-$$
-f'(x) = 0 \liff (-x^2 - 2x + 1) e^x = 0
-$$
-
-Det gir oss at
-
-$$
--x^2 - 2x + 1 = 0 \or e^x = 0
-$$
-
-Igjen, den andre likningen har ingen løsning, siden $e^x$ aldri er lik null. Dermed får vi bare
-
-$$
--x^2 - 2x + 1 = 0 \liff x^2 + 2x - 1 = 0
-$$
-
-Vi løser denne med $abc$-formelen:
-
-$$
-x = \dfrac{-2 \pm \sqrt{2^2 - 4 \cdot 1 \cdot (-1)}}{2 \cdot 1} = \dfrac{-2 \pm \sqrt{8}}{2} = -1 \pm \sqrt{2}
-$$
-
-Vi har derfor to kandidater for topp- og bunnpunkter, men vi trenger å avgjøre hvilket som er et toppunkt og hvilket som er et bunnpunkt. Vi kan gjøre dette ved å tegne en fortegnslinje for $f'(x)$:
-
-:::{signchart}
-width: 100%
-function: (-x**2 - 2*x + 1) * exp(x), f'(x)
-:::
-
-Fra fortegnslinja til $f$ så ser vi at grafen til $f$ synker før $x = -1 - \sqrt{2}$, stiger mellom $x = -1 - \sqrt{2}$ og $x = -1 + \sqrt{2}$, og synker igjen etter $x = -1 + \sqrt{2}$. Dermed har vi et bunnpunkt i $x = -1 - \sqrt{2}$ og et toppunkt i $x = -1 + \sqrt{2}$.
-
-
-Altså vet vi nå at
-
-* Grafen har nullpunkter i $x = -1$ og $x = 1$.
-* Grafen har et bunnpunkt i $x = -1 - \sqrt{2}$.
-* Grafen har et toppunkt i $x = -1 + \sqrt{2}$.
-
-Fra informasjonen vi nå har hentet ut om grafen til $f$ så kan vi se at toppunktet må ligge mellom nullpunktene, mens bunnpunktet ligger på nedsiden av $x = -1$. Den første biten passer med både graf C og D, men det er bare graf D som oppfyller begge punkter. 
-
-Derfor er graf D grafen til $f$.
-
+Det er bare graf D som går mot $-\infty$ når $x \to \infty$. Dermed må graf D vise grafen til $f$.
 ::::
 
 
