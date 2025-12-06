@@ -1300,6 +1300,33 @@ Alternativ 2
 ::::
 
 
+::::{solution}
+Hvis en linje $y = ax + b$ er en skrå asymptote for en funksjon $f$, så må 
+
+$$
+\lim_{x \to \pm \infty} \left(f(x) - (ax + b)\right) = 0
+$$
+
+Alternativ 2 viser denne betingelsen skrevet på en litt annen måte, men vi kan skrive den om: 
+
+
+$$
+\lim_{x \to \infty} \left(f(x) + x\right) = 5
+$$
+
+$$
+\lim_{x \to \infty} \left(f(x) + x - 5\right) = 0
+$$
+
+$$
+\lim_{x \to \infty} \left(f(x) - (-x + 5)\right) = 0
+$$
+
+Altså er linjen $y = -x + 5$ en skrå asymptote. Dette passer med figuren. I tillegg skal $f(x) \to -\infty$ når $x \to 1^-$, som også stemmer med figuren. Dermed er alternativ 2 riktig.
+
+::::
+
+
 
 :::::::::::::
 
@@ -1326,6 +1353,10 @@ hlines: 1, 1, -1, -1
 Graf C.
 ::::
 
+
+::::{solution}
+Grafen til $f$ synker *før* den vertikale asymptoten og stiger etter. Det betyr at den deriverte må være negativ før og positiv etter. I tillegg så må $f'(x) \to -1$ når $x\to \pm\infty$ siden dette var stigningstallet til den skrå asymptoten. Disse kriteriene er oppfylt av graf C. 
+::::
 
 :::::::::::::
 
@@ -1365,6 +1396,15 @@ x = \frac{3}{2}
 $$
 ::::
 
+
+::::{solution}
+$$
+f(x) = 0 \liff 2x - 3 = 0 \liff x = \dfrac{3}{2}
+$$
+::::
+
+
+
 :::::::::::::
 
 
@@ -1375,6 +1415,52 @@ Bestem koordinatene til eventuelle topp- og bunnpunkter på grafen til $f$.
 ::::{answer}
 Toppunkt i $\left(\dfrac{5}{2}, \dfrac{2}{e^{5/2}}\right)$
 ::::
+
+
+::::{solution}
+Vi må løse $f'(x) = 0$ for å se etter kandidater for topp- og bunnpunkter. Vi deriverer først:
+
+$$
+\begin{align*}
+f'(x) &= \left(\dfrac{2x - 3}{e^x}\right)' = \left((2x - 3)e^{-x}\right)' \\
+\\
+&= (2x - 3)' \cdot e^{-x} + (2x - 3) \cdot (e^{-x})' \\
+\\
+&= 2 \cdot e^{-x} + (2x - 3) \cdot (-e^{-x}) \\
+\\
+&= 2e^{-x} - (2x - 3)e^{-x} \\
+\\
+&= (2 - (2x - 3))e^{-x} \\
+\\
+&= (5 - 2x)e^{-x}
+\end{align*}
+$$
+
+Så løser vi likningen $f'(x) = 0$:
+
+$$
+5 - 2x = 0 \liff 2x = 5 \liff x = \dfrac{5}{2}
+$$
+
+For å avgjøre om dette er et topp- eller bunnpunkt, kan vi tegne en fortegnslinje for $f'(x)$:
+
+:::{signchart}
+width: 100%
+function: (5 - 2*x) * exp(-x), f'(x)
+:::
+
+Fra fortegnslinja til $f'(x)$ ser vi at grafen til $f$ først stiger og deretter synker etter punktet, som betyr at $x = \dfrac{5}{2}$ gir et toppunkt. For å finne $y$-verdien, setter vi inn i $f$:
+
+$$
+f\left(\dfrac{5}{2}\right) = \dfrac{2 \cdot \dfrac{5}{2} - 3}{e^{5/2}} = \dfrac{5 - 3}{e^{5/2}} = \dfrac{2}{e^{5/2}}
+$$
+
+Altså har grafen til $f$ et toppunkt i $\left(\dfrac{5}{2}, \dfrac{2}{e^{5/2}}\right)$.
+
+
+::::
+
+
 :::::::::::::
 
 
@@ -1386,6 +1472,10 @@ Toppunkt i $\left(\dfrac{5}{2}, \dfrac{2}{e^{5/2}}\right)$
 
 ---
 
+
+::::{margin} Tips: Oppgave 14
+Når det står `h = 1e-6`{l=python} i programmet, så betyr det at `h`{l=python} er satt til $10^{-6}$. Det har ikke noe med Eulers tall $e$ å gjøre. 
+::::
 
 
 :::::::::::::::{exercise} Oppgave 14
@@ -1413,6 +1503,60 @@ print(dfdx)
 
 ::::{answer}
 Programmet skriver ut en numerisk tilnærming til
+
+$$
+f'(2) = -\dfrac{1}{2}
+$$
+::::
+
+
+::::{solution}
+Programmet finner en tilnærming til $f'(2)$ som vi kan se fra linje 7 der det står
+
+```python
+dfdx = (f(x + h) - f(x)) / h
+```
+
+og fra linje 4 og 5 der `x = 2`{l=python} og `h = 1e-6`{l=python} er definert. Funksjonen $f$ er gitt ved 
+
+$$
+f(x) = \sqrt{20 - x^2}
+$$
+
+Så vi bestemmer $f'(x)$ først og deretter regner ut $f'(2)$. 
+
+$$
+\begin{align*}
+f'(x) &= \left(\sqrt{20 - x^2}\right)' \\
+\\
+&= \dfrac{1}{2\sqrt{20 - x^2}} \cdot (20 - x^2)' \\
+\\
+&= \dfrac{1}{2\sqrt{20 - x^2}} \cdot (-2x) \\
+\\
+&= \dfrac{-2x}{2\sqrt{20 - x^2}} \\
+\\
+&= \dfrac{-x}{\sqrt{20 - x^2}} 
+\end{align*}
+$$
+
+Så setter vi inn $x = 2$: 
+
+
+$$
+\begin{align*}
+f'(2) &= \dfrac{-2}{\sqrt{20 - 2^2}} \\
+\\
+&= \dfrac{-2}{\sqrt{20 - 4}} \\
+\\
+&= \dfrac{-2}{\sqrt{16}} \\
+\\
+&= \dfrac{-2}{4} \\
+\\
+&= -\dfrac{1}{2}
+\end{align*}
+$$
+
+Altså vil programmet skrive ut en tilnærming til 
 
 $$
 f'(2) = -\dfrac{1}{2}
@@ -1455,57 +1599,13 @@ Graf B.
 
 
 ::::{solution}
-Vi ser at alle grafene har nullpunkter omtrent på samme sted, så det vil ikke være så nyttig å undersøke eventuelle nullpunkter for grafen. Vi kan derimot Se etter:
-1. Eventuelle topp- og bunnpunkter
-2. Asymptoter
-
-siden disse to vil være forskjellig for de ulike grafene. 
-
-Vi starter med å se etter eventuelle topp- eller bunnpunkter:
-
-$$
-\begin{align*}
-f'(x) &= \left(e^{x} + 3e^{-x} - 4\right)' \\
-\\
-&= (e^{x})' + (3e^{-x})' - (4)' \\
-\\
-&= e^{x} - 3e^{-x} \\
-\end{align*}
-$$
-
-Så løser vi likningen $f'(x) = 0$:
-
-$$
-e^x - 3e^{-x} = 0 \liff e^x = 3e^{-x} \liff e^{2x} = 3
-$$
-
-som gir at
-
-$$
-2x = \ln 3 \liff x = \dfrac{\ln 3}{2}
-$$
-
-Så må vi avgjøre om dette er et toppunkt eller bunnpunkt. Dette er kanskje enklest å gjøre ved å bruke den andrederiverte, så vi bestemmer $f''(x)$:
-
-
-$$
-\begin{align*}
-f''(x) &= (e^{x} - 3e^{-x})' \\
-\\
-&= (e^{x})' - 3(e^{-x})' \\
-\\
-&= e^{x} + 3e^{-x} \\
-\end{align*}
-$$
-
-både $e^x$ og $e^{-x}$ er alltid positive, så det betyr at $f''(x) > 0$ for alle $x$. Da *må* grafen være konveks som betyr at grafen har et bunnpunkt. Dette passer med graf A og B. Det mest vesentlig som skiller de to grafene er at graf A har en horisontal asymptote når $x \to -\infty$, mens graf B ikke har det. Så da bare sjekker vi hva som skjer med $f(x)$ når $x \to -\infty$:
-
+Vi kan se at det som skiller grafene er hva som skjer med $y$-verdien når $x \to -\infty$. Vi undersøker derfor denne grensen: 
 
 $$
 \lim_{x \to -\infty} f(x) = \lim_{x \to -\infty} \left(e^{x} + 3e^{-x} - 4\right) = 0 + \infty - 4 = \infty
 $$
 
-Dermed vil ikke $f$ ha en horisontal asymptote når $x \to -\infty$. Men da kan ikke $f$ være graf A, så da må graf B være grafen til $f$.
+Altså går $f(x) \to \infty$ når $x \to -\infty$. Dette skjer bare for graf B. Dermed må graf B vise grafen til $f$.
 
 ::::
 
@@ -1627,6 +1727,60 @@ ymax: 10
 
 
 ::::{answer}
+$$
+a = 3 \and b = 1 \and c = 2
+$$
+::::
+
+::::{solution}
+Vi har at $f(2) = 0$ og $f(4) = 0$. Vi har også at 
+
+$$
+f(x) = 0 \liff a(\log_2 x - b) (\log_2 x - c) = 0
+$$
+
+som betyr at 
+
+$$
+\log_2 x = b \or \log_2 x = c
+$$
+
+For det første nullpunktet får vi 
+
+$$
+\log_2 2 = b \liff b = 1
+$$
+
+Og for det andre nullpunktet får vi 
+
+$$
+\log_2 4 = c \liff c = 2
+$$
+
+Da har vi at 
+
+$$
+f(x) = a \left(\log_2 x - 1\right)(\log_2 x - 2)
+$$
+
+Så ser vi at grafen går gjennom $(1, 6)$ som betyr at 
+
+$$
+f(1) = 6 \liff a \cdot (\log_2 1 - 1)(\log_2 1 - 2) = 6 
+$$
+
+som gir
+
+$$
+a\cdot (-1) \cdot (-2) = 6 
+$$
+
+$$
+2a = 6 \liff a = 3
+$$
+
+Altså er 
+
 $$
 a = 3 \and b = 1 \and c = 2
 $$
