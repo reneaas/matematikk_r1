@@ -1210,7 +1210,7 @@ $$
 :::::::::::::::{exercise} Oppgave 12
 :::{plot}
 align: right
-width: 100%
+width: 350
 function: -x + 5 - 1 / (x - 1) ** 2, f
 ticks: off
 vline: 1
@@ -1798,7 +1798,7 @@ $$
 :::::::::::::::{exercise} Oppgave 18
 :::{plot}
 align: right
-width: 100%
+width: 350
 function: x * exp(-x**2), f
 ticks: off
 ymin: -1
@@ -1815,22 +1815,52 @@ I figuren til høyre vises grafen til en funksjon $f$.
 Avgjør hvilken av grafene nedenfor som viser grafen til $f'$. 
 
 
-:::{multi-plot}
-width: 100%
-functions: -(1 - 2*x**2) * exp(-x**2), (2*x**2 - 1)**2 * exp(-x**2),(1 - 2*x**2) * exp(-x**2), -(2*x**2 - 1)**2 * exp(-x**2)
-function-names: A, B, C, D
+::::{multi-plot2}
+---
 rows: 2
 cols: 2
-ticks: off
 ymin: -2
 ymax: 2
 xmin: -4
 xmax: 4
+fontsize: 26
+lw: 3.5
+ticks: off
+---
+
+:::{plot}
+function: -(1 - 2*x**2) * exp(-x**2), A
 :::
 
 
+:::{plot}
+function: (2*x**2 - 1)**2 * exp(-x**2), B
+:::
+
+
+:::{plot}
+function: (1 - 2*x**2) * exp(-x**2), C
+:::
+
+
+:::{plot}
+function: -(2*x**2 - 1)**2 * exp(-x**2), D
+:::
+
+
+::::
+
 ::::{answer}
 Graf C 
+::::
+
+
+::::{solution}
+Grafen til $f$ har et vendepunkt i $x = 0$. Det betyr at den deriverte $f'$ må ha et ekstremalpunkt der. Siden grafen til $f$ stiger raskest der, betyr det at den deriverte må ha et toppunkt. Dette passer med graf B og C.
+
+Vi kan se at grafen til $f$ bare har to ekstremalpunkter, som betyr at $f'$ bare kan ha to nullpunkter. Dette stemmer bare med graf C. 
+
+Graf C viser derfor grafen til $f'$. 
 ::::
 
 
@@ -1863,7 +1893,7 @@ def f(x):
 
 x = 0.001
 h = 1e-6
-while f(x + h) - f(x) > 0:
+while (f(x + h) - f(x)) / h > 0:
     x = x + 0.01
 
 print(x)
@@ -1877,6 +1907,54 @@ $$
 x = \sqrt{e}
 $$
 ::::
+
+
+::::{solution}
+Programmet kjører så lenge $f'(x) > 0$ som vi kan se fra linje 8 der det står
+
+```python
+while (f(x + h) - f(x)) / h > 0:
+    ...
+```
+
+der det er brukt at 
+
+$$
+f'(x) \approx \dfrac{f(x + h) - f(x)}{h}
+$$
+
+Programmet stopper når $x$ blir stor nok til at $f'(x) \leq 0$ som betyr at vi øker verdien til $x$ frem til grafen til $f$ ikke lenger stiger, men begynner å synke. Programmet bestemmer derfor $x$-koordinaten til et toppunkt. For å bestemme den eksakte verdien til verdien programmet skriver ut når det kjøres, løser vi derfor $f'(x) = 0$. Vi deriverer først:
+
+$$
+\begin{align*}
+f'(x) &= \left(-(\ln x)^2 + \ln x + 6\right)' \\
+\\
+&= -2 \ln x \cdot \dfrac{1}{x} + \dfrac{1}{x} + 0 \\
+\\
+&= \dfrac{-2 \ln x + 1}{x}
+\end{align*}
+$$
+
+Så løser vi likningen $f'(x) = 0$:
+
+$$
+\dfrac{-2 \ln x + 1}{x} = 0 \liff -2 \ln x + 1 = 0 
+$$
+
+$$
+2 \ln x = 1 \liff \ln x = \dfrac{1}{2}
+$$
+
+som betyr at
+
+$$
+x = e^{1/2} = \sqrt{e}
+$$
+
+Programmet skriver altså ut en tilnærming til $x = \sqrt{e}$.
+::::
+
+
 
 :::::::::::::::
 
@@ -1948,7 +2026,7 @@ $$
 
 :::{plot}
 align: right
-width: 100%
+width: 350
 function: log(x**2 + 1) / (exp(x**2 - 1)), f
 xmin: -3
 xmax: 3
@@ -1968,17 +2046,46 @@ Bestem hvilken figur som viser $f'$ og hvilken som viser $f''$.
 
 
 
-:::{multi-plot}
-width: 90%
-functions: ( -2*x * log(x**2 + 1) * exp(x**2 - 1) + 2*x * exp(x**2 - 1) / (x**2 + 1) ) / exp(x**2 - 1)**2, -( -2*x * log(x**2 + 1) * exp(x**2 - 1) + 2*x * exp(x**2 - 1) / (x**2 + 1) ) / exp(x**2 - 1)**2, -(-2 * log(x**2 + 1) + 6 * x**4 * log(x**2 + 1) + 4 * x**6 * log(x**2 + 1) - 8 * x**4 - 10 * x**2 + 2) / ((1 + 2 * x**2 + x**4) * exp(x**2 - 1)), (-2 * log(x**2 + 1) + 6 * x**4 * log(x**2 + 1) + 4 * x**6 * log(x**2 + 1) - 8 * x**4 - 10 * x**2 + 2) / ((1 + 2 * x**2 + x**4) * exp(x**2 - 1))
-function-names: A, B, C, D
+::::{multi-plot2}
+---
 rows: 2
 cols: 2
-ticks: off
-ylims: [(-2, 2), (-2, 2), (-8, 8), (-8, 8)]
 xmin: -3
 xmax: 3
+ticks: off
+lw: 3.5
+fontsize: 26
+---
+
+:::{plot}
+function: ( -2*x * log(x**2 + 1) * exp(x**2 - 1) + 2*x * exp(x**2 - 1) / (x**2 + 1) ) / exp(x**2 - 1)**2, A
+ymin: -2
+ymax: 2
 :::
+
+:::{plot}
+function: -( -2*x * log(x**2 + 1) * exp(x**2 - 1) + 2*x * exp(x**2 - 1) / (x**2 + 1) ) / exp(x**2 - 1)**2, B
+ymin: -2
+ymax: 2
+:::
+
+:::{plot}
+function: -(-2 * log(x**2 + 1) + 6 * x**4 * log(x**2 + 1) + 4 * x**6 * log(x**2 + 1) - 8 * x**4 - 10 * x**2 + 2) / ((1 + 2 * x**2 + x**4) * exp(x**2 - 1)), C 
+ymin: -8
+ymax: 8
+:::
+
+:::{plot}
+function: (-2 * log(x**2 + 1) + 6 * x**4 * log(x**2 + 1) + 4 * x**6 * log(x**2 + 1) - 8 * x**4 - 10 * x**2 + 2) / ((1 + 2 * x**2 + x**4) * exp(x**2 - 1)), D
+ymin: -8
+ymax: 8
+:::
+
+
+
+
+
+::::
 
 ::::{answer}
 * Figur A viser grafen til $f'$
@@ -2074,6 +2181,36 @@ a = 6
 $$
 ::::
 
+
+::::{solution}
+$f$ er kontinuerlig i $x = 9$ dersom
+
+$$
+\lim_{x \to 9} f(x) = f(9) = a
+$$
+
+Vi regner ut grenseverdien: 
+
+
+$$
+\begin{align*}
+\lim_{x \to 9} f(x) &= \lim_{x \to 9} \dfrac{x - 9}{\sqrt{x} - 3} \\
+\\
+&= \lim_{x \to 9} \dfrac{(\sqrt{x} - 3)(\sqrt{x} + 3)}{\sqrt{x} - 3} \\
+\\
+&= \lim_{x \to 9} (\sqrt{x} + 3) \\
+\\
+&= \sqrt{9} + 3 \\
+\\
+&= 3 + 3 \\
+\\
+&= 6
+\end{align*}
+$$
+
+Altså må $a = 6$ for at $f$ skal være kontinuerlig i $x = 9$.
+::::
+
 :::::::::::::
 
 
@@ -2105,6 +2242,51 @@ Bestem en eksakt verdi for verdien programmet skriver ut når det kjøres med ri
 
 
 ::::{answer}
+$$
+f'(9) = \dfrac{1}{6}
+$$
+::::
+
+
+::::{solution}
+Programmet prøver å regne ut $f'(9)$ som vi kan se fra linje 11 der det står
+
+```python
+dfdx = (f(x + h) - f(x)) / h
+```
+
+og fra linje 8 og 9 der `h = 1e-6`{l=python} og `x = 9`{l=python} er definert. Vi kan bestemme den eksakte verdien for verdien programmet skriver ut når det kjøres ved å bruke definisjonen av den deriverte: 
+
+$$
+\begin{align*}
+f'(9) &= \lim_{x \to 9} \dfrac{f(x) - f(9)}{x - 9} \\
+\\
+&= \lim_{x \to 9} \dfrac{\dfrac{x - 9}{\sqrt{x} - 3} - 6}{x - 9} \\
+\\
+&= \lim_{x \to 9} \dfrac{\dfrac{x - 9 - 6(\sqrt{x} - 3)}{\sqrt{x} - 3}}{x - 9} \\
+\\
+&= \lim_{x \to 9} \dfrac{x - 9 - 6\sqrt{x} + 18}{(x - 9)(\sqrt{x} - 3)} \\
+\\
+&= \lim_{x \to 9} \dfrac{x - 6\sqrt{x} + 9}{(x - 9)(\sqrt{x} - 3)} \\
+\\
+&= \lim_{x \to 9} \dfrac{(\sqrt{x} - 3)^2}{(x - 9)(\sqrt{x} - 3)} \\
+\\
+&= \lim_{x \to 9} \dfrac{\sqrt{x} - 3}{x - 9} \\
+\\
+&= \lim_{x \to 9} \dfrac{\sqrt{x} - 3}{(\sqrt{x} - 3)(\sqrt{x} + 3)} \\
+\\
+&= \lim_{x \to 9} \dfrac{1}{\sqrt{x} + 3} \\
+\\
+&= \dfrac{1}{\sqrt{9} + 3} \\
+\\
+&= \dfrac{1}{3 + 3} \\
+\\
+&= \dfrac{1}{6}
+\end{align*}
+$$
+
+Altså skriver programmet ut en tilnærming til 
+
 $$
 f'(9) = \dfrac{1}{6}
 $$
@@ -2214,7 +2396,7 @@ Etter ca. 27 minutter.
 
 :::{plot}
 align: right
-width: 100%
+width: 350
 function: (x**2 - 9)**4, (0, 3), f
 xmin: -0.5
 xmax: 3.5
@@ -2227,7 +2409,8 @@ point: (1, 0)
 point: (1, f(1))
 point: (0, f(1))
 text: 1, f(1), "$(t, f(t))$", top-right
-fontsize: 34
+fontsize: 30
+lw: 3.5
 :::
 
 Anna jobber med en oppgave om en funksjon $f$ og har laget seg figuren som er vist til høyre. 
@@ -2307,6 +2490,7 @@ $$
 a = 4 \and b = 11
 $$
 ::::
+
 
 
 :::::::::::::::
@@ -2411,7 +2595,7 @@ $$
 
 :::{plot}
 align: right
-width: 100%
+width: 350
 function: 3*x - 4 - 1/(x + 1), f
 ticks: off
 ymin: -20
@@ -2520,7 +2704,7 @@ Alternativ 3
 
 :::{plot}
 align: right
-width: 100%
+width: 350
 function: exp(-x**2), f'
 ticks: off
 ymin: -1.5
@@ -2528,7 +2712,7 @@ ymax: 1.5
 xmin: -3
 xmax: 3
 fontsize: 30
-lw: 4
+lw: 3.5
 :::
 
 
@@ -2539,19 +2723,40 @@ Nedenfor vises fire grafer der én viser grafen til $f$ og én viser grafen til 
 Bestem hvilken graf som viser $f$ og hvilken som viser $f''$.
 
 
-
-:::{multi-plot}
-width: 90%
-functions: 1/2 * erf(x), -2*x * exp(-x**2), -1/2 * erf(x), 2*x * exp(-x**2)
+::::{multi-plot2}
+---
 rows: 2
 cols: 2
-function-names: A, B, C, D
 ticks: off
 xmin: -3
 xmax: 3
 ymin: -1.5
 ymax: 1.5
+lw: 3.5
+fontsize: 30
+---
+
+:::{plot}
+function: 1/2 * erf(x), A
 :::
+
+:::{plot}
+function: -2*x * exp(-x**2), B
+:::
+
+:::{plot}
+function: -1/2 * erf(x), C
+:::
+
+:::{plot}
+function: 2*x * exp(-x**2), D
+:::
+
+
+
+::::
+
+
 
 
 ::::{answer}
