@@ -1334,19 +1334,45 @@ Altså er linjen $y = -x + 5$ en skrå asymptote. Dette passer med figuren. I ti
 :::::::::::::{tab-item} b
 Én av figurene nedenfor viser grafen til $f'$. Bestem hvilken.
 
-
-:::{multi-plot}
-width: 100%
-functions: 1 + 2 / (x - 1)**3, 1 - 2 / (x - 1)**3, -1 + 2 / (x - 1)**3, -1 - 2 / (x - 1)**3
-function-names: A, B, C, D
+::::{multi-plot2}
+---
 rows: 2
 cols: 2
 ymin: -10
 ymax: 10
 ticks: off
-vlines: 1, 1, 1, 1
-hlines: 1, 1, -1, -1
+lw: 3.5
+fontsize: 30
+---
+
+:::{plot}
+function: 1 + 2 / (x - 1)**3, A
+vline: 1
+hline: 1
 :::
+
+:::{plot}
+function: 1 - 2 / (x - 1)**3, B
+vline: 1
+hline: 1
+:::
+
+:::{plot}
+function: -1 + 2 / (x - 1)**3, C
+vline: 1
+hline: -1
+:::
+
+:::{plot}
+function: -1 - 2 / (x - 1)**3, D
+vline: 1
+hline: -1
+:::
+
+
+
+
+::::
 
 
 ::::{answer}
