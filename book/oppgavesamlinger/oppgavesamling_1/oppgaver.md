@@ -2607,6 +2607,7 @@ lw: 4
 :::
 
 
+
 Grafen til en funksjon $f$ er vist i figuren til høyre.
 
 
@@ -2614,7 +2615,7 @@ Nedenfor vises fire alternativer med mulige egenskaper for grafen til $f'$.
 
 Kun ett alternativ stemmer – hvilket?
 
-<br><br><br><br>
+<br><br><br><br> <br>
 
 ::::{grid} 1 2 2 2
 ---
