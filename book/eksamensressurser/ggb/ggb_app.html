@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <!-- Bytt ut `container-id` med unik id. -->
+    <div id="ggb-exam-window" class="ggb-window"></div>
+
+    <script>
+        // Define options for the GeoGebra applet
+        var params = {
+            "appName": "classic", 
+            "width": 1200, 
+            "height": 800, 
+            "showToolBar": true, 
+            "showAlgebraInput": true, 
+            "showMenuBar": true,
+            "perspective": "A/G",
+            "borderColor": "#000000",
+            "borderRadius": 8,
+            "showFullscreenButton": true,
+            "language": "nb",
+            "showResetIcon": true,
+            "showPrintPreview": true,
+            "showKeyboardOnFocus": false,
+            };
+    var ggbApplet = new GGBApplet(params, true);
+    window.addEventListener("load", function() { 
+        ggbApplet.inject('ggb-exam-window');
+    });
+    </script>
+</body>
+</html>
