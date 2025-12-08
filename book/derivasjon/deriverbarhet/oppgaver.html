@@ -1054,9 +1054,9 @@ f'(4) = \lim_{x \to 4} \dfrac{(\sqrt{x} - 2)^2}{(\sqrt{x} - 2)(x - 4)} = \lim_{x
 <div class="sidebar-cas">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<button id="button-ggb-cas-733a7996" class="ggb-cas-button">Åpne CAS‑vindu</button>
-<div id="dialog-ggb-cas-733a7996" title="CAS‑vindu" style="display:none;">
-    <div id="ggb-cas-733a7996" class="ggb-window"></div>
+<button id="button-ggb-cas-104a1838" class="ggb-cas-button">Åpne CAS‑vindu</button>
+<div id="dialog-ggb-cas-104a1838" title="CAS‑vindu" style="display:none;">
+    <div id="ggb-cas-104a1838" class="ggb-window"></div>
 </div>
 
 <style>
@@ -1070,15 +1070,83 @@ f'(4) = \lim_{x \to 4} \dfrac{(\sqrt{x} - 2)^2}{(\sqrt{x} - 2)(x - 4)} = \lim_{x
 (function() {
   $(function() {
     let ggbReady = false;
+    const storageKey = 'ggb-cas-state-ggb-cas-104a1838';
 
     function applySize() {
       if (!ggbReady) return;
-      const w = $("#ggb-cas-733a7996").width(),
-            h = $("#ggb-cas-733a7996").height();
+      const w = $("#ggb-cas-104a1838").width(),
+            h = $("#ggb-cas-104a1838").height();
       window.ggbApplet.setSize(Math.round(w), Math.round(h));
     }
 
-    const $dlg = $("#dialog-ggb-cas-733a7996").dialog({
+    function saveState() {
+      if (!ggbReady || !window.ggbApplet) return;
+      try {
+        const state = window.ggbApplet.getBase64();
+        localStorage.setItem(storageKey, state);
+        // Update timestamp for this state
+        localStorage.setItem(storageKey + '-timestamp', Date.now().toString());
+      } catch (e) {
+        // If quota exceeded, try cleaning up old states and retry
+        if (e.name === 'QuotaExceededError') {
+          cleanupOldStates();
+          try {
+            const state = window.ggbApplet.getBase64();
+            localStorage.setItem(storageKey, state);
+            localStorage.setItem(storageKey + '-timestamp', Date.now().toString());
+          } catch (retryError) {
+            // Still failed after cleanup - silently give up
+          }
+        }
+      }
+    }
+
+    function cleanupOldStates() {
+      try {
+        // Find all GeoGebra CAS states with timestamps
+        const casStates = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith('ggb-cas-state-') && key.endsWith('-timestamp')) {
+            const stateKey = key.replace('-timestamp', '');
+            const timestamp = parseInt(localStorage.getItem(key) || '0', 10);
+            casStates.push({ key: stateKey, timestamp: timestamp });
+          }
+        }
+        
+        // Sort by timestamp (oldest first)
+        casStates.sort((a, b) => a.timestamp - b.timestamp);
+        
+        // Delete oldest 25% of states (minimum 1, maximum 10)
+        const numToDelete = Math.max(1, Math.min(10, Math.floor(casStates.length * 0.25)));
+        for (let i = 0; i < numToDelete && i < casStates.length; i++) {
+          localStorage.removeItem(casStates[i].key);
+          localStorage.removeItem(casStates[i].key + '-timestamp');
+        }
+      } catch (e) {
+        // Cleanup failed - silently continue
+      }
+    }
+
+    function restoreState() {
+      if (!ggbReady || !window.ggbApplet) return;
+      try {
+        const savedState = localStorage.getItem(storageKey);
+        if (savedState) {
+          window.ggbApplet.setBase64(savedState);
+          // Re-apply custom toolbar after restoring state to prevent it from being overwritten
+          setTimeout(() => {
+            if (window.ggbApplet && window.ggbApplet.setCustomToolBar) {
+              window.ggbApplet.setCustomToolBar("1001 | 1002 | 1007 | 1010 | 6");
+            }
+          }, 50);
+        }
+      } catch (e) {
+        // Silently fail if restore fails
+      }
+    }
+
+    const $dlg = $("#dialog-ggb-cas-104a1838").dialog({
       autoOpen: false,
       width: 390, height: 580,
       resizable: true, draggable: true,
@@ -1087,17 +1155,44 @@ f'(4) = \lim_{x \to 4} \dfrac{(\sqrt{x} - 2)^2}{(\sqrt{x} - 2)(x - 4)} = \lim_{x
       open: function() {
         if (!ggbReady) {
           new GGBApplet({
-            appName: "classic", id: "ggb-cas-733a7996",
+            appName: "classic", id: "ggb-cas-104a1838",
             width: 350, height: 500,
             perspective: "C", language: "nb",
             showToolBar: true, showAlgebraInput: true,
             borderRadius: 8, enableRightClick: true, showKeyboardOnFocus: false,
             customToolBar: "1001 | 1002 | 1007 | 1010 | 6",
-            appletOnLoad: () => { ggbReady = true; applySize(); }
-          }, true).inject("ggb-cas-733a7996");
+            appletOnLoad: () => { 
+              ggbReady = true; 
+              applySize();
+              // Restore state after a short delay to ensure GeoGebra is fully initialized
+              setTimeout(restoreState, 100);
+            }
+          }, true).inject("ggb-cas-104a1838");
         } else {
           applySize();
         }
+      },
+      close: function() {
+        // Save state when dialog is closed
+        saveState();
+      }
+    });
+
+    // Auto-save state periodically (every 5 seconds) when dialog is open
+    let autoSaveInterval = null;
+    $dlg.on('dialogopen', function() {
+      if (autoSaveInterval) clearInterval(autoSaveInterval);
+      autoSaveInterval = setInterval(() => {
+        if ($dlg.dialog('isOpen')) {
+          saveState();
+        }
+      }, 5000);
+    });
+
+    $dlg.on('dialogclose', function() {
+      if (autoSaveInterval) {
+        clearInterval(autoSaveInterval);
+        autoSaveInterval = null;
       }
     });
 
@@ -1137,7 +1232,7 @@ f'(4) = \lim_{x \to 4} \dfrac{(\sqrt{x} - 2)^2}{(\sqrt{x} - 2)(x - 4)} = \lim_{x
             target = target.parentElement;
           }
           // Prevent page scroll but don't stop the event from reaching GeoGebra
-          if (!e.target.closest('#ggb-cas-733a7996')) {
+          if (!e.target.closest('#ggb-cas-104a1838')) {
             e.preventDefault();
             e.stopPropagation();
           }
@@ -1165,7 +1260,7 @@ f'(4) = \lim_{x \to 4} \dfrac{(\sqrt{x} - 2)^2}{(\sqrt{x} - 2)(x - 4)} = \lim_{x
     
     // Monitor GeoGebra applet focus/interaction to control scroll lock
     function bindScrollLock() {
-      const ggbContainer = document.getElementById('ggb-cas-733a7996');
+      const ggbContainer = document.getElementById('ggb-cas-104a1838');
       if (!ggbContainer) {
         setTimeout(bindScrollLock, 300);
         return;
@@ -1211,10 +1306,10 @@ f'(4) = \lim_{x \to 4} \dfrac{(\sqrt{x} - 2)^2}{(\sqrt{x} - 2)(x - 4)} = \lim_{x
     // Cleanup on dialog close
     $dlg.on('dialogclose', unlockScroll);
 
-    $("#button-ggb-cas-733a7996").button()
+    $("#button-ggb-cas-104a1838").button()
       .on("click touchend pointerup", e => {
         e.preventDefault();
-        $("#dialog-ggb-cas-733a7996").dialog("open");
+        $("#dialog-ggb-cas-104a1838").dialog("open");
       });
   });
 })();
@@ -1277,9 +1372,9 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
 <div class="sidebar-cas">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<button id="button-ggb-cas-2fc7fd26" class="ggb-cas-button">Åpne CAS‑vindu</button>
-<div id="dialog-ggb-cas-2fc7fd26" title="CAS‑vindu" style="display:none;">
-    <div id="ggb-cas-2fc7fd26" class="ggb-window"></div>
+<button id="button-ggb-cas-1dad6d93" class="ggb-cas-button">Åpne CAS‑vindu</button>
+<div id="dialog-ggb-cas-1dad6d93" title="CAS‑vindu" style="display:none;">
+    <div id="ggb-cas-1dad6d93" class="ggb-window"></div>
 </div>
 
 <style>
@@ -1293,15 +1388,83 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
 (function() {
   $(function() {
     let ggbReady = false;
+    const storageKey = 'ggb-cas-state-ggb-cas-1dad6d93';
 
     function applySize() {
       if (!ggbReady) return;
-      const w = $("#ggb-cas-2fc7fd26").width(),
-            h = $("#ggb-cas-2fc7fd26").height();
+      const w = $("#ggb-cas-1dad6d93").width(),
+            h = $("#ggb-cas-1dad6d93").height();
       window.ggbApplet.setSize(Math.round(w), Math.round(h));
     }
 
-    const $dlg = $("#dialog-ggb-cas-2fc7fd26").dialog({
+    function saveState() {
+      if (!ggbReady || !window.ggbApplet) return;
+      try {
+        const state = window.ggbApplet.getBase64();
+        localStorage.setItem(storageKey, state);
+        // Update timestamp for this state
+        localStorage.setItem(storageKey + '-timestamp', Date.now().toString());
+      } catch (e) {
+        // If quota exceeded, try cleaning up old states and retry
+        if (e.name === 'QuotaExceededError') {
+          cleanupOldStates();
+          try {
+            const state = window.ggbApplet.getBase64();
+            localStorage.setItem(storageKey, state);
+            localStorage.setItem(storageKey + '-timestamp', Date.now().toString());
+          } catch (retryError) {
+            // Still failed after cleanup - silently give up
+          }
+        }
+      }
+    }
+
+    function cleanupOldStates() {
+      try {
+        // Find all GeoGebra CAS states with timestamps
+        const casStates = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith('ggb-cas-state-') && key.endsWith('-timestamp')) {
+            const stateKey = key.replace('-timestamp', '');
+            const timestamp = parseInt(localStorage.getItem(key) || '0', 10);
+            casStates.push({ key: stateKey, timestamp: timestamp });
+          }
+        }
+        
+        // Sort by timestamp (oldest first)
+        casStates.sort((a, b) => a.timestamp - b.timestamp);
+        
+        // Delete oldest 25% of states (minimum 1, maximum 10)
+        const numToDelete = Math.max(1, Math.min(10, Math.floor(casStates.length * 0.25)));
+        for (let i = 0; i < numToDelete && i < casStates.length; i++) {
+          localStorage.removeItem(casStates[i].key);
+          localStorage.removeItem(casStates[i].key + '-timestamp');
+        }
+      } catch (e) {
+        // Cleanup failed - silently continue
+      }
+    }
+
+    function restoreState() {
+      if (!ggbReady || !window.ggbApplet) return;
+      try {
+        const savedState = localStorage.getItem(storageKey);
+        if (savedState) {
+          window.ggbApplet.setBase64(savedState);
+          // Re-apply custom toolbar after restoring state to prevent it from being overwritten
+          setTimeout(() => {
+            if (window.ggbApplet && window.ggbApplet.setCustomToolBar) {
+              window.ggbApplet.setCustomToolBar("1001 | 1002 | 1007 | 1010 | 6");
+            }
+          }, 50);
+        }
+      } catch (e) {
+        // Silently fail if restore fails
+      }
+    }
+
+    const $dlg = $("#dialog-ggb-cas-1dad6d93").dialog({
       autoOpen: false,
       width: 390, height: 580,
       resizable: true, draggable: true,
@@ -1310,17 +1473,44 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
       open: function() {
         if (!ggbReady) {
           new GGBApplet({
-            appName: "classic", id: "ggb-cas-2fc7fd26",
+            appName: "classic", id: "ggb-cas-1dad6d93",
             width: 350, height: 500,
             perspective: "C", language: "nb",
             showToolBar: true, showAlgebraInput: true,
             borderRadius: 8, enableRightClick: true, showKeyboardOnFocus: false,
             customToolBar: "1001 | 1002 | 1007 | 1010 | 6",
-            appletOnLoad: () => { ggbReady = true; applySize(); }
-          }, true).inject("ggb-cas-2fc7fd26");
+            appletOnLoad: () => { 
+              ggbReady = true; 
+              applySize();
+              // Restore state after a short delay to ensure GeoGebra is fully initialized
+              setTimeout(restoreState, 100);
+            }
+          }, true).inject("ggb-cas-1dad6d93");
         } else {
           applySize();
         }
+      },
+      close: function() {
+        // Save state when dialog is closed
+        saveState();
+      }
+    });
+
+    // Auto-save state periodically (every 5 seconds) when dialog is open
+    let autoSaveInterval = null;
+    $dlg.on('dialogopen', function() {
+      if (autoSaveInterval) clearInterval(autoSaveInterval);
+      autoSaveInterval = setInterval(() => {
+        if ($dlg.dialog('isOpen')) {
+          saveState();
+        }
+      }, 5000);
+    });
+
+    $dlg.on('dialogclose', function() {
+      if (autoSaveInterval) {
+        clearInterval(autoSaveInterval);
+        autoSaveInterval = null;
       }
     });
 
@@ -1360,7 +1550,7 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
             target = target.parentElement;
           }
           // Prevent page scroll but don't stop the event from reaching GeoGebra
-          if (!e.target.closest('#ggb-cas-2fc7fd26')) {
+          if (!e.target.closest('#ggb-cas-1dad6d93')) {
             e.preventDefault();
             e.stopPropagation();
           }
@@ -1388,7 +1578,7 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
     
     // Monitor GeoGebra applet focus/interaction to control scroll lock
     function bindScrollLock() {
-      const ggbContainer = document.getElementById('ggb-cas-2fc7fd26');
+      const ggbContainer = document.getElementById('ggb-cas-1dad6d93');
       if (!ggbContainer) {
         setTimeout(bindScrollLock, 300);
         return;
@@ -1434,10 +1624,10 @@ a = -\dfrac{13}{27} \and b = \dfrac{7}{9} \and c = -\dfrac{1}{9} \and d = -\dfra
     // Cleanup on dialog close
     $dlg.on('dialogclose', unlockScroll);
 
-    $("#button-ggb-cas-2fc7fd26").button()
+    $("#button-ggb-cas-1dad6d93").button()
       .on("click touchend pointerup", e => {
         e.preventDefault();
-        $("#dialog-ggb-cas-2fc7fd26").dialog("open");
+        $("#dialog-ggb-cas-1dad6d93").dialog("open");
       });
   });
 })();
