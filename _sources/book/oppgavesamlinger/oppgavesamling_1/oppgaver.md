@@ -2373,7 +2373,7 @@ Bestem $T_0$, $k$ og $r$.
 
 ::::{answer}
 $$
-T_0 = 22 \and k = -\dfrac{3 \ln 2 + \ln 3}{10} \and r = \ln 2 + \ln 37
+T_0 = 22 \and k = -\dfrac{3 \ln 2 + \ln 3 - \ln 37}{10} \and r = \ln 2 + \ln 37
 $$
 ::::
 
