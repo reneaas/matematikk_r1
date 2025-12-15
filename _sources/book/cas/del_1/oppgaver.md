@@ -5,7 +5,6 @@
 class: tip
 ---
 * Kunne bruke CAS til å regne funksjoner og bestemme funksjonsverdier, den deriverte, ekstremalpunkter og ukjente koeffisienter.
-* Kunne bruke CAS til å manipulere algebraiske uttrykk og løse likninger med hensyn på en bestemt variabel når det er flere variabler i likningen.
 * Kunne bruke CAS til å løse likninger, likningssystemer og ulikheter
 * Kjenne til matematiske funksjoner i CAS som $\ln x$, $\log_a (x)$ og $e^x$. 
 :::
@@ -343,7 +342,7 @@ text: -2, f(-2), "$(-2, 5)$", center-right
 text: 1, f(1), "$(1, -4)$", bottom-center
 text: 3, f(3), "$(3, 0)$", bottom-right
 ticks: off
-fontsize: 25
+fontsize: 28
 xmin: -4
 :::
 
@@ -404,7 +403,7 @@ class: tabs-parts
 
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: x**3 - 3*x + 2, f
 point: (-1, f(-1))
 text: -1, f(-1), "$(-1, 4)$", top-center
@@ -415,7 +414,7 @@ text: 2, f(2), "$(2, 4)$", bottom-right
 point: (-2, f(-2))
 text: -2, f(-2), "$(-2, 0)$", top-left
 ticks: off
-fontsize: 25
+fontsize: 28
 ymin: -3
 :::
 
@@ -453,7 +452,7 @@ width: 80%
 :::::::::::::{tab-item} b
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: 100 / (1 + 9 * exp(log(4/9) * x / 5)), f
 point: (0, f(0))
 point: (5, f(5))
@@ -462,7 +461,7 @@ xmax: 30
 ticks: off
 text: 0, 10, "$(0, 10)$", top-left
 text: 5, 20, "$(5, 20)$", bottom-right
-fontsize: 25
+fontsize: 28
 :::
 
 
@@ -503,7 +502,7 @@ width: 80%
 
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: 2 * exp(-2*x) + 1, f
 xmin: -1
 ymin: -0.5
@@ -513,7 +512,7 @@ point: (2, f(2))
 text: 0, f(0), "$(0, 3)$", top-right
 text: 2, f(2), "$\left(2, \displaystyle\frac{2}{e^4} + 1\right)$", top-center
 ticks: off
-fontsize: 25
+fontsize: 28
 :::
 
 
@@ -555,7 +554,7 @@ width: 80%
 
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: 2*(log(x) / log(3) - 1) * (log(x) / log(3) - 2), f
 xmin: -1
 xmax: 10
@@ -567,7 +566,7 @@ text: 1, 4, "$(1, 4)$", top-right
 text: 3, 0, "$(3, 0)$", bottom-left
 text: 9, 0, "$(9, 0)$", top-center
 ticks: off
-fontsize: 25
+fontsize: 28
 :::
 
 
@@ -622,14 +621,14 @@ De fleste likningene vi jobber med vil være tilknyttet funksjoner. Denne typen 
 
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: exp(2*x) - 2*exp(x) - 8, f
 ymin: -11
 ymax: 10
 xmin: -4
 xmax: 4
 ticks: off
-fontsize: 25
+fontsize: 28
 :::
 
 
@@ -693,14 +692,14 @@ class: tabs-parts
 :::::::::::::{tab-item} a
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: (x**2 - 1) * exp(-x**2 + 1), f
 ymax: 1
 ymin: -3.5
 xmin: -3
 xmax: 3
 ticks: off
-fontsize: 25
+fontsize: 28
 lw: 3
 :::
 
@@ -738,7 +737,7 @@ width: 80%
 
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: (x**2 - 3) * exp(-x), g
 xmin: -2.5
 xmax: 6
@@ -746,7 +745,7 @@ ymin: -6
 ymax: 4
 ticks: off
 lw: 3
-fontsize: 25
+fontsize: 28
 :::
 
 
@@ -784,9 +783,9 @@ width: 80%
 :::::::::::::{tab-item} c
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: (log(x**2 + 4) - 1) / (log(x**2 + 4) + 1) - 1/2, h
-fontsize: 25
+fontsize: 28
 lw: 3
 ticks: off
 ymin: -1
@@ -831,14 +830,14 @@ width: 100%
 :::::::::::::{tab-item} d
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: (log(x)/log(10))**2 - 3 * (log(x)/log(10)) + 2, p
 ticks: off
 xmin: -1
 xmax: 120
 ymin: -0.5
 ymax: 2
-fontsize: 25
+fontsize: 28
 lw: 3
 :::
 
@@ -906,11 +905,11 @@ Med noen likninger, vil det være **umulig** å få $x$ alene uansett hvor hardt
 
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: x**2 * exp(x) - 2, f
 ticks: off
 lw: 3
-fontsize: 25
+fontsize: 28
 xmin: -4
 xmax: 2
 ymin: -3
@@ -967,9 +966,9 @@ class: tabs-parts
 :::::::::::::{tab-item} a
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: (x + 3) * log(x**2 + 1), f
-fontsize: 25
+fontsize: 28
 lw: 3
 ticks: off
 :::
@@ -1008,14 +1007,14 @@ width: 80%
 :::::::::::::{tab-item} b
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: x**3 * exp(-x**2 + 1) - 1/2, g
 ticks: off
 xmin: -4
 xmax: 4
 ymin: -2
 ymax: 1.5
-fontsize: 25
+fontsize: 28
 lw: 3
 :::
 
@@ -1056,14 +1055,14 @@ width: 80%
 
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: x**4 * log(x**2) - x**2 - 1, h
 ticks: off
 xmin: -2
 xmax: 2
 ymin: -3
 ymax: 1.5
-fontsize: 25
+fontsize: 28
 lw: 3
 :::
 
@@ -1103,7 +1102,7 @@ width: 80%
 :::::::::::::{tab-item} d
 :::{plot}
 align: right
-width: 380
+width: 100%
 function: (x * exp(-x) + 2) / (log(x**2 + 1) + 1), p
 xmin: -2.5
 xmax: 6
@@ -1111,7 +1110,7 @@ ymin: -3
 ymax: 3.5
 ticks: off
 lw: 3
-fontsize: 25
+fontsize: 28
 :::
 
 Figuren til høyre viser grafen til
