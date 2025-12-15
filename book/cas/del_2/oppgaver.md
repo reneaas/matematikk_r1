@@ -2,8 +2,15 @@
 
 
 
+:::{admonition} Læringsmål
+---
+class: tip
+---
+* Kunne bruke CAS til å manipulere algebraiske uttrykk og løse likninger med hensyn på en bestemt variabel når det er flere variabler i likningen.
+:::
 
-### Likninger med flere betingelser
+
+### Likninger med betingelser
 
 
 
