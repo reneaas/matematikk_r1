@@ -1,0 +1,1 @@
+# Oppgaver: Den deriverte av den omvendte funksjonen
