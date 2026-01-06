@@ -137,7 +137,7 @@ $$
 
 ::::{answer}
 $$
-k^{-1}(x) = \dfrac{x - 1}{x - 2} \qder D_{k^{-1}} = \real \setminus \{2\}.
+k^{-1}(x) = \dfrac{x + 1}{x - 2} \qder D_{k^{-1}} = \real \setminus \{2\}.
 $$
 ::::
 
