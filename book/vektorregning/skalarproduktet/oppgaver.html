@@ -1,0 +1,1184 @@
+
+<!DOCTYPE html>
+
+
+<html lang="norwegian" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Oppgaver: Skalarproduktet &#8212; Matematikk R1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/escapeRoom/escape-room.css?v=241d39f0" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/flashcards.css?v=9542c1b9" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/general_style.css?v=57d653fb" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/interactive_code.css?v=f903e660" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/jeopardy.css?v=f760f57b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/quiz.css?v=3f648898" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/admonitions.css?v=5c924dd9" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/dialogue.css?v=1b585024" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/figures.css?v=a197b544" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/popup.css?v=26181dfd" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/timedQuiz.css?v=89e27729" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/cas_popup.css?v=bae4ad7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/github-light.css?v=a6d10b1c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/github-dark.css?v=2454bc3f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/github-dark-high-contrast.css?v=4c0c1b0f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/pairPuzzle/style.css?v=f77426ac" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/parsons/parsonsPuzzle.css?v=9fbab2c7" />
+    <link id="highlight-theme-light" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css" />
+    <link id="highlight-theme-dark" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github-dark.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/admonitions.css?v=f84a357c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pdf_custom.css?v=a874a063" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/general_style.css?v=11bbc4b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/static_code_blocks.css?v=68f9364b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/dialogue.css?v=1b585024" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mathjax/style.css?v=0f1cb662" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/interactiveCode/style.css?v=23cd07d5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/clickable_figures/style.css?v=d35dfce7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/tabs.css?v=a560da15" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/misc.css?v=55d93a12" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/grids.css?v=7667ba21" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/figures.css?v=5dd46ff0" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/popup_code.css?v=4b4feebf" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/geogebra.css?v=fd180d66" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/parsons_puzzle/parsonsPuzzle.css?v=9fbab2c7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/multipleChoiceQuiz/style.css?v=89e27729" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pairPuzzle/style.css?v=f77426ac" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/one_dark_cm.css?v=3ae52176" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_dark_cm.css?v=d1235728" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_light_cm.css?v=facc8b7a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_dark_high_contrast_cm.css?v=4c0c1b0f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_dark_default_cm.css?v=3beebd47" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_light_default_cm.css?v=c880a553" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/fonts/opendyslexic/dyslexic.css?v=80f1227b" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=c712eed9"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/munchboka/js/utils.js?v=a5b18a1c"></script>
+    <script src="../../../_static/munchboka/js/casThemeManager.js?v=88874cc7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="../../../_static/munchboka/js/skulpt/skulpt.js?v=51c28977"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../_static/munchboka/js/escapeRoom/escape-room.js?v=fec3e31f"></script>
+    <script src="../../../_static/munchboka/js/flashcards.js?v=28a4399e"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/interactiveCodeSetup.js?v=733f5585"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/codeEditor.js?v=d7a9df79"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/pythonRunner.js?v=e9f0c2d2"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/workerManager.js?v=b934d01d"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/turtleCode.js?v=0d62d95e"></script>
+    <script src="../../../_static/munchboka/js/jeopardy.js?v=375a3583"></script>
+    <script src="../../../_static/munchboka/js/quiz.js?v=a4e1ffeb"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/munchboka/js/popup.js?v=5db611f4"></script>
+    <script src="../../../_static/munchboka/js/timedQuiz/utils.js?v=2c6f871c"></script>
+    <script src="../../../_static/munchboka/js/timedQuiz/multipleChoiceQuestion.js?v=c6ce1ca2"></script>
+    <script src="../../../_static/munchboka/js/timedQuiz/timedMultipleChoiceQuiz.js?v=9accc73d"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/physics"]}, "tex": {"packages": {"[+]": ["physics"]}, "macros": {"annotateAbove": ["\\mathrel{\\overset{\\substack{\\text{#2} \\\\ \\Bigg\\downarrow}}{#1}}", 2], "annotateBelow": ["\\mathrel{\\underset{\\substack{\\Bigg\\uparrow \\\\ \\text{#2}}}{#1}}", 2], "cline": ["\\underline{\\phantom{#1}}", 1], "and": ["\\quad \\land \\quad"], "or": ["\\quad \\lor \\quad"], "liff": ["\\quad \\iff \\quad"], "limplies": ["\\quad \\implies \\quad"], "limpliedby": ["\\quad \\impliedby \\quad"], "lland": ["\\; \\land \\;"], "degree": ["^\\circ"], "qog": ["\\quad \\text{og} \\quad"], "qder": ["\\quad \\text{der} \\quad"], "qeller": ["\\quad \\text{eller} \\quad"], "qhvis": ["\\quad \\text{hvis} \\quad"], "qfor": ["\\quad \\text{for} \\quad"], "natural": ["\\mathbb{N}"], "integer": ["\\mathbb{Z}"], "rational": ["\\mathbb{Q}"], "real": ["\\mathbb{R}"], "irrational": ["\\mathbb{Q}^c"], "qcomma": [",\\quad"], "nimplies": ["\\quad\\mathrel{\\not\\!\\!\\!\\implies}\\quad"], "nimpliedby": ["\\quad\\mathrel{\\not\\!\\!\\!\\impliedby}\\quad"], "niff": ["\\quad\\mathrel{\\not\\!\\!\\!\\iff}\\quad"], "cubica": ["\\raisebox{-0.4ex}{\\small\\(\\frown\\!\\smile\\)}", 0], "cubicb": ["\\raisebox{-0.4ex}{\\small\\(\\smile\\!\\frown\\)}", 0], "t": ["\\mathrm{#1}", 1], "dot": ["\\vec{#1} \\cdot \\vec{#2}", 2], "len": ["\\abs{\\vec{#1}}", 1], "lvec": ["\\overrightarrow{#1}", 1], "v": ["\\left[#1, #2\\right]", 2], "proj": ["\\mathrm{proj}_{#1}\\left(#2\\right)", 2], "mstack": ["\\begin{array}{c}#1\\end{array}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3.2/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/vektorregning/skalarproduktet/oppgaver';</script>
+    <script>mermaid.initialize({"startOnLoad": true})</script>
+    <script src="../../../_static/munchboka/js/pairPuzzle/draggableItem.js?v=ce9ef7bd"></script>
+    <script src="../../../_static/munchboka/js/pairPuzzle/dropZone.js?v=56907477"></script>
+    <script src="../../../_static/munchboka/js/pairPuzzle/game.js?v=cb8b0d45"></script>
+    <script src="../../../_static/munchboka/js/escapeRoom/escape-room.js?v=fec3e31f"></script>
+    <script src="../../../_static/munchboka/js/parsons/parsonsPuzzle.js?v=6e8c8774"></script>
+    <script src="../../../_static/serviceWorker.js?v=19bb19ce"></script>
+    <script src="../../../_static/static_code_blocks.js?v=e512471c"></script>
+    <script src="../../../_static/utils.js?v=14803243"></script>
+    <script src="../../../_static/geogebra-setup.js?v=c67998b1"></script>
+    <script src="../../../_static/interactiveCode/codeEditor.js?v=30f3f389"></script>
+    <script src="../../../_static/interactiveCode/turtleCode.js?v=0d62d95e"></script>
+    <script src="../../../_static/interactiveCode/pythonRunner.js?v=e9f0c2d2"></script>
+    <script src="../../../_static/interactiveCode/workerManager.js?v=de8adb65"></script>
+    <script src="../../../_static/interactiveCode/interactiveCodeSetup.js?v=49566f0b"></script>
+    <script src="../../../_static/clickable_figures/clickable_figure.js?v=dd2467e6"></script>
+    <script src="../../../_static/skulpt/skulpt.js?v=51c28977"></script>
+    <script src="../../../_static/parsons_puzzle/theme-switcher.js?v=c0cdcaac"></script>
+    <script src="../../../_static/parsons_puzzle/parsonsPuzzle.js?v=6e8c8774"></script>
+    <script src="../../../_static/multipleChoiceQuiz/sequentialMultipleChoiceQuiz.js?v=503540b6"></script>
+    <script src="../../../_static/multipleChoiceQuiz/utils.js?v=2c6f871c"></script>
+    <script src="../../../_static/multipleChoiceQuiz/timedMultipleChoiceQuiz.js?v=9accc73d"></script>
+    <script src="../../../_static/multipleChoiceQuiz/multipleChoiceQuiz.js?v=7d161c2c"></script>
+    <script src="../../../_static/multipleChoiceQuiz/multipleChoiceQuestion.js?v=c6ce1ca2"></script>
+    <script src="../../../_static/pairPuzzle/dropZone.js?v=56907477"></script>
+    <script src="../../../_static/pairPuzzle/game.js?v=cb8b0d45"></script>
+    <script src="../../../_static/pairPuzzle/draggableItem.js?v=5767251d"></script>
+    <script src="../../../_static/fonts/opendyslexic/opendylexic-toggle.js?v=7208047f"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="../../../_static/munchboka/js/highlight-init.js?v=6bc17905"></script>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script src="../../../_static/munchboka/js/geogebra-setup.js?v=8e77fc11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <link rel="canonical" href="https://r1.munchboka.no/book/vektorregning/skalarproduktet/oppgaver.html" />
+    <link rel="icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="16. Anvendelser av skalarproduktet" href="../anvendelser_av_skalarproduktet/teori.html" />
+    <link rel="prev" title="15. Skalarproduktet" href="teori.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="norwegian"/>
+<!-- Pyodide -->
+<script src="https://cdn.jsdelivr.net/pyodide/v0.27.0/full/pyodide.js"></script>
+
+
+<!-- CodeMirror -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+<link rel="stylesheet" href="../../../_static/code_mirror_themes/github_light_cm.css">
+<link rel="stylesheet" href="../../../_static/code_mirror_themes/github_dark_cm.css">
+<link rel="stylesheet" href="../../../_static/code_mirror_themes/one_dark_cm.css">
+
+<!-- CodeMirror scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- highlighting of code in Parsons puzzle -->
+<head>
+    <link id="highlight-theme-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <link id="highlight-theme-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github-dark.min.css">
+</head>
+
+
+
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch-improved@0.3.1/dist/jquery.ui.touch-punch-improved.min.js"></script>
+
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/r1_logo.png" class="logo__image only-light" alt="Matematikk R1 - Home"/>
+    <script>document.write(`<img src="../../../_static/r1_logo.png" class="logo__image only-dark" alt="Matematikk R1 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">I. Potenser og logaritmer</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../potenser_og_logaritmer/potenser/teori.html">1. Potenser</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../potenser_og_logaritmer/potenser/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../potenser_og_logaritmer/logaritmer/teori.html">2. Logaritmer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../potenser_og_logaritmer/logaritmer/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../potenser_og_logaritmer/likninger/teori.html">3. Logaritmelikninger og eksponentiallikninger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../potenser_og_logaritmer/oppgavesamling/oppgaver.html">4. Oppgavesamling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../potenser_og_logaritmer/numerisk_l%C3%B8sning/oppgaver.html">5. Numerisk løsning av likninger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../potenser_og_logaritmer/cas/oppgaver.html">6. Løsning med digitale verktøy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Grenseverdier og kontinuitet</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../grenseverdier_og_kontinuitet/kontinuitet/oppgaver.html">7. Kontinuitet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Derivasjon</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/optimering/oppgaver.html">8. Størst og minst verdi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/anvendelser_av_derivasjon/oppgaver.html">9. Anvendelser av derivasjon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/deriverbarhet/oppgaver.html">10. Deriverbarhet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/numerisk_derivasjon/oppgaver.html">11. Numerisk derivasjon</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Omvendte funksjoner</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../omvendte_funksjoner/basics/teori.html">12. Omvendte funksjoner</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../omvendte_funksjoner/basics/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">V. Vektorregning</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../vektorer/teori.html">13. Vektorer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vektorer/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../vektorer_i_koordinatsystem/teori.html">14. Vektorer i koordinatsystemet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vektorer_i_koordinatsystem/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="teori.html">15. Skalarproduktet</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../anvendelser_av_skalarproduktet/teori.html">16. Anvendelser av skalarproduktet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../anvendelser_av_skalarproduktet/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">CAS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../cas/del_1/oppgaver.html">Krasjkurs 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Oppgavesamlinger</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../oppgavesamlinger/oppgavesamling_1/oppgaver.html">Oppgavesamling 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Jeopardy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../jeopardy/derivasjon/jeopardy.html">Derivasjonsregler</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Oversikt</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../oversikt/formler.html">Formler</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Eksamensressurser</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../eksamensressurser/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eksamensressurser/cas.html">CAS (Geogebra)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eksamensressurser/geogebra.html">Geogebra</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Last ned denne siden">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/book/vektorregning/skalarproduktet/oppgaver.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Last ned kildefilen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Skriv ut til PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullskjerm-modus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Oppgaver: Skalarproduktet</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="oppgaver-skalarproduktet">
+<h1>Oppgaver: Skalarproduktet<a class="headerlink" href="#oppgaver-skalarproduktet" title="Link to this heading">#</a></h1>
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 1</p>
+<p>Regn ut skalarproduktet mellom vektorene.</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+a</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = [2, 3] \qog \vec{b} = [4, -1]
+\]</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+b</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+\vec{c} = [-2, 1] \qog \vec{d} = [5, 3]
+\]</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+c</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+\vec{p} = [-2, 0] \qog \vec{q} = [1, 4]
+\]</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 2</p>
+<p>Bruk skalarproduktet til å bestemme lengden av vektorene.</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+a</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = [-1, 2]
+\]</div>
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+b</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+\vec{b} = [3, 2]
+\]</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+c</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+\vec{c} = [4, -1]
+\]</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 3</p>
+<div class="admonition hints dropdown">
+<p class="admonition-title">Den geometriske formelen for skalarproduktet</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} \cdot \vec{b} = \len{a} \cdot \len{b} \cos \varphi
+\]</div>
+</div>
+<div class="admonition hints dropdown">
+<p class="admonition-title">Kjente cosinusverdier</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><span class="math notranslate nohighlight">\(\varphi\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(0\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(30\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(45\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(60\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(90\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(120\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(135\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(150\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(180\degree\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\cos \varphi\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dfrac{\sqrt{3}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dfrac{\sqrt{2}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dfrac{1}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\dfrac{1}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\dfrac{\sqrt{2}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\dfrac{\sqrt{3}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-6" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+a</label><div class="sd-tab-content docutils">
+<p>Om to vektorer <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> får du vite at</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\len{a} = 5\)</span> og <span class="math notranslate nohighlight">\(\len{b} = 4\)</span></p></li>
+<li><p>vinkelen mellom dem er <span class="math notranslate nohighlight">\(60\degree\)</span></p></li>
+</ul>
+<p>Bestem <span class="math notranslate nohighlight">\(\dot{a}{b}\)</span>.</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{a}{b} = 10
+\]</div>
+</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+b</label><div class="sd-tab-content docutils">
+<p>Om to vektorer <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> får du vite at</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\len{a} = 2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{a}{b} = -4\)</span></p></li>
+<li><p>vinkelen mellom dem er <span class="math notranslate nohighlight">\(150\degree\)</span></p></li>
+</ul>
+<p>Bestem <span class="math notranslate nohighlight">\(\len{b}\)</span>.</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+\ln{b} = \dfrac{4}{\sqrt{3}} = \dfrac{4 \sqrt{3}}{3}
+\]</div>
+</div>
+</div>
+<input id="sd-tab-item-8" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
+c</label><div class="sd-tab-content docutils">
+<p>Om to vektorer <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> får du vite at</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\len{a} = 2\)</span> og <span class="math notranslate nohighlight">\(\len{b} = 4\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{a}{b} = -4\)</span></p></li>
+</ul>
+<p>Bestem vinkelen <span class="math notranslate nohighlight">\(\varphi\)</span> mellom <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span>.</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+\varphi = 120\degree
+\]</div>
+</div>
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
+d</label><div class="sd-tab-content docutils">
+<p>Om to vektorer <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> får du vite at</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\len{a} = 3\)</span> og <span class="math notranslate nohighlight">\(\len{b} = 6\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{a}{b} = 0\)</span></p></li>
+</ul>
+<p>Bestem vinkelen <span class="math notranslate nohighlight">\(\varphi\)</span> mellom <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span>.</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+\varphi = 90\degree
+\]</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 4</p>
+<div class="admonition hints dropdown">
+<p class="admonition-title">Kjente cosinusverdier</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><span class="math notranslate nohighlight">\(\varphi\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(0\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(30\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(45\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(60\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(90\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(120\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(135\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(150\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(180\degree\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\cos \varphi\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dfrac{\sqrt{3}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dfrac{\sqrt{2}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dfrac{1}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\dfrac{1}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\dfrac{\sqrt{2}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\dfrac{\sqrt{3}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Om to vektorer <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> får du vite at</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\len{a} = 4\)</span> og <span class="math notranslate nohighlight">\(\len{b} = 2\)</span></p></li>
+<li><p>vinkelen mellom dem er <span class="math notranslate nohighlight">\(60\degree\)</span></p></li>
+</ul>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-10" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-10">
+a</label><div class="sd-tab-content docutils">
+<p>Bestem <span class="math notranslate nohighlight">\(\dot{a}{b}\)</span>.</p>
+</div>
+<input id="sd-tab-item-11" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-11">
+b</label><div class="sd-tab-content docutils">
+<p>En vektor <span class="math notranslate nohighlight">\(\vec{c} = \vec{a} + \vec{b}\)</span>.</p>
+<p>Bestem <span class="math notranslate nohighlight">\(\len{c}\)</span>.</p>
+</div>
+<input id="sd-tab-item-12" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-12">
+c</label><div class="sd-tab-content docutils">
+<p>En vektor <span class="math notranslate nohighlight">\(\vec{d} = \vec{a} - \vec{b}\)</span>.</p>
+<p>Bestem <span class="math notranslate nohighlight">\(\dot{d}{a}\)</span>.</p>
+</div>
+<input id="sd-tab-item-13" name="sd-tab-set-3" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-13">
+d</label><div class="sd-tab-content docutils">
+<p>To vektorer <span class="math notranslate nohighlight">\(\vec{p}\)</span> og <span class="math notranslate nohighlight">\(\vec{q}\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{p} = 2\vec{a} - \vec{b} \qog \vec{q} = \vec{a} + 3\vec{b}
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(\dot{p}{q}\)</span>.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 5</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-14" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-14">
+a</label><div class="sd-tab-content docutils">
+<p>To vektorer er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = [2, 3] \qog \vec{b} = [-4, t] \qfor t \in \real
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(t\)</span> slik at <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> er ortogonale.</p>
+</div>
+<input id="sd-tab-item-15" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-15">
+b</label><div class="sd-tab-content docutils">
+<p>To vektorer er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{p} = [1, 2] \qog \vec{q} = [k, 4] \qfor k \in \real 
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(k\)</span> slik at <span class="math notranslate nohighlight">\(\vec{p} \perp \vec{q}\)</span>.</p>
+</div>
+<input id="sd-tab-item-16" name="sd-tab-set-4" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-16">
+c</label><div class="sd-tab-content docutils">
+<p>En vektor <span class="math notranslate nohighlight">\(\vec{a} = [5, 2]\)</span>.</p>
+<p>Bestem en vektor <span class="math notranslate nohighlight">\(\vec{b}\)</span> slik at <span class="math notranslate nohighlight">\(\vec{a} \perp \vec{b}\)</span> og <span class="math notranslate nohighlight">\(\len{a} = \len{b}\)</span>.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 6</p>
+<div class="admonition hints dropdown">
+<p class="admonition-title">Kjente cosinusverdier</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><span class="math notranslate nohighlight">\(\varphi\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(0\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(30\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(45\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(60\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(90\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(120\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(135\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(150\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(180\degree\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\cos \varphi\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dfrac{\sqrt{3}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dfrac{\sqrt{2}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dfrac{1}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\dfrac{1}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\dfrac{\sqrt{2}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\dfrac{\sqrt{3}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Om to vektorer <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> får du vite at</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\len{a} = 2\)</span> og <span class="math notranslate nohighlight">\(\len{b} = 3\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{a}{b} = -3 \sqrt{2}\)</span></p></li>
+</ul>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-17" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-17">
+a</label><div class="sd-tab-content docutils">
+<p>Bestem vinkelen <span class="math notranslate nohighlight">\(\varphi\)</span> mellom <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span>.</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+\varphi = 135\degree
+\]</div>
+</div>
+</div>
+<input id="sd-tab-item-18" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-18">
+b</label><div class="sd-tab-content docutils">
+<p>To vektorer <span class="math notranslate nohighlight">\(\vec{p}\)</span> og <span class="math notranslate nohighlight">\(\vec{q}\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{p} = 2\vec{a} + \vec{b} \qog \vec{q} = \vec{a} - \vec{b}
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(\dot{p}{q}\)</span>.</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{p}{q} = 5 + 3\sqrt{2}
+\]</div>
+</div>
+</div>
+<input id="sd-tab-item-19" name="sd-tab-set-5" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-19">
+c</label><div class="sd-tab-content docutils">
+<p>En vektor <span class="math notranslate nohighlight">\(\vec{r}\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{r} = \vec{a} + t\cdot \vec{b} \qder t \in \real
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(t\)</span> slik at vinkelen mellom <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{r}\)</span> er <span class="math notranslate nohighlight">\(90\degree\)</span>.</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+t = \dfrac{4}{3 \sqrt{2}}
+\]</div>
+</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 7</p>
+<p>Tre vektorer er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = [1, 2] \qog \vec{b} = [4, -1] \qog \vec{c} = [-2, 3]
+\]</div>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-20" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-20">
+a</label><div class="sd-tab-content docutils">
+<p>Avgjør hvilken vektor som er lengst.</p>
+</div>
+<input id="sd-tab-item-21" name="sd-tab-set-6" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-21">
+b</label><div class="sd-tab-content docutils">
+<p>Undersøk hvilke vektorpar som har en vinkel <span class="math notranslate nohighlight">\(\varphi\)</span> mellom seg der:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\varphi \in [0, 90\degree\rangle\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\varphi = 90\degree\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\varphi \in \langle 90\degree, 180\degree]\)</span></p></li>
+</ol>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 8</p>
+<p>For to vektorer <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> er <span class="math notranslate nohighlight">\(\len{a} = 4\)</span>, <span class="math notranslate nohighlight">\(\len{b} = 2\sqrt{3}\)</span> og vinkelen mellom <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> er <span class="math notranslate nohighlight">\(30\degree\)</span>.</p>
+<p>En vektor <span class="math notranslate nohighlight">\(\vec{p} = \vec{a} + \vec{b}\)</span>.</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-22" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-22">
+a</label><div class="sd-tab-content docutils">
+<p>Bestem en eksakt verdi for <span class="math notranslate nohighlight">\(\len{p}\)</span>.</p>
+</div>
+<input id="sd-tab-item-23" name="sd-tab-set-7" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-23">
+b</label><div class="sd-tab-content docutils">
+<p>En annen vektor <span class="math notranslate nohighlight">\(\vec{q}\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{q} = t \cdot \vec{a} + \vec{b} \qder t \in \real
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(t\)</span> slik at <span class="math notranslate nohighlight">\(\vec{p}\)</span> og <span class="math notranslate nohighlight">\(\vec{q}\)</span> er ortogonale.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 9</p>
+<p>For vektorene <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> er <span class="math notranslate nohighlight">\(\len{a} = 2\)</span>, <span class="math notranslate nohighlight">\(\len{b} = 3\)</span> og <span class="math notranslate nohighlight">\(\dot{a}{b} = -3\)</span>.</p>
+<p>La <span class="math notranslate nohighlight">\(\vec{u} = \vec{a} + \vec{b}\)</span> og <span class="math notranslate nohighlight">\(\vec{v} = \vec{a} - 6\vec{b}\)</span>.</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-24" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-24">
+a</label><div class="sd-tab-content docutils">
+<p>Bestem lengden av <span class="math notranslate nohighlight">\(\vec{u}\)</span> og <span class="math notranslate nohighlight">\(\vec{v}\)</span>.</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+\len{u} = \sqrt{7} \and \len{v} = \sqrt{97}
+\]</div>
+</div>
+</div>
+<input id="sd-tab-item-25" name="sd-tab-set-8" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-25">
+b</label><div class="sd-tab-content docutils">
+<p>Bestem vinkelen mellom <span class="math notranslate nohighlight">\(\vec{u}\)</span> og <span class="math notranslate nohighlight">\(\vec{v}\)</span>.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 10</p>
+<p>Tre punkter er gitt ved <span class="math notranslate nohighlight">\(A(1, 1)\)</span>, <span class="math notranslate nohighlight">\(B(9, 7)\)</span> og <span class="math notranslate nohighlight">\(P(5, 9)\)</span>.</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-26" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-26">
+a</label><div class="sd-tab-content docutils">
+<p>Bruk vektorregning til å vise at <span class="math notranslate nohighlight">\(\angle APB = 90\degree\)</span>.</p>
+</div>
+<input id="sd-tab-item-27" name="sd-tab-set-9" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-27">
+b</label><div class="sd-tab-content docutils">
+<p>En linje <span class="math notranslate nohighlight">\(\ell\)</span> er parallell med <span class="math notranslate nohighlight">\(\lvec{AB}\)</span> og går gjennom punktet <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<p>Det er også et annet punkt <span class="math notranslate nohighlight">\(Q\)</span> på <span class="math notranslate nohighlight">\(\ell\)</span> slik at <span class="math notranslate nohighlight">\(\angle AQB = 90\degree\)</span>.</p>
+<p>Bestem koordinatene til <span class="math notranslate nohighlight">\(Q\)</span>.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 11</p>
+<p>I en trekant <span class="math notranslate nohighlight">\(\triangle ABC\)</span> er hjørnene <span class="math notranslate nohighlight">\(A(-3, -1)\)</span>, <span class="math notranslate nohighlight">\(B(2, -2)\)</span> og <span class="math notranslate nohighlight">\(C(5, 2)\)</span>.</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-28" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-28">
+a</label><div class="sd-tab-content docutils">
+<p>Avgjør ved hjelp av vektorregning hvilken side i trekanten som er kortest.</p>
+</div>
+<input id="sd-tab-item-29" name="sd-tab-set-10" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-29">
+b</label><div class="sd-tab-content docutils">
+<p>Avgjør ved hjelp av vektorregning om noen av vinklene i trekanten er <span class="math notranslate nohighlight">\(90\degree\)</span>.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 12</p>
+<p>Tre punkter er gitt ved <span class="math notranslate nohighlight">\(A(1, 2)\)</span>, <span class="math notranslate nohighlight">\(B(-1, 5)\)</span> og <span class="math notranslate nohighlight">\(C(t, 4)\)</span> der <span class="math notranslate nohighlight">\(t \in \real\)</span>.</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-30" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-30">
+a</label><div class="sd-tab-content docutils">
+<p>Bestem <span class="math notranslate nohighlight">\(t\)</span> slik at <span class="math notranslate nohighlight">\(\angle BAC = 90\degree\)</span></p>
+</div>
+<input id="sd-tab-item-31" name="sd-tab-set-11" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-31">
+b</label><div class="sd-tab-content docutils">
+<p>Bestem <span class="math notranslate nohighlight">\(t\)</span> slik at <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> og <span class="math notranslate nohighlight">\(C\)</span> ligger på en rett linje.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 13</p>
+<p>Vi har gitt tre punkter <span class="math notranslate nohighlight">\(A(3, 4)\)</span>, <span class="math notranslate nohighlight">\(B(-1, -2)\)</span> og <span class="math notranslate nohighlight">\(C(3 + t, 2t)\)</span> der <span class="math notranslate nohighlight">\(t \in \real\)</span>.</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-32" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-32">
+a</label><div class="sd-tab-content docutils">
+<p>Bestem <span class="math notranslate nohighlight">\(t\)</span> slik at punktene <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> og <span class="math notranslate nohighlight">\(C\)</span> ligger på en rett linje.</p>
+</div>
+<input id="sd-tab-item-33" name="sd-tab-set-12" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-33">
+b</label><div class="sd-tab-content docutils">
+<p>Bestem <span class="math notranslate nohighlight">\(t\)</span> slik at punktene <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(B\)</span> og <span class="math notranslate nohighlight">\(C\)</span> danner en trekant <span class="math notranslate nohighlight">\(\triangle ABC\)</span> der <span class="math notranslate nohighlight">\(\angle C = 90\degree\)</span>.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 14</p>
+<p>I et koordinatsystemet har vi gitt punktene <span class="math notranslate nohighlight">\(A(-2, 3)\)</span> og <span class="math notranslate nohighlight">\(B(3, 2)\)</span>.</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-34" name="sd-tab-set-13" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-34">
+a</label><div class="sd-tab-content docutils">
+<p>Bestem lengden av linjestykket <span class="math notranslate nohighlight">\(AB\)</span>.</p>
+</div>
+<input id="sd-tab-item-35" name="sd-tab-set-13" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-35">
+b</label><div class="sd-tab-content docutils">
+<p>Linja gjennom <span class="math notranslate nohighlight">\(A\)</span> og <span class="math notranslate nohighlight">\(B\)</span> skjærer <span class="math notranslate nohighlight">\(x\)</span>-aksen i punktet <span class="math notranslate nohighlight">\(C\)</span>.</p>
+<p>Bestem koordinatene til <span class="math notranslate nohighlight">\(C\)</span>.</p>
+</div>
+<input id="sd-tab-item-36" name="sd-tab-set-13" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-36">
+c</label><div class="sd-tab-content docutils">
+<p>Et punkt <span class="math notranslate nohighlight">\(D\)</span> er gitt ved <span class="math notranslate nohighlight">\(D(2, t)\)</span> der <span class="math notranslate nohighlight">\(t \in \real\)</span>.</p>
+<p>Bestem <span class="math notranslate nohighlight">\(t\)</span> slik at <span class="math notranslate nohighlight">\(\angle ABD = 90\degree\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/vektorregning/skalarproduktet"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="teori.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">15. </span>Skalarproduktet</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../anvendelser_av_skalarproduktet/teori.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">16. </span>Anvendelser av skalarproduktet</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Av René Ask, Edvard Munch Videregående Skole
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

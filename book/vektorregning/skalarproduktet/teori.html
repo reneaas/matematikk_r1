@@ -1,0 +1,4318 @@
+
+<!DOCTYPE html>
+
+
+<html lang="norwegian" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>15. Skalarproduktet &#8212; Matematikk R1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="../../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/escapeRoom/escape-room.css?v=241d39f0" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/flashcards.css?v=9542c1b9" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/general_style.css?v=57d653fb" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/interactive_code.css?v=f903e660" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/jeopardy.css?v=f760f57b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/quiz.css?v=3f648898" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/admonitions.css?v=5c924dd9" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/dialogue.css?v=1b585024" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/figures.css?v=a197b544" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/popup.css?v=26181dfd" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/timedQuiz.css?v=89e27729" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/cas_popup.css?v=bae4ad7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/github-light.css?v=a6d10b1c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/github-dark.css?v=2454bc3f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/github-dark-high-contrast.css?v=4c0c1b0f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/pairPuzzle/style.css?v=f77426ac" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/parsons/parsonsPuzzle.css?v=9fbab2c7" />
+    <link id="highlight-theme-light" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css" />
+    <link id="highlight-theme-dark" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github-dark.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/admonitions.css?v=f84a357c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pdf_custom.css?v=a874a063" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/general_style.css?v=11bbc4b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/static_code_blocks.css?v=68f9364b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/dialogue.css?v=1b585024" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mathjax/style.css?v=0f1cb662" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/interactiveCode/style.css?v=23cd07d5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/clickable_figures/style.css?v=d35dfce7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/tabs.css?v=a560da15" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/misc.css?v=55d93a12" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/grids.css?v=7667ba21" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/figures.css?v=5dd46ff0" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/popup_code.css?v=4b4feebf" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/geogebra.css?v=fd180d66" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/parsons_puzzle/parsonsPuzzle.css?v=9fbab2c7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/multipleChoiceQuiz/style.css?v=89e27729" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pairPuzzle/style.css?v=f77426ac" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/one_dark_cm.css?v=3ae52176" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_dark_cm.css?v=d1235728" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_light_cm.css?v=facc8b7a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_dark_high_contrast_cm.css?v=4c0c1b0f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_dark_default_cm.css?v=3beebd47" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_light_default_cm.css?v=c880a553" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/fonts/opendyslexic/dyslexic.css?v=80f1227b" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../../../_static/documentation_options.js?v=c712eed9"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/munchboka/js/utils.js?v=a5b18a1c"></script>
+    <script src="../../../_static/munchboka/js/casThemeManager.js?v=88874cc7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="../../../_static/munchboka/js/skulpt/skulpt.js?v=51c28977"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../_static/munchboka/js/escapeRoom/escape-room.js?v=fec3e31f"></script>
+    <script src="../../../_static/munchboka/js/flashcards.js?v=28a4399e"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/interactiveCodeSetup.js?v=733f5585"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/codeEditor.js?v=d7a9df79"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/pythonRunner.js?v=e9f0c2d2"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/workerManager.js?v=b934d01d"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/turtleCode.js?v=0d62d95e"></script>
+    <script src="../../../_static/munchboka/js/jeopardy.js?v=375a3583"></script>
+    <script src="../../../_static/munchboka/js/quiz.js?v=a4e1ffeb"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/munchboka/js/popup.js?v=5db611f4"></script>
+    <script src="../../../_static/munchboka/js/timedQuiz/utils.js?v=2c6f871c"></script>
+    <script src="../../../_static/munchboka/js/timedQuiz/multipleChoiceQuestion.js?v=c6ce1ca2"></script>
+    <script src="../../../_static/munchboka/js/timedQuiz/timedMultipleChoiceQuiz.js?v=9accc73d"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/physics"]}, "tex": {"packages": {"[+]": ["physics"]}, "macros": {"annotateAbove": ["\\mathrel{\\overset{\\substack{\\text{#2} \\\\ \\Bigg\\downarrow}}{#1}}", 2], "annotateBelow": ["\\mathrel{\\underset{\\substack{\\Bigg\\uparrow \\\\ \\text{#2}}}{#1}}", 2], "cline": ["\\underline{\\phantom{#1}}", 1], "and": ["\\quad \\land \\quad"], "or": ["\\quad \\lor \\quad"], "liff": ["\\quad \\iff \\quad"], "limplies": ["\\quad \\implies \\quad"], "limpliedby": ["\\quad \\impliedby \\quad"], "lland": ["\\; \\land \\;"], "degree": ["^\\circ"], "qog": ["\\quad \\text{og} \\quad"], "qder": ["\\quad \\text{der} \\quad"], "qeller": ["\\quad \\text{eller} \\quad"], "qhvis": ["\\quad \\text{hvis} \\quad"], "qfor": ["\\quad \\text{for} \\quad"], "natural": ["\\mathbb{N}"], "integer": ["\\mathbb{Z}"], "rational": ["\\mathbb{Q}"], "real": ["\\mathbb{R}"], "irrational": ["\\mathbb{Q}^c"], "qcomma": [",\\quad"], "nimplies": ["\\quad\\mathrel{\\not\\!\\!\\!\\implies}\\quad"], "nimpliedby": ["\\quad\\mathrel{\\not\\!\\!\\!\\impliedby}\\quad"], "niff": ["\\quad\\mathrel{\\not\\!\\!\\!\\iff}\\quad"], "cubica": ["\\raisebox{-0.4ex}{\\small\\(\\frown\\!\\smile\\)}", 0], "cubicb": ["\\raisebox{-0.4ex}{\\small\\(\\smile\\!\\frown\\)}", 0], "t": ["\\mathrm{#1}", 1], "dot": ["\\vec{#1} \\cdot \\vec{#2}", 2], "len": ["\\abs{\\vec{#1}}", 1], "lvec": ["\\overrightarrow{#1}", 1], "v": ["\\left[#1, #2\\right]", 2], "proj": ["\\mathrm{proj}_{#1}\\left(#2\\right)", 2], "mstack": ["\\begin{array}{c}#1\\end{array}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3.2/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/vektorregning/skalarproduktet/teori';</script>
+    <script>mermaid.initialize({"startOnLoad": true})</script>
+    <script src="../../../_static/munchboka/js/pairPuzzle/draggableItem.js?v=ce9ef7bd"></script>
+    <script src="../../../_static/munchboka/js/pairPuzzle/dropZone.js?v=56907477"></script>
+    <script src="../../../_static/munchboka/js/pairPuzzle/game.js?v=cb8b0d45"></script>
+    <script src="../../../_static/munchboka/js/escapeRoom/escape-room.js?v=fec3e31f"></script>
+    <script src="../../../_static/munchboka/js/parsons/parsonsPuzzle.js?v=6e8c8774"></script>
+    <script src="../../../_static/serviceWorker.js?v=19bb19ce"></script>
+    <script src="../../../_static/static_code_blocks.js?v=e512471c"></script>
+    <script src="../../../_static/utils.js?v=14803243"></script>
+    <script src="../../../_static/geogebra-setup.js?v=c67998b1"></script>
+    <script src="../../../_static/interactiveCode/codeEditor.js?v=30f3f389"></script>
+    <script src="../../../_static/interactiveCode/turtleCode.js?v=0d62d95e"></script>
+    <script src="../../../_static/interactiveCode/pythonRunner.js?v=e9f0c2d2"></script>
+    <script src="../../../_static/interactiveCode/workerManager.js?v=de8adb65"></script>
+    <script src="../../../_static/interactiveCode/interactiveCodeSetup.js?v=49566f0b"></script>
+    <script src="../../../_static/clickable_figures/clickable_figure.js?v=dd2467e6"></script>
+    <script src="../../../_static/skulpt/skulpt.js?v=51c28977"></script>
+    <script src="../../../_static/parsons_puzzle/theme-switcher.js?v=c0cdcaac"></script>
+    <script src="../../../_static/parsons_puzzle/parsonsPuzzle.js?v=6e8c8774"></script>
+    <script src="../../../_static/multipleChoiceQuiz/sequentialMultipleChoiceQuiz.js?v=503540b6"></script>
+    <script src="../../../_static/multipleChoiceQuiz/utils.js?v=2c6f871c"></script>
+    <script src="../../../_static/multipleChoiceQuiz/timedMultipleChoiceQuiz.js?v=9accc73d"></script>
+    <script src="../../../_static/multipleChoiceQuiz/multipleChoiceQuiz.js?v=7d161c2c"></script>
+    <script src="../../../_static/multipleChoiceQuiz/multipleChoiceQuestion.js?v=c6ce1ca2"></script>
+    <script src="../../../_static/pairPuzzle/dropZone.js?v=56907477"></script>
+    <script src="../../../_static/pairPuzzle/game.js?v=cb8b0d45"></script>
+    <script src="../../../_static/pairPuzzle/draggableItem.js?v=5767251d"></script>
+    <script src="../../../_static/fonts/opendyslexic/opendylexic-toggle.js?v=7208047f"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="../../../_static/munchboka/js/highlight-init.js?v=6bc17905"></script>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script src="../../../_static/munchboka/js/geogebra-setup.js?v=8e77fc11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <link rel="canonical" href="https://r1.munchboka.no/book/vektorregning/skalarproduktet/teori.html" />
+    <link rel="icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Oppgaver: Skalarproduktet" href="oppgaver.html" />
+    <link rel="prev" title="Oppgaver: Vektorer i koordinatsystemet" href="../vektorer_i_koordinatsystem/oppgaver.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="norwegian"/>
+<!-- Pyodide -->
+<script src="https://cdn.jsdelivr.net/pyodide/v0.27.0/full/pyodide.js"></script>
+
+
+<!-- CodeMirror -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+<link rel="stylesheet" href="../../../_static/code_mirror_themes/github_light_cm.css">
+<link rel="stylesheet" href="../../../_static/code_mirror_themes/github_dark_cm.css">
+<link rel="stylesheet" href="../../../_static/code_mirror_themes/one_dark_cm.css">
+
+<!-- CodeMirror scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- highlighting of code in Parsons puzzle -->
+<head>
+    <link id="highlight-theme-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <link id="highlight-theme-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github-dark.min.css">
+</head>
+
+
+
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch-improved@0.3.1/dist/jquery.ui.touch-punch-improved.min.js"></script>
+
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/r1_logo.png" class="logo__image only-light" alt="Matematikk R1 - Home"/>
+    <script>document.write(`<img src="../../../_static/r1_logo.png" class="logo__image only-dark" alt="Matematikk R1 - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">I. Potenser og logaritmer</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../potenser_og_logaritmer/potenser/teori.html">1. Potenser</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../potenser_og_logaritmer/potenser/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../potenser_og_logaritmer/logaritmer/teori.html">2. Logaritmer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../potenser_og_logaritmer/logaritmer/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../potenser_og_logaritmer/likninger/teori.html">3. Logaritmelikninger og eksponentiallikninger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../potenser_og_logaritmer/oppgavesamling/oppgaver.html">4. Oppgavesamling</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../potenser_og_logaritmer/numerisk_l%C3%B8sning/oppgaver.html">5. Numerisk løsning av likninger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../potenser_og_logaritmer/cas/oppgaver.html">6. Løsning med digitale verktøy</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Grenseverdier og kontinuitet</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../grenseverdier_og_kontinuitet/kontinuitet/oppgaver.html">7. Kontinuitet</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Derivasjon</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/optimering/oppgaver.html">8. Størst og minst verdi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/anvendelser_av_derivasjon/oppgaver.html">9. Anvendelser av derivasjon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/deriverbarhet/oppgaver.html">10. Deriverbarhet</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/numerisk_derivasjon/oppgaver.html">11. Numerisk derivasjon</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Omvendte funksjoner</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../omvendte_funksjoner/basics/teori.html">12. Omvendte funksjoner</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../omvendte_funksjoner/basics/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">V. Vektorregning</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../vektorer/teori.html">13. Vektorer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vektorer/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../vektorer_i_koordinatsystem/teori.html">14. Vektorer i koordinatsystemet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../vektorer_i_koordinatsystem/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">15. Skalarproduktet</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../anvendelser_av_skalarproduktet/teori.html">16. Anvendelser av skalarproduktet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../anvendelser_av_skalarproduktet/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">CAS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../cas/del_1/oppgaver.html">Krasjkurs 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Oppgavesamlinger</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../oppgavesamlinger/oppgavesamling_1/oppgaver.html">Oppgavesamling 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Jeopardy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../jeopardy/derivasjon/jeopardy.html">Derivasjonsregler</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Oversikt</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../oversikt/formler.html">Formler</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Eksamensressurser</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../eksamensressurser/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eksamensressurser/cas.html">CAS (Geogebra)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eksamensressurser/geogebra.html">Geogebra</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Last ned denne siden">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/book/vektorregning/skalarproduktet/teori.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Last ned kildefilen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Skriv ut til PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullskjerm-modus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Skalarproduktet</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Innhold </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisjon">Definisjon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sammenheng-mellom-skalarprodukt-og-lengde">Sammenheng mellom skalarprodukt og lengde</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrisk-formel-for-skalarproduktet">Geometrisk formel for skalarproduktet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generelle-regneregler-for-skalarproduktet">Generelle regneregler for skalarproduktet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vinkler-mellom-vektorer">Vinkler mellom vektorer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ortogonale-vektorer">Ortogonale vektorer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skalarproduktet-med-digitale-verktoy">Skalarproduktet med digitale verktøy</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="skalarproduktet">
+<h1><span class="section-number">15. </span>Skalarproduktet<a class="headerlink" href="#skalarproduktet" title="Link to this heading">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Læringsmål</p>
+<ul class="simple">
+<li><p>Kunne regne ut skalarproduktet på komponentform og ved hjelp av geometriske egenskaper.</p></li>
+<li><p>Kunne beskrive sammenhengen mellom skalarproduktet og lengden av en vektor.</p></li>
+<li><p>Kunne bruke skalarproduktet til å bestemme vinkelen mellom to vektorer.</p></li>
+<li><p>Kunne bruke digitale verktøy til å regne med vektorer.</p></li>
+</ul>
+</div>
+<section id="definisjon">
+<h2>Definisjon<a class="headerlink" href="#definisjon" title="Link to this heading">#</a></h2>
+<p><strong>Skalarproduktet</strong> er én av mange måter vi kunne definert det å gange to vektorer med hverandre på. Det er ikke den eneste måten å gange sammen vektorer på, men denne definisjonen er spesielt nyttig fordi den gir samme svar uansett hvilket koordinatsystem vi bruker for å beskrive vektorene. Et tall som blir likt uansett hvilket koordinatsystem vi bruker, kaller vi for en <strong>skalar</strong>. Du har allerede møtt en skalar tidligere, som er lengden til en vektor.</p>
+<p>Vi skal først se på definisjonen, før vi senere skal se hva det betyr geometrisk og hva det kan brukes til.</p>
+<div class="admonition summary">
+<p class="admonition-title">Skalarproduktet</p>
+<p>For en vektor <span class="math notranslate nohighlight">\(\vec{a} = [a_x, a_y]\)</span> og en vektor <span class="math notranslate nohighlight">\(\vec{b} = [b_x, b_y]\)</span>, er skalarproduktet mellom vektorene definert som</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} \cdot \vec{b} = a_x\cdot b_x + a_y\cdot b_y
+\]</div>
+<p>Vi ganger altså <span class="math notranslate nohighlight">\(x\)</span>-komponentene og <span class="math notranslate nohighlight">\(y\)</span>-komponentene sammen, og legger sammen svarene.</p>
+</div>
+<hr class="docutils" />
+<div class="admonition example">
+<p class="admonition-title">Eksempel 1</p>
+<p>La <span class="math notranslate nohighlight">\(\vec{a} = [2, 3]\)</span> og <span class="math notranslate nohighlight">\(\vec{b} = [-4, 5]\)</span>.</p>
+<p>Bestem skalarproduktet <span class="math notranslate nohighlight">\(\vec{a} \cdot \vec{b}\)</span>.</p>
+<div class="admonition solution">
+<p class="admonition-title">Løsning</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} \cdot \vec{b} = [2, 3] \cdot [-4, 5] = 2 \cdot (-4) + 3 \cdot 5 = -8 + 15 = 7
+\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 1</p>
+<p>Bestem skalarproduktet mellom vektorene</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = [-1, 3] \qog \vec{b} = [2, 1]
+\]</div>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} \cdot \vec{b} = 1
+\]</div>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} \cdot \vec{b} = [-1, 3] \cdot [2, 1] = -1 \cdot 2 + 3 \cdot 1 = -2 + 3 = 1
+\]</div>
+</div>
+</div>
+</section>
+<hr class="docutils" />
+<section id="sammenheng-mellom-skalarprodukt-og-lengde">
+<h2>Sammenheng mellom skalarprodukt og lengde<a class="headerlink" href="#sammenheng-mellom-skalarprodukt-og-lengde" title="Link to this heading">#</a></h2>
+<p>Det er en klar sammenheng mellom skalarproduktet av en vektor med seg selv og lengden av vektoren.</p>
+<div class="admonition summary">
+<p class="admonition-title">Skalarprodukt og lengde</p>
+<p>For en vektor <span class="math notranslate nohighlight">\(\vec{a} = [a_x, a_y]\)</span>, så vil lengden <span class="math notranslate nohighlight">\(|\vec{a}|\)</span> være gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+|\vec{a}| = \sqrt{\vec{a} \cdot \vec{a}}
+\]</div>
+<div class="theory dropdown admonition">
+<p class="admonition-title">Bevis</p>
+<p>Vi regner ut lengden av vektoren ved hjelp av Pytagoras’ setning:</p>
+<div class="math notranslate nohighlight">
+\[
+|\vec{a}| = \sqrt{a_x^2 + a_y^2}
+\]</div>
+<p>Bruker vi skalarproduktet, får vi:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} \cdot \vec{a} = [a_x, a_y] \cdot [a_x, a_y] = a_x \cdot a_x + a_y \cdot a_y = a_x^2 + a_y^2
+\]</div>
+<p>Tar vi kvadratroten av dette, får vi samme uttrykk som lengden til vektoren. Dermed har vi vist at</p>
+<div class="math notranslate nohighlight">
+\[
+|\vec{a}| = \sqrt{\vec{a} \cdot \vec{a}}
+\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition example">
+<p class="admonition-title">Eksempel 2</p>
+<p>Bestem lengden av vektoren <span class="math notranslate nohighlight">\(\vec{a} = [3, 4]\)</span> ved hjelp av skalarproduktet.</p>
+<div class="admonition solution">
+<p class="admonition-title">Løsning</p>
+<p>Vi regner ut skalarproduktet først:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} \cdot \vec{a} = [3, 4] \cdot [3, 4] = 3 \cdot 3 + 4 \cdot 4 = 9 + 16 = 25
+\]</div>
+<p>Så tar vi kvadratroten for å finne lengden:</p>
+<div class="math notranslate nohighlight">
+\[
+|\vec{a}| = \sqrt{\vec{a} \cdot \vec{a}} = \sqrt{25} = 5
+\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 2</p>
+<p>Bruk skalarproduktet til å bestemme lengden av</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{b} = [-2, 1]
+\]</div>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+\len{b} = \sqrt{5}
+\]</div>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Skalarproduktet er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{b}{b} = [-2, 1] \cdot [-2, 1] = (-2) \cdot (-2) + 1 \cdot 1 = 4 + 1 = 5
+\]</div>
+<p>Så tar vi kvadratroten for å finne lengden:</p>
+<div class="math notranslate nohighlight">
+\[
+\len{b} = \sqrt{5}
+\]</div>
+</div>
+</div>
+</section>
+<section id="geometrisk-formel-for-skalarproduktet">
+<h2>Geometrisk formel for skalarproduktet<a class="headerlink" href="#geometrisk-formel-for-skalarproduktet" title="Link to this heading">#</a></h2>
+<p>Det er ikke opplagt hva skalarproduktet egentlig betyr for noe. Så langt har vi bare definert hva vi mener med å gange to vektorer med hverandre. Nå skal vi se at det har en klar geometrisk betydning som vi skal utnytte videre.</p>
+<div class="admonition summary">
+<p class="admonition-title">Geometrisk formel for skalarproduktet</p>
+<figure class="adaptive-figure plot-figure no-click align-right">
+<div class="graph-image no-click no-scaled-link"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 216 216" xmlns="http://www.w3.org/2000/svg" version="1.1" class="graph-inline-svg" role="img" aria-label="Tilpasset figur" style="width:100%; height:auto; display:block; margin:0 auto;">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-01-06T06:43:44.665440</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="cpl_ee276f1bfcf2_3417a1_figure_1">
+  <g id="cpl_ee276f1bfcf2_3417a1_patch_1">
+   <path d="M 0 216 
+L 216 216 
+L 216 0 
+L 0 0 
+L 0 216 
+z
+" style="fill: none"/>
+  </g>
+  <g id="cpl_ee276f1bfcf2_3417a1_axes_1">
+   <g id="cpl_ee276f1bfcf2_3417a1_line2d_1">
+    <path d="M 61.957895 151.2 
+L 61.846505 148.44224 
+L 61.513144 145.704496 
+L 60.960231 143.006637 
+L 60.19178 140.368246 
+L 59.213367 137.80847 
+L 58.043617 135.367587 
+L 56.682982 133.039554 
+L 55.141159 130.840965 
+L 53.429139 128.787491 
+L 52.967614 128.28974 
+L 52.967614 128.28974 
+" clip-path="url(#cpl_ee276f1bfcf2_3417a1_p8c86bd7955)" style="fill: none; stroke: #000000; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_ee276f1bfcf2_3417a1_text_1">
+    <!-- $\varphi$ -->
+    <g transform="translate(66.735843 137.159183) scale(0.18 -0.18)">
+     <defs>
+      <path id="CMMI12-27" d="M 1926 280 
+C 1818 280 1722 280 1722 312 
+C 1722 325 1830 926 1869 1067 
+C 2074 1884 2560 2472 3117 2472 
+C 3533 2472 3725 2159 3725 1808 
+C 3725 1080 2906 280 1926 280 
+z
+M 1651 -51 
+C 1690 -57 1754 -64 1869 -64 
+C 2918 -64 3885 945 3885 1954 
+C 3885 2344 3712 2816 3174 2816 
+C 2253 2816 1862 1519 1504 318 
+C 768 458 461 848 461 1276 
+C 461 1449 595 2133 966 2592 
+C 1037 2676 1037 2689 1037 2702 
+C 1037 2753 986 2753 973 2753 
+C 800 2753 314 1820 314 1213 
+C 314 497 877 107 1395 -7 
+L 1062 -1088 
+C 1030 -1184 1030 -1196 1030 -1222 
+C 1030 -1376 1184 -1376 1197 -1376 
+C 1261 -1376 1376 -1351 1427 -1223 
+C 1446 -1166 1626 -178 1651 -51 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-27" transform="scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_ee276f1bfcf2_3417a1_text_2">
+    <!-- $\vec{a}$ -->
+    <g transform="translate(102.811183 166.5693) scale(0.18 -0.18)">
+     <defs>
+      <path id="CMMI12-7e" d="M 3424 3835 
+C 3347 3764 3110 3540 3110 3451 
+C 3110 3387 3168 3329 3232 3329 
+C 3290 3329 3315 3368 3360 3432 
+C 3514 3624 3686 3745 3834 3828 
+C 3898 3867 3942 3886 3942 3956 
+C 3942 4014 3891 4046 3853 4078 
+C 3674 4200 3629 4372 3610 4449 
+C 3590 4500 3571 4577 3482 4577 
+C 3443 4577 3366 4552 3366 4456 
+C 3366 4398 3405 4244 3526 4072 
+L 1376 4072 
+C 1267 4072 1158 4072 1158 3950 
+C 1158 3835 1274 3835 1376 3835 
+L 3424 3835 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMMI12-61" d="M 1926 760 
+C 1894 651 1894 639 1805 517 
+C 1664 338 1382 64 1082 64 
+C 819 64 672 300 672 677 
+C 672 1028 870 1743 992 2012 
+C 1210 2459 1510 2689 1760 2689 
+C 2182 2689 2266 2165 2266 2114 
+C 2266 2108 2246 2024 2240 2012 
+L 1926 760 
+z
+M 2336 2395 
+C 2266 2561 2093 2816 1760 2816 
+C 1037 2816 256 1884 256 939 
+C 256 307 627 -64 1062 -64 
+C 1414 -64 1715 211 1894 422 
+C 1958 45 2259 -64 2451 -64 
+C 2643 -64 2797 51 2912 281 
+C 3014 498 3104 888 3104 913 
+C 3104 945 3078 971 3040 971 
+C 2982 971 2976 939 2950 843 
+C 2854 466 2733 64 2470 64 
+C 2285 64 2272 230 2272 358 
+C 2272 505 2291 575 2349 824 
+C 2394 984 2426 1124 2477 1309 
+C 2714 2267 2771 2497 2771 2535 
+C 2771 2625 2701 2695 2605 2695 
+C 2400 2695 2349 2472 2336 2395 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-7e" transform="scale(0.996264)"/>
+     <use xlink:href="#CMMI12-61" transform="translate(6.445738 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_ee276f1bfcf2_3417a1_text_3">
+    <!-- $\vec{b}$ -->
+    <g transform="translate(70.003285 90.795936) scale(0.18 -0.18)">
+     <defs>
+      <path id="CMMI12-62" d="M 1478 4257 
+C 1485 4283 1498 4321 1498 4352 
+C 1498 4416 1434 4416 1421 4416 
+C 1414 4416 1184 4393 1069 4377 
+C 960 4377 864 4358 749 4358 
+C 595 4345 550 4339 550 4224 
+C 550 4160 614 4160 678 4160 
+C 1005 4160 1005 4103 1005 4040 
+C 1005 3996 954 3811 928 3696 
+L 774 3085 
+C 710 2831 346 1387 320 1272 
+C 288 1114 288 1005 288 922 
+C 288 274 653 -64 1069 -64 
+C 1811 -64 2579 888 2579 1814 
+C 2579 2401 2246 2816 1766 2816 
+C 1434 2816 1133 2542 1011 2414 
+L 1478 4257 
+z
+M 1075 64 
+C 870 64 646 217 646 715 
+C 646 926 666 1047 781 1494 
+C 800 1577 902 1986 928 2069 
+C 941 2120 1318 2689 1754 2689 
+C 2035 2689 2163 2408 2163 2076 
+C 2163 1769 1984 1047 1824 715 
+C 1664 370 1370 64 1075 64 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-7e" transform="translate(0 26.29016) scale(0.996264)"/>
+     <use xlink:href="#CMMI12-62" transform="translate(11.311737 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_ee276f1bfcf2_3417a1_Quiver_1">
+    <path d="M 31.263158 150.6168 
+L 179.488042 150.6168 
+L 178.904842 148.284 
+L 184.736842 151.2 
+L 178.904842 154.116 
+L 179.488042 151.7832 
+L 31.263158 151.7832 
+L 31.263158 150.6168 
+" clip-path="url(#cpl_ee276f1bfcf2_3417a1_p8c86bd7955)" style="fill: #dc5e8b"/>
+   </g>
+   <g id="cpl_ee276f1bfcf2_3417a1_Quiver_2">
+    <path d="M 30.839782 150.798907 
+L 129.545738 46.609288 
+L 127.451143 45.428293 
+L 133.578947 43.2 
+L 131.684899 49.439219 
+L 130.392489 47.411473 
+L 31.686533 151.601093 
+L 30.839782 150.798907 
+" clip-path="url(#cpl_ee276f1bfcf2_3417a1_p8c86bd7955)" style="fill: #0072b2"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="cpl_ee276f1bfcf2_3417a1_p8c86bd7955">
+   <rect x="10.8" y="10.8" width="194.4" height="194.4"/>
+  </clipPath>
+ </defs>
+</svg>
+</div></figure>
+<p>For to vektorer <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> med en vinkel <span class="math notranslate nohighlight">\(\varphi\)</span> mellom seg, er skalarproduktet gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{a}{b} = \len{a} \cdot \len{b} \cdot \cos \varphi
+\]</div>
+<p>Vi kan tolke dette som at vi plukker ut den delen av vektoren <span class="math notranslate nohighlight">\(\vec{b}\)</span> som peker i samme retning som vektoren <span class="math notranslate nohighlight">\(\vec{a}\)</span>, og ganger denne med lengden av vektoren <span class="math notranslate nohighlight">\(\vec{a}\)</span>.</p>
+<div style="clear: both;"></div><div class="theory dropdown admonition">
+<p class="admonition-title">Bevis</p>
+<p>Skalarproduktet skal gi en skalar, som betyr at svaret vi får ikke er avhengig av koordinatsystemet vi bruker for å beskrive vektorene. Vi kan derfor velge et koordinatssystem som gjør regningen enklest mulig.</p>
+<figure class="adaptive-figure plot-figure no-click align-right">
+<div class="graph-image no-click no-scaled-link"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 216 216" xmlns="http://www.w3.org/2000/svg" version="1.1" class="graph-inline-svg" role="img" aria-label="Tilpasset figur" style="width:100%; height:auto; display:block; margin:0 auto;">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-01-06T06:43:49.290917</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="cpl_d0f56694e3c5_bdc70d_figure_1">
+  <g id="cpl_d0f56694e3c5_bdc70d_patch_1">
+   <path d="M 0 216 
+L 216 216 
+L 216 0 
+L 0 0 
+L 0 216 
+z
+" style="fill: none"/>
+  </g>
+  <g id="cpl_d0f56694e3c5_bdc70d_axes_1">
+   <g id="cpl_d0f56694e3c5_bdc70d_patch_2">
+    <path d="M 131.305263 147.36 
+L 121.983158 147.36 
+L 121.983158 137.52 
+L 131.305263 137.52 
+L 131.305263 147.36 
+z
+" clip-path="url(#cpl_d0f56694e3c5_bdc70d_p8accc837f0)" style="fill: none; opacity: 0"/>
+   </g>
+   <g id="cpl_d0f56694e3c5_bdc70d_line2d_1">
+    <path d="M 66.050526 147.36 
+L 65.939695 144.734486 
+L 65.608079 142.129782 
+L 65.058308 139.566533 
+L 64.294738 137.065055 
+L 63.323422 134.645176 
+L 62.152058 132.326075 
+L 60.80246 130.14454 
+L 59.275884 128.097114 
+L 57.859382 126.486208 
+L 57.859382 126.486208 
+" clip-path="url(#cpl_d0f56694e3c5_bdc70d_p8accc837f0)" style="fill: none; stroke: #000000; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_d0f56694e3c5_bdc70d_line2d_2">
+    <path d="M 131.305263 147.36 
+L 121.983158 147.36 
+L 121.983158 137.52 
+L 131.305263 137.52 
+L 131.305263 147.36 
+" clip-path="url(#cpl_d0f56694e3c5_bdc70d_p8accc837f0)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_d0f56694e3c5_bdc70d_text_1">
+    <!-- $\varphi$ -->
+    <g transform="translate(70.403768 134.257205) scale(0.18 -0.18)">
+     <defs>
+      <path id="CMMI12-27" d="M 1926 280 
+C 1818 280 1722 280 1722 312 
+C 1722 325 1830 926 1869 1067 
+C 2074 1884 2560 2472 3117 2472 
+C 3533 2472 3725 2159 3725 1808 
+C 3725 1080 2906 280 1926 280 
+z
+M 1651 -51 
+C 1690 -57 1754 -64 1869 -64 
+C 2918 -64 3885 945 3885 1954 
+C 3885 2344 3712 2816 3174 2816 
+C 2253 2816 1862 1519 1504 318 
+C 768 458 461 848 461 1276 
+C 461 1449 595 2133 966 2592 
+C 1037 2676 1037 2689 1037 2702 
+C 1037 2753 986 2753 973 2753 
+C 800 2753 314 1820 314 1213 
+C 314 497 877 107 1395 -7 
+L 1062 -1088 
+C 1030 -1184 1030 -1196 1030 -1222 
+C 1030 -1376 1184 -1376 1197 -1376 
+C 1261 -1376 1376 -1351 1427 -1223 
+C 1446 -1166 1626 -178 1651 -51 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-27" transform="scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_d0f56694e3c5_bdc70d_text_2">
+    <!-- $b_x$ -->
+    <g transform="translate(77.469581 162.4701) scale(0.18 -0.18)">
+     <defs>
+      <path id="CMMI12-62" d="M 1478 4257 
+C 1485 4283 1498 4321 1498 4352 
+C 1498 4416 1434 4416 1421 4416 
+C 1414 4416 1184 4393 1069 4377 
+C 960 4377 864 4358 749 4358 
+C 595 4345 550 4339 550 4224 
+C 550 4160 614 4160 678 4160 
+C 1005 4160 1005 4103 1005 4040 
+C 1005 3996 954 3811 928 3696 
+L 774 3085 
+C 710 2831 346 1387 320 1272 
+C 288 1114 288 1005 288 922 
+C 288 274 653 -64 1069 -64 
+C 1811 -64 2579 888 2579 1814 
+C 2579 2401 2246 2816 1766 2816 
+C 1434 2816 1133 2542 1011 2414 
+L 1478 4257 
+z
+M 1075 64 
+C 870 64 646 217 646 715 
+C 646 926 666 1047 781 1494 
+C 800 1577 902 1986 928 2069 
+C 941 2120 1318 2689 1754 2689 
+C 2035 2689 2163 2408 2163 2076 
+C 2163 1769 1984 1047 1824 715 
+C 1664 370 1370 64 1075 64 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMMI12-78" d="M 3034 2606 
+C 2829 2567 2752 2414 2752 2293 
+C 2752 2139 2874 2088 2963 2088 
+C 3155 2088 3290 2254 3290 2427 
+C 3290 2695 2982 2816 2714 2816 
+C 2323 2816 2106 2433 2048 2312 
+C 1901 2816 1504 2816 1389 2816 
+C 736 2816 390 1980 390 1839 
+C 390 1814 416 1782 461 1782 
+C 512 1782 525 1820 538 1846 
+C 755 2555 1184 2689 1370 2689 
+C 1658 2689 1715 2420 1715 2267 
+C 1715 2127 1677 1980 1600 1673 
+L 1382 798 
+C 1286 415 1101 64 762 64 
+C 730 64 570 64 435 147 
+C 666 192 717 383 717 460 
+C 717 588 621 664 499 664 
+C 346 664 179 530 179 326 
+C 179 57 480 -64 755 -64 
+C 1062 -64 1280 179 1414 441 
+C 1517 64 1837 -64 2074 -64 
+C 2726 -64 3072 773 3072 913 
+C 3072 945 3046 971 3008 971 
+C 2950 971 2944 939 2925 888 
+C 2752 326 2381 64 2093 64 
+C 1869 64 1747 230 1747 492 
+C 1747 632 1773 734 1875 1156 
+L 2099 2024 
+C 2195 2408 2413 2689 2707 2689 
+C 2720 2689 2899 2689 3034 2606 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-62" transform="scale(0.996264)"/>
+     <use xlink:href="#CMMI12-78" transform="translate(41.475874 -14.943915) scale(0.697382)"/>
+    </g>
+   </g>
+   <g id="cpl_d0f56694e3c5_bdc70d_text_3">
+    <!-- $b_y$ -->
+    <g transform="translate(133.962063 101.821288) scale(0.18 -0.18)">
+     <defs>
+      <path id="CMMI12-79" d="M 1683 -700 
+C 1510 -939 1261 -1152 947 -1152 
+C 870 -1152 563 -1152 467 -889 
+C 486 -895 518 -895 531 -895 
+C 723 -895 851 -729 851 -582 
+C 851 -435 730 -384 634 -384 
+C 531 -384 307 -458 307 -759 
+C 307 -1071 582 -1286 947 -1286 
+C 1587 -1286 2234 -700 2413 6 
+L 3040 2485 
+C 3046 2517 3059 2556 3059 2594 
+C 3059 2689 2982 2753 2886 2753 
+C 2829 2753 2694 2727 2643 2535 
+L 2170 658 
+C 2138 543 2138 530 2086 460 
+C 1958 281 1747 64 1440 64 
+C 1082 64 1050 415 1050 588 
+C 1050 952 1222 1443 1395 1903 
+C 1466 2088 1504 2178 1504 2305 
+C 1504 2574 1312 2816 998 2816 
+C 410 2816 173 1890 173 1839 
+C 173 1814 198 1782 243 1782 
+C 301 1782 307 1807 333 1897 
+C 486 2433 730 2689 979 2689 
+C 1037 2689 1146 2689 1146 2478 
+C 1146 2312 1075 2127 979 1884 
+C 666 1047 666 837 666 683 
+C 666 77 1101 -64 1421 -64 
+C 1606 -64 1837 -6 2061 230 
+L 2067 224 
+C 1971 -147 1907 -392 1683 -700 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-62" transform="scale(0.996264)"/>
+     <use xlink:href="#CMMI12-79" transform="translate(41.475874 -14.943915) scale(0.697382)"/>
+    </g>
+   </g>
+   <g id="cpl_d0f56694e3c5_bdc70d_text_4">
+    <!-- $\vec{b}$ -->
+    <g transform="translate(72.536169 92.015136) scale(0.18 -0.18)">
+     <defs>
+      <path id="CMMI12-7e" d="M 3424 3835 
+C 3347 3764 3110 3540 3110 3451 
+C 3110 3387 3168 3329 3232 3329 
+C 3290 3329 3315 3368 3360 3432 
+C 3514 3624 3686 3745 3834 3828 
+C 3898 3867 3942 3886 3942 3956 
+C 3942 4014 3891 4046 3853 4078 
+C 3674 4200 3629 4372 3610 4449 
+C 3590 4500 3571 4577 3482 4577 
+C 3443 4577 3366 4552 3366 4456 
+C 3366 4398 3405 4244 3526 4072 
+L 1376 4072 
+C 1267 4072 1158 4072 1158 3950 
+C 1158 3835 1274 3835 1376 3835 
+L 3424 3835 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-7e" transform="translate(0 26.29016) scale(0.996264)"/>
+     <use xlink:href="#CMMI12-62" transform="translate(11.311737 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_d0f56694e3c5_bdc70d_Quiver_1">
+    <path d="M 37.698468 146.99456 
+L 127.630561 52.06624 
+L 125.722152 50.990222 
+L 131.305263 48.96 
+L 129.579574 54.644622 
+L 128.402045 52.79712 
+L 38.469953 147.72544 
+L 37.698468 146.99456 
+" clip-path="url(#cpl_d0f56694e3c5_bdc70d_p8accc837f0)" style="fill: #0072b2"/>
+   </g>
+   <g id="cpl_d0f56694e3c5_bdc70d_Quiver_2">
+    <path d="M 38.084211 146.82864 
+L 126.523023 146.82864 
+L 125.991663 144.7032 
+L 131.305263 147.36 
+L 125.991663 150.0168 
+L 126.523023 147.89136 
+L 38.084211 147.89136 
+L 38.084211 146.82864 
+" clip-path="url(#cpl_d0f56694e3c5_bdc70d_p8accc837f0)" style="fill: #dc5e8b"/>
+   </g>
+   <g id="cpl_d0f56694e3c5_bdc70d_Quiver_3">
+    <path d="M 130.773903 147.36 
+L 130.773903 53.74224 
+L 128.648463 54.2736 
+L 131.305263 48.96 
+L 133.962063 54.2736 
+L 131.836623 53.74224 
+L 131.836623 147.36 
+L 130.773903 147.36 
+" clip-path="url(#cpl_d0f56694e3c5_bdc70d_p8accc837f0)" style="fill: #dc5e8b"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="cpl_d0f56694e3c5_bdc70d_p8accc837f0">
+   <rect x="19.44" y="19.44" width="177.12" height="177.12"/>
+  </clipPath>
+ </defs>
+</svg>
+</div></figure>
+<p>Hvis vi velger koordinatsystemet slik at <span class="math notranslate nohighlight">\(\vec{a}\)</span> ligger langs <span class="math notranslate nohighlight">\(x\)</span>-aksen, får vi at</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = \v{\len{a}}{0}
+\]</div>
+<p>For å beskrive <span class="math notranslate nohighlight">\(\vec{b} = \v{b_x}{b_y}\)</span> i det samme koordinatsystemet, kan vi bruke definisjonen av sinus og cosinus:</p>
+<div class="math notranslate nohighlight">
+\[
+\cos \varphi = \dfrac{b_x}{\len{b}} \qog \sin \varphi = \dfrac{b_y}{\len{b}}
+\]</div>
+<p>Løser vi disse likningene for <span class="math notranslate nohighlight">\(b_x\)</span> og <span class="math notranslate nohighlight">\(b_y\)</span>, får vi:</p>
+<div class="math notranslate nohighlight">
+\[
+b_x = \len{b} \cdot \cos \varphi \qog b_y = \len{b} \cdot \sin \varphi
+\]</div>
+<p>Dermed kan vi skrive vektoren <span class="math notranslate nohighlight">\(\vec{b}\)</span> som</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{b} = \v{\len{b} \cdot \cos \varphi}{\len{b} \cdot \sin \varphi}
+\]</div>
+<p>Hvis vi nå regner ut skalarproduktet mellom <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span>, får vi:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\dot{a}{b} &amp;= \v{\len{a}}{0} \cdot \v{\len{b} \cdot \cos \varphi}{\len{b} \cdot \sin \varphi} \\
+\\
+&amp;= \len{a} \cdot \len{b} \cdot \cos \varphi + 0 \cdot \len{b} \cdot \sin \varphi \\
+\\
+&amp;= \len{a} \cdot \len{b} \cdot \cos \varphi
+\end{align*}
+\end{split}\]</div>
+<p>som var det vi skulle vise.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition example">
+<p class="admonition-title">Eksempel 3</p>
+<p>Om to vektorer <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> får du vite at</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\len{a} = 4\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\len{b} = 3\)</span></p></li>
+<li><p>Vinkelen mellom de to vektorene er <span class="math notranslate nohighlight">\(60\degree\)</span>.</p></li>
+</ul>
+<p>Bestem <span class="math notranslate nohighlight">\(\dot{a}{b}\)</span>.</p>
+<div class="admonition solution">
+<p class="admonition-title">Løsning</p>
+<p>Vi bruker den geometriske formelen for skalarproduktet</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{a}{b} = \len{a} \cdot \len{b} \cdot \cos \varphi
+\]</div>
+<p>der</p>
+<div class="math notranslate nohighlight">
+\[
+\len{a} = 4 \and \len{b} = 3 \and \varphi = 60\degree
+\]</div>
+<p>Vi minner om at <span class="math notranslate nohighlight">\(\cos 60\degree = \dfrac{1}{2}\)</span>. Vi får da:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{a}{b} = \len{a} \cdot \len{b} \cdot \cos \varphi = 4 \cdot 3 \cdot \dfrac{1}{2} = 12 \cdot \dfrac{1}{2} = 6
+\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Før vi går videre minner vi om noen kjente vinkler og deres cosinusverdier:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><span class="math notranslate nohighlight">\(\varphi\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(0\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(30\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(45\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(60\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(90\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(120\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(135\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(150\degree\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(180\degree\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\cos \varphi\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(1\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dfrac{\sqrt{3}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dfrac{\sqrt{2}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\dfrac{1}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\dfrac{1}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\dfrac{\sqrt{2}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-\dfrac{\sqrt{3}}{2}\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(-1\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 3</p>
+<p>Om to vektorer <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> får du vite at</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\len{a} = 5\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{a}{b} = 10\sqrt{3}\)</span></p></li>
+<li><p>Vinkelen mellom de to vektorene er <span class="math notranslate nohighlight">\(30\degree\)</span>.</p></li>
+</ul>
+<p>Bestem <span class="math notranslate nohighlight">\(\len{b}\)</span>.</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+\len{b} = 4
+\]</div>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi bruker den geometriske formelen for skalarproduktet</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{a}{b} = \len{a} \cdot \len{b} \cdot \cos \varphi
+\]</div>
+<p>der vi vet at</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{a}{b} = 10\sqrt{3} \and \len{a} = 5 \and \varphi = 30\degree \implies \cos \varphi = \dfrac{\sqrt{3}}{2}
+\]</div>
+<p>Så setter vi inn og løser likningen for <span class="math notranslate nohighlight">\(\len{b}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+10 \sqrt{3} = 5 \cdot \len{b} \cdot \dfrac{\sqrt{3}}{2}
+\]</div>
+<p>Vi kan dele med <span class="math notranslate nohighlight">\(\sqrt{3}\)</span> og gange med <span class="math notranslate nohighlight">\(2\)</span> på hver side som gir:</p>
+<div class="math notranslate nohighlight">
+\[
+20 = 5 \len{b} \liff \len{b} = \dfrac{20}{5} = 4
+\]</div>
+<p>Altså er <span class="math notranslate nohighlight">\(\len{b} = 4\)</span>.</p>
+</div>
+</div>
+</section>
+<section id="generelle-regneregler-for-skalarproduktet">
+<h2>Generelle regneregler for skalarproduktet<a class="headerlink" href="#generelle-regneregler-for-skalarproduktet" title="Link to this heading">#</a></h2>
+<div class="admonition summary">
+<p class="admonition-title">Regneregler for skalarproduktet</p>
+<p>La <span class="math notranslate nohighlight">\(\vec{a}\)</span>, <span class="math notranslate nohighlight">\(\vec{b}\)</span> og <span class="math notranslate nohighlight">\(\vec{c}\)</span> være vektorer, og la <span class="math notranslate nohighlight">\(k\)</span> være en skalar. Da gjelder følgende regneregler for skalarproduktet:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(\dot{a}{b} = \dot{b}{a}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\vec{a} + \vec{b}) \cdot \vec{c} = \vec{a} \cdot \vec{c} + \vec{b} \cdot \vec{c}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((k \vec{a}) \cdot \vec{b} = k (\vec{a} \cdot \vec{b})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\vec{a} \cdot \vec{a} = \len{a}^2 = \vec{a}^2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\((\vec{a} + \vec{b}) \cdot (\vec{c} + \vec{d}) = \vec{a} \cdot \vec{c} + \vec{a} \cdot \vec{d} + \vec{b} \cdot \vec{c} + \vec{b} \cdot \vec{d}\)</span></p></li>
+</ol>
+</div>
+<p>La oss ta et eksempel.</p>
+<div class="admonition example">
+<p class="admonition-title">Eksempel 4</p>
+<p>Om to vektorer <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> får du vite at</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\len{a} = 3\)</span> og <span class="math notranslate nohighlight">\(\len{b} = 4\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{a}{b} = 3\)</span></p></li>
+</ul>
+<p>To andre vektorer <span class="math notranslate nohighlight">\(\vec{p}\)</span> og <span class="math notranslate nohighlight">\(\vec{q}\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{p} = 2\vec{a} + \vec{b} \qog \vec{q} = \vec{a} - 3\vec{b}
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(\dot{p}{q}\)</span>.</p>
+<div class="admonition solution">
+<p class="admonition-title">Løsning</p>
+<p>Vi regner ut ved å bruke regnereglene for skalarproduktet:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\vec{p} \cdot \vec{q} &amp;= (2 \vec{a} + \vec{b}) \cdot (\vec{a} - 3 \vec{b}) \\
+\\
+&amp;= (2 \vec{a}) \cdot \vec{a} + (2 \vec{a}) \cdot (-3 \vec{b}) + \vec{b} \cdot \vec{a} + \vec{b} \cdot (-3 \vec{b}) \\
+\\
+&amp;= 2 \len{a}^2 - 6 \dot{a}{b} + \dot{b}{a} - 3 \len{b}^2 \\
+\\
+&amp;= 2 \len{a}^2 - 6 \dot{a}{b} + \dot{a}{b} - 3 \len{b}^2 \\
+\\
+&amp;= 2 \len{a}^2  - 5 \dot{a}{b} - 3 \len{b}^2 \\
+\\
+&amp;= 2 \cdot 3^2 - 5 \cdot 3 - 3 \cdot 4^2 \\
+\\
+&amp;= 18 - 15 - 48 \\
+\\
+&amp;= -45
+\end{align*}
+\end{split}\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 4</p>
+<p>Om to vektorer <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> får du vite at</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\len{a} = 2\)</span> og <span class="math notranslate nohighlight">\(\len{b} = 1\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\dot{a}{b} = 1\)</span></p></li>
+</ul>
+<p>To vektorer <span class="math notranslate nohighlight">\(\vec{p}\)</span> og <span class="math notranslate nohighlight">\(\vec{q}\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{p} = 3\vec{a} - 2\vec{b} \qog \vec{q} = -\vec{a} + 4\vec{b}
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(\dot{p}{q}\)</span>.</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{p}{q} = -6
+\]</div>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi regner ut ved å bruke regnereglene for skalarproduktet:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\dot{p}{q} &amp;= (3 \vec{a} - 2 \vec{b}) \cdot (-\vec{a} + 4 \vec{b}) \\
+\\
+&amp;= (3 \vec{a}) \cdot (-\vec{a}) + (3 \vec{a}) \cdot (4 \vec{b}) + (-2 \vec{b}) \cdot (-\vec{a}) + (-2 \vec{b}) \cdot (4 \vec{b}) \\
+\\
+&amp;= -3 \len{a}^2 + 12 \dot{a}{b} + 2 \dot{b}{a} - 8 \len{b}^2 \\
+\\
+&amp;= -3 \len{a}^2 + 12 \dot{a}{b} + 2 \dot{a}{b} - 8 \len{b}^2 \\
+\\
+&amp;= -3 \len{a}^2 + 14 \dot{a}{b} - 8 \len{b}^2 \\
+\\
+&amp;= -3 \cdot 2^2 + 14 \cdot 1 - 8 \cdot 1^2 \\
+\\
+&amp;= -12 + 14 - 8 \\
+\\
+&amp;= -6
+\end{align*}
+\end{split}\]</div>
+</div>
+</div>
+</section>
+<section id="vinkler-mellom-vektorer">
+<h2>Vinkler mellom vektorer<a class="headerlink" href="#vinkler-mellom-vektorer" title="Link to this heading">#</a></h2>
+<p>Vi har så langt tatt for gitt hva det vil si at to vektorer har en vinkel mellom seg. Siden <span class="math notranslate nohighlight">\(\cos \varphi\)</span> inngår i den geometriske formelen for skalarproduktet, vil skalarproduktet fortelle oss noe om vinkelen mellom to vektorer. Vi skal nå presisere hva vi mener med vinkelen mellom to vektorer.</p>
+<div class="admonition summary">
+<p class="admonition-title">Vinkelen mellom to vektorer</p>
+<p>La <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> være to vektorer med en vinkel <span class="math notranslate nohighlight">\(\varphi\)</span> mellom seg. Da vil <span class="math notranslate nohighlight">\(\varphi\)</span> være den <em>minste</em> vinkelen vi kan tegne mellom retningene til de to vektorene:</p>
+<div class="docutils container">
+<style>
+.multi-plot2-grid { }
+.multi-plot2-grid > * { max-width: 100%; }
+.multi-plot2-grid figure { margin: 0; max-width: 100%; }
+.multi-plot2-grid svg { max-width: 100%; height: auto; }
+</style><div class="multi-plot2-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(1, auto); gap: 0; width: 100%; margin-left: auto; margin-right: auto; "><figure class="adaptive-figure plot-figure no-click align-center">
+<div class="graph-image no-click no-scaled-link"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 360 288" xmlns="http://www.w3.org/2000/svg" version="1.1" class="graph-inline-svg" role="img" aria-label="Tilpasset figur" style="width:100%; height:auto; display:block; margin:0 auto;">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-01-06T06:43:49.423867</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="cpl_1e8b7b599195_a75aee_figure_1">
+  <g id="cpl_1e8b7b599195_a75aee_patch_1">
+   <path d="M 0 288 
+L 360 288 
+L 360 0 
+L 0 0 
+L 0 288 
+z
+" style="fill: none"/>
+  </g>
+  <g id="cpl_1e8b7b599195_a75aee_axes_1">
+   <g id="cpl_1e8b7b599195_a75aee_line2d_1">
+    <path d="M 212.112 206.28 
+L 212.000354 203.166671 
+L 211.666192 200.074991 
+L 211.111838 197.026457 
+L 210.341147 194.042269 
+L 209.359477 191.143176 
+L 208.20741 188.421345 
+L 206.869384 185.817249 
+L 205.354218 183.348056 
+L 203.671904 181.030043 
+L 201.83353 178.878492 
+L 199.906575 176.958365 
+L 197.855378 175.221241 
+L 195.692742 173.677962 
+L 193.432164 172.338159 
+L 191.087753 171.210195 
+L 188.674141 170.301109 
+L 186.275535 169.632517 
+L 183.839907 169.180125 
+L 181.381625 168.946603 
+L 178.915193 168.933329 
+L 176.45516 169.14038 
+L 174.01604 169.566535 
+L 171.612222 170.20928 
+L 169.257888 171.064823 
+L 166.966927 172.128117 
+L 164.690855 173.431915 
+L 162.510331 174.940725 
+L 160.438964 176.64513 
+L 159.939709 177.100572 
+L 159.939709 177.100572 
+" clip-path="url(#cpl_1e8b7b599195_a75aee_p296e9ac5c3)" style="fill: none; stroke: #000000; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_1e8b7b599195_a75aee_text_1">
+    <!-- $\varphi$ -->
+    <g transform="translate(201.045726 158.405418) scale(0.25 -0.25)">
+     <defs>
+      <path id="CMMI12-27" d="M 1926 280 
+C 1818 280 1722 280 1722 312 
+C 1722 325 1830 926 1869 1067 
+C 2074 1884 2560 2472 3117 2472 
+C 3533 2472 3725 2159 3725 1808 
+C 3725 1080 2906 280 1926 280 
+z
+M 1651 -51 
+C 1690 -57 1754 -64 1869 -64 
+C 2918 -64 3885 945 3885 1954 
+C 3885 2344 3712 2816 3174 2816 
+C 2253 2816 1862 1519 1504 318 
+C 768 458 461 848 461 1276 
+C 461 1449 595 2133 966 2592 
+C 1037 2676 1037 2689 1037 2702 
+C 1037 2753 986 2753 973 2753 
+C 800 2753 314 1820 314 1213 
+C 314 497 877 107 1395 -7 
+L 1062 -1088 
+C 1030 -1184 1030 -1196 1030 -1222 
+C 1030 -1376 1184 -1376 1197 -1376 
+C 1261 -1376 1376 -1351 1427 -1223 
+C 1446 -1166 1626 -178 1651 -51 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-27" transform="scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_1e8b7b599195_a75aee_text_2">
+    <!-- Riktig vinkelmål -->
+    <g transform="translate(102.022351 73.138666) scale(0.25 -0.25)">
+     <defs>
+      <path id="CMSS17-52" d="M 2522 2109 
+L 2534 2115 
+C 3533 2459 3539 3147 3539 3268 
+C 3539 3873 2925 4453 2003 4453 
+L 570 4453 
+L 570 32 
+L 1094 32 
+L 1094 2048 
+L 2035 2048 
+L 3168 32 
+L 3706 32 
+L 2522 2109 
+z
+M 1094 2437 
+L 1094 4096 
+L 1933 4096 
+C 2746 4096 3034 3637 3034 3267 
+C 3034 2922 2778 2437 1933 2437 
+L 1094 2437 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-69" d="M 979 4183 
+L 442 4183 
+L 442 3648 
+L 979 3648 
+L 979 4183 
+z
+M 947 2739 
+L 474 2739 
+L 474 0 
+L 947 0 
+L 947 2739 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-6b" d="M 1696 1688 
+L 2688 2739 
+L 2074 2739 
+L 954 1554 
+L 954 4416 
+L 480 4416 
+L 480 0 
+L 947 0 
+L 947 892 
+L 1376 1344 
+L 2278 0 
+L 2822 0 
+L 1696 1688 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-74" d="M 1069 2368 
+L 1901 2368 
+L 1901 2737 
+L 1069 2737 
+L 1069 3520 
+L 614 3520 
+L 614 2737 
+L 109 2737 
+L 109 2368 
+L 602 2368 
+L 602 749 
+C 602 384 685 -64 1107 -64 
+C 1427 -64 1722 25 2003 172 
+L 1901 548 
+C 1747 414 1562 337 1363 337 
+C 1082 337 1069 696 1069 856 
+L 1069 2368 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-67" d="M 2848 2808 
+C 2483 2808 2170 2738 1914 2617 
+C 1702 2777 1485 2808 1338 2808 
+C 781 2808 358 2349 358 1814 
+C 358 1468 550 1207 563 1195 
+C 448 1035 384 863 384 672 
+C 384 448 474 289 544 200 
+C 211 -3 166 -314 166 -435 
+C 166 -898 749 -1280 1498 -1280 
+C 2253 -1280 2835 -898 2835 -428 
+C 2835 448 1856 448 1587 448 
+L 1069 448 
+C 973 448 717 448 717 791 
+C 717 921 774 1004 781 1010 
+C 877 940 1075 832 1338 832 
+C 1869 832 2310 1278 2310 1827 
+C 2310 2132 2170 2355 2112 2432 
+L 2131 2432 
+C 2150 2432 2419 2432 2515 2432 
+C 2720 2432 2739 2429 2918 2419 
+L 2848 2808 
+z
+M 1338 1182 
+C 1120 1182 813 1315 813 1823 
+C 813 2375 1165 2464 1331 2464 
+C 1549 2464 1856 2331 1856 1823 
+C 1856 1271 1504 1182 1338 1182 
+z
+M 1581 -10 
+C 1734 -10 2381 -10 2381 -442 
+C 2381 -714 1984 -929 1504 -929 
+C 1018 -929 621 -720 621 -435 
+C 621 -403 621 -10 1062 -10 
+L 1581 -10 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-76" d="M 2675 2752 
+L 2176 2752 
+L 1747 1556 
+C 1613 1165 1421 627 1389 352 
+L 1382 352 
+C 1370 468 1318 634 1286 749 
+C 1248 890 1197 1056 1158 1172 
+L 595 2752 
+L 83 2752 
+L 1094 0 
+L 1664 0 
+L 2675 2752 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-6e" d="M 2618 1877 
+C 2618 2283 2522 2816 1798 2816 
+C 1389 2816 1120 2606 941 2389 
+L 941 2758 
+L 474 2758 
+L 474 0 
+L 960 0 
+L 960 1559 
+C 960 1964 1114 2428 1549 2428 
+C 2112 2428 2131 2048 2131 1829 
+L 2131 0 
+L 2618 0 
+L 2618 1877 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-65" d="M 2502 1377 
+C 2502 1590 2490 2003 2285 2345 
+C 2061 2713 1696 2816 1421 2816 
+C 755 2816 192 2188 192 1375 
+C 192 582 774 -64 1510 -64 
+C 1798 -64 2150 19 2470 248 
+C 2470 274 2458 414 2451 420 
+C 2451 433 2432 630 2432 656 
+C 2125 407 1773 325 1517 325 
+C 1107 325 666 667 646 1377 
+L 2502 1377 
+z
+M 698 1728 
+C 781 2084 1062 2421 1421 2421 
+C 1517 2421 1965 2421 2080 1728 
+L 698 1728 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-6c" d="M 947 4416 
+L 474 4416 
+L 474 0 
+L 947 0 
+L 947 4416 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-6d" d="M 4288 1877 
+C 4288 2308 4179 2816 3462 2816 
+C 2982 2816 2694 2516 2566 2331 
+C 2451 2670 2182 2816 1798 2816 
+C 1363 2816 1088 2568 941 2389 
+L 941 2758 
+L 474 2758 
+L 474 0 
+L 960 0 
+L 960 1559 
+C 960 1939 1101 2428 1555 2428 
+C 2138 2428 2138 2016 2138 1829 
+L 2138 0 
+L 2624 0 
+L 2624 1559 
+C 2624 1939 2765 2428 3219 2428 
+C 3802 2428 3802 2016 3802 1829 
+L 3802 0 
+L 4288 0 
+L 4288 1877 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-17" d="M 2669 3888 
+C 2669 4180 2381 4446 1997 4446 
+C 1613 4446 1325 4180 1325 3888 
+C 1325 3595 1613 3328 1997 3328 
+C 2381 3328 2669 3595 2669 3888 
+z
+M 1997 3615 
+C 1856 3615 1664 3659 1664 3887 
+C 1664 4102 1837 4160 1997 4160 
+C 2138 4160 2330 4115 2330 3887 
+C 2330 3672 2157 3615 1997 3615 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-61" d="M 2406 1791 
+C 2406 2392 1978 2808 1402 2808 
+C 1120 2808 813 2757 461 2553 
+L 499 2135 
+C 659 2248 934 2432 1395 2432 
+C 1722 2432 1920 2180 1920 1782 
+L 1920 1536 
+C 896 1536 256 1238 256 726 
+C 256 461 416 -64 947 -64 
+C 1043 -64 1562 -64 1933 217 
+L 1933 -19 
+L 2406 -19 
+L 2406 1791 
+z
+M 1920 816 
+C 1920 701 1920 548 1728 434 
+C 1562 325 1350 325 1261 325 
+C 941 325 723 511 723 744 
+C 723 1211 1722 1211 1920 1211 
+L 1920 816 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMSS17-52" transform="scale(0.996264)"/>
+     <use xlink:href="#CMSS17-69" transform="translate(60.416155 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-6b" transform="translate(82.596878 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-74" transform="translate(128.199367 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-69" transform="translate(162.030934 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-67" transform="translate(184.211657 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-76" transform="translate(262.284393 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-69" transform="translate(305.284535 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-6e" transform="translate(327.465258 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-6b" transform="translate(375.670201 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-65" transform="translate(418.670236 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-6c" transform="translate(460.309058 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-6d" transform="translate(482.489781 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-17" transform="translate(548.071061 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-61" transform="translate(556.719036 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-6c" transform="translate(601.640956 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_1e8b7b599195_a75aee_text_3">
+    <!-- $\vec{a}$ -->
+    <g transform="translate(226.313306 227.313054) scale(0.25 -0.25)">
+     <defs>
+      <path id="CMMI12-7e" d="M 3424 3835 
+C 3347 3764 3110 3540 3110 3451 
+C 3110 3387 3168 3329 3232 3329 
+C 3290 3329 3315 3368 3360 3432 
+C 3514 3624 3686 3745 3834 3828 
+C 3898 3867 3942 3886 3942 3956 
+C 3942 4014 3891 4046 3853 4078 
+C 3674 4200 3629 4372 3610 4449 
+C 3590 4500 3571 4577 3482 4577 
+C 3443 4577 3366 4552 3366 4456 
+C 3366 4398 3405 4244 3526 4072 
+L 1376 4072 
+C 1267 4072 1158 4072 1158 3950 
+C 1158 3835 1274 3835 1376 3835 
+L 3424 3835 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMMI12-61" d="M 1926 760 
+C 1894 651 1894 639 1805 517 
+C 1664 338 1382 64 1082 64 
+C 819 64 672 300 672 677 
+C 672 1028 870 1743 992 2012 
+C 1210 2459 1510 2689 1760 2689 
+C 2182 2689 2266 2165 2266 2114 
+C 2266 2108 2246 2024 2240 2012 
+L 1926 760 
+z
+M 2336 2395 
+C 2266 2561 2093 2816 1760 2816 
+C 1037 2816 256 1884 256 939 
+C 256 307 627 -64 1062 -64 
+C 1414 -64 1715 211 1894 422 
+C 1958 45 2259 -64 2451 -64 
+C 2643 -64 2797 51 2912 281 
+C 3014 498 3104 888 3104 913 
+C 3104 945 3078 971 3040 971 
+C 2982 971 2976 939 2950 843 
+C 2854 466 2733 64 2470 64 
+C 2285 64 2272 230 2272 358 
+C 2272 505 2291 575 2349 824 
+C 2394 984 2426 1124 2477 1309 
+C 2714 2267 2771 2497 2771 2535 
+C 2771 2625 2701 2695 2605 2695 
+C 2400 2695 2349 2472 2336 2395 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-7e" transform="scale(0.996264)"/>
+     <use xlink:href="#CMMI12-61" transform="translate(6.445738 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_1e8b7b599195_a75aee_text_4">
+    <!-- $\vec{b}$ -->
+    <g transform="translate(119.170305 167.217656) scale(0.25 -0.25)">
+     <defs>
+      <path id="CMMI12-62" d="M 1478 4257 
+C 1485 4283 1498 4321 1498 4352 
+C 1498 4416 1434 4416 1421 4416 
+C 1414 4416 1184 4393 1069 4377 
+C 960 4377 864 4358 749 4358 
+C 595 4345 550 4339 550 4224 
+C 550 4160 614 4160 678 4160 
+C 1005 4160 1005 4103 1005 4040 
+C 1005 3996 954 3811 928 3696 
+L 774 3085 
+C 710 2831 346 1387 320 1272 
+C 288 1114 288 1005 288 922 
+C 288 274 653 -64 1069 -64 
+C 1811 -64 2579 888 2579 1814 
+C 2579 2401 2246 2816 1766 2816 
+C 1434 2816 1133 2542 1011 2414 
+L 1478 4257 
+z
+M 1075 64 
+C 870 64 646 217 646 715 
+C 646 926 666 1047 781 1494 
+C 800 1577 902 1986 928 2069 
+C 941 2120 1318 2689 1754 2689 
+C 2035 2689 2163 2408 2163 2076 
+C 2163 1769 1984 1047 1824 715 
+C 1664 370 1370 64 1075 64 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-7e" transform="translate(0 26.29016) scale(0.996264)"/>
+     <use xlink:href="#CMMI12-62" transform="translate(11.311737 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_1e8b7b599195_a75aee_Quiver_1">
+    <path d="M 180 205.31664 
+L 278.36976 205.31664 
+L 277.4064 201.4632 
+L 287.04 206.28 
+L 277.4064 211.0968 
+L 278.36976 207.24336 
+L 180 207.24336 
+L 180 205.31664 
+" clip-path="url(#cpl_1e8b7b599195_a75aee_p296e9ac5c3)" style="fill: #0072b2"/>
+   </g>
+   <g id="cpl_1e8b7b599195_a75aee_Quiver_2">
+    <path d="M 179.206142 206.825758 
+L 98.485966 89.41048 
+L 95.856292 92.387371 
+L 94.368 81.72 
+L 103.794872 86.929788 
+L 100.073682 88.318963 
+L 180.793858 205.734242 
+L 179.206142 206.825758 
+" clip-path="url(#cpl_1e8b7b599195_a75aee_p296e9ac5c3)" style="fill: #dc5e8b"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="cpl_1e8b7b599195_a75aee_p296e9ac5c3">
+   <rect x="19.44" y="19.44" width="321.12" height="249.12"/>
+  </clipPath>
+ </defs>
+</svg>
+</div></figure>
+<figure class="adaptive-figure plot-figure no-click align-center">
+<div class="graph-image no-click no-scaled-link"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 360 288" xmlns="http://www.w3.org/2000/svg" version="1.1" class="graph-inline-svg" role="img" aria-label="Tilpasset figur" style="width:100%; height:auto; display:block; margin:0 auto;">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-01-06T06:43:49.448564</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="cpl_fcc0cf8d62f8_179ebd_figure_1">
+  <g id="cpl_fcc0cf8d62f8_179ebd_patch_1">
+   <path d="M 0 288 
+L 360 288 
+L 360 0 
+L 0 0 
+L 0 288 
+z
+" style="fill: none"/>
+  </g>
+  <g id="cpl_fcc0cf8d62f8_179ebd_axes_1">
+   <g id="cpl_fcc0cf8d62f8_179ebd_line2d_1">
+    <path d="M 201.408 206.28 
+L 201.29538 208.831949 
+L 200.958704 211.357047 
+L 200.401515 213.828729 
+L 199.629674 216.220987 
+L 198.651304 218.508654 
+L 197.52536 220.587278 
+L 196.228925 222.526719 
+L 194.774612 224.308108 
+L 193.176569 225.914116 
+L 191.450342 227.329119 
+L 189.612723 228.539353 
+L 187.760398 229.497581 
+L 185.838492 230.247638 
+L 183.864238 230.7828 
+L 181.855336 231.098268 
+L 179.8298 231.191213 
+L 177.80579 231.060802 
+L 175.801453 230.708204 
+L 173.834761 230.136581 
+L 171.923346 229.351058 
+L 170.084348 228.358679 
+L 168.334254 227.16834 
+L 166.622685 225.729425 
+L 165.041254 224.101303 
+L 163.605344 222.299811 
+L 162.328924 220.342476 
+L 161.224413 218.248338 
+L 160.302554 216.03777 
+L 159.547199 213.638396 
+L 159.007034 211.161602 
+L 158.687744 208.633447 
+L 158.592686 206.080531 
+L 158.722862 203.529714 
+L 159.076902 201.007833 
+L 159.65108 198.541423 
+L 160.439356 196.156432 
+L 161.433436 193.877955 
+L 162.573647 191.809888 
+L 163.883384 189.882589 
+L 165.349908 188.114808 
+L 166.626472 186.827048 
+L 166.626472 186.827048 
+" clip-path="url(#cpl_fcc0cf8d62f8_179ebd_p3807d76c3a)" style="fill: none; stroke: #000000; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_fcc0cf8d62f8_179ebd_text_1">
+    <!-- $\varphi$ -->
+    <g transform="translate(147.615344 255.379659) scale(0.25 -0.25)">
+     <defs>
+      <path id="CMMI12-27" d="M 1926 280 
+C 1818 280 1722 280 1722 312 
+C 1722 325 1830 926 1869 1067 
+C 2074 1884 2560 2472 3117 2472 
+C 3533 2472 3725 2159 3725 1808 
+C 3725 1080 2906 280 1926 280 
+z
+M 1651 -51 
+C 1690 -57 1754 -64 1869 -64 
+C 2918 -64 3885 945 3885 1954 
+C 3885 2344 3712 2816 3174 2816 
+C 2253 2816 1862 1519 1504 318 
+C 768 458 461 848 461 1276 
+C 461 1449 595 2133 966 2592 
+C 1037 2676 1037 2689 1037 2702 
+C 1037 2753 986 2753 973 2753 
+C 800 2753 314 1820 314 1213 
+C 314 497 877 107 1395 -7 
+L 1062 -1088 
+C 1030 -1184 1030 -1196 1030 -1222 
+C 1030 -1376 1184 -1376 1197 -1376 
+C 1261 -1376 1376 -1351 1427 -1223 
+C 1446 -1166 1626 -178 1651 -51 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-27" transform="scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_fcc0cf8d62f8_179ebd_text_2">
+    <!-- Feil vinkelmål -->
+    <g transform="translate(113.818349 73.138666) scale(0.25 -0.25)">
+     <defs>
+      <path id="CMSS17-46" d="M 2918 1984 
+L 2918 2373 
+L 1101 2373 
+L 1101 3968 
+L 1882 3968 
+C 1958 3968 2035 3968 2112 3968 
+L 3168 3968 
+L 3168 4375 
+L 563 4375 
+L 563 -32 
+L 1101 -32 
+L 1101 1984 
+L 2918 1984 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-65" d="M 2502 1377 
+C 2502 1590 2490 2003 2285 2345 
+C 2061 2713 1696 2816 1421 2816 
+C 755 2816 192 2188 192 1375 
+C 192 582 774 -64 1510 -64 
+C 1798 -64 2150 19 2470 248 
+C 2470 274 2458 414 2451 420 
+C 2451 433 2432 630 2432 656 
+C 2125 407 1773 325 1517 325 
+C 1107 325 666 667 646 1377 
+L 2502 1377 
+z
+M 698 1728 
+C 781 2084 1062 2421 1421 2421 
+C 1517 2421 1965 2421 2080 1728 
+L 698 1728 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-69" d="M 979 4183 
+L 442 4183 
+L 442 3648 
+L 979 3648 
+L 979 4183 
+z
+M 947 2739 
+L 474 2739 
+L 474 0 
+L 947 0 
+L 947 2739 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-6c" d="M 947 4416 
+L 474 4416 
+L 474 0 
+L 947 0 
+L 947 4416 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-76" d="M 2675 2752 
+L 2176 2752 
+L 1747 1556 
+C 1613 1165 1421 627 1389 352 
+L 1382 352 
+C 1370 468 1318 634 1286 749 
+C 1248 890 1197 1056 1158 1172 
+L 595 2752 
+L 83 2752 
+L 1094 0 
+L 1664 0 
+L 2675 2752 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-6e" d="M 2618 1877 
+C 2618 2283 2522 2816 1798 2816 
+C 1389 2816 1120 2606 941 2389 
+L 941 2758 
+L 474 2758 
+L 474 0 
+L 960 0 
+L 960 1559 
+C 960 1964 1114 2428 1549 2428 
+C 2112 2428 2131 2048 2131 1829 
+L 2131 0 
+L 2618 0 
+L 2618 1877 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-6b" d="M 1696 1688 
+L 2688 2739 
+L 2074 2739 
+L 954 1554 
+L 954 4416 
+L 480 4416 
+L 480 0 
+L 947 0 
+L 947 892 
+L 1376 1344 
+L 2278 0 
+L 2822 0 
+L 1696 1688 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-6d" d="M 4288 1877 
+C 4288 2308 4179 2816 3462 2816 
+C 2982 2816 2694 2516 2566 2331 
+C 2451 2670 2182 2816 1798 2816 
+C 1363 2816 1088 2568 941 2389 
+L 941 2758 
+L 474 2758 
+L 474 0 
+L 960 0 
+L 960 1559 
+C 960 1939 1101 2428 1555 2428 
+C 2138 2428 2138 2016 2138 1829 
+L 2138 0 
+L 2624 0 
+L 2624 1559 
+C 2624 1939 2765 2428 3219 2428 
+C 3802 2428 3802 2016 3802 1829 
+L 3802 0 
+L 4288 0 
+L 4288 1877 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-17" d="M 2669 3888 
+C 2669 4180 2381 4446 1997 4446 
+C 1613 4446 1325 4180 1325 3888 
+C 1325 3595 1613 3328 1997 3328 
+C 2381 3328 2669 3595 2669 3888 
+z
+M 1997 3615 
+C 1856 3615 1664 3659 1664 3887 
+C 1664 4102 1837 4160 1997 4160 
+C 2138 4160 2330 4115 2330 3887 
+C 2330 3672 2157 3615 1997 3615 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMSS17-61" d="M 2406 1791 
+C 2406 2392 1978 2808 1402 2808 
+C 1120 2808 813 2757 461 2553 
+L 499 2135 
+C 659 2248 934 2432 1395 2432 
+C 1722 2432 1920 2180 1920 1782 
+L 1920 1536 
+C 896 1536 256 1238 256 726 
+C 256 461 416 -64 947 -64 
+C 1043 -64 1562 -64 1933 217 
+L 1933 -19 
+L 2406 -19 
+L 2406 1791 
+z
+M 1920 816 
+C 1920 701 1920 548 1728 434 
+C 1562 325 1350 325 1261 325 
+C 941 325 723 511 723 744 
+C 723 1211 1722 1211 1920 1211 
+L 1920 816 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMSS17-46" transform="scale(0.996264)"/>
+     <use xlink:href="#CMSS17-65" transform="translate(50.687105 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-69" transform="translate(92.325927 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-6c" transform="translate(114.50665 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-76" transform="translate(167.916486 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-69" transform="translate(210.916628 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-6e" transform="translate(233.097351 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-6b" transform="translate(281.302294 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-65" transform="translate(324.302329 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-6c" transform="translate(365.941151 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-6d" transform="translate(388.121875 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-17" transform="translate(453.703154 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-61" transform="translate(462.351129 0) scale(0.996264)"/>
+     <use xlink:href="#CMSS17-6c" transform="translate(507.27305 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_fcc0cf8d62f8_179ebd_text_3">
+    <!-- $\vec{a}$ -->
+    <g transform="translate(226.313306 227.313054) scale(0.25 -0.25)">
+     <defs>
+      <path id="CMMI12-7e" d="M 3424 3835 
+C 3347 3764 3110 3540 3110 3451 
+C 3110 3387 3168 3329 3232 3329 
+C 3290 3329 3315 3368 3360 3432 
+C 3514 3624 3686 3745 3834 3828 
+C 3898 3867 3942 3886 3942 3956 
+C 3942 4014 3891 4046 3853 4078 
+C 3674 4200 3629 4372 3610 4449 
+C 3590 4500 3571 4577 3482 4577 
+C 3443 4577 3366 4552 3366 4456 
+C 3366 4398 3405 4244 3526 4072 
+L 1376 4072 
+C 1267 4072 1158 4072 1158 3950 
+C 1158 3835 1274 3835 1376 3835 
+L 3424 3835 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMMI12-61" d="M 1926 760 
+C 1894 651 1894 639 1805 517 
+C 1664 338 1382 64 1082 64 
+C 819 64 672 300 672 677 
+C 672 1028 870 1743 992 2012 
+C 1210 2459 1510 2689 1760 2689 
+C 2182 2689 2266 2165 2266 2114 
+C 2266 2108 2246 2024 2240 2012 
+L 1926 760 
+z
+M 2336 2395 
+C 2266 2561 2093 2816 1760 2816 
+C 1037 2816 256 1884 256 939 
+C 256 307 627 -64 1062 -64 
+C 1414 -64 1715 211 1894 422 
+C 1958 45 2259 -64 2451 -64 
+C 2643 -64 2797 51 2912 281 
+C 3014 498 3104 888 3104 913 
+C 3104 945 3078 971 3040 971 
+C 2982 971 2976 939 2950 843 
+C 2854 466 2733 64 2470 64 
+C 2285 64 2272 230 2272 358 
+C 2272 505 2291 575 2349 824 
+C 2394 984 2426 1124 2477 1309 
+C 2714 2267 2771 2497 2771 2535 
+C 2771 2625 2701 2695 2605 2695 
+C 2400 2695 2349 2472 2336 2395 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-7e" transform="scale(0.996264)"/>
+     <use xlink:href="#CMMI12-61" transform="translate(6.445738 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_fcc0cf8d62f8_179ebd_text_4">
+    <!-- $\vec{b}$ -->
+    <g transform="translate(119.170305 167.217656) scale(0.25 -0.25)">
+     <defs>
+      <path id="CMMI12-62" d="M 1478 4257 
+C 1485 4283 1498 4321 1498 4352 
+C 1498 4416 1434 4416 1421 4416 
+C 1414 4416 1184 4393 1069 4377 
+C 960 4377 864 4358 749 4358 
+C 595 4345 550 4339 550 4224 
+C 550 4160 614 4160 678 4160 
+C 1005 4160 1005 4103 1005 4040 
+C 1005 3996 954 3811 928 3696 
+L 774 3085 
+C 710 2831 346 1387 320 1272 
+C 288 1114 288 1005 288 922 
+C 288 274 653 -64 1069 -64 
+C 1811 -64 2579 888 2579 1814 
+C 2579 2401 2246 2816 1766 2816 
+C 1434 2816 1133 2542 1011 2414 
+L 1478 4257 
+z
+M 1075 64 
+C 870 64 646 217 646 715 
+C 646 926 666 1047 781 1494 
+C 800 1577 902 1986 928 2069 
+C 941 2120 1318 2689 1754 2689 
+C 2035 2689 2163 2408 2163 2076 
+C 2163 1769 1984 1047 1824 715 
+C 1664 370 1370 64 1075 64 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-7e" transform="translate(0 26.29016) scale(0.996264)"/>
+     <use xlink:href="#CMMI12-62" transform="translate(11.311737 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_fcc0cf8d62f8_179ebd_Quiver_1">
+    <path d="M 180 205.31664 
+L 278.36976 205.31664 
+L 277.4064 201.4632 
+L 287.04 206.28 
+L 277.4064 211.0968 
+L 278.36976 207.24336 
+L 180 207.24336 
+L 180 205.31664 
+" clip-path="url(#cpl_fcc0cf8d62f8_179ebd_p3807d76c3a)" style="fill: #0072b2"/>
+   </g>
+   <g id="cpl_fcc0cf8d62f8_179ebd_Quiver_2">
+    <path d="M 179.206142 206.825758 
+L 98.485966 89.41048 
+L 95.856292 92.387371 
+L 94.368 81.72 
+L 103.794872 86.929788 
+L 100.073682 88.318963 
+L 180.793858 205.734242 
+L 179.206142 206.825758 
+" clip-path="url(#cpl_fcc0cf8d62f8_179ebd_p3807d76c3a)" style="fill: #dc5e8b"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="cpl_fcc0cf8d62f8_179ebd_p3807d76c3a">
+   <rect x="19.44" y="19.44" width="321.12" height="249.12"/>
+  </clipPath>
+ </defs>
+</svg>
+</div></figure>
+<p>Vinkelen <span class="math notranslate nohighlight">\(\varphi\)</span> vil altså alltid være <span class="math notranslate nohighlight">\(\varphi \in [0\degree, 180\degree]\)</span>.</p>
+</div></div>
+</div>
+<hr class="docutils" />
+<p>Fra den geometriske formelen for skalarproduktet så vil fortegnet til skalarproduktet fortelle oss noe om hvilken retning vektorene peker i forhold til hverandre. Vi kan også i utgangspunktet regne ut vinkelen, men det skal vi spare til vi jobber med digitale verktøy nedenfor. For nå, kan vi få oversikt over hva fortegnet til skalarproduktet forteller oss om vinkelen mellom to vektorer:</p>
+<div class="admonition summary">
+<p class="admonition-title">Fortegn på skalarproduktet</p>
+<p>La <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> være to vektorer med en vinkel <span class="math notranslate nohighlight">\(\varphi\)</span> mellom seg. Regner vi ut skalarproduktet med den geometriske formelen</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} \cdot \vec{b} = \len{a} \cdot \len{b} \cdot \cos \varphi
+\]</div>
+<p>får vi følgende fortegn som er bestemt av vinkelen mellom vektorene:</p>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-row-cols-1 sd-row-cols-xs-1 sd-row-cols-sm-1 sd-row-cols-md-2 sd-row-cols-lg-3 sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\vec{a} \cdot \vec{b} &amp;&gt; 0 \\
+\\
+\varphi &amp;\in [0^\circ, 90^\circ \rangle
+\end{align*}
+\end{split}\]</div>
+</div>
+<div class="sd-card-body docutils">
+<figure class="adaptive-figure plot-figure no-click align-center">
+<div class="graph-image no-click no-scaled-link"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 216 144" xmlns="http://www.w3.org/2000/svg" version="1.1" class="graph-inline-svg" role="img" aria-label="Tilpasset figur">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-01-06T06:43:49.472971</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="cpl_e996654b5467_d0c4c9_figure_1">
+  <g id="cpl_e996654b5467_d0c4c9_patch_1">
+   <path d="M 0 144 
+L 216 144 
+L 216 0 
+L 0 0 
+L 0 144 
+z
+" style="fill: none"/>
+  </g>
+  <g id="cpl_e996654b5467_d0c4c9_axes_1">
+   <g id="cpl_e996654b5467_d0c4c9_line2d_1">
+    <path d="M 73.938462 98.84279 
+L 73.827496 96.893813 
+L 73.4952 94.955418 
+L 72.934182 93.0117 
+L 72.150633 91.100527 
+L 71.133714 89.207329 
+L 69.880298 87.344983 
+L 68.388956 85.526954 
+L 66.636259 83.744939 
+L 64.643099 82.038184 
+L 62.385297 80.402357 
+L 59.894478 78.875442 
+L 57.180962 77.473134 
+L 54.221906 76.1969 
+L 53.501538 75.921179 
+L 53.501538 75.921179 
+" clip-path="url(#cpl_e996654b5467_d0c4c9_p61ede9ca3c)" style="fill: none; stroke: #000000; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_e996654b5467_d0c4c9_text_1">
+    <!-- $\varphi$ -->
+    <g transform="translate(69.782954 78.339823) scale(0.3 -0.3)">
+     <defs>
+      <path id="CMMI12-27" d="M 1926 280 
+C 1818 280 1722 280 1722 312 
+C 1722 325 1830 926 1869 1067 
+C 2074 1884 2560 2472 3117 2472 
+C 3533 2472 3725 2159 3725 1808 
+C 3725 1080 2906 280 1926 280 
+z
+M 1651 -51 
+C 1690 -57 1754 -64 1869 -64 
+C 2918 -64 3885 945 3885 1954 
+C 3885 2344 3712 2816 3174 2816 
+C 2253 2816 1862 1519 1504 318 
+C 768 458 461 848 461 1276 
+C 461 1449 595 2133 966 2592 
+C 1037 2676 1037 2689 1037 2702 
+C 1037 2753 986 2753 973 2753 
+C 800 2753 314 1820 314 1213 
+C 314 497 877 107 1395 -7 
+L 1062 -1088 
+C 1030 -1184 1030 -1196 1030 -1222 
+C 1030 -1376 1184 -1376 1197 -1376 
+C 1261 -1376 1376 -1351 1427 -1223 
+C 1446 -1166 1626 -178 1651 -51 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-27" transform="scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_e996654b5467_d0c4c9_text_2">
+    <!-- $\vec{a}$ -->
+    <g transform="translate(92.539657 121.054003) scale(0.3 -0.3)">
+     <defs>
+      <path id="CMMI12-7e" d="M 3424 3835 
+C 3347 3764 3110 3540 3110 3451 
+C 3110 3387 3168 3329 3232 3329 
+C 3290 3329 3315 3368 3360 3432 
+C 3514 3624 3686 3745 3834 3828 
+C 3898 3867 3942 3886 3942 3956 
+C 3942 4014 3891 4046 3853 4078 
+C 3674 4200 3629 4372 3610 4449 
+C 3590 4500 3571 4577 3482 4577 
+C 3443 4577 3366 4552 3366 4456 
+C 3366 4398 3405 4244 3526 4072 
+L 1376 4072 
+C 1267 4072 1158 4072 1158 3950 
+C 1158 3835 1274 3835 1376 3835 
+L 3424 3835 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMMI12-61" d="M 1926 760 
+C 1894 651 1894 639 1805 517 
+C 1664 338 1382 64 1082 64 
+C 819 64 672 300 672 677 
+C 672 1028 870 1743 992 2012 
+C 1210 2459 1510 2689 1760 2689 
+C 2182 2689 2266 2165 2266 2114 
+C 2266 2108 2246 2024 2240 2012 
+L 1926 760 
+z
+M 2336 2395 
+C 2266 2561 2093 2816 1760 2816 
+C 1037 2816 256 1884 256 939 
+C 256 307 627 -64 1062 -64 
+C 1414 -64 1715 211 1894 422 
+C 1958 45 2259 -64 2451 -64 
+C 2643 -64 2797 51 2912 281 
+C 3014 498 3104 888 3104 913 
+C 3104 945 3078 971 3040 971 
+C 2982 971 2976 939 2950 843 
+C 2854 466 2733 64 2470 64 
+C 2285 64 2272 230 2272 358 
+C 2272 505 2291 575 2349 824 
+C 2394 984 2426 1124 2477 1309 
+C 2714 2267 2771 2497 2771 2535 
+C 2771 2625 2701 2695 2605 2695 
+C 2400 2695 2349 2472 2336 2395 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-7e" transform="scale(0.996264)"/>
+     <use xlink:href="#CMMI12-61" transform="translate(6.445738 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_e996654b5467_d0c4c9_text_3">
+    <!-- $\vec{b}$ -->
+    <g transform="translate(41.820772 56.283493) scale(0.3 -0.3)">
+     <defs>
+      <path id="CMMI12-62" d="M 1478 4257 
+C 1485 4283 1498 4321 1498 4352 
+C 1498 4416 1434 4416 1421 4416 
+C 1414 4416 1184 4393 1069 4377 
+C 960 4377 864 4358 749 4358 
+C 595 4345 550 4339 550 4224 
+C 550 4160 614 4160 678 4160 
+C 1005 4160 1005 4103 1005 4040 
+C 1005 3996 954 3811 928 3696 
+L 774 3085 
+C 710 2831 346 1387 320 1272 
+C 288 1114 288 1005 288 922 
+C 288 274 653 -64 1069 -64 
+C 1811 -64 2579 888 2579 1814 
+C 2579 2401 2246 2816 1766 2816 
+C 1434 2816 1133 2542 1011 2414 
+L 1478 4257 
+z
+M 1075 64 
+C 870 64 646 217 646 715 
+C 646 926 666 1047 781 1494 
+C 800 1577 902 1986 928 2069 
+C 941 2120 1318 2689 1754 2689 
+C 2035 2689 2163 2408 2163 2076 
+C 2163 1769 1984 1047 1824 715 
+C 1664 370 1370 64 1075 64 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-7e" transform="translate(0 26.29016) scale(0.996264)"/>
+     <use xlink:href="#CMMI12-62" transform="translate(11.311737 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_e996654b5467_d0c4c9_Quiver_1">
+    <path d="M 33.064615 98.31143 
+L 164.528529 98.31143 
+L 163.997169 96.18599 
+L 169.310769 98.84279 
+L 163.997169 101.49959 
+L 164.528529 99.37415 
+L 33.064615 99.37415 
+L 33.064615 98.31143 
+" clip-path="url(#cpl_e996654b5467_d0c4c9_p61ede9ca3c)" style="fill: #0072b2"/>
+   </g>
+   <g id="cpl_e996654b5467_d0c4c9_Quiver_2">
+    <path d="M 32.668006 98.489173 
+L 97.608533 25.653283 
+L 95.66848 24.635425 
+L 101.187692 22.43742 
+L 99.634569 28.171593 
+L 98.40175 26.360517 
+L 33.461224 99.196407 
+L 32.668006 98.489173 
+" clip-path="url(#cpl_e996654b5467_d0c4c9_p61ede9ca3c)" style="fill: #dc5e8b"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="cpl_e996654b5467_d0c4c9_p61ede9ca3c">
+   <rect x="19.44" y="19.44" width="177.12" height="97.047854"/>
+  </clipPath>
+ </defs>
+</svg>
+</div></figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\vec{a} \cdot \vec{b} &amp;= 0 \\
+\\
+\varphi &amp;= 90^\circ
+\end{align*}
+\end{split}\]</div>
+</div>
+<div class="sd-card-body docutils">
+<figure class="adaptive-figure plot-figure no-click align-center">
+<div class="graph-image no-click no-scaled-link"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 216 216" xmlns="http://www.w3.org/2000/svg" version="1.1" class="graph-inline-svg" role="img" aria-label="Tilpasset figur">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-01-06T06:43:49.491685</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="cpl_d674f2b5e522_856aad_figure_1">
+  <g id="cpl_d674f2b5e522_856aad_patch_1">
+   <path d="M 0 216 
+L 216 216 
+L 216 0 
+L 0 0 
+L 0 216 
+z
+" style="fill: none"/>
+  </g>
+  <g id="cpl_d674f2b5e522_856aad_axes_1">
+   <g id="cpl_d674f2b5e522_856aad_patch_2">
+    <path d="M 45.095623 166.711075 
+L 70.339686 166.711075 
+L 70.339686 142.165896 
+L 45.095623 142.165896 
+L 45.095623 166.711075 
+z
+" clip-path="url(#cpl_d674f2b5e522_856aad_pfda05176b6)" style="fill: none; opacity: 0"/>
+   </g>
+   <g id="cpl_d674f2b5e522_856aad_line2d_1">
+    <path d="M 45.095623 166.711075 
+L 70.339686 166.711075 
+L 70.339686 142.165896 
+L 45.095623 142.165896 
+L 45.095623 166.711075 
+" clip-path="url(#cpl_d674f2b5e522_856aad_pfda05176b6)" style="fill: none; stroke: #000000; stroke-width: 1.5; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_d674f2b5e522_856aad_text_1">
+    <!-- $\varphi$ -->
+    <g transform="translate(71.210666 139.469972) scale(0.3 -0.3)">
+     <defs>
+      <path id="CMMI12-27" d="M 1926 280 
+C 1818 280 1722 280 1722 312 
+C 1722 325 1830 926 1869 1067 
+C 2074 1884 2560 2472 3117 2472 
+C 3533 2472 3725 2159 3725 1808 
+C 3725 1080 2906 280 1926 280 
+z
+M 1651 -51 
+C 1690 -57 1754 -64 1869 -64 
+C 2918 -64 3885 945 3885 1954 
+C 3885 2344 3712 2816 3174 2816 
+C 2253 2816 1862 1519 1504 318 
+C 768 458 461 848 461 1276 
+C 461 1449 595 2133 966 2592 
+C 1037 2676 1037 2689 1037 2702 
+C 1037 2753 986 2753 973 2753 
+C 800 2753 314 1820 314 1213 
+C 314 497 877 107 1395 -7 
+L 1062 -1088 
+C 1030 -1184 1030 -1196 1030 -1222 
+C 1030 -1376 1184 -1376 1197 -1376 
+C 1261 -1376 1376 -1351 1427 -1223 
+C 1446 -1166 1626 -178 1651 -51 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-27" transform="scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_d674f2b5e522_856aad_text_2">
+    <!-- $\vec{a}$ -->
+    <g transform="translate(99.557744 190.043814) scale(0.3 -0.3)">
+     <defs>
+      <path id="CMMI12-7e" d="M 3424 3835 
+C 3347 3764 3110 3540 3110 3451 
+C 3110 3387 3168 3329 3232 3329 
+C 3290 3329 3315 3368 3360 3432 
+C 3514 3624 3686 3745 3834 3828 
+C 3898 3867 3942 3886 3942 3956 
+C 3942 4014 3891 4046 3853 4078 
+C 3674 4200 3629 4372 3610 4449 
+C 3590 4500 3571 4577 3482 4577 
+C 3443 4577 3366 4552 3366 4456 
+C 3366 4398 3405 4244 3526 4072 
+L 1376 4072 
+C 1267 4072 1158 4072 1158 3950 
+C 1158 3835 1274 3835 1376 3835 
+L 3424 3835 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMMI12-61" d="M 1926 760 
+C 1894 651 1894 639 1805 517 
+C 1664 338 1382 64 1082 64 
+C 819 64 672 300 672 677 
+C 672 1028 870 1743 992 2012 
+C 1210 2459 1510 2689 1760 2689 
+C 2182 2689 2266 2165 2266 2114 
+C 2266 2108 2246 2024 2240 2012 
+L 1926 760 
+z
+M 2336 2395 
+C 2266 2561 2093 2816 1760 2816 
+C 1037 2816 256 1884 256 939 
+C 256 307 627 -64 1062 -64 
+C 1414 -64 1715 211 1894 422 
+C 1958 45 2259 -64 2451 -64 
+C 2643 -64 2797 51 2912 281 
+C 3014 498 3104 888 3104 913 
+C 3104 945 3078 971 3040 971 
+C 2982 971 2976 939 2950 843 
+C 2854 466 2733 64 2470 64 
+C 2285 64 2272 230 2272 358 
+C 2272 505 2291 575 2349 824 
+C 2394 984 2426 1124 2477 1309 
+C 2714 2267 2771 2497 2771 2535 
+C 2771 2625 2701 2695 2605 2695 
+C 2400 2695 2349 2472 2336 2395 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-7e" transform="scale(0.996264)"/>
+     <use xlink:href="#CMMI12-61" transform="translate(6.445738 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_d674f2b5e522_856aad_text_3">
+    <!-- $\vec{b}$ -->
+    <g transform="translate(20.297706 114.1299) scale(0.3 -0.3)">
+     <defs>
+      <path id="CMMI12-62" d="M 1478 4257 
+C 1485 4283 1498 4321 1498 4352 
+C 1498 4416 1434 4416 1421 4416 
+C 1414 4416 1184 4393 1069 4377 
+C 960 4377 864 4358 749 4358 
+C 595 4345 550 4339 550 4224 
+C 550 4160 614 4160 678 4160 
+C 1005 4160 1005 4103 1005 4040 
+C 1005 3996 954 3811 928 3696 
+L 774 3085 
+C 710 2831 346 1387 320 1272 
+C 288 1114 288 1005 288 922 
+C 288 274 653 -64 1069 -64 
+C 1811 -64 2579 888 2579 1814 
+C 2579 2401 2246 2816 1766 2816 
+C 1434 2816 1133 2542 1011 2414 
+L 1478 4257 
+z
+M 1075 64 
+C 870 64 646 217 646 715 
+C 646 926 666 1047 781 1494 
+C 800 1577 902 1986 928 2069 
+C 941 2120 1318 2689 1754 2689 
+C 2035 2689 2163 2408 2163 2076 
+C 2163 1769 1984 1047 1824 715 
+C 1664 370 1370 64 1075 64 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-7e" transform="translate(0 26.29016) scale(0.996264)"/>
+     <use xlink:href="#CMMI12-62" transform="translate(11.311737 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_d674f2b5e522_856aad_Quiver_1">
+    <path d="M 45.095623 166.18095 
+L 166.544809 166.18095 
+L 166.014684 164.060449 
+L 171.315937 166.711075 
+L 166.014684 169.361702 
+L 166.544809 167.241201 
+L 45.095623 167.241201 
+L 45.095623 166.18095 
+" clip-path="url(#cpl_d674f2b5e522_856aad_pfda05176b6)" style="fill: #0072b2"/>
+   </g>
+   <g id="cpl_d674f2b5e522_856aad_Quiver_2">
+    <path d="M 44.565498 166.711075 
+L 44.565498 48.756307 
+L 42.444996 49.286432 
+L 45.095623 43.985179 
+L 47.74625 49.286432 
+L 45.625748 48.756307 
+L 45.625748 166.711075 
+L 44.565498 166.711075 
+" clip-path="url(#cpl_d674f2b5e522_856aad_pfda05176b6)" style="fill: #dc5e8b"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="cpl_d674f2b5e522_856aad_pfda05176b6">
+   <rect x="19.85156" y="19.44" width="176.70844" height="171.816254"/>
+  </clipPath>
+ </defs>
+</svg>
+</div></figure>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-header docutils">
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+\vec{a} \cdot \vec{b} &amp;&lt; 0 \\
+\\
+\varphi &amp;\in \langle 90^\circ, 180^\circ]
+\end{align*}
+\end{split}\]</div>
+</div>
+<div class="sd-card-body docutils">
+<figure class="adaptive-figure plot-figure no-click align-center">
+<div class="graph-image no-click no-scaled-link"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 216 144" xmlns="http://www.w3.org/2000/svg" version="1.1" class="graph-inline-svg" role="img" aria-label="Tilpasset figur">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-01-06T06:43:49.511104</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="cpl_c4d2f7f902cf_d0f4d0_figure_1">
+  <g id="cpl_c4d2f7f902cf_d0f4d0_patch_1">
+   <path d="M 0 144 
+L 216 144 
+L 216 0 
+L 0 0 
+L 0 144 
+z
+" style="fill: none"/>
+  </g>
+  <g id="cpl_c4d2f7f902cf_d0f4d0_axes_1">
+   <g id="cpl_c4d2f7f902cf_d0f4d0_line2d_1">
+    <path d="M 132.152727 98.921018 
+L 132.040165 97.004884 
+L 131.703526 95.106609 
+L 131.145948 93.243889 
+L 130.37263 91.434084 
+L 129.390778 89.694065 
+L 128.180464 88.003579 
+L 126.77341 86.419529 
+L 125.146034 84.926359 
+L 123.343995 83.57575 
+L 121.341489 82.357327 
+L 119.197107 81.315044 
+L 116.933655 80.459986 
+L 114.52417 79.789415 
+L 112.042327 79.331034 
+L 109.515649 79.089926 
+L 106.972162 79.068764 
+L 104.440074 79.267784 
+L 101.94747 79.684779 
+L 99.521994 80.315122 
+L 97.190548 81.151824 
+L 95.023674 82.162131 
+L 92.994791 83.350653 
+L 92.911848 83.404998 
+L 92.911848 83.404998 
+" clip-path="url(#cpl_c4d2f7f902cf_d0f4d0_pa4141a02fd)" style="fill: none; stroke: #000000; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_c4d2f7f902cf_d0f4d0_text_1">
+    <!-- $\varphi$ -->
+    <g transform="translate(122.863228 70.822654) scale(0.3 -0.3)">
+     <defs>
+      <path id="CMMI12-27" d="M 1926 280 
+C 1818 280 1722 280 1722 312 
+C 1722 325 1830 926 1869 1067 
+C 2074 1884 2560 2472 3117 2472 
+C 3533 2472 3725 2159 3725 1808 
+C 3725 1080 2906 280 1926 280 
+z
+M 1651 -51 
+C 1690 -57 1754 -64 1869 -64 
+C 2918 -64 3885 945 3885 1954 
+C 3885 2344 3712 2816 3174 2816 
+C 2253 2816 1862 1519 1504 318 
+C 768 458 461 848 461 1276 
+C 461 1449 595 2133 966 2592 
+C 1037 2676 1037 2689 1037 2702 
+C 1037 2753 986 2753 973 2753 
+C 800 2753 314 1820 314 1213 
+C 314 497 877 107 1395 -7 
+L 1062 -1088 
+C 1030 -1184 1030 -1196 1030 -1222 
+C 1030 -1376 1184 -1376 1197 -1376 
+C 1261 -1376 1376 -1351 1427 -1223 
+C 1446 -1166 1626 -178 1651 -51 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-27" transform="scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_c4d2f7f902cf_d0f4d0_text_2">
+    <!-- $\vec{a}$ -->
+    <g transform="translate(139.60651 121.067431) scale(0.3 -0.3)">
+     <defs>
+      <path id="CMMI12-7e" d="M 3424 3835 
+C 3347 3764 3110 3540 3110 3451 
+C 3110 3387 3168 3329 3232 3329 
+C 3290 3329 3315 3368 3360 3432 
+C 3514 3624 3686 3745 3834 3828 
+C 3898 3867 3942 3886 3942 3956 
+C 3942 4014 3891 4046 3853 4078 
+C 3674 4200 3629 4372 3610 4449 
+C 3590 4500 3571 4577 3482 4577 
+C 3443 4577 3366 4552 3366 4456 
+C 3366 4398 3405 4244 3526 4072 
+L 1376 4072 
+C 1267 4072 1158 4072 1158 3950 
+C 1158 3835 1274 3835 1376 3835 
+L 3424 3835 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMMI12-61" d="M 1926 760 
+C 1894 651 1894 639 1805 517 
+C 1664 338 1382 64 1082 64 
+C 819 64 672 300 672 677 
+C 672 1028 870 1743 992 2012 
+C 1210 2459 1510 2689 1760 2689 
+C 2182 2689 2266 2165 2266 2114 
+C 2266 2108 2246 2024 2240 2012 
+L 1926 760 
+z
+M 2336 2395 
+C 2266 2561 2093 2816 1760 2816 
+C 1037 2816 256 1884 256 939 
+C 256 307 627 -64 1062 -64 
+C 1414 -64 1715 211 1894 422 
+C 1958 45 2259 -64 2451 -64 
+C 2643 -64 2797 51 2912 281 
+C 3014 498 3104 888 3104 913 
+C 3104 945 3078 971 3040 971 
+C 2982 971 2976 939 2950 843 
+C 2854 466 2733 64 2470 64 
+C 2285 64 2272 230 2272 358 
+C 2272 505 2291 575 2349 824 
+C 2394 984 2426 1124 2477 1309 
+C 2714 2267 2771 2497 2771 2535 
+C 2771 2625 2701 2695 2605 2695 
+C 2400 2695 2349 2472 2336 2395 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-7e" transform="scale(0.996264)"/>
+     <use xlink:href="#CMMI12-61" transform="translate(6.445738 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_c4d2f7f902cf_d0f4d0_text_3">
+    <!-- $\vec{b}$ -->
+    <g transform="translate(53.277835 90.571842) scale(0.3 -0.3)">
+     <defs>
+      <path id="CMMI12-62" d="M 1478 4257 
+C 1485 4283 1498 4321 1498 4352 
+C 1498 4416 1434 4416 1421 4416 
+C 1414 4416 1184 4393 1069 4377 
+C 960 4377 864 4358 749 4358 
+C 595 4345 550 4339 550 4224 
+C 550 4160 614 4160 678 4160 
+C 1005 4160 1005 4103 1005 4040 
+C 1005 3996 954 3811 928 3696 
+L 774 3085 
+C 710 2831 346 1387 320 1272 
+C 288 1114 288 1005 288 922 
+C 288 274 653 -64 1069 -64 
+C 1811 -64 2579 888 2579 1814 
+C 2579 2401 2246 2816 1766 2816 
+C 1434 2816 1133 2542 1011 2414 
+L 1478 4257 
+z
+M 1075 64 
+C 870 64 646 217 646 715 
+C 646 926 666 1047 781 1494 
+C 800 1577 902 1986 928 2069 
+C 941 2120 1318 2689 1754 2689 
+C 2035 2689 2163 2408 2163 2076 
+C 2163 1769 1984 1047 1824 715 
+C 1664 370 1370 64 1075 64 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-7e" transform="translate(0 26.29016) scale(0.996264)"/>
+     <use xlink:href="#CMMI12-62" transform="translate(11.311737 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_c4d2f7f902cf_d0f4d0_Quiver_1">
+    <path d="M 108 98.389658 
+L 183.726851 98.389658 
+L 183.195491 96.264218 
+L 188.509091 98.921018 
+L 183.195491 101.577818 
+L 183.726851 99.452378 
+L 108 99.452378 
+L 108 98.389658 
+" clip-path="url(#cpl_c4d2f7f902cf_d0f4d0_pa4141a02fd)" style="fill: #0072b2"/>
+   </g>
+   <g id="cpl_c4d2f7f902cf_d0f4d0_Quiver_2">
+    <path d="M 107.619055 99.291456 
+L 46.545722 36.485781 
+L 45.392379 38.348478 
+L 43.592727 32.686836 
+L 49.201832 34.6441 
+L 47.307613 35.744906 
+L 108.380945 98.55058 
+L 107.619055 99.291456 
+" clip-path="url(#cpl_c4d2f7f902cf_d0f4d0_pa4141a02fd)" style="fill: #dc5e8b"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="cpl_c4d2f7f902cf_d0f4d0_pa4141a02fd">
+   <rect x="19.44" y="19.44" width="177.12" height="92.727854"/>
+  </clipPath>
+ </defs>
+</svg>
+</div></figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p><span class="math notranslate nohighlight">\(\varphi\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(\cos \varphi\)</span></p></th>
+<th class="head text-center"><p><span class="math notranslate nohighlight">\(\vec{a} \cdot \vec{b}\)</span></p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(0\degree \leq \varphi &lt; 90\degree\)</span> (spiss vinkel)</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\cos \varphi &gt; 0\)</span> (Positiv)</p></td>
+<td class="text-center"><p>Positiv</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\varphi = 90\degree\)</span> (rett vinkel)</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\cos\varphi = 0\)</span></p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(0\)</span></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(90\degree &lt; \varphi \leq 180\degree\)</span> (stump vinkel)</p></td>
+<td class="text-center"><p><span class="math notranslate nohighlight">\(\cos \varphi &lt; 0\)</span> (Negativ)</p></td>
+<td class="text-center"><p>Negativ</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Vi forutsetter at ingen av vektorene er nullvektoren, altså at <span class="math notranslate nohighlight">\(\len{a} &gt; 0\)</span> og <span class="math notranslate nohighlight">\(\len{b} &gt; 0\)</span>.</p>
+</div>
+<hr class="docutils" />
+<div class="admonition example">
+<p class="admonition-title">Eksempel 5</p>
+<p>En vektor <span class="math notranslate nohighlight">\(\vec{a} = [1, 2]\)</span> og en annen vektor <span class="math notranslate nohighlight">\(\vec{b} = [-2, 1]\)</span>.</p>
+<p>Bestem om vinkelen mellom vektorene er spiss, rett eller stump.</p>
+<div class="admonition solution">
+<p class="admonition-title">Løsning</p>
+<p>Vi regner ut skalarproduktet mellom vektorene og sjekker fortegnet:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{a}{b} = [1, 2] \cdot [-2, 1] = 1 \cdot (-2) + 2 \cdot 1 = -2 + 2 = 0
+\]</div>
+<p>Siden skalarproduktet er lik <span class="math notranslate nohighlight">\(0\)</span>, så er vinkelen <span class="math notranslate nohighlight">\(\varphi = 90\degree\)</span>, er det en <em>rett</em> vinkel mellom vektorene.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 5</p>
+<p>Nedenfor vises tre vektorer</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = [1, -3] \qog \vec{b} = [4, 2] \qog \vec{c} = [-2, 6]
+\]</div>
+<p>Bestem om vinklene mellom parvise vektorer er spisse, rette eller stumpe.</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<ul class="simple">
+<li><p>Stumpe vinkler mellom <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span>, og mellom <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{c}\)</span>.</p></li>
+<li><p>Spiss vinkel mellom <span class="math notranslate nohighlight">\(\vec{b}\)</span> og <span class="math notranslate nohighlight">\(\vec{c}\)</span>.</p></li>
+</ul>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi regner ut skalarproduktet mellom vektorene parvis og sjekker fortegnet:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} \cdot \vec{b} = [1, -3] \cdot [4, 2] = 1 \cdot 4 + (-3) \cdot 2 = 4 - 6 = -2 \liff \text{Stump vinkel}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} \cdot \vec{c} = [1, -3] \cdot [-2, 6] = 1 \cdot (-2) + (-3) \cdot 6 = -2 - 18 = -20 \liff \text{Stump vinkel}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\vec{b} \cdot \vec{c} = [4, 2] \cdot [-2, 6] = 4 \cdot (-2) + 2 \cdot 6 = -8 + 12 = 4 \liff \text{Spiss vinkel}
+\]</div>
+</div>
+</div>
+<section id="ortogonale-vektorer">
+<h3>Ortogonale vektorer<a class="headerlink" href="#ortogonale-vektorer" title="Link to this heading">#</a></h3>
+<p>Når vi skal anvende skalarproduktet, så vil vi ofte gå veien om å kreve at to vektorer er <strong>ortogonale</strong>. Dette betyr at vektorene står vinkelrett på hverandre, altså at vinkelen mellom dem er <span class="math notranslate nohighlight">\(90^\circ\)</span>. Da skriver vi at <span class="math notranslate nohighlight">\(\vec{a} \perp \vec{b}\)</span>. Vi har allerede vært innom dette, men vi skal formelt knytte dette sammen med skalarproduktet.</p>
+<div class="admonition summary">
+<p class="admonition-title">Setning: Ortogonale vektorer og skalarproduktet</p>
+<p>To vektorer <span class="math notranslate nohighlight">\(\vec{a}\)</span> og <span class="math notranslate nohighlight">\(\vec{b}\)</span> er <strong>ortogonale</strong> hvis og bare hvis skalarproduktet mellom dem er null:</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} \cdot \vec{b} = 0 \liff \vec{a} \perp \vec{b}
+\]</div>
+<div class="theory dropdown admonition">
+<p class="admonition-title">Bevis</p>
+<p>Den geometriske formelen for skalarproduktet sier at</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{a}{b} = \len{a} \cdot \len{b} \cdot \cos \varphi
+\]</div>
+<p>Hvis skalarproduktet skal bli <span class="math notranslate nohighlight">\(0\)</span>, så må enten</p>
+<div class="math notranslate nohighlight">
+\[
+\len{a} = 0 \or \len{b} = 0 \or \cos \varphi = 0
+\]</div>
+<p>Siden vi forutsetter her at vektorene ikke er nullvektorer, så må det bety at det er <span class="math notranslate nohighlight">\(\cos \varphi = 0\)</span>. Dette skjer bare når <span class="math notranslate nohighlight">\(\varphi = 90^\circ\)</span>, altså når vektorene er ortogonale. Dermed har vi vist setningen.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition example">
+<p class="admonition-title">Eksempel 6</p>
+<p>To vektorer er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = [1, 2] \qog \vec{b} = [-2, 1]
+\]</div>
+<p>Vis at <span class="math notranslate nohighlight">\(\vec{a} \perp \vec{b}\)</span> (de er ortogonale).</p>
+<div class="admonition solution">
+<p class="admonition-title">Løsning</p>
+<p>Vi regner ut skalarproduktet mellom vektorene og sjekker om svaret blir <span class="math notranslate nohighlight">\(0\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{a}{b} = [1, 2] \cdot [-2, 1] = 1 \cdot (-2) + 2 \cdot 1 = -2 + 2 = 0
+\]</div>
+<p>Altså har vi</p>
+<div class="math notranslate nohighlight">
+\[
+\dot{a}{b} = 0 \liff \vec{a} \perp \vec{b}
+\]</div>
+<p>Altså er vektorene ortogonale.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 6</p>
+<p>Nedenfor vises tre vektorer.</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = [-1, 3] \qog \vec{b} = [6, 2] \qog \vec{c} = [1, -3]
+\]</div>
+<p>Bestem hvilke av vektorene som er ortogonale (parvis!).</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} \perp \vec{b} \and \vec{b} \perp \vec{c}
+\]</div>
+</div>
+</div>
+</section>
+</section>
+<hr class="docutils" />
+<section id="skalarproduktet-med-digitale-verktoy">
+<h2>Skalarproduktet med digitale verktøy<a class="headerlink" href="#skalarproduktet-med-digitale-verktoy" title="Link to this heading">#</a></h2>
+<p>Vi skal utvide verktøykassen vår slik at vi kan regne med skalarproduktet ved hjelp av CAS. Vi skal både se på hvordan vi kan regne ut skalarproduktet mellom to vektorer, og hvordan vi kan bestemme vinkelen mellom to vektorer ved hjelp av skalarproduktet i CAS.</p>
+<div class="admonition explore">
+<p class="admonition-title">Utforsk 1</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+a</label><div class="sd-tab-content docutils">
+
+<div class="sidebar-cas">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<button id="button-ggb-cas-f6e9bec4" class="ggb-cas-button">Åpne CAS‑vindu</button>
+<div id="dialog-ggb-cas-f6e9bec4" title="CAS‑vindu" style="display:none;">
+    <div id="ggb-cas-f6e9bec4" class="ggb-window"></div>
+</div>
+
+<style>
+.ui-resizable-handle { min-width:16px;min-height:16px; }
+.ui-dialog-content{padding:0!important;}
+.ggb-window       {width:100%!important;height:100%!important;box-sizing:border-box;}
+.ggb-cas-button   {margin-top: 1em; margin-bottom: 1em;}
+/* Ensure CAS dialog appears above jeopardy modal (which has z-index: 9999) */
+.ui-dialog {
+  z-index: 10000 !important;
+}
+.ui-widget-overlay {
+  z-index: 9999 !important;
+}
+.ggb-reset-btn {
+  position: absolute;
+  right: 2.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2em;
+  height: 2em;
+  padding: 0.25em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+  opacity: 0.7;
+}
+.ggb-reset-btn:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+[data-theme="dark"] .ggb-reset-btn:hover,
+html[data-theme="dark"] .ggb-reset-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.ggb-reset-btn svg {
+  color: inherit;
+}
+</style>
+
+<script>
+(function() {
+  $(function() {
+    let ggbReady = false;
+    const storageKey = 'ggb-cas-state-ggb-cas-f6e9bec4';
+
+    function applySize() {
+      if (!ggbReady) return;
+      const w = $("#ggb-cas-f6e9bec4").width(),
+            h = $("#ggb-cas-f6e9bec4").height();
+      window.ggbApplet.setSize(Math.round(w), Math.round(h));
+    }
+
+    function saveState() {
+      if (!ggbReady || !window.ggbApplet) return;
+      try {
+        const state = window.ggbApplet.getBase64();
+        localStorage.setItem(storageKey, state);
+        // Update timestamp for this state
+        localStorage.setItem(storageKey + '-timestamp', Date.now().toString());
+      } catch (e) {
+        // If quota exceeded, try cleaning up old states and retry
+        if (e.name === 'QuotaExceededError') {
+          cleanupOldStates();
+          try {
+            const state = window.ggbApplet.getBase64();
+            localStorage.setItem(storageKey, state);
+            localStorage.setItem(storageKey + '-timestamp', Date.now().toString());
+          } catch (retryError) {
+            // Still failed after cleanup - silently give up
+          }
+        }
+      }
+    }
+
+    function cleanupOldStates() {
+      try {
+        // Find all GeoGebra CAS states with timestamps
+        const casStates = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith('ggb-cas-state-') && key.endsWith('-timestamp')) {
+            const stateKey = key.replace('-timestamp', '');
+            const timestamp = parseInt(localStorage.getItem(key) || '0', 10);
+            casStates.push({ key: stateKey, timestamp: timestamp });
+          }
+        }
+        
+        // Sort by timestamp (oldest first)
+        casStates.sort((a, b) => a.timestamp - b.timestamp);
+        
+        // Delete oldest 25% of states (minimum 1, maximum 10)
+        const numToDelete = Math.max(1, Math.min(10, Math.floor(casStates.length * 0.25)));
+        for (let i = 0; i < numToDelete && i < casStates.length; i++) {
+          localStorage.removeItem(casStates[i].key);
+          localStorage.removeItem(casStates[i].key + '-timestamp');
+        }
+      } catch (e) {
+        // Cleanup failed - silently continue
+      }
+    }
+
+    function restoreState() {
+      if (!ggbReady || !window.ggbApplet) return;
+      try {
+        const savedState = localStorage.getItem(storageKey);
+        if (savedState) {
+          window.ggbApplet.setBase64(savedState);
+          // Re-apply custom toolbar after restoring state to prevent it from being overwritten
+          setTimeout(() => {
+            if (window.ggbApplet && window.ggbApplet.setCustomToolBar) {
+              window.ggbApplet.setCustomToolBar("1001 | 1002 | 1007 | 1010 | 6");
+            }
+          }, 50);
+        }
+      } catch (e) {
+        // Silently fail if restore fails
+      }
+    }
+
+    const $dlg = $("#dialog-ggb-cas-f6e9bec4").dialog({
+      autoOpen: false,
+      width: 390, height: 580,
+      resizable: true, draggable: true,
+      position: { my: "center", at: "center", of: window },
+      zIndex: 10000,
+      resize: () => window.requestAnimationFrame(applySize),
+      open: function() {
+        if (!ggbReady) {
+          new GGBApplet({
+            appName: "classic", id: "ggb-cas-f6e9bec4",
+            width: 350, height: 500,
+            perspective: "C", language: "nb",
+            showToolBar: true, showAlgebraInput: false,
+            borderRadius: 8, enableRightClick: true, showKeyboardOnFocus: false,
+            customToolBar: "1001 | 1002 | 1007 | 1010 | 6",
+            appletOnLoad: () => { 
+              ggbReady = true; 
+              applySize();
+              // Restore state after a short delay to ensure GeoGebra is fully initialized
+              setTimeout(restoreState, 100);
+            }
+          }, true).inject("ggb-cas-f6e9bec4");
+        } else {
+          applySize();
+        }
+      },
+      close: function() {
+        // Save state when dialog is closed
+        saveState();
+      }
+    });
+
+    // Add refresh button to title bar
+    const titleBar = $dlg.parent().find('.ui-dialog-titlebar');
+    const refreshBtn = $('<button type="button" class="ggb-reset-btn" title="Start på nytt (slett lagret innhold)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.65 2.35C12.2 0.9 10.21 0 8 0 3.58 0 0.01 3.58 0.01 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L9 7h7V0l-2.35 2.35z" fill="currentColor"/></svg></button>');
+    refreshBtn.on('click', function() {
+      if (confirm('Er du sikker på at du vil slette lagret innhold og starte på nytt?')) {
+        try {
+          localStorage.removeItem(storageKey);
+          localStorage.removeItem(storageKey + '-timestamp');
+          if (ggbReady && window.ggbApplet) {
+            // Clear the container
+            $("#ggb-cas-f6e9bec4").empty();
+            // Reset the flag
+            ggbReady = false;
+            // Recreate the applet from scratch
+            new GGBApplet({
+              appName: "classic", id: "ggb-cas-f6e9bec4",
+              width: 350, height: 500,
+              perspective: "C", language: "nb",
+              showToolBar: true, showAlgebraInput: false,
+              borderRadius: 8, enableRightClick: true, showKeyboardOnFocus: false,
+              customToolBar: "1001 | 1002 | 1007 | 1010 | 6",
+              appletOnLoad: () => { 
+                ggbReady = true; 
+                applySize();
+              }
+            }, true).inject("ggb-cas-f6e9bec4");
+          }
+        } catch (e) {
+          console.error('Failed to reset:', e);
+        }
+      }
+    });
+    titleBar.append(refreshBtn);
+
+    // Save state when page is unloaded (refresh, navigate away, close tab)
+    $(window).on('beforeunload', function() {
+      if ($dlg.dialog('isOpen')) {
+        saveState();
+      }
+    });
+
+    // Prevent background scroll when GeoGebra applet is active
+    let scrollLocked = false;
+    let lockedScrollTop = 0;
+    let keyHandler = null;
+    let wheelHandler = null;
+    let scrollHandler = null;
+    
+    function lockScroll() {
+      if (scrollLocked) return;
+      scrollLocked = true;
+      lockedScrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+      
+      // Instead of preventing keys, monitor and restore scroll position
+      scrollHandler = () => {
+        if (scrollLocked) {
+          const currentScroll = window.pageYOffset || document.documentElement.scrollTop || 0;
+          if (currentScroll !== lockedScrollTop) {
+            window.scrollTo(0, lockedScrollTop);
+          }
+        }
+      };
+      
+      // Prevent wheel scrolling on the page background
+      wheelHandler = (e) => {
+        const dialogElement = e.target.closest('.ui-dialog');
+        if (dialogElement) {
+          // Allow scrolling within dialog elements that can scroll
+          let target = e.target;
+          while (target && target !== dialogElement) {
+            const overflow = window.getComputedStyle(target).overflow;
+            if (overflow === 'auto' || overflow === 'scroll') {
+              return; // Allow internal scrolling
+            }
+            target = target.parentElement;
+          }
+          // Prevent page scroll but don't stop the event from reaching GeoGebra
+          if (!e.target.closest('#ggb-cas-f6e9bec4')) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }
+      };
+      
+      // Monitor scroll events to maintain position
+      window.addEventListener('scroll', scrollHandler, { passive: true });
+      document.addEventListener('wheel', wheelHandler, { capture: true, passive: false });
+    }
+    
+    function unlockScroll() {
+      if (!scrollLocked) return;
+      scrollLocked = false;
+      
+      if (scrollHandler) {
+        window.removeEventListener('scroll', scrollHandler);
+        scrollHandler = null;
+      }
+      if (wheelHandler) {
+        document.removeEventListener('wheel', wheelHandler, { capture: true });
+        wheelHandler = null;
+      }
+    }
+    
+    // Monitor GeoGebra applet focus/interaction to control scroll lock
+    function bindScrollLock() {
+      const ggbContainer = document.getElementById('ggb-cas-f6e9bec4');
+      if (!ggbContainer) {
+        setTimeout(bindScrollLock, 300);
+        return;
+      }
+      
+      // Look for the actual GeoGebra canvas/applet elements
+      const ggbApplet = ggbContainer.querySelector('canvas') || 
+                       ggbContainer.querySelector('.ggbApplet') ||
+                       ggbContainer.querySelector('[id^="ggbApplet"]') ||
+                       ggbContainer;
+      
+      if (ggbApplet) {
+        // Lock scroll when interacting with GeoGebra
+        ggbApplet.addEventListener('mousedown', lockScroll);
+        ggbApplet.addEventListener('focus', lockScroll);
+        ggbApplet.addEventListener('click', lockScroll);
+        
+        // Also monitor the container for any focus events
+        ggbContainer.addEventListener('focusin', lockScroll);
+        ggbContainer.addEventListener('mousedown', lockScroll);
+        
+        // Unlock when clicking outside or losing focus
+        document.addEventListener('click', (e) => {
+          if (!ggbContainer.contains(e.target) && !e.target.closest('.ui-dialog')) {
+            unlockScroll();
+          }
+        });
+        
+        ggbContainer.addEventListener('focusout', (e) => {
+          // Small delay to check if focus moved outside the container
+          setTimeout(() => {
+            if (!ggbContainer.contains(document.activeElement)) {
+              unlockScroll();
+            }
+          }, 100);
+        });
+      }
+    }
+    
+    // Start monitoring after GeoGebra is loaded
+    setTimeout(bindScrollLock, 1000);
+    
+    // Cleanup on dialog close
+    $dlg.on('dialogclose', unlockScroll);
+
+    $("#button-ggb-cas-f6e9bec4").button()
+      .on("click touchend pointerup", e => {
+        e.preventDefault();
+        $("#dialog-ggb-cas-f6e9bec4").dialog("open");
+      });
+  });
+})();
+</script>
+</div>
+        <p>I gif-en nedenfor viser vi hvordan vi kan regne ut skalarproduktet mellom vektorene</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = [2, 3] \qog \vec{b} = [-1, 18]
+\]</div>
+<p>Bruk CAS-vinduet og regn ut skalarproduktet som vist nedenfor.</p>
+<figure class="align-default">
+<a class="no-click adaptive-figure reference internal image-reference" href="../../../_images/skalarproduktet.webp"><img alt="../../../_images/skalarproduktet.webp" class="no-click adaptive-figure" src="../../../_images/skalarproduktet.webp" style="width: 60%;" />
+</a>
+</figure>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+b</label><div class="sd-tab-content docutils">
+
+<div class="sidebar-cas">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<button id="button-ggb-cas-a3895191" class="ggb-cas-button">Åpne CAS‑vindu</button>
+<div id="dialog-ggb-cas-a3895191" title="CAS‑vindu" style="display:none;">
+    <div id="ggb-cas-a3895191" class="ggb-window"></div>
+</div>
+
+<style>
+.ui-resizable-handle { min-width:16px;min-height:16px; }
+.ui-dialog-content{padding:0!important;}
+.ggb-window       {width:100%!important;height:100%!important;box-sizing:border-box;}
+.ggb-cas-button   {margin-top: 1em; margin-bottom: 1em;}
+/* Ensure CAS dialog appears above jeopardy modal (which has z-index: 9999) */
+.ui-dialog {
+  z-index: 10000 !important;
+}
+.ui-widget-overlay {
+  z-index: 9999 !important;
+}
+.ggb-reset-btn {
+  position: absolute;
+  right: 2.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2em;
+  height: 2em;
+  padding: 0.25em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+  opacity: 0.7;
+}
+.ggb-reset-btn:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+[data-theme="dark"] .ggb-reset-btn:hover,
+html[data-theme="dark"] .ggb-reset-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.ggb-reset-btn svg {
+  color: inherit;
+}
+</style>
+
+<script>
+(function() {
+  $(function() {
+    let ggbReady = false;
+    const storageKey = 'ggb-cas-state-ggb-cas-a3895191';
+
+    function applySize() {
+      if (!ggbReady) return;
+      const w = $("#ggb-cas-a3895191").width(),
+            h = $("#ggb-cas-a3895191").height();
+      window.ggbApplet.setSize(Math.round(w), Math.round(h));
+    }
+
+    function saveState() {
+      if (!ggbReady || !window.ggbApplet) return;
+      try {
+        const state = window.ggbApplet.getBase64();
+        localStorage.setItem(storageKey, state);
+        // Update timestamp for this state
+        localStorage.setItem(storageKey + '-timestamp', Date.now().toString());
+      } catch (e) {
+        // If quota exceeded, try cleaning up old states and retry
+        if (e.name === 'QuotaExceededError') {
+          cleanupOldStates();
+          try {
+            const state = window.ggbApplet.getBase64();
+            localStorage.setItem(storageKey, state);
+            localStorage.setItem(storageKey + '-timestamp', Date.now().toString());
+          } catch (retryError) {
+            // Still failed after cleanup - silently give up
+          }
+        }
+      }
+    }
+
+    function cleanupOldStates() {
+      try {
+        // Find all GeoGebra CAS states with timestamps
+        const casStates = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith('ggb-cas-state-') && key.endsWith('-timestamp')) {
+            const stateKey = key.replace('-timestamp', '');
+            const timestamp = parseInt(localStorage.getItem(key) || '0', 10);
+            casStates.push({ key: stateKey, timestamp: timestamp });
+          }
+        }
+        
+        // Sort by timestamp (oldest first)
+        casStates.sort((a, b) => a.timestamp - b.timestamp);
+        
+        // Delete oldest 25% of states (minimum 1, maximum 10)
+        const numToDelete = Math.max(1, Math.min(10, Math.floor(casStates.length * 0.25)));
+        for (let i = 0; i < numToDelete && i < casStates.length; i++) {
+          localStorage.removeItem(casStates[i].key);
+          localStorage.removeItem(casStates[i].key + '-timestamp');
+        }
+      } catch (e) {
+        // Cleanup failed - silently continue
+      }
+    }
+
+    function restoreState() {
+      if (!ggbReady || !window.ggbApplet) return;
+      try {
+        const savedState = localStorage.getItem(storageKey);
+        if (savedState) {
+          window.ggbApplet.setBase64(savedState);
+          // Re-apply custom toolbar after restoring state to prevent it from being overwritten
+          setTimeout(() => {
+            if (window.ggbApplet && window.ggbApplet.setCustomToolBar) {
+              window.ggbApplet.setCustomToolBar("1001 | 1002 | 1007 | 1010 | 6");
+            }
+          }, 50);
+        }
+      } catch (e) {
+        // Silently fail if restore fails
+      }
+    }
+
+    const $dlg = $("#dialog-ggb-cas-a3895191").dialog({
+      autoOpen: false,
+      width: 390, height: 580,
+      resizable: true, draggable: true,
+      position: { my: "center", at: "center", of: window },
+      zIndex: 10000,
+      resize: () => window.requestAnimationFrame(applySize),
+      open: function() {
+        if (!ggbReady) {
+          new GGBApplet({
+            appName: "classic", id: "ggb-cas-a3895191",
+            width: 350, height: 500,
+            perspective: "C", language: "nb",
+            showToolBar: true, showAlgebraInput: false,
+            borderRadius: 8, enableRightClick: true, showKeyboardOnFocus: false,
+            customToolBar: "1001 | 1002 | 1007 | 1010 | 6",
+            appletOnLoad: () => { 
+              ggbReady = true; 
+              applySize();
+              // Restore state after a short delay to ensure GeoGebra is fully initialized
+              setTimeout(restoreState, 100);
+            }
+          }, true).inject("ggb-cas-a3895191");
+        } else {
+          applySize();
+        }
+      },
+      close: function() {
+        // Save state when dialog is closed
+        saveState();
+      }
+    });
+
+    // Add refresh button to title bar
+    const titleBar = $dlg.parent().find('.ui-dialog-titlebar');
+    const refreshBtn = $('<button type="button" class="ggb-reset-btn" title="Start på nytt (slett lagret innhold)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.65 2.35C12.2 0.9 10.21 0 8 0 3.58 0 0.01 3.58 0.01 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L9 7h7V0l-2.35 2.35z" fill="currentColor"/></svg></button>');
+    refreshBtn.on('click', function() {
+      if (confirm('Er du sikker på at du vil slette lagret innhold og starte på nytt?')) {
+        try {
+          localStorage.removeItem(storageKey);
+          localStorage.removeItem(storageKey + '-timestamp');
+          if (ggbReady && window.ggbApplet) {
+            // Clear the container
+            $("#ggb-cas-a3895191").empty();
+            // Reset the flag
+            ggbReady = false;
+            // Recreate the applet from scratch
+            new GGBApplet({
+              appName: "classic", id: "ggb-cas-a3895191",
+              width: 350, height: 500,
+              perspective: "C", language: "nb",
+              showToolBar: true, showAlgebraInput: false,
+              borderRadius: 8, enableRightClick: true, showKeyboardOnFocus: false,
+              customToolBar: "1001 | 1002 | 1007 | 1010 | 6",
+              appletOnLoad: () => { 
+                ggbReady = true; 
+                applySize();
+              }
+            }, true).inject("ggb-cas-a3895191");
+          }
+        } catch (e) {
+          console.error('Failed to reset:', e);
+        }
+      }
+    });
+    titleBar.append(refreshBtn);
+
+    // Save state when page is unloaded (refresh, navigate away, close tab)
+    $(window).on('beforeunload', function() {
+      if ($dlg.dialog('isOpen')) {
+        saveState();
+      }
+    });
+
+    // Prevent background scroll when GeoGebra applet is active
+    let scrollLocked = false;
+    let lockedScrollTop = 0;
+    let keyHandler = null;
+    let wheelHandler = null;
+    let scrollHandler = null;
+    
+    function lockScroll() {
+      if (scrollLocked) return;
+      scrollLocked = true;
+      lockedScrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+      
+      // Instead of preventing keys, monitor and restore scroll position
+      scrollHandler = () => {
+        if (scrollLocked) {
+          const currentScroll = window.pageYOffset || document.documentElement.scrollTop || 0;
+          if (currentScroll !== lockedScrollTop) {
+            window.scrollTo(0, lockedScrollTop);
+          }
+        }
+      };
+      
+      // Prevent wheel scrolling on the page background
+      wheelHandler = (e) => {
+        const dialogElement = e.target.closest('.ui-dialog');
+        if (dialogElement) {
+          // Allow scrolling within dialog elements that can scroll
+          let target = e.target;
+          while (target && target !== dialogElement) {
+            const overflow = window.getComputedStyle(target).overflow;
+            if (overflow === 'auto' || overflow === 'scroll') {
+              return; // Allow internal scrolling
+            }
+            target = target.parentElement;
+          }
+          // Prevent page scroll but don't stop the event from reaching GeoGebra
+          if (!e.target.closest('#ggb-cas-a3895191')) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }
+      };
+      
+      // Monitor scroll events to maintain position
+      window.addEventListener('scroll', scrollHandler, { passive: true });
+      document.addEventListener('wheel', wheelHandler, { capture: true, passive: false });
+    }
+    
+    function unlockScroll() {
+      if (!scrollLocked) return;
+      scrollLocked = false;
+      
+      if (scrollHandler) {
+        window.removeEventListener('scroll', scrollHandler);
+        scrollHandler = null;
+      }
+      if (wheelHandler) {
+        document.removeEventListener('wheel', wheelHandler, { capture: true });
+        wheelHandler = null;
+      }
+    }
+    
+    // Monitor GeoGebra applet focus/interaction to control scroll lock
+    function bindScrollLock() {
+      const ggbContainer = document.getElementById('ggb-cas-a3895191');
+      if (!ggbContainer) {
+        setTimeout(bindScrollLock, 300);
+        return;
+      }
+      
+      // Look for the actual GeoGebra canvas/applet elements
+      const ggbApplet = ggbContainer.querySelector('canvas') || 
+                       ggbContainer.querySelector('.ggbApplet') ||
+                       ggbContainer.querySelector('[id^="ggbApplet"]') ||
+                       ggbContainer;
+      
+      if (ggbApplet) {
+        // Lock scroll when interacting with GeoGebra
+        ggbApplet.addEventListener('mousedown', lockScroll);
+        ggbApplet.addEventListener('focus', lockScroll);
+        ggbApplet.addEventListener('click', lockScroll);
+        
+        // Also monitor the container for any focus events
+        ggbContainer.addEventListener('focusin', lockScroll);
+        ggbContainer.addEventListener('mousedown', lockScroll);
+        
+        // Unlock when clicking outside or losing focus
+        document.addEventListener('click', (e) => {
+          if (!ggbContainer.contains(e.target) && !e.target.closest('.ui-dialog')) {
+            unlockScroll();
+          }
+        });
+        
+        ggbContainer.addEventListener('focusout', (e) => {
+          // Small delay to check if focus moved outside the container
+          setTimeout(() => {
+            if (!ggbContainer.contains(document.activeElement)) {
+              unlockScroll();
+            }
+          }, 100);
+        });
+      }
+    }
+    
+    // Start monitoring after GeoGebra is loaded
+    setTimeout(bindScrollLock, 1000);
+    
+    // Cleanup on dialog close
+    $dlg.on('dialogclose', unlockScroll);
+
+    $("#button-ggb-cas-a3895191").button()
+      .on("click touchend pointerup", e => {
+        e.preventDefault();
+        $("#dialog-ggb-cas-a3895191").dialog("open");
+      });
+  });
+})();
+</script>
+</div>
+        <p>I gif-en nedenfor viser vi hvordan vi kan bruke skalarproduktet til å regne ut vinkelen mellom to vektorer gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = [3, 4] \qog \vec{b} = [1, 5]
+\]</div>
+<p>Da bruker vi den geometriske formelen for skalarproduktet og løser den for vinkelen.</p>
+<p>Bruk CAS-vinduet til å bestemme vinkelen mellom vektorene som vist nedenfor.</p>
+<figure class="align-default">
+<a class="no-click adaptive-figure reference internal image-reference" href="../../../_images/skalarproduktet_vinkel.webp"><img alt="../../../_images/skalarproduktet_vinkel.webp" class="no-click adaptive-figure" src="../../../_images/skalarproduktet_vinkel.webp" style="width: 60%;" />
+</a>
+</figure>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 7</p>
+
+<div class="sidebar-cas">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<button id="button-ggb-cas-6230e4b1" class="ggb-cas-button">Åpne CAS‑vindu</button>
+<div id="dialog-ggb-cas-6230e4b1" title="CAS‑vindu" style="display:none;">
+    <div id="ggb-cas-6230e4b1" class="ggb-window"></div>
+</div>
+
+<style>
+.ui-resizable-handle { min-width:16px;min-height:16px; }
+.ui-dialog-content{padding:0!important;}
+.ggb-window       {width:100%!important;height:100%!important;box-sizing:border-box;}
+.ggb-cas-button   {margin-top: 1em; margin-bottom: 1em;}
+/* Ensure CAS dialog appears above jeopardy modal (which has z-index: 9999) */
+.ui-dialog {
+  z-index: 10000 !important;
+}
+.ui-widget-overlay {
+  z-index: 9999 !important;
+}
+.ggb-reset-btn {
+  position: absolute;
+  right: 2.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2em;
+  height: 2em;
+  padding: 0.25em;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.2s, opacity 0.2s;
+  opacity: 0.7;
+}
+.ggb-reset-btn:hover {
+  opacity: 1;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+[data-theme="dark"] .ggb-reset-btn:hover,
+html[data-theme="dark"] .ggb-reset-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.ggb-reset-btn svg {
+  color: inherit;
+}
+</style>
+
+<script>
+(function() {
+  $(function() {
+    let ggbReady = false;
+    const storageKey = 'ggb-cas-state-ggb-cas-6230e4b1';
+
+    function applySize() {
+      if (!ggbReady) return;
+      const w = $("#ggb-cas-6230e4b1").width(),
+            h = $("#ggb-cas-6230e4b1").height();
+      window.ggbApplet.setSize(Math.round(w), Math.round(h));
+    }
+
+    function saveState() {
+      if (!ggbReady || !window.ggbApplet) return;
+      try {
+        const state = window.ggbApplet.getBase64();
+        localStorage.setItem(storageKey, state);
+        // Update timestamp for this state
+        localStorage.setItem(storageKey + '-timestamp', Date.now().toString());
+      } catch (e) {
+        // If quota exceeded, try cleaning up old states and retry
+        if (e.name === 'QuotaExceededError') {
+          cleanupOldStates();
+          try {
+            const state = window.ggbApplet.getBase64();
+            localStorage.setItem(storageKey, state);
+            localStorage.setItem(storageKey + '-timestamp', Date.now().toString());
+          } catch (retryError) {
+            // Still failed after cleanup - silently give up
+          }
+        }
+      }
+    }
+
+    function cleanupOldStates() {
+      try {
+        // Find all GeoGebra CAS states with timestamps
+        const casStates = [];
+        for (let i = 0; i < localStorage.length; i++) {
+          const key = localStorage.key(i);
+          if (key && key.startsWith('ggb-cas-state-') && key.endsWith('-timestamp')) {
+            const stateKey = key.replace('-timestamp', '');
+            const timestamp = parseInt(localStorage.getItem(key) || '0', 10);
+            casStates.push({ key: stateKey, timestamp: timestamp });
+          }
+        }
+        
+        // Sort by timestamp (oldest first)
+        casStates.sort((a, b) => a.timestamp - b.timestamp);
+        
+        // Delete oldest 25% of states (minimum 1, maximum 10)
+        const numToDelete = Math.max(1, Math.min(10, Math.floor(casStates.length * 0.25)));
+        for (let i = 0; i < numToDelete && i < casStates.length; i++) {
+          localStorage.removeItem(casStates[i].key);
+          localStorage.removeItem(casStates[i].key + '-timestamp');
+        }
+      } catch (e) {
+        // Cleanup failed - silently continue
+      }
+    }
+
+    function restoreState() {
+      if (!ggbReady || !window.ggbApplet) return;
+      try {
+        const savedState = localStorage.getItem(storageKey);
+        if (savedState) {
+          window.ggbApplet.setBase64(savedState);
+          // Re-apply custom toolbar after restoring state to prevent it from being overwritten
+          setTimeout(() => {
+            if (window.ggbApplet && window.ggbApplet.setCustomToolBar) {
+              window.ggbApplet.setCustomToolBar("1001 | 1002 | 1007 | 1010 | 6");
+            }
+          }, 50);
+        }
+      } catch (e) {
+        // Silently fail if restore fails
+      }
+    }
+
+    const $dlg = $("#dialog-ggb-cas-6230e4b1").dialog({
+      autoOpen: false,
+      width: 390, height: 580,
+      resizable: true, draggable: true,
+      position: { my: "center", at: "center", of: window },
+      zIndex: 10000,
+      resize: () => window.requestAnimationFrame(applySize),
+      open: function() {
+        if (!ggbReady) {
+          new GGBApplet({
+            appName: "classic", id: "ggb-cas-6230e4b1",
+            width: 350, height: 500,
+            perspective: "C", language: "nb",
+            showToolBar: true, showAlgebraInput: false,
+            borderRadius: 8, enableRightClick: true, showKeyboardOnFocus: false,
+            customToolBar: "1001 | 1002 | 1007 | 1010 | 6",
+            appletOnLoad: () => { 
+              ggbReady = true; 
+              applySize();
+              // Restore state after a short delay to ensure GeoGebra is fully initialized
+              setTimeout(restoreState, 100);
+            }
+          }, true).inject("ggb-cas-6230e4b1");
+        } else {
+          applySize();
+        }
+      },
+      close: function() {
+        // Save state when dialog is closed
+        saveState();
+      }
+    });
+
+    // Add refresh button to title bar
+    const titleBar = $dlg.parent().find('.ui-dialog-titlebar');
+    const refreshBtn = $('<button type="button" class="ggb-reset-btn" title="Start på nytt (slett lagret innhold)"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.65 2.35C12.2 0.9 10.21 0 8 0 3.58 0 0.01 3.58 0.01 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L9 7h7V0l-2.35 2.35z" fill="currentColor"/></svg></button>');
+    refreshBtn.on('click', function() {
+      if (confirm('Er du sikker på at du vil slette lagret innhold og starte på nytt?')) {
+        try {
+          localStorage.removeItem(storageKey);
+          localStorage.removeItem(storageKey + '-timestamp');
+          if (ggbReady && window.ggbApplet) {
+            // Clear the container
+            $("#ggb-cas-6230e4b1").empty();
+            // Reset the flag
+            ggbReady = false;
+            // Recreate the applet from scratch
+            new GGBApplet({
+              appName: "classic", id: "ggb-cas-6230e4b1",
+              width: 350, height: 500,
+              perspective: "C", language: "nb",
+              showToolBar: true, showAlgebraInput: false,
+              borderRadius: 8, enableRightClick: true, showKeyboardOnFocus: false,
+              customToolBar: "1001 | 1002 | 1007 | 1010 | 6",
+              appletOnLoad: () => { 
+                ggbReady = true; 
+                applySize();
+              }
+            }, true).inject("ggb-cas-6230e4b1");
+          }
+        } catch (e) {
+          console.error('Failed to reset:', e);
+        }
+      }
+    });
+    titleBar.append(refreshBtn);
+
+    // Save state when page is unloaded (refresh, navigate away, close tab)
+    $(window).on('beforeunload', function() {
+      if ($dlg.dialog('isOpen')) {
+        saveState();
+      }
+    });
+
+    // Prevent background scroll when GeoGebra applet is active
+    let scrollLocked = false;
+    let lockedScrollTop = 0;
+    let keyHandler = null;
+    let wheelHandler = null;
+    let scrollHandler = null;
+    
+    function lockScroll() {
+      if (scrollLocked) return;
+      scrollLocked = true;
+      lockedScrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+      
+      // Instead of preventing keys, monitor and restore scroll position
+      scrollHandler = () => {
+        if (scrollLocked) {
+          const currentScroll = window.pageYOffset || document.documentElement.scrollTop || 0;
+          if (currentScroll !== lockedScrollTop) {
+            window.scrollTo(0, lockedScrollTop);
+          }
+        }
+      };
+      
+      // Prevent wheel scrolling on the page background
+      wheelHandler = (e) => {
+        const dialogElement = e.target.closest('.ui-dialog');
+        if (dialogElement) {
+          // Allow scrolling within dialog elements that can scroll
+          let target = e.target;
+          while (target && target !== dialogElement) {
+            const overflow = window.getComputedStyle(target).overflow;
+            if (overflow === 'auto' || overflow === 'scroll') {
+              return; // Allow internal scrolling
+            }
+            target = target.parentElement;
+          }
+          // Prevent page scroll but don't stop the event from reaching GeoGebra
+          if (!e.target.closest('#ggb-cas-6230e4b1')) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }
+      };
+      
+      // Monitor scroll events to maintain position
+      window.addEventListener('scroll', scrollHandler, { passive: true });
+      document.addEventListener('wheel', wheelHandler, { capture: true, passive: false });
+    }
+    
+    function unlockScroll() {
+      if (!scrollLocked) return;
+      scrollLocked = false;
+      
+      if (scrollHandler) {
+        window.removeEventListener('scroll', scrollHandler);
+        scrollHandler = null;
+      }
+      if (wheelHandler) {
+        document.removeEventListener('wheel', wheelHandler, { capture: true });
+        wheelHandler = null;
+      }
+    }
+    
+    // Monitor GeoGebra applet focus/interaction to control scroll lock
+    function bindScrollLock() {
+      const ggbContainer = document.getElementById('ggb-cas-6230e4b1');
+      if (!ggbContainer) {
+        setTimeout(bindScrollLock, 300);
+        return;
+      }
+      
+      // Look for the actual GeoGebra canvas/applet elements
+      const ggbApplet = ggbContainer.querySelector('canvas') || 
+                       ggbContainer.querySelector('.ggbApplet') ||
+                       ggbContainer.querySelector('[id^="ggbApplet"]') ||
+                       ggbContainer;
+      
+      if (ggbApplet) {
+        // Lock scroll when interacting with GeoGebra
+        ggbApplet.addEventListener('mousedown', lockScroll);
+        ggbApplet.addEventListener('focus', lockScroll);
+        ggbApplet.addEventListener('click', lockScroll);
+        
+        // Also monitor the container for any focus events
+        ggbContainer.addEventListener('focusin', lockScroll);
+        ggbContainer.addEventListener('mousedown', lockScroll);
+        
+        // Unlock when clicking outside or losing focus
+        document.addEventListener('click', (e) => {
+          if (!ggbContainer.contains(e.target) && !e.target.closest('.ui-dialog')) {
+            unlockScroll();
+          }
+        });
+        
+        ggbContainer.addEventListener('focusout', (e) => {
+          // Small delay to check if focus moved outside the container
+          setTimeout(() => {
+            if (!ggbContainer.contains(document.activeElement)) {
+              unlockScroll();
+            }
+          }, 100);
+        });
+      }
+    }
+    
+    // Start monitoring after GeoGebra is loaded
+    setTimeout(bindScrollLock, 1000);
+    
+    // Cleanup on dialog close
+    $dlg.on('dialogclose', unlockScroll);
+
+    $("#button-ggb-cas-6230e4b1").button()
+      .on("click touchend pointerup", e => {
+        e.preventDefault();
+        $("#dialog-ggb-cas-6230e4b1").dialog("open");
+      });
+  });
+})();
+</script>
+</div>
+        <p>To vektorer er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+\vec{a} = [-2, 1] \qog \vec{b} = [4, 3]
+\]</div>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+a</label><div class="sd-tab-content docutils">
+<p>Bestem <span class="math notranslate nohighlight">\(\dot{a}{b}\)</span> med CAS.</p>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+b</label><div class="sd-tab-content docutils">
+<p>Bestem vinkelen mellom vektorene med CAS.</p>
+</div>
+</div>
+</div>
+</section>
+<div class="toctree-wrapper compound">
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/vektorregning/skalarproduktet"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../vektorer_i_koordinatsystem/oppgaver.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Oppgaver: Vektorer i koordinatsystemet</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="oppgaver.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Oppgaver: Skalarproduktet</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Innhold
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#definisjon">Definisjon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sammenheng-mellom-skalarprodukt-og-lengde">Sammenheng mellom skalarprodukt og lengde</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrisk-formel-for-skalarproduktet">Geometrisk formel for skalarproduktet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generelle-regneregler-for-skalarproduktet">Generelle regneregler for skalarproduktet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vinkler-mellom-vektorer">Vinkler mellom vektorer</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ortogonale-vektorer">Ortogonale vektorer</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#skalarproduktet-med-digitale-verktoy">Skalarproduktet med digitale verktøy</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Av René Ask, Edvard Munch Videregående Skole
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
