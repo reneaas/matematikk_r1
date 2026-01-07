@@ -1121,20 +1121,51 @@ layout: sidebar
 :::
 
 
-
 En funksjon $h$ er gitt ved
 
 $$
-h(x) = (\log_2 x)^2 - \log_2 x + 1 \qder D_h = \langle a, \to\rangle.
+h(x) = x^3 e^{-x^2 + 1} \qder D_h = [a, b].
 $$
 
-1. Bestem det minste tallet $a$ slik at $h$ har en omvendt funksjon.
+Bestem $a$ og $b$ slik at 
+
+* $h^{-1}$ eksisterer
+* $D_{h^{-1}}$ blir så stor som mulig.
+
+
+::::{answer}
+$$
+a = -\dfrac{\sqrt{6}}{2} \and b = \dfrac{\sqrt{6}}{2}
+$$
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+
+:::{cas-popup}
+---
+layout: sidebar
+---
+:::
+
+
+
+En funksjon $k$ er gitt ved
+
+$$
+k(x) = (\log_2 x)^2 - \log_2 x + 1 \qder D_k = \langle a, \to\rangle.
+$$
+
+1. Bestem det minste tallet $a$ slik at $k$ har en omvendt funksjon.
 2. Bestem definisjonsmengden til den omvendte funksjonen for dette tallet $a$.
 
 
 ::::{answer}
 1. $a = \sqrt{2}$.
-2. $D_{h^{-1}} = \left[\dfrac{3}{4}, \to\right\rangle$
+2. $D_{k^{-1}} = \left[\dfrac{3}{4}, \to\right\rangle$
 ::::
 
 
@@ -1151,18 +1182,20 @@ $$
 ---
 
 
-
 :::::::::::::::{exercise} Oppgave 10
-Nedenfor vises tre funksjoner $f$, $g$ og $h$.
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Grafen til en funksjon andregradsfunksjon $f$ er vist i figuren nedenfor.
 
-::::{multi-plot2}
----
-rows: 1
-cols: 3
-fontsize: 30
----
+
+Bestem $f^{-1}(x)$.
+
+
 :::{plot}
-width: 100%
+width: 70%
 function: x**2 + 3, [0, 2), f, blue
 function-endpoints: true
 xmin: -1
@@ -1171,9 +1204,27 @@ ymin: -1
 ymax: 9
 :::
 
+::::{answer}
+$$
+f^{-1}(x) = \sqrt{x - 3} \qder D_{f^{-1}} = [3, 7\rangle.
+$$
+::::
+
+
+
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} b
+Grafen til en delt funksjon $g$ er vist i figuren nedenfor.
+
+Bestem $g^{-1}(x)$.
+
 
 :::{plot}
-width: 100%
+width: 70%
 function: 1 * (x + 2) - 3, (-2, 1), g, blue
 function: -2 * (x - 1) + 2, [1, 2], blue
 function-endpoints: true
@@ -1184,56 +1235,7 @@ ymax: 3
 :::
 
 
-:::{plot}
-width: 100%
-function: x**3 - 2 * x + 5, [-2, 2), h, blue
-function-endpoints: true
-xmin: -3
-xmax: 3
-ymin: -1
-ymax: 10
-:::
-
-::::
-
-::::::::::::::{tab-set}
----
-class: tabs-parts
----
-:::::::::::::{tab-item} a
-Avgjør hvilke av funksjonene som har en omvendt funksjon.
-
-
 ::::{answer}
-$f$ og $g$ har omvendte funksjoner.
-::::
-
-
-:::::::::::::
-
-
-:::::::::::::{tab-item} b
-
-
-:::{cas-popup}
----
-layout: sidebar
----
-:::
-
-
-
-Bestem et mulig funksjonsuttrykk og definisjonsmengden til de omvendte funksjonene dersom de eksisterer.
-
-
-:::{clear}
-:::
-
-::::{answer}
-$$
-f^{-1}(x) = \sqrt{x - 3} \qder D_{f^{-1}} = [3, 7\rangle.
-$$
-
 $$
 g^{-1}(x) = \begin{cases}
     x + 1, & -3 < x < 0 \\
@@ -1244,14 +1246,10 @@ $$
 ::::
 
 
-
 :::::::::::::
 
 
 ::::::::::::::
-
-
-
 :::::::::::::::
 
 
