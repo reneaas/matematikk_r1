@@ -987,7 +987,7 @@ Avgjør om $g$ har en omvendt funksjon. Hvis ja, bestem definisjonsmengden til d
 
 ::::{answer}
 1. $g$ har en omvendt funksjon.
-2. $D_g = \langle 0, 1]$.
+2. $D_{g^{-1}} = \langle 0, 1]$.
 ::::
 
 
@@ -1165,7 +1165,7 @@ $$
 
 ::::{answer}
 1. $a = \sqrt{2}$.
-2. $D_{k^{-1}} = \left[\dfrac{3}{4}, \to\right\rangle$
+2. $D_{k^{-1}} = \left\langle\dfrac{3}{4}, \to\right\rangle$
 ::::
 
 
@@ -1250,6 +1250,79 @@ $$
 
 
 ::::::::::::::
+:::::::::::::::
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 11
+I figuren nedenfor vises fire grafer, der to og to av grafene er omvendte funksjoner.
+
+Avgjør hvilke som hører sammen.
+
+
+::::{multi-plot2}
+---
+rows: 3
+cols: 2
+fontsize: 30
+xmin: -6
+xmax: 6
+ymin: -6
+ymax: 6
+---
+:::{plot}
+width: 100%
+function: log(x + 3) / log(2) - 2, A, [-2, 5), blue
+function-endpoints: true 
+:::
+
+
+:::{plot}
+width: 100%
+function: -2 * sqrt(x + 4) + 3, [-4, 5), B, blue
+function-endpoints: true
+:::
+
+
+:::{plot}
+width: 100%
+function: 1/4 * (x - 3)**2 - 4, (-3, 3], C, blue
+function-endpoints: true 
+:::
+
+
+:::{plot}
+width: 100%
+function: -1/2 * (x - 1)**3 + 1, [-1, 3), D, blue
+function-endpoints: true
+:::
+
+:::{plot}
+width: 100%
+function: cbrt(2*abs(1 - x)) * sign(1 - x) + 1, (-3, 5], E, blue
+function-endpoints: true
+nocache:
+:::
+
+
+:::{plot}
+width: 100%
+function: 2**(x + 2) - 3, [-2, 1), F, blue
+function-endpoints: true 
+:::
+
+::::
+
+
+::::{answer}
+* $A$ og $F$ er omvendte funksjoner.
+* $B$ og $C$ er omvendte funksjoner.
+* $D$ og $E$ er omvendte funksjoner. 
+::::
+
+
 :::::::::::::::
 
 
