@@ -1303,7 +1303,6 @@ function-endpoints: true
 width: 100%
 function: cbrt(2*abs(1 - x)) * sign(1 - x) + 1, (-3, 5], E, blue
 function-endpoints: true
-nocache:
 :::
 
 
