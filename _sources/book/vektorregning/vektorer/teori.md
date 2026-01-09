@@ -1158,7 +1158,7 @@ vector: (3, 0), (4, 2), red
 text: 0.5 * (3 + 4), 0.5 * (0 + 2), "$\vec{u}$", bottom-right
 :::
 
-Hvor stoppe der? Vi kan vel av fri vilje velge å følge $\vec{u}$ etterfulgt av $-\vec{v}$ to ganger for deretter å følge $\vec{u}$ én siste gang siden:
+Hvorfor stoppe der? Vi kan vel av fri vilje velge å følge $\vec{u}$ etterfulgt av $-\vec{v}$ to ganger for deretter å følge $\vec{u}$ én siste gang siden:
 
 
 $$
