@@ -268,7 +268,7 @@ $$
 T = \dfrac{1}{2} \cdot \len{a} \cdot \abs{\vec{b}_\perp} \cdot \sin \varphi
 $$
 
-må dette betyr at 
+må dette bety at 
 
 $$
 T = \dfrac{1}{2} \cdot \vec{a} \cdot \vec{b}_\perp
