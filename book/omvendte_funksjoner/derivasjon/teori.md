@@ -400,6 +400,58 @@ Dersom vi ønsker å bruke $f^{-1}$ i formelen, så kan vi skrive den slik:
 $$
 \left(f^{-1}\right)'(y) = \frac{1}{f'(x)}
 $$
+
+
+For et punkt $(a, b)$ på grafen til $f$ vil en tangent til grafen til $f$ i punktet $(a, b)$ ha stigningstall $f'(a)$. Den tilsvarende tangenten til grafen til $f^{-1}$ i punktet $(b, a)$ vil da ha stigningstall $\dfrac{1}{f'(a)}$. 
+
+Se figuren nedenfor.
+
+::::{multi-plot2}
+---
+rows: 1
+cols: 2
+xmin: -1
+xmax: 5
+ymin: -1
+ymax: 5
+fontsize: 25
+---
+:::{plot}
+function: x**2, f, (0, 2), blue
+function-endpoints: true
+ticks: off
+tangent: sqrt(2), f, dashed, red
+point: (sqrt(2), f(sqrt(2)))
+text: sqrt(2), f(sqrt(2)), "$(a, b)$", bottom-right
+xmin: -1
+xmax: 5
+ymin: -1
+ymax: 5
+nocache:
+annotate: (2.5, 1), (2, 3.66), "Stigningstall: $f'(a)$"
+:::
+
+:::{plot}
+function: sqrt(x), g, (0, 4), blue 
+function-endpoints: true
+ticks: off
+tangent: 2, g, dashed, red
+point: (2, g(2))
+text: 2, g(2), "$(b, a)$", top-left
+xmin: -1
+xmax: 5
+ymin: -1
+ymax: 5
+annotate: (2, 4), (3.66, 2), "Stigningstall: $\\displaystyle \\frac{1}{f'(a)}$"
+nocache:
+:::
+
+
+
+::::
+
+
+
 :::::::::::::::
 
 

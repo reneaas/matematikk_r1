@@ -452,6 +452,16 @@ text: 0.5 * (-3 + -1), 0.5 * (4 + 2), "$\vec{d}$", top-right
 I koordinatsystemet til høyre er to vektorer $\vec{c}$ og $\vec{d}$ tegnet inn.
 
 Avgjør om vektorene $\vec{c}$ og $\vec{d}$ er like.
+
+
+:::{clear}
+:::
+
+::::{answer}
+Vektorene er **ikke** like.
+::::
+
+
 :::::::::::::
 
 
@@ -475,6 +485,16 @@ I koordinatsystemet til høyre er tre vektorer $\vec{a}$, $\vec{b}$ og $\vec{c}$
 
 
 Avgjør om noen av vektorene er like.
+
+
+:::{clear}
+:::
+
+::::{answer}
+Vektorene $\vec{a}$ og $\vec{b}$ er like.
+::::
+
+
 :::::::::::::
 
 
@@ -501,6 +521,23 @@ $$
 $$
 
 Bestem $\abs{\vec{a}}$.
+
+
+
+::::{answer}
+$$
+\abs{\vec{a}} = \sqrt{29}
+$$
+::::
+
+
+::::{solution}
+$$
+\abs{\vec{a}} = \sqrt{2^2 + 5^2} = \sqrt{4 + 25} = \sqrt{29}
+$$
+::::
+
+
 :::::::::::::
 
 
@@ -512,6 +549,22 @@ $$
 $$
 
 Bestem $\abs{\vec{b}}$.
+
+
+::::{answer}
+$$
+\abs{\vec{b}} = \sqrt{10}
+$$
+::::
+
+
+::::{solution}
+$$
+\abs{\vec{b}} = \sqrt{(-3)^2 + 1^2} = \sqrt{9 + 1} = \sqrt{10}
+$$
+::::
+
+
 :::::::::::::
 
 
@@ -524,6 +577,20 @@ $$
 
 Bestem $\abs{\vec{c}}$.
 
+
+
+::::{answer}
+$$
+\abs{\vec{c}} = 4\sqrt{2}
+$$
+::::
+
+::::{solution}
+$$
+\abs{\vec{c}} = \sqrt{4^2 + (-4)^2} = \sqrt{16 + 16} = \sqrt{2\cdot 16} = 4\sqrt{2}
+$$
+::::
+
 :::::::::::::
 
 
@@ -535,6 +602,19 @@ $$
 $$
 
 Bestem $\abs{\vec{d}}$.
+
+
+::::{answer}
+$$
+\abs{\vec{d}} = 5\sqrt{2}
+$$
+::::
+
+::::{solution}
+$$
+\abs{\vec{d}} = \sqrt{(-1)^2 + (-7)^2} = \sqrt{1 + 49} = \sqrt{50} = 5\sqrt{2}
+$$
+::::
 
 :::::::::::::
 
@@ -568,6 +648,25 @@ ymin: -1
 I koordinatsystemet til høyre er en vektor $\vec{a}$ tegnet inn.
 
 Bestem $\abs{\vec{a}}$.
+
+
+:::{clear}
+:::
+
+::::{answer}
+$$
+\abs{\vec{a}} = \sqrt{17}
+$$
+::::
+
+
+::::{solution}
+$$
+\abs{\vec{a}} = \sqrt{(5-1)^2 + (3-2)^2} = \sqrt{4^2 + 1^2} = \sqrt{16 + 1} = \sqrt{17}
+$$
+::::
+
+
 :::::::::::::
 
 
@@ -585,6 +684,23 @@ ymin: -1
 I koordinatsystemet til høyre er en vektor $\vec{b}$ tegnet inn.
 
 Bestem $\abs{\vec{b}}$.
+
+
+:::{clear}
+:::
+
+::::{answer}
+$$
+\abs{\vec{b}} = \sqrt{13}
+$$
+::::
+
+
+::::{solution}
+$$
+\abs{\vec{b}} = \sqrt{(1-3)^2 + (1-4)^2} = \sqrt{(-2)^2 + (-3)^2} = \sqrt{4 + 9} = \sqrt{13}
+$$
+::::
 
 :::::::::::::
 
@@ -607,6 +723,23 @@ ymin: -1
 I koordinatsystemet til høyre er en vektor $\vec{c}$ tegnet inn.
 
 Bestem $\abs{\vec{c}}$.
+
+
+:::{clear}
+:::
+
+::::{answer}
+$$
+\abs{\vec{c}} = 4\sqrt{2}
+$$
+::::
+
+
+::::{solution}
+$$
+\abs{\vec{c}} = \sqrt{(2 - (-2))^2 + (5 - 1)^2} = \sqrt{4^2 + 4^2} = \sqrt{16 + 16} = \sqrt{2\cdot 16} = 4\sqrt{2}
+$$
+::::
 
 :::::::::::::
 
@@ -636,6 +769,19 @@ $$
 Bestem $\vec{a} + \vec{b}$. 
 
 
+::::{answer}
+$$
+\vec{a} + \vec{b} = [4, 3]
+$$
+::::
+
+
+::::{solution}
+$$
+\vec{a} + \vec{b} = [1 + 3, 2 + 1] = [4, 3]
+$$
+::::
+
 :::::::::::::
 
 
@@ -647,6 +793,20 @@ $$
 $$
 
 Bestem $\vec{c} + \vec{d}$.
+
+::::{answer}
+$$
+\vec{c} + \vec{d} = [-1, 1]
+$$
+::::
+
+
+::::{solution}
+$$
+\vec{c} + \vec{d} = [-2 + 1, 4 + (-3)] = [-1, 1]
+$$
+::::
+
 :::::::::::::
 
 
@@ -658,6 +818,21 @@ $$
 $$
 
 Bestem $\vec{p} + \vec{q}$.
+
+
+::::{answer}
+$$
+\vec{p} + \vec{q} = [4, 3]
+$$
+::::
+
+::::{solution}
+$$
+\vec{p} + \vec{q} = [0 + 4, 5 + (-2)] = [4, 3]
+$$
+::::
+
+
 :::::::::::::
 
 
@@ -669,6 +844,20 @@ $$
 $$
 
 Bestem $\vec{r} + \vec{s}$.
+
+::::{answer}
+$$
+\vec{r} + \vec{s} = [-1, 3]
+$$
+::::
+
+::::{solution}
+$$
+\vec{r} + \vec{s} = [-3 + 2, -1 + 4] = [-1, 3]
+$$
+::::
+
+
 :::::::::::::
 
 
@@ -692,6 +881,25 @@ $$
 $$
 
 Bestem $\vec{b} - \vec{a}$ og $\vec{a} - \vec{b}$.
+
+
+::::{answer}
+$$
+\vec{b} - \vec{a} = [-3, 1] \qog \vec{a} - \vec{b} = [3, -1]
+$$
+::::
+
+::::{solution}
+$$
+\vec{b} - \vec{a} = [2 - 5, 4 - 3] = [-3, 1]
+$$
+
+$$
+\vec{a} - \vec{b} = [5 - 2, 3 - 4] = [3, -1]
+$$
+::::
+
+
 :::::::::::::
 
 
@@ -703,6 +911,24 @@ $$
 $$
 
 Bestem $\vec{d} - \vec{c}$ og $\vec{c} - \vec{d}$.
+
+
+::::{answer}
+$$
+\vec{d} - \vec{c} = [3, -4] \qog \vec{c} - \vec{d} = [-3, 4]
+$$
+::::
+
+::::{solution}
+$$
+\vec{d} - \vec{c} = [4 - 1, 2 - 6] = [3, -4]
+$$
+
+$$
+\vec{c} - \vec{d} = [1 - 4, 6 - 2] = [-3, 4]
+$$
+::::
+
 :::::::::::::
 
 :::::::::::::{tab-item} c
@@ -714,6 +940,20 @@ $$
 
 Bestem $\vec{q} - \vec{p}$ og $\vec{p} - \vec{q}$.
 
+
+::::{answer}
+$$
+\vec{q} - \vec{p} = [-2, 2] \qog \vec{p} - \vec{q} = [2, -2]
+$$
+::::
+
+
+::::{solution}
+$$
+\vec{q} - \vec{p} = [1 - 3, 7 - 5] = [-2, 2]
+$$
+::::
+
 :::::::::::::
 
 :::::::::::::{tab-item} d
@@ -724,6 +964,25 @@ $$
 $$
 
 Bestem $\vec{s} - \vec{r}$ og $\vec{r} - \vec{s}$.
+
+::::{answer}
+$$
+\vec{s} - \vec{r} = [5, -3] \qog \vec{r} - \vec{s} = [-5, 3]
+$$
+::::
+
+
+::::{solution}
+$$
+\vec{s} - \vec{r} = [5 - 0, 1 - 4] = [5, -3]
+$$
+
+$$
+\vec{r} - \vec{s} = [0 - 5, 4 - 1] = [-5, 3]
+$$
+::::
+
+
 :::::::::::::
 
 ::::::::::::::
@@ -734,7 +993,7 @@ Bestem $\vec{s} - \vec{r}$ og $\vec{r} - \vec{s}$.
 
 
 :::::::::::::::{exercise} Oppgave 8
-En vektor $\vec{a}$ har lengden  $|\vec{a}| = 5$. 
+En vektor $\vec{a}$ har lengden $\abs{\vec{a}} = 5$. 
 
 
 ::::::::::::::{tab-set}
@@ -749,6 +1008,20 @@ $$
 $$
 
 Bestem $\abs{\vec{b}}$.
+
+::::{answer}
+$$
+\abs{\vec{b}} = 10
+$$
+::::
+
+::::{solution}
+$$
+\abs{\vec{b}} = \abs{2 \vec{a}} = 2 \abs{\vec{a}} = 2 \cdot 5 = 10
+$$
+::::
+
+
 :::::::::::::
 
 
@@ -760,6 +1033,19 @@ $$
 $$
 
 Bestem $\abs{\vec{c}}$.
+
+::::{answer}
+$$
+\abs{\vec{c}} = 15
+$$
+::::
+
+
+::::{solution}
+$$
+\abs{\vec{c}} = \abs{-3 \vec{a}} = \abs{-3} \abs{\vec{a}} = 3 \cdot 5 = 15
+$$
+::::
 :::::::::::::
 
 
@@ -771,6 +1057,28 @@ $$
 $$
 
 Bestem $\abs{\vec{d}}$.
+
+::::{answer}
+$$
+\abs{\vec{d}} = 5
+$$
+::::
+
+
+::::{solution}
+Vektoren $\vec{d}$ er gitt ved:
+
+$$
+\vec{d} = \vec{b} + \vec{c} = 2\vec{a} + (-3\vec{a}) = -\vec{a}
+$$
+
+Da blir lengden av vektoren $\vec{d}$:
+
+$$
+\abs{\vec{d}} = \abs{-\vec{a}} = \abs{-1} \abs{\vec{a}} = 1 \cdot 5 = 5
+$$
+::::
+
 
 
 :::::::::::::
@@ -786,6 +1094,166 @@ Bestem $\abs{\vec{d}}$.
 
 
 :::::::::::::::{exercise} Oppgave 9
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+En vektor $\vec{a}$ er gitt ved 
+
+$$
+\vec{a} = [1, 2]
+$$
+
+En annen vektor $\vec{b}$ er gitt ved
+
+$$
+\vec{b} = 3\vec{a}
+$$
+
+Bestem vektorkoordinatene til $\vec{b}$.
+
+
+::::{answer}
+$$
+\vec{b} = [3, 6]
+$$
+::::
+
+::::{solution}
+$$
+\vec{b} = 3 \vec{a} = 3 \cdot [1, 2] = [3 \cdot 1, 3 \cdot 2] = [3, 6]
+$$
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+En vektor $\vec{c}$ er gitt ved
+
+$$
+\vec{c} = [-2, 4]
+$$
+
+En annen vektor $\vec{d}$ er gitt ved
+
+$$
+\vec{d} = -2\vec{c}
+$$
+
+Bestem vektorkoordinatene til $\vec{d}$.
+
+
+::::{answer}
+$$
+\vec{d} = [4, -8]
+$$
+::::
+
+
+::::{solution}
+$$
+\vec{d} = -2 \vec{c} = -2 \cdot [-2, 4] = [(-2) \cdot (-2), (-2) \cdot 4] = [4, -8]
+$$
+::::
+
+:::::::::::::
+
+:::::::::::::{tab-item} c
+To vektorer $\vec{p}$ og $\vec{q}$ er gitt ved
+
+$$
+\vec{p} = [3, -1] \qog \vec{q} = [9, -3]
+$$
+
+En annen vektor $\vec{r}$ er gitt ved 
+
+$$
+\vec{r} = 2\vec{p} - 3\vec{q}
+$$
+
+Bestem vektorkoordinatene til $\vec{r}$.
+
+::::{answer}
+$$
+\vec{r} = [-21, 7]
+$$
+::::
+
+
+::::{solution}
+$$
+\begin{align*}
+\vec{r} &= 2 \vec{p} - 3 \vec{q} \\
+\\
+&= 2 \cdot [3, -1] - 3 \cdot [9, -3] \\
+\\
+& = [6, -2] + [-27, 9] \\
+\\
+&= [6 - 27, -2 + 9] \\
+\\
+&= [-21, 7]
+\end{align*}
+$$
+::::
+
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+To vektorer $\vec{u}$ og $\vec{v}$ er gitt ved
+
+$$
+\vec{u} = [4, 2] \qog \vec{v} = [8, 4]
+$$
+
+En annen vektor $\vec{w}$ er gitt ved
+
+$$
+\vec{w} = -\dfrac{1}{2}\vec{u} + 3\vec{v}
+$$
+
+Bestem vektorkoordinatene til $\vec{w}$.
+
+::::{answer}
+$$
+\vec{w} = [22, 10]
+$$
+::::
+
+
+::::{solution}
+$$
+\begin{align*}
+\vec{w} &= -\dfrac{1}{2} \vec{u} + 3 \vec{v} \\
+\\
+&= -\dfrac{1}{2} \cdot [4, 2] + 3 \cdot [8, 4] \\
+\\
+&= [-2, -1] + [24, 12] \\
+\\
+&= [-2 + 24, -1 + 12] \\
+\\
+&= [22, 11]
+\end{align*}
+$$
+::::
+
+:::::::::::::
+
+
+::::::::::::::
+
+:::::::::::::::
+
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 10
 ::::::::::::::{tab-set}
 ---
 class: tabs-parts
@@ -813,6 +1281,42 @@ I koordinatsystemet til høyre er to vektorer $\vec{a}$ og $\vec{b}$ tegnet inn.
 1. Avgjør om $\vec{a} \parallel \vec{b}$.
 2. Hvis ja, bestem $k$ slik at $\vec{b} = k \cdot \vec{a}$.
 
+
+:::{clear}
+:::
+
+::::{answer}
+1. Vektorene er parallelle.
+2. $k = 3$. 
+::::
+
+
+::::{solution}
+Vi har at 
+
+$$
+\vec{a} = [2 - 1, 2 - 1] = [1, 1] \qog \vec{b} = [4 - 1, 5 - 2] = [3, 3].
+$$
+
+Vi setter opp likningen
+
+$$
+[3, 3] = k \cdot [1, 1].
+$$
+
+Dette gir oss to likninger:
+
+$$
+3 = k \cdot 1 \and 3 = k \cdot 1.
+$$
+
+Begge likninger gir oss at $k = 3$, så dermed er vektorene parallelle og $k = 3$ for at 
+
+$$
+\vec{b} = k \cdot \vec{a}.
+$$
+::::
+
 :::::::::::::
 
 
@@ -836,6 +1340,44 @@ I koordinatsystemet til høyre er to vektorer $\vec{c}$ og $\vec{d}$ tegnet inn.
 
 1. Avgjør om $\vec{c} \parallel \vec{d}$.
 2. Hvis ja, bestem $k$ slik at $\vec{d} = k \cdot \vec{c}$.
+
+
+:::{clear}
+:::
+
+::::{answer}
+1. Vektorene er parallelle.
+2. $k = -1$.
+::::
+
+
+::::{solution}
+Vi har at
+
+$$
+\vec{c} = [3 - 1, 5 - 3] = [2, 2] \qog \vec{d} = [2 - 4, -3 - (-1)] = [-2, -2].
+$$
+
+Vi setter opp likningen
+
+$$
+[-2, -2] = k \cdot [2, 2].
+$$
+
+Dette gir oss to likninger:
+
+$$
+-2 = k \cdot 2 \and -2 = k \cdot 2.
+$$
+
+Begge likninger gir oss at $k = -1$, så dermed er vektorene parallelle og $k = -1$ for at
+
+$$
+\vec{d} = k \cdot \vec{c}.
+$$
+::::
+
+
 :::::::::::::
 
 
@@ -862,6 +1404,44 @@ I koordinatsystemet til høyre er to vektorer $\vec{p}$ og $\vec{q}$ tegnet inn.
 
 1. Avgjør om $\vec{p} \parallel \vec{q}$.
 2. Hvis ja, bestem $k$ slik at $\vec{q} = k \cdot \vec{p}$.
+
+
+:::{clear}
+:::
+
+::::{answer}
+Vektorene er ikke parallelle.
+::::
+
+::::{solution}
+Vi har at
+
+$$
+\vec{p} = [4 - (-1), 5 - 1] = [5, 4] \qog \vec{q} = [1 - 2, -4 - (-3)] = [-1, -1].
+$$
+
+Vi setter opp likningen
+
+$$
+[-1, -1] = k \cdot [5, 4].
+$$
+
+Dette gir oss to likninger:
+
+$$
+-1 = k \cdot 5 \and -1 = k \cdot 4.
+$$
+
+som gir oss at
+
+$$
+k = -\dfrac{1}{5} \qog k = -\dfrac{1}{4}.
+$$
+
+Her får vi to forskjellige verdier for $k$ som betyr at vektorene ikke er parallelle.
+::::
+
+
 :::::::::::::
 
 
@@ -885,6 +1465,41 @@ I koordinatsystemet til høyre er to vektorer $\vec{r}$ og $\vec{s}$ tegnet inn.
 
 1. Avgjør om $\vec{r} \parallel \vec{s}$.
 2. Hvis ja, bestem $k$ slik at $\vec{s} = k \cdot \vec{r}$.
+
+
+:::{clear}
+:::
+
+::::{answer}
+1. Vektorene er parallelle.
+2. $k = -\dfrac{1}{2}$.
+::::
+
+::::{solution}
+Vi har at
+
+$$
+\vec{r} = [(-1 + 2) - (-1), (0 + 4) - 0] = [2, 4] \qog \vec{s} = [(4 + -1) - 4, (4 + -2) - 4] = [-1, -2].
+$$
+
+Vi setter opp likningen
+
+$$
+[-1, -2] = k \cdot [2, 4].
+$$
+
+Dette gir oss to likninger:
+
+$$
+-1 = k \cdot 2 \and -2 = k \cdot 4.
+$$
+
+Begge likninger gir oss at $k = -\dfrac{1}{2}$, så dermed er vektorene parallelle og $k = -\dfrac{1}{2}$ for at
+
+$$
+\vec{s} = k \cdot \vec{r}.
+$$
+::::
 :::::::::::::
 
 
@@ -894,7 +1509,7 @@ I koordinatsystemet til høyre er to vektorer $\vec{r}$ og $\vec{s}$ tegnet inn.
 ---
 
 
-:::::::::::::::{exercise} Oppgave 10
+:::::::::::::::{exercise} Oppgave 11
 ::::::::::::::{tab-set}
 ---
 class: tabs-parts
@@ -908,6 +1523,37 @@ $$
 
 
 Avgjør om $\vec{a} \parallel \vec{b}$.
+
+
+::::{answer}
+Vektorene er parallelle.
+::::
+
+::::{solution}
+Vi setter opp likningen
+
+$$
+\vec{a} = k \cdot \vec{b} \liff [2, 3] = k \cdot [4, 6].
+$$
+
+Dette gir oss to likninger:
+
+$$
+2 = 4k \and 3 = 6k.
+$$
+
+$$
+\dfrac{2}{4} = k \and  \dfrac{3}{6} = k.
+$$
+
+$$
+\dfrac{1}{2} = k \and  \dfrac{1}{2} = k.
+$$
+
+Vi får samme verdi for $k$ fra begge likninger som betyr at vektorene er parallelle. Altså er $\vec{a} \parallel \vec{b}$.
+::::
+
+
 :::::::::::::
 
 :::::::::::::{tab-item} b
@@ -918,6 +1564,35 @@ $$
 $$
 
 Avgjør om $\vec{c} \parallel \vec{d}$. 
+
+
+::::{answer}
+Vektorene er parallelle.
+::::
+
+::::{solution}
+Vi setter opp likningen
+
+$$
+\vec{c} = k \cdot \vec{d} \liff [1, 5] = k \cdot [-2, -10].
+$$
+
+Dette gir oss to likninger:
+
+$$
+1 = -2k \and 5 = -10k.
+$$
+
+$$
+-\dfrac{1}{2} = k \and  -\dfrac{5}{10} = k.
+$$
+
+$$
+-\dfrac{1}{2} = k \and  -\dfrac{1}{2} = k.
+$$
+
+Vi får samme verdi for $k$ fra begge likninger som betyr at vektorene er parallelle. Altså er $\vec{c} \parallel \vec{d}$.
+::::
 :::::::::::::
 
 
@@ -930,6 +1605,27 @@ $$
 
 Bestem $k$ slik at $\vec{p} \parallel \vec{q}$.
 
+
+::::{answer}
+$$
+k = 4
+$$
+::::
+
+::::{solution}
+For at de to vektorene skal være parallelle, må forholdstallet mellom $x$-komponentene og $y$-komponentene til de to vektorene være like. Altså må vi ha at
+
+$$
+\dfrac{6}{3} = \dfrac{k}{2}.
+$$
+
+Da får vi at
+
+$$
+\dfrac{k}{2} = 2 \liff k = 4.
+$$
+::::
+
 :::::::::::::
 
 
@@ -941,98 +1637,24 @@ $$
 $$
 
 Bestem $k$ slik at $\vec{r} \parallel \vec{s}$.
+
+::::{answer}
+$$
+k = 2
+$$
+::::
+
+::::{solution}
+For at de to vektorene skal være parallelle, må forholdstallet mellom $x$-komponentene og $y$-komponentene til de to vektorene være like. Altså må vi ha at
+
+$$
+\dfrac{k}{3} = \dfrac{4}{6} \liff k = \dfrac{2}{3} \cdot 3 = 2.
+$$
+::::
 :::::::::::::
 
 
 ::::::::::::::
-:::::::::::::::
-
-
-
----
-
-
-
-:::::::::::::::{exercise} Oppgave 11
-::::::::::::::{tab-set}
----
-class: tabs-parts
----
-:::::::::::::{tab-item} a
-En vektor $\vec{a}$ er gitt ved 
-
-$$
-\vec{a} = [1, 2]
-$$
-
-En annen vektor $\vec{b}$ er gitt ved
-
-$$
-\vec{b} = 3\vec{a}
-$$
-
-Bestem vektorkoordinatene til $\vec{b}$.
-
-:::::::::::::
-
-
-:::::::::::::{tab-item} b
-En vektor $\vec{c}$ er gitt ved
-
-$$
-\vec{c} = [-2, 4]
-$$
-
-En annen vektor $\vec{d}$ er gitt ved
-
-$$
-\vec{d} = -2\vec{c}
-$$
-
-Bestem vektorkoordinatene til $\vec{d}$.
-
-:::::::::::::
-
-:::::::::::::{tab-item} c
-To vektorer $\vec{p}$ og $\vec{q}$ er gitt ved
-
-$$
-\vec{p} = [3, -1] \qog \vec{q} = [9, -3]
-$$
-
-En annen vektor $\vec{r}$ er gitt ved 
-
-$$
-\vec{r} = 2\vec{p} - 3\vec{q}
-$$
-
-Bestem vektorkoordinatene til $\vec{r}$.
-
-
-
-:::::::::::::
-
-
-:::::::::::::{tab-item} d
-To vektorer $\vec{u}$ og $\vec{v}$ er gitt ved
-
-$$
-\vec{u} = [4, 2] \qog \vec{v} = [8, 4]
-$$
-
-En annen vektor $\vec{w}$ er gitt ved
-
-$$
-\vec{w} = -\dfrac{1}{2}\vec{u} + 3\vec{v}
-$$
-
-Bestem vektorkoordinatene til $\vec{w}$.
-
-:::::::::::::
-
-
-::::::::::::::
-
 :::::::::::::::
 
 
@@ -1078,6 +1700,77 @@ $$
 ::::
 
 
+::::{solution}
+Vi setter opp likningen
+
+
+$$
+\vec{a} = s\vec{u} + t\vec{v} \liff [1, -2] = s \cdot [1, 2] + t \cdot [3, 2].
+$$
+
+Som vi kan skrive om til 
+
+$$
+[1, -2] = [s + 3t, 2s + 2t].
+$$
+
+Dette gir oss to likninger:
+
+$$
+1 = s + 3t \and -2 = 2s + 2t.
+$$
+
+Løser vi den første likningen for $s$ får vi at
+
+$$
+s = 1 - 3t.
+$$
+
+Setter vi dette inn i den andre likningen får vi at
+
+$$
+-2 = 2(1 - 3t) + 2t \liff -2 = 2 - 6t + 2t 
+$$
+
+som kan forenkles til
+
+$$
+-4 = -4t \liff t = 1.
+$$
+
+Setter vi dette tilbake i likningen for $s$ får vi at
+
+$$
+s = 1 - 3 \cdot 1 = -2.
+$$
+
+Altså er 
+
+$$
+s = -2 \and t = 1.
+$$
+
+I figuren nedenfor viser vi den grafiske sammenhengen mellom $\vec{a}$ og vektorene $\vec{u}$ og $\vec{v}$.
+
+:::{plot}
+width: 70%
+vector: (0, 0), (1, -2), blue
+text: 0.5 * (0 + 1), 0.5 * (0 + -2), "$\vec{a}$", top-right
+vector: (0, 0), -1, -2, red
+text: 0.5 * (0 + -1), 0.5 * (0 + -2), "$-\vec{u}$", top-left
+vector: (-1, -2), -1, -2, red
+text: 0.5 * (-1 + (-1 + -1)), 0.5 * (-2 + (-2 + -2)), "$-\vec{u}$", top-left
+vector: (-2, -4), 3, 2, purple
+text: 0.5 * (-2 + (-2 + 3)), 0.5 * (-4 + (-4 + 2)), "$\vec{v}$", top-left
+ymax: 2
+xmin: -3
+xmax: 2
+ymin: -5
+:::
+
+::::
+
+
 :::::::::::::
 
 
@@ -1104,6 +1797,76 @@ s = 1 \and t = 2
 $$
 ::::
 
+
+::::{solution}
+Vi setter opp likningen
+
+$$
+\vec{b} = s\vec{u} + t\vec{v} \liff [7, 6] = s \cdot [1, 2] + t \cdot [3, 2].
+$$
+
+Som vi kan skrive om til
+
+$$
+[7, 6] = [s + 3t, 2s + 2t].
+$$
+
+Dette gir oss to likninger:
+
+$$
+7 = s + 3t \and 6 = 2s + 2t.
+$$
+
+Løser vi den første likningen for $s$ får vi at
+
+$$
+s = 7 - 3t.
+$$
+
+Setter vi dette inn i den andre likningen får vi at
+
+$$
+6 = 2(7 - 3t) + 2t \liff 6 = 14 - 6t + 2t
+$$
+
+som kan forenkles til
+
+$$
+-8 = -4t \liff t = 2.
+$$
+
+Setter vi dette tilbake i likningen for $s$ får vi at
+
+$$
+s = 7 - 3 \cdot 2 = 1.
+$$
+
+Altså er
+
+$$
+s = 1 \and t = 2.
+$$
+
+Figuren nedenfor viser sammenhengen mellom $\vec{b}$ og vektorene $\vec{u}$ og $\vec{v}$.
+
+:::{plot}
+width: 70%
+vector: (0, 0), (7, 6), blue
+text: 0.5 * (0 + 7), 0.5 * (0 + 6), "$\vec{b}$", bottom-right
+vector: (0, 0), 1, 2, red
+text: 0.5 * (0 + 1), 0.5 * (0 + 2), "$\vec{u}$", top-left
+vector: (1, 2), 3, 2, purple
+text: 0.5 * (1 + (1 + 3)), 0.5 * (2 + (2 + 2)), "$\vec{v}$", top-left
+vector: (4, 4), 3, 2, purple
+text: 0.5 * (4 + (4 + 3)), 0.5 * (4 + (4 + 2)), "$\vec{v}$", top-left
+ymax: 8
+xmin: -1
+xmax: 8
+ymin: -1
+:::
+
+::::
+
 :::::::::::::
 
 
@@ -1127,6 +1890,70 @@ Lag en figur som viser sammenhengen mellom vektorene $\vec{u}$, $\vec{v}$ og $\v
 $$
 s = -2 \and t = 2
 $$
+::::
+
+
+::::{solution}
+Vi setter opp likningen
+
+$$
+\vec{c} = s\vec{u} + t\vec{v} \liff [4, 0] = s \cdot [1, 2] + t \cdot [3, 2].
+$$
+
+Som vi kan skrive om til
+
+$$
+[4, 0] = [s + 3t, 2s + 2t].
+$$
+
+Dette gir oss to likninger:
+
+$$
+4 = s + 3t \and 0 = 2s + 2t
+$$
+
+Den andre likningen gir at 
+
+$$
+2s + 2t = 0 \liff s + t = 0 \liff s = -t.
+$$
+
+Setter vi dette inn i den første likningen får vi at
+
+$$
+4 = -t + 3t \liff 4 = 2t \liff t = 2.
+$$
+
+Setter vi dette tilbake i likningen for $s$ får vi at
+
+$$
+s = -2.
+$$
+
+Altså er
+
+$$
+s = -2 \and t = 2.
+$$
+
+Figuren nedenfor viser sammenhengen mellom $\vec{c}$ og vektorene $\vec{u}$ og $\vec{v}$.
+
+:::{plot}
+width: 70%
+vector: (0, 0), (4, 0), blue
+text: 0.5 * (0 + 4), 0.5 * (0 + 0), "$\vec{c}$", top-center
+vector: (0, 0), -1, -2, red
+text: 0.5 * (0 + -1), 0.5 * (0 + -2), "$-\vec{u}$", top-left
+vector: (-1, -2), -1, -2, red
+text: 0.5 * (-1 + (-1 + -1)), 0.5 * (-2 + (-2 + -2)), "$-\vec{u}$", top-left
+vector: (-2, -4), 3, 2, purple
+text: 0.5 * (-2 + (-2 + 3)), 0.5 * (-4 + (-4 + 2)), "$\vec{v}$", top-left
+vector: (1, -2), 3, 2, purple
+text: 0.5 * (1 + (1 + 3)), 0.5 * (-2 + (-2 + 2)), "$\vec{v}$", bottom--right
+ymax: 2
+xmin: -3
+xmax: 5
+ymin: -5
 ::::
 
 
@@ -1158,81 +1985,86 @@ $$
 ::::
 
 
+::::{solution}
+Vi setter opp likningen
+
+$$
+\vec{d} = s\vec{u} + t\vec{v} \liff [0, 8] = s \cdot [1, 2] + t \cdot [3, 2].
+$$
+
+Som vi kan skrive om til
+
+$$
+[0, 8] = [s + 3t, 2s + 2t].
+$$
+
+Dette gir oss to likninger:
+
+$$
+0 = s + 3t \and 8 = 2s + 2t.
+$$
+
+Den første likningen gir oss at 
+
+$$
+s = -3t.
+$$
+
+Setter vi dette inn i den andre likningen får vi at
+
+$$
+8 = 2(-3t) + 2t \liff 8 = -6t + 2t
+$$
+
+som kan forenkles til
+
+$$
+8 = -4t \liff t = -2.
+$$
+
+Setter vi dette tilbake i likningen for $s$ får vi at
+
+$$
+s = -3 \cdot (-2) = 6.
+$$
+
+Altså er
+
+$$
+s = 6 \and t = -2.
+$$
+
+Figuren nedenfor viser sammenhengen mellom $\vec{d}$ og vektorene $\vec{u}$ og $\vec{v}$.
+
+:::{plot}
+width: 70%
+vector: (0, 0), (0, 8), blue
+text: 0.5 * (0 + 0), 0.5 * (0 + 8), "$\vec{d}$", center-right
+vector: (0, 0), 1, 2, red
+text: 0.5 * (0 + 1), 0.5 * (0 + 2), "$\vec{u}$", bottom-right
+vector: (1, 2), 1, 2, red
+text: 0.5 * (1 + (1 + 1)), 0.5 * (2 + (2 + 2)), "$\vec{u}$", bottom-right
+vector: (2, 4), 1, 2, red
+text: 0.5 * (2 + (2 + 1)), 0.5 * (4 + (4 + 2)), "$\vec{u}$", bottom-right
+vector: (3, 6), 1, 2, red
+text: 0.5 * (3 + (3 + 1)), 0.5 * (6 + (6 + 2)), "$\vec{u}$", bottom-right
+vector: (4, 8), 1, 2, red
+text: 0.5 * (4 + (4 + 1)), 0.5 * (8 + (8 + 2)), "$\vec{u}$", bottom-right
+vector: (5, 10), 1, 2, red
+text: 0.5 * (5 + (5 + 1)), 0.5 * (10 + (10 + 2)), "$\vec{u}$", bottom-right
+vector: (6, 12), -3, -2, purple
+text: 0.5 * (6 + (6 + -3)), 0.5 * (12 + (12 + -2)), "$-\vec{v}$", top-left
+vector: (3, 10), -3, -2, purple
+text: 0.5 * (3 + (3 + -3)), 0.5 * (10 + (10 + -2)), "$-\vec{v}$", top-left
+ymax: 14
+xmin: -1
+xmax: 7
+ymin: -2
+ystep: 2
+::::
+
+
 :::::::::::::
-
-
-::::::::::::::
-
-
-:::::::::::::::
-
-
----
-
-
-
-:::::::::::::::{exercise} Oppgave 13
-
-::::::::::::::{tab-set}
----
-class: tabs-parts
----
-:::::::::::::{tab-item} a
-:::{cas-popup}
----
-layout: sidebar
----
-:::
-
-En vektor $\vec{a}$ er gitt ved
-
-$$
-\vec{a} = [3, 4]
-$$
-
-Bruk CAS til å bestemme $\abs{\vec{a}}$.
-
-:::::::::::::
-
-
-:::::::::::::{tab-item} b
-
-:::{cas-popup}
----
-layout: sidebar
----
-:::
-
-
-En vektor $\vec{b}$ er gitt ved
-
-$$
-\vec{b} = [-5, 12]
-$$
-
-Bruk CAS til å bestemme $\abs{\vec{b}}$.
-
-:::::::::::::
-
-
-:::::::::::::{tab-item} c
-:::{cas-popup}
----
-layout: sidebar
----
-:::
-
-En vektor $\vec{c}$ er gitt ved
-
-$$
-\vec{c} = [8, -15]
-$$
-
-Bruk CAS til å bestemme $\abs{\vec{c}}$.
-
-
-:::::::::::::
-
 
 
 ::::::::::::::
