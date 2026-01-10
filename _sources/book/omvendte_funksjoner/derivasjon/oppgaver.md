@@ -1012,7 +1012,6 @@ grid: off
 function: -x**2 + (2 + 3) * x, (-10, 3), g, blue
 function: x**2 + (2 - 3) * x, [3, 10), h, red 
 function-endpoints: true
-nocache:
 
 Grafen til $f$ når $k > 2$.
 :::
@@ -1035,7 +1034,6 @@ grid: off
 function: -x**2 + (2 - 4) * x, (-10, -4), g, blue
 function: x**2 + (2 + 4) * x, [-4, 10), h, red 
 function-endpoints: true
-nocache:
 
 Grafen til $f$ når $k < -2$.
 :::
@@ -1063,7 +1061,6 @@ grid: off
 function: -x**2 + (2 + 1) * x, (-10, 1), g, blue
 function: x**2 + (2 - 1) * x, [1, 10), h, red 
 function-endpoints: true
-nocache:
 
 Grafen til $f$ når $-2 \leq k \leq 2$.
 :::
