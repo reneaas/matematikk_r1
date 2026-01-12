@@ -58,7 +58,7 @@ $$
 
 ::::{answer}
 1. $h$ har en omvendt funksjon.
-2. $D_{h^{-1}} = \langle -22, 5\rangle$.
+2. $D_{h^{-1}} = \langle -41, -14\rangle$.
 ::::
 
 :::::::::::::
