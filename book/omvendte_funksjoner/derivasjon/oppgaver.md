@@ -814,7 +814,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 9
+:::::::::::::::{exercise} Oppgave 8
 
 ::::::::::::::{tab-set}
 ---
@@ -918,6 +918,15 @@ $$
 
 
 :::::::::::::{tab-item} b
+
+:::{cas-popup}
+---
+layout: sidebar
+---
+:::
+
+
+
 Om en tredjegradsfunksjon $g$ får du vite at
 
 * Det største lukkede intervallet $g$ har en omvendt funksjon på er $I = [-1, 3]$.
