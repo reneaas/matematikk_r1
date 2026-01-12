@@ -1,4 +1,4 @@
-# Størst og minst verdi
+# Oppgaver: Optimering
 
 > Å løse oppgavene nedenfor uten hjelpemidler kan være veldig tidkrevende. Det er derfor lurt å løse dem ved å bruke CAS.
 
