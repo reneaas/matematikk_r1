@@ -1,0 +1,1 @@
+# Funksjoner med delt forskrift

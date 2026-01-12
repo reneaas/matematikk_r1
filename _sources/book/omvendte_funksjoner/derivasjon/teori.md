@@ -427,7 +427,6 @@ xmin: -1
 xmax: 5
 ymin: -1
 ymax: 5
-nocache:
 annotate: (2.5, 1), (2, 3.66), "Stigningstall: $f'(a)$"
 :::
 
@@ -443,7 +442,6 @@ xmax: 5
 ymin: -1
 ymax: 5
 annotate: (2, 4), (3.66, 2), "Stigningstall: $\\displaystyle \\frac{1}{f'(a)}$"
-nocache:
 :::
 
 

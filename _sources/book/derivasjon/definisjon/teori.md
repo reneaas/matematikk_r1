@@ -1,0 +1,1 @@
+# Definisjon av den deriverte

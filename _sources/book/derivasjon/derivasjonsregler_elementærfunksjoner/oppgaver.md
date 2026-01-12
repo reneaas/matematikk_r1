@@ -1,0 +1,1 @@
+# Oppgaver: Derivasjon av elementærfunksjoner
