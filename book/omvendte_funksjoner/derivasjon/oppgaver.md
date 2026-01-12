@@ -814,7 +814,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 8
+:::::::::::::::{exercise} Oppgave 9
 
 ::::::::::::::{tab-set}
 ---
@@ -879,12 +879,74 @@ $$
 :::::::::::::::
 
 
+
 ---
 
 
 
 
 :::::::::::::::{exercise} Oppgave 9
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+
+:::{cas-popup}
+---
+layout: sidebar
+---
+:::
+
+
+Om en andregradsfunksjon $f$ får du vite at
+
+* Den største definisjonsmengden som $f$ har en omvendt funksjon på er $D_f = [2, \to\rangle$.
+* Punktet $(3, -8)$ ligger på grafen til $f$.
+* $(f^{-1})'(-8) = \dfrac{1}{2}$
+
+Bestem $f(x)$.
+
+
+::::{answer}
+$$
+f(x) = x^2 - 4x - 5
+$$
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Om en tredjegradsfunksjon $g$ får du vite at
+
+* Det største lukkede intervallet $g$ har en omvendt funksjon på er $I = [-1, 3]$.
+* Punktet $(2, 5)$ ligger på grafen til $g$.
+* $(g^{-1})'(5) = \dfrac{1}{9}$
+
+Bestem $g(x)$.
+
+
+::::{answer}
+$$
+g(x) = -x^3 + 3x^2 + 9x - 17
+$$
+::::
+
+
+:::::::::::::
+
+
+::::::::::::::
+:::::::::::::::
+
+
+---
+
+
+
+
+:::::::::::::::{exercise} Oppgave 10
 
 :::{cas-popup}
 ---
@@ -950,7 +1012,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 10
+:::::::::::::::{exercise} Oppgave 11
 
 :::{cas-popup}
 ---
