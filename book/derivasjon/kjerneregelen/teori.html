@@ -124,6 +124,8 @@
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/physics"]}, "tex": {"packages": {"[+]": ["physics"]}, "macros": {"annotateAbove": ["\\mathrel{\\overset{\\substack{\\text{#2} \\\\ \\Bigg\\downarrow}}{#1}}", 2], "annotateBelow": ["\\mathrel{\\underset{\\substack{\\Bigg\\uparrow \\\\ \\text{#2}}}{#1}}", 2], "cline": ["\\underline{\\phantom{#1}}", 1], "and": ["\\quad \\land \\quad"], "or": ["\\quad \\lor \\quad"], "liff": ["\\quad \\iff \\quad"], "limplies": ["\\quad \\implies \\quad"], "limpliedby": ["\\quad \\impliedby \\quad"], "lland": ["\\; \\land \\;"], "degree": ["^\\circ"], "qog": ["\\quad \\text{og} \\quad"], "qder": ["\\quad \\text{der} \\quad"], "qeller": ["\\quad \\text{eller} \\quad"], "qhvis": ["\\quad \\text{hvis} \\quad"], "qfor": ["\\quad \\text{for} \\quad"], "natural": ["\\mathbb{N}"], "integer": ["\\mathbb{Z}"], "rational": ["\\mathbb{Q}"], "real": ["\\mathbb{R}"], "irrational": ["\\mathbb{Q}^c"], "qcomma": [",\\quad"], "nimplies": ["\\quad\\mathrel{\\not\\!\\!\\!\\implies}\\quad"], "nimpliedby": ["\\quad\\mathrel{\\not\\!\\!\\!\\impliedby}\\quad"], "niff": ["\\quad\\mathrel{\\not\\!\\!\\!\\iff}\\quad"], "cubica": ["\\raisebox{-0.4ex}{\\small\\(\\frown\\!\\smile\\)}", 0], "cubicb": ["\\raisebox{-0.4ex}{\\small\\(\\smile\\!\\frown\\)}", 0], "t": ["\\mathrm{#1}", 1], "dot": ["\\vec{#1} \\cdot \\vec{#2}", 2], "len": ["\\abs{\\vec{#1}}", 1], "lvec": ["\\overrightarrow{#1}", 1], "v": ["\\left[#1, #2\\right]", 2], "proj": ["\\mathrm{proj}_{#1}\\left(#2\\right)", 2], "mstack": ["\\begin{array}{c}#1\\end{array}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3.2/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/derivasjon/kjerneregelen/teori';</script>
     <script>mermaid.initialize({"startOnLoad": true})</script>
@@ -543,6 +545,244 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="kjerneregelen">
 <h1>Kjerneregelen<a class="headerlink" href="#kjerneregelen" title="Link to this heading">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Læringsmål</p>
+<ul class="simple">
+<li><p>Kunne bruke kjerneregelen til å derivere sammensatte funksjoner.</p></li>
+</ul>
+</div>
+<p>Kjerneregelen er en derivasjonsregel som lar oss derivere sammensatte funksjoner.</p>
+<div class="admonition summary">
+<p class="admonition-title">Kjerneregelen for derivasjon</p>
+<p>La en funksjon <span class="math notranslate nohighlight">\(f\)</span> være gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = g(u(x))
+\]</div>
+<p>Da er den deriverte av <span class="math notranslate nohighlight">\(f\)</span> gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = g'(u) \cdot u'(x)
+\]</div>
+</div>
+<hr class="docutils" />
+<p>Vi tar et eksempel:</p>
+<div class="admonition example">
+<p class="admonition-title">Eksempel 1</p>
+<p>En funksjon <span class="math notranslate nohighlight">\(f\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \sqrt{x^2 + 1}
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(f'(x)\)</span>.</p>
+<div class="admonition solution">
+<p class="admonition-title">Løsning</p>
+<p>Her har vi at <span class="math notranslate nohighlight">\(f(x) = g(u(x))\)</span> med</p>
+<div class="math notranslate nohighlight">
+\[
+g(u) = \sqrt{u} \quad \text{og} \quad u(x) = x^2 + 1
+\]</div>
+<p>Vi deriverer først <span class="math notranslate nohighlight">\(g(u)\)</span> med hensyn på <span class="math notranslate nohighlight">\(u\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+g'(u) = \dfrac{1}{2\sqrt{u}}
+\]</div>
+<p>Deretter deriverer vi <span class="math notranslate nohighlight">\(u(x)\)</span> med hensyn på <span class="math notranslate nohighlight">\(x\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+u'(x) = 2x
+\]</div>
+<p>Etter kjerneregelen får vi da</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+f'(x) &amp;= g'(u) \cdot u'(x) \\
+\\
+&amp;= \dfrac{1}{2\sqrt{u}} \cdot 2x \\
+\\
+&amp;= \dfrac{2x}{2\sqrt{u}} \\
+\\
+&amp;= \dfrac{x}{\sqrt{u}}
+\end{align*}
+\end{split}\]</div>
+<p>Til slutt setter vi tilbake definisjonen av <span class="math notranslate nohighlight">\(u\)</span> som gir oss</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \dfrac{x}{\sqrt{x^2 + 1}}
+\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Så var det din tur.</p>
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 1</p>
+<p>En funksjon <span class="math notranslate nohighlight">\(f\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = e^{x^2 - 1}
+\]</div>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = 2xe^{x^2 - 1}
+\]</div>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi har at</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = g(u(x))
+\]</div>
+<p>der</p>
+<div class="math notranslate nohighlight">
+\[
+g(u) = e^u \qog u(x) = x^2 - 1
+\]</div>
+<p>Vi har at</p>
+<div class="math notranslate nohighlight">
+\[
+g'(u) = e^u 
+\]</div>
+<p>Videre har vi at</p>
+<div class="math notranslate nohighlight">
+\[
+u'(x) = 2x
+\]</div>
+<p>Etter kjerneregelen har vi da</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = g'(u) \cdot u'(x) = e^{u} \cdot 2x
+\]</div>
+<p>Så setter vi tilbake definisjonen av <span class="math notranslate nohighlight">\(u\)</span>. Da får vi:</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = 2xe^{x^2 - 1}
+\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Vi kan også bruke kjerneregelen flere ganger dersom vi har en sammensatt funksjon med flere sammensetninger.</p>
+<div class="admonition summary">
+<p class="admonition-title">Kjerneregelen med flere sammensetninger</p>
+<p>La <span class="math notranslate nohighlight">\(f\)</span> være en funksjon</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = g(u(v(x)))
+\]</div>
+<p>Da er</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = g'(u) \cdot u'(v) \cdot v'(x)
+\]</div>
+</div>
+<p>Regelen forteller oss at vi bare deriverer oss “innover” i sammensetningen fra den ytterste funksjonen inn til “kjernen” av sammensetningen. Dette kan vi gjøre i en kjede så langt vi må for å komme helt inn til kjernen av funksjonen.</p>
+<div class="admonition example">
+<p class="admonition-title">Eksempel 2</p>
+<p>En funksjon <span class="math notranslate nohighlight">\(f\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = e^{\sqrt{x^2 + 1}}
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(f'(x)\)</span>.</p>
+<div class="admonition solution">
+<p class="admonition-title">Løsning</p>
+<p>Her har vi at</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = g(u(v(x)))
+\]</div>
+<p>der</p>
+<div class="math notranslate nohighlight">
+\[
+g(u) = e^u, \quad u(v) = \sqrt{v}, \quad \text{og} \quad v(x) = x^2 + 1
+\]</div>
+<p>Da er</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = g'(u) \cdot u'(v) \cdot v'(x)
+\]</div>
+<p>Vi deriverer hver funksjon for seg:</p>
+<div class="math notranslate nohighlight">
+\[
+g'(u) = e^u \qog u'(v) = \dfrac{1}{2\sqrt{v}} \qog v'(x) = 2x
+\]</div>
+<p>Setter vi dette sammen får vi:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+f'(x) &amp;= g'(u) \cdot u'(v) \cdot v'(x) \\
+\\
+&amp;= e^u \cdot \dfrac{1}{2\sqrt{v}} \cdot 2x \\
+\\
+&amp;= \dfrac{2x e^u}{2\sqrt{v}} \\
+\\
+&amp;= \dfrac{x e^u}{\sqrt{v}}
+\end{align*}
+\end{split}\]</div>
+<p>Til slutt setter vi tilbake definisjonene av <span class="math notranslate nohighlight">\(u\)</span> og <span class="math notranslate nohighlight">\(v\)</span> som gir oss</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \dfrac{x e^{\sqrt{x^2 + 1}}}{\sqrt{x^2 + 1}}
+\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 2</p>
+<p>En funksjon <span class="math notranslate nohighlight">\(f\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \left(\ln(x^3 + 1)\right)^2
+\]</div>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \dfrac{6x^2 \ln(x^3 + 1)}{x^3 + 1}
+\]</div>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi har at</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = g(u(v(x)))
+\]</div>
+<p>der</p>
+<div class="math notranslate nohighlight">
+\[
+g(u) = u^2 \qog u(v) = \ln(v) \qog v(x) = x^3 + 1
+\]</div>
+<p>Etter kjerneregelen er da</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = g'(u) \cdot u'(v) \cdot v'(x)
+\]</div>
+<p>Vi deriverer hver funksjon for seg:</p>
+<div class="math notranslate nohighlight">
+\[
+g'(u) = 2u \qog u'(v) = \dfrac{1}{v} \qog v'(x) = 3x^2
+\]</div>
+<p>Deretter kombinerer vi resultatene:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+f'(x) &amp;= g'(u) \cdot u'(v) \cdot v'(x) \\
+\\
+&amp;= 2u \cdot \dfrac{1}{v} \cdot 3x^2 \\
+\\
+&amp;= \dfrac{6x^2 u}{v}
+\end{align*}
+\end{split}\]</div>
+<p>Så setter vi tilbake definisjonen av <span class="math notranslate nohighlight">\(u\)</span> og <span class="math notranslate nohighlight">\(v\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \dfrac{6x^2 \ln(x^3 + 1)}{x^3 + 1}
+\]</div>
+</div>
+</div>
 </section>
 
     <script type="text/x-thebe-config">

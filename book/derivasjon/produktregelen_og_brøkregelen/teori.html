@@ -124,6 +124,8 @@
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/physics"]}, "tex": {"packages": {"[+]": ["physics"]}, "macros": {"annotateAbove": ["\\mathrel{\\overset{\\substack{\\text{#2} \\\\ \\Bigg\\downarrow}}{#1}}", 2], "annotateBelow": ["\\mathrel{\\underset{\\substack{\\Bigg\\uparrow \\\\ \\text{#2}}}{#1}}", 2], "cline": ["\\underline{\\phantom{#1}}", 1], "and": ["\\quad \\land \\quad"], "or": ["\\quad \\lor \\quad"], "liff": ["\\quad \\iff \\quad"], "limplies": ["\\quad \\implies \\quad"], "limpliedby": ["\\quad \\impliedby \\quad"], "lland": ["\\; \\land \\;"], "degree": ["^\\circ"], "qog": ["\\quad \\text{og} \\quad"], "qder": ["\\quad \\text{der} \\quad"], "qeller": ["\\quad \\text{eller} \\quad"], "qhvis": ["\\quad \\text{hvis} \\quad"], "qfor": ["\\quad \\text{for} \\quad"], "natural": ["\\mathbb{N}"], "integer": ["\\mathbb{Z}"], "rational": ["\\mathbb{Q}"], "real": ["\\mathbb{R}"], "irrational": ["\\mathbb{Q}^c"], "qcomma": [",\\quad"], "nimplies": ["\\quad\\mathrel{\\not\\!\\!\\!\\implies}\\quad"], "nimpliedby": ["\\quad\\mathrel{\\not\\!\\!\\!\\impliedby}\\quad"], "niff": ["\\quad\\mathrel{\\not\\!\\!\\!\\iff}\\quad"], "cubica": ["\\raisebox{-0.4ex}{\\small\\(\\frown\\!\\smile\\)}", 0], "cubicb": ["\\raisebox{-0.4ex}{\\small\\(\\smile\\!\\frown\\)}", 0], "t": ["\\mathrm{#1}", 1], "dot": ["\\vec{#1} \\cdot \\vec{#2}", 2], "len": ["\\abs{\\vec{#1}}", 1], "lvec": ["\\overrightarrow{#1}", 1], "v": ["\\left[#1, #2\\right]", 2], "proj": ["\\mathrm{proj}_{#1}\\left(#2\\right)", 2], "mstack": ["\\begin{array}{c}#1\\end{array}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3.2/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/derivasjon/produktregelen_og_brøkregelen/teori';</script>
     <script>mermaid.initialize({"startOnLoad": true})</script>
@@ -516,7 +518,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -532,6 +536,15 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Innhold </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#produktregelen">Produktregelen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brokregelen">Brøkregelen</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -543,6 +556,208 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="produktregelen-og-brokregelen">
 <h1>Produktregelen og brøkregelen<a class="headerlink" href="#produktregelen-og-brokregelen" title="Link to this heading">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Læringsmål</p>
+<ul class="simple">
+<li><p>Kunne bruke produktregelen til å derivere produkter av funksjoner.</p></li>
+<li><p>Kunne bruke brøkregelen til å derivere brøker av funksjoner.</p></li>
+<li><p>Kunne kombinere kjerneregelen med produktregelen og brøkregelen for å deriverere funksjoner.</p></li>
+</ul>
+</div>
+<section id="produktregelen">
+<h2>Produktregelen<a class="headerlink" href="#produktregelen" title="Link to this heading">#</a></h2>
+<p>Når en funksjon <span class="math notranslate nohighlight">\(f\)</span> er et produkt av to andre funksjoner <span class="math notranslate nohighlight">\(u\)</span> og <span class="math notranslate nohighlight">\(v\)</span>, altså <span class="math notranslate nohighlight">\(f(x) = u(x) \cdot v(x)\)</span>, kan vi bruke produktregelen for å derivere <span class="math notranslate nohighlight">\(f\)</span>. Produktregelen sier at:</p>
+<div class="admonition summary">
+<p class="admonition-title">Produktregelen for derivasjon</p>
+<p>La <span class="math notranslate nohighlight">\(f(x) = u(x) \cdot v(x)\)</span>. Da er den deriverte av <span class="math notranslate nohighlight">\(f\)</span> gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = u'(x) \cdot v(x) + u(x) \cdot v'(x)
+\]</div>
+<p>Vi skriver denne regelen ofte på en mer kompakt måte som:</p>
+<div class="math notranslate nohighlight">
+\[
+(uv)' = u'v + uv'
+\]</div>
+</div>
+<hr class="docutils" />
+<p>Vi tar et eksempel:</p>
+<div class="admonition example">
+<p class="admonition-title">Eksempel 1</p>
+<p>En funksjon <span class="math notranslate nohighlight">\(f\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x e^{2x}
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(f'(x)\)</span>.</p>
+<div class="admonition solution">
+<p class="admonition-title">Løsning</p>
+<p>Her har vi at <span class="math notranslate nohighlight">\(f(x) = u(x) \cdot v(x)\)</span> med</p>
+<div class="math notranslate nohighlight">
+\[
+u(x) = x \qog v(x) = e^{2x}
+\]</div>
+<p>Vi har at</p>
+<div class="math notranslate nohighlight">
+\[
+u'(x) = 1 \qog v'(x) = 2e^{2x}
+\]</div>
+<p>Etter produktregelen får vi da</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+f'(x) &amp;= u'(x) v(x) + u(x) v'(x)  \\
+\\
+&amp;= 1 \cdot e^{2x} + x \cdot 2e^{2x} \\
+\\
+&amp;= e^{2x} + 2xe^{2x} \\
+\\
+&amp;= (1 + 2x)e^{2x}
+\end{align*}
+\end{split}\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 1</p>
+<p>En funksjon <span class="math notranslate nohighlight">\(f\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^2 e^{3x}
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(f'(x)\)</span>.</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = (2x + 3x^2)e^{3x}
+\]</div>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi har at <span class="math notranslate nohighlight">\(f(x) = u(x) \cdot v(x)\)</span> med</p>
+<div class="math notranslate nohighlight">
+\[
+u(x) = x^2 \qog v(x) = e^{3x}
+\]</div>
+<p>Vi har at</p>
+<div class="math notranslate nohighlight">
+\[
+u'(x) = 2x \qog v'(x) = 3e^{3x}
+\]</div>
+<p>Etter produktregelen får vi da</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+f'(x) &amp;= u'(x) v(x) + u(x) v'(x)  \\
+\\
+&amp;= 2x \cdot e^{3x} + x^2 \cdot 3e^{3x} \\
+\\
+&amp;= 2xe^{3x} + 3x^2e^{3x} \\
+\\
+&amp;= (2x + 3x^2)e^{3x}
+\end{align*}
+\end{split}\]</div>
+</div>
+</div>
+</section>
+<section id="brokregelen">
+<h2>Brøkregelen<a class="headerlink" href="#brokregelen" title="Link to this heading">#</a></h2>
+<p>Brøkregelen bruker vi når en funksjon <span class="math notranslate nohighlight">\(f\)</span> kan skrives på formen <span class="math notranslate nohighlight">\(f(x) = \dfrac{u(x)}{v(x)}\)</span>. Brøkregelen sier at:</p>
+<div class="admonition summary">
+<p class="admonition-title">Brøkregelen for derivasjon</p>
+<p>La <span class="math notranslate nohighlight">\(f(x) = \dfrac{u(x)}{v(x)}\)</span>. Da er den deriverte av <span class="math notranslate nohighlight">\(f\)</span> gitt ved:</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \dfrac{u'(x) \cdot v(x) - u(x) \cdot v'(x)}{(v(x))^2}
+\]</div>
+<p>Vi skriver denne regelen ofte på en mer kompakt måte som:</p>
+<div class="math notranslate nohighlight">
+\[
+\left(\dfrac{u}{v}\right)' = \dfrac{u'v - uv'}{v^2}
+\]</div>
+</div>
+<hr class="docutils" />
+<div class="admonition example">
+<p class="admonition-title">Eksempel 2</p>
+<p>En funksjon <span class="math notranslate nohighlight">\(f\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \dfrac{x^2 + 1}{x - 1}
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(f'(x)\)</span>.</p>
+<div class="admonition solution">
+<p class="admonition-title">Løsning</p>
+<p>Her har vi at <span class="math notranslate nohighlight">\(f(x) = \dfrac{u(x)}{v(x)}\)</span> med</p>
+<div class="math notranslate nohighlight">
+\[
+u(x) = x^2 + 1 \qog v(x) = x - 1
+\]</div>
+<p>Vi har at</p>
+<div class="math notranslate nohighlight">
+\[
+u'(x) = 2x \qog v'(x) = 1
+\]</div>
+<p>Etter brøkregelen får vi da</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+f'(x) &amp;= \dfrac{u'(x) v(x) - u(x) v'(x)}{(v(x))^2} \\
+\\
+&amp;= \dfrac{2x (x - 1) - (x^2 + 1) \cdot 1}{(x - 1)^2} \\
+\\
+&amp;= \dfrac{2x^2 - 2x - x^2 - 1}{(x - 1)^2} \\
+\\
+&amp;= \dfrac{x^2 - 2x - 1}{(x - 1)^2}
+\end{align*}
+\end{split}\]</div>
+</div>
+</div>
+<hr class="docutils" />
+<p>Så var det din tur!</p>
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 2</p>
+<p>En funksjon <span class="math notranslate nohighlight">\(f\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \dfrac{3x + 2}{x^2 - 1}
+\]</div>
+<p>Bestem <span class="math notranslate nohighlight">\(f'(x)\)</span>.</p>
+<div class="admonition answer dropdown">
+<p class="admonition-title">Fasit</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \dfrac{-3x^2 - 4x - 3}{(x^2 - 1)^2}
+\]</div>
+</div>
+<div class="admonition solution dropdown">
+<p class="admonition-title">Løsning</p>
+<p>Vi har at <span class="math notranslate nohighlight">\(f(x) = \dfrac{u(x)}{v(x)}\)</span> med</p>
+<div class="math notranslate nohighlight">
+\[
+u(x) = 3x + 2 \qog v(x) = x^2 - 1
+\]</div>
+<p>Vi har at</p>
+<div class="math notranslate nohighlight">
+\[
+u'(x) = 3 \qog v'(x) = 2x
+\]</div>
+<p>Etter brøkregelen får vi da</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align*}
+f'(x) &amp;= \dfrac{u'(x) v(x) - u(x) v'(x)}{(v(x))^2} \\
+\\
+&amp;= \dfrac{3 (x^2 - 1) - (3x + 2) \cdot 2x}{(x^2 - 1)^2} \\
+\\
+&amp;= \dfrac{3x^2 - 3 - 6x^2 - 4x}{(x^2 - 1)^2} \\
+\\
+&amp;= \dfrac{-3x^2 - 4x - 3}{(x^2 - 1)^2}
+\end{align*}
+\end{split}\]</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -581,6 +796,22 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Innhold
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#produktregelen">Produktregelen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#brokregelen">Brøkregelen</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
