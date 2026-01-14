@@ -39,9 +39,10 @@ $$
 
 Vi kan tegne en fortegnslinje for $f'(x)$:
 
-:::{signchart}
+:::{signchart-2}
 width: 100%
 function: 4 * x**3, f'(x)
+fontsize: 24
 :::
 
 Her kan vi se at grafen til $f$ synker før $x = 0$ og stiger etterpå. Dermed er ikke $f$ monoton på hele sin definisjonsmengde, som betyr at $f$ ikke har en omvendt funksjon. 
@@ -85,7 +86,7 @@ $$
 
 Så tegner vi et fortegnsskjema for $g'(x)$:
 
-:::{signchart}
+:::{signchart-2}
 width: 100%
 function: -3*x**2, g'(x)
 :::
@@ -309,7 +310,7 @@ $$
 
 Altså har grafen til $f$ muligens et ekstremalpunkt i $x = -3$. Vi sjekker ved å tegne et fortegnsskjema for $f'(x)$: 
 
-:::{signchart}
+:::{signchart-2}
 width: 100%
 function: 2 * (x + 3), f'(x)
 :::
@@ -364,7 +365,7 @@ $$
 
 Deretter tegner vi et fortegnsskjema for $g'(x)$:
 
-:::{signchart}
+:::{signchart-2}
 width: 100%
 function: -6 * x**2 + 3, g'(x)
 :::
@@ -477,7 +478,7 @@ $$
 
 Vi tegner et fortegnsskjema for $k'(x)$:
 
-:::{signchart}
+:::{signchart-2}
 width: 100%
 function: exp(-x) * (2 * x - x**2), k'(x)
 :::
@@ -659,6 +660,8 @@ $$
 
 
 :::::::::::::::{exercise} Oppgave 4
+
+> Notasjonen for den deriverte til den omvendte funksjonen er litt knotete, men vi bør prøve å bli vant til skrivemåten. At skrive $(f^{-1})'(y)$ er det samme som å skrive $g'(y)$ dersom $g = f^{-1}$. Men ved å bruke denne notasjonen slipper vi å gi et nytt navn til den omvendte funksjonen. 
 
 ::::::::::::::{tab-set}
 ---
