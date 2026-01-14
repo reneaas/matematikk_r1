@@ -22,6 +22,34 @@ $$
 $f$ har ikke en omvendt funksjon.
 ::::
 
+
+::::{solution}
+Vi deriverer $f$ for å avgjøre hvor grafen til $f$ stiger og synker.
+
+$$
+f'(x) = 4x^3
+$$
+
+Vi løser $f'(x) = 0$ for å finne eventuelle ekstremalpunkter:
+
+
+$$
+f'(x) = 0 \limplies 4x^3 = 0 \liff x = 0
+$$
+
+Vi kan tegne en fortegnslinje for $f'(x)$:
+
+:::{signchart}
+width: 100%
+function: 4 * x**3, f'(x)
+:::
+
+Her kan vi se at grafen til $f$ synker før $x = 0$ og stiger etterpå. Dermed er ikke $f$ monoton på hele sin definisjonsmengde, som betyr at $f$ ikke har en omvendt funksjon. 
+
+
+
+::::
+
 :::::::::::::
 
 
@@ -40,6 +68,53 @@ $$
 1. $g$ har en omvendt funksjon.
 2. $D_{g^{-1}} = \langle 0, 2]$.
 ::::
+
+
+::::{solution}
+Vi deriverer $g$ får å avgjøre hvor grafen til $g$ stiger og synker:
+
+$$
+g'(x) = (-x^3 + 1)' = -3x^2
+$$
+
+Så løser vi $g'(x) = 0$ for å undersøke om $g$ har noen ekstremalpunkter: 
+
+$$
+g'(x) = 0 \liff -3x^2 = 0 \liff x = 0
+$$
+
+Så tegner vi et fortegnsskjema for $g'(x)$:
+
+:::{signchart}
+width: 100%
+function: -3*x**2, g'(x)
+:::
+
+Vi kan se at grafen til $g$ synker i hele sin definisjonsmengde, som betyr at $g$ må ha en omvendt funksjon. 
+
+Definisjonsmengden til den omvendte funksjonen, er lik verdimengden til $g$. For å finne definisjonsmengden til den omvendte funksjonen holder det å regne ut funksjonsverdiene til $g$ i endepunktene av definisjonsmengden til $g$ (siden $g$ alltid synker!): 
+
+$$
+g(-1) = -(-1)^3 + 1 = 2
+$$
+
+Dette punktet er inkludert i verdimengden til $g$ siden $x = -1$ er inkludert i definisjonsmengden til $g$.
+
+$$
+g(1) = -(1)^3 + 1 = 0
+$$
+
+Dette punktet er ikke inkludert i verdimengden til $g$ siden $x = 1$ ikke er inkludert i definisjonsmengden til $g$. Dermed er definisjonsmengden til den omvendte funksjonen gitt ved
+
+$$
+D_{g^{-1}} = \langle 0, 2].
+$$
+
+
+
+
+::::
+
 
 
 :::::::::::::
@@ -61,6 +136,45 @@ $$
 2. $D_{h^{-1}} = \langle -41, -14\rangle$.
 ::::
 
+
+::::{solution}
+Vi starter med å undersøke hvor $h$ har eventuelle ekstremalpunkter:
+
+$$
+h'(x) = (x^3 + 6x - 21)' = 3x^2 + 6
+$$
+
+som gir
+
+$$
+h'(x) = 0 \liff 3x^2 + 6 = 0 \liff x^2 + 2 = 0
+$$
+
+Dette er det samme som 
+
+$$
+x^2 = -2
+$$
+
+som ikke har noen løsning siden vi ikke kan opphøye et tall i $2$ og få noe negativt. Dermed har ikke grafen til $h$ noen ekstremalpunkter. I såfall må den alltid *enten* stige eller synke. Dermed vet vi at $h$ har en omvendt funksjon.
+
+Definisjonsmengden til $h^{-1}$ er lik verdimengden til $h$. For å finne denne regner vi ut funksjonsverdiene til $h$ i endepunktene av definisjonsmengden til $h$ (siden $h$ enten alltid stiger eller alltid synker!):
+
+$$
+h(-2) = (-2)^3 + 6 \cdot (-2) - 21 = -8 - 12 - 21 = -41
+$$
+
+$$
+h(1) = (1)^3 + 6 \cdot 1 - 21 = 1 + 6 - 21 = -14
+$$
+
+Ingen av punktene er inkludert i verdimengden til $h$ siden ingen av endepunktene er inkludert i definisjonsmengden til $h$. Dermed er definisjonsmengden til den omvendte funksjonen gitt ved
+
+$$
+D_{h^{-1}} = \langle -41, -14\rangle.
+$$
+::::
+
 :::::::::::::
 
 
@@ -77,6 +191,63 @@ $$
 ::::{answer}
 1. $p$ har en omvendt funksjon.
 2. $D_{p^{-1}} = \langle 0, 1]$.
+::::
+
+
+::::{solution}
+Vi starter med å undersøke om grafen til $p$ har noen ekstremalpunkter. Vi deriverer først ved å bruke kjerneregelen med $u = -(x - 2)^2$ som kjerne:
+
+$$
+\begin{align*}
+p'(x) &= \left(e^{-(x - 2)^2}\right)'\\
+\\
+&= e^{-(x - 2)^2} \cdot \left(-(x - 2)^2\right)' \\
+\\
+&= e^{-(x - 2)^2} \cdot (-2(x - 2)) \\
+\\
+&= -2(x - 2)e^{-(x - 2)^2}
+\end{align*}
+$$
+
+Så løser vi $p'(x) = 0$:
+
+$$
+p'(x) = 0 \limplies -2(x - 2)e^{-(x - 2)^2} = 0
+$$
+
+som betyr at 
+
+$$
+x - 2 = 0 \or e^{-(x - 2)^2} = 0
+$$
+
+Bare den første likiningen kan bli null, så da får vi at 
+
+$$
+x = 2
+$$
+
+Punktet ligger akkurat på kanten av definisjonsmengden. Siden $p$ ikke kan snu fra å stige til å synke eller omvendt uten å ha et ekstremalpunkt i mellom, så må $p$ være monoton i hele sin definisjonsmengde. Dermed har $p$ en omvendt funksjon.
+
+Definisjonsmengden til $p^{-1}$ er lik verdimengden til $p$. Vi bestemmer denne ved å regne ut funksjonsverdiene til $p$ i endepunktene av definisjonsmengden til $p$ (siden $p$ enten alltid stiger eller alltid synker!):
+
+$$
+p(2) = e^{-(2 - 2)^2} = e^0 = 1
+$$
+
+Dette punktet er inkludert i verdimengden til $p$ siden $x = 2$ er inkludert i definisjonsmengden til $p$.
+
+Siden vi ikke har et endepunkt på andre siden, men $x \to \infty$, så må vi sjekke hva som skjer med $p(x)$ når $x \to \infty$:
+
+$$
+\lim_{x \to \infty} p(x) = \lim_{x \to \infty} e^{-(x - 2)^2} = e^{-\infty} = 0
+$$
+
+Altså vil verdimengden til $p$, og dermed definisjonsmengden til $p^{-1}$ være
+
+$$
+D_{p^{-1}} = \langle 0, 1].
+$$
 ::::
 
 
@@ -119,6 +290,39 @@ $$
 ::::
 
 
+::::{solution}
+For å bestemme det minste tallet $a$ slik at $f$ har en omvendt funksjon, må vi sjekke hvor grafen til $f$ har ekstremalpunkter. Dette kan vi gjøre ved å løse $f'(x) = 0$:
+
+$$
+\begin{align*}
+f'(x) &= \left((x + 3)^2 - 9\right)' \\
+\\
+&= 2(x + 3)
+\end{align*}
+$$
+
+Så løser vi $f'(x) = 0$:
+
+$$
+f'(x) = 0 \liff 2(x + 3) = 0 \liff x = -3
+$$
+
+Altså har grafen til $f$ muligens et ekstremalpunkt i $x = -3$. Vi sjekker ved å tegne et fortegnsskjema for $f'(x)$: 
+
+:::{signchart}
+width: 100%
+function: 2 * (x + 3), f'(x)
+:::
+
+Her ser vi at grafen til $f$ synker før $x = -3$ og stiger etterpå. Dermed vil $f$ ha en omvendt funksjon dersom $a \geq -3$. Det minste tallet for $a$ vi kan velge er derfor 
+
+$$
+a = -3.
+$$
+
+::::
+
+
 :::::::::::::
 
 
@@ -134,8 +338,44 @@ Bestem det største tallet $a$ slik at $g$ har en omvendt funksjon.
 
 ::::{answer}
 $$
-a = -1
+a = -\dfrac{1}{\sqrt{2}} = -\dfrac{\sqrt{2}}{2}
 $$
+::::
+
+
+::::{solution}
+Vi må avgjøre hvor grafen til $g$ har eventuelle ekstremalpunkter, så da løser vi først $g'(x) = 0$:
+
+$$
+g'(x) = (-2x^3 + 3x)' = -6x^2 + 3
+$$
+
+som betyr at 
+
+$$
+g'(x) = 0 \liff -6x^2 + 3 = 0 \liff 6x^2 = 3
+$$
+
+som vi kan skrive om til 
+
+$$
+x^2 = \dfrac{1}{2} \liff x = \pm \dfrac{1}{\sqrt{2}} = \pm \dfrac{\sqrt{2}}{2}
+$$
+
+Deretter tegner vi et fortegnsskjema for $g'(x)$:
+
+:::{signchart}
+width: 100%
+function: -6 * x**2 + 3, g'(x)
+:::
+
+Vi ser at begge punktene svarer til ekstremalpunkter siden den deriverte skifter fortegn rundt begge punktene. Det betyr at grafen til $g$ skifter fra å synke til å stige når vi kommer forbi det første punktet. Dermed vil det største tallet for $a$ som gir en omvendt funksjon for $g$ være
+
+$$
+a = -\dfrac{1}{\sqrt{2}} = -\dfrac{\sqrt{2}}{2}
+$$
+
+
 ::::
 
 
@@ -158,6 +398,29 @@ $$
 2. $D_{h^{-1}} = [-4, \to \rangle$.
 ::::
 
+
+::::{solution}
+Funksjonen $h$ er en andregradsfunksjon der funksjonsuttrykket til $h$ er skrevet på ekstremalpunktsform som betyr at grafen til $h$ har et ekstremalpunkt i $(1, -4)$. 
+
+Det betyr at det minste tallet $a$ vi kan velge slik at $h$ har en omvendt funksjon og at $D_h$ er størst mulig blir 
+
+$$
+a = 1
+$$
+
+Grafen til $h$ er konveks siden den ledende koeffisienten er positiv, så det betyr at grafen til $h$ har et bunnpunkt i $(1, -4)$. Dermed vil $y = -4$ være den laveste mulige verdien på grafen, så verdimengden til $h$ blir
+
+$$
+V_h = [-4, \to \rangle
+$$ 
+
+Verdimengden til $h$ er lik definisjonsmengden til $h^{-1}$, så da følger det at 
+
+$$
+D_{h^{-1}} = [-4, \to \rangle.
+$$
+::::
+
 :::::::::::::
 
 
@@ -176,6 +439,72 @@ $$
 ::::{answer}
 1. $a = 2$
 2. $D_{k^{-1}} = \left[0, \dfrac{4}{e^2}\right]$
+::::
+
+
+::::{solution}
+Vi må undersøke hvor grafen til $k$ har eventuelle ekstremalpunkter. Vi deriverer først ved å bruke produktregelen:
+
+$$
+\begin{align*}
+k'(x) &= \left(x^2 e^{-x}\right)' \\
+\\
+&= (x^2)' \cdot e^{-x} + x^2 \cdot (e^{-x})' \\
+\\
+&= 2x e^{-x} + x^2 \cdot (-e^{-x}) \\
+\\
+&= e^{-x}(2x - x^2)
+\end{align*}
+$$
+
+Så løser vi $k'(x) = 0$: 
+
+$$
+k'(x) = 0 \limplies e^{-x}(2x - x^2) = 0
+$$
+
+som gir oss at 
+
+$$
+e^{-x} = 0 \or 2x - x^2 = 0
+$$
+
+Den første av de to likningene har ingen løsning. Dermed vil $k'(x) = 0$ hvis og bare hvis
+
+$$
+2x - x^2 = 0 \liff x(2 - x) = 0 \liff x = 0 \or x = 2
+$$
+
+Vi tegner et fortegnsskjema for $k'(x)$:
+
+:::{signchart}
+width: 100%
+function: exp(-x) * (2 * x - x**2), k'(x)
+:::
+
+Altså vil grafen til $k$ stige mellom $x = 0$ og $x = 2$, men synke etter at $x = 2$. Dermed vil det største tallet for $a$ som gir en omvendt funksjon for $k$ være
+
+$$
+a = 2.
+$$
+
+For å finne definisjonsmengden til den omvendte funksjonen, må vi finne verdimengden til $k$. Vi regner ut funksjonsverdiene til $k$ i endepunktene av definisjonsmengden til $k$ (siden $k$ stiger helt fra $x = 0$ til $x = 2$): 
+
+$$
+k(0) = 0^2 e^{-0} = 0
+$$
+
+$$
+k(2) = 2^2 e^{-2} = \dfrac{4}{e^2}
+$$
+
+Dette er endepunktene til verdimengden til $k$, og dermed endepunktene til definisjonsmengden til $k^{-1}$. Dermed har vi at 
+
+$$
+D_{k^{-1}} = \left[0, \dfrac{4}{e^2}\right]
+$$
+
+
 ::::
 
 :::::::::::::
@@ -242,7 +571,7 @@ Bestem $a$ og $b$ slik at
 
 1. $g$ har en omvendt funksjon når $D_g = [a, b]$.
 2. Definisjonsmengden til den omvendte funksjonen blir så stor som mulig.
-3. $-2 \in D_g$.
+3. $-1 \in D_g$.
 
 
 ::::{answer}
