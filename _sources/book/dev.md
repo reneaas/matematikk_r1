@@ -1,64 +1,48 @@
 # Dev
 
-
-
 :::{plot}
-width: 70%
-function: -(x + 1)**2 + 4, [-1, 2), f, blue
+width: 100%
+function: -2 * sqrt(x + 4) + 3, [-4, 5), f, blue
 function-endpoints: true
-xmin: -2
-xmax: 3
-ymax: 6
-ymin: -7
-fontsize: 25
 :::
 
 
-
-::::{multi-plot2}
----
-rows: 1
-cols: 2
-fontsize: 30
----
 :::{plot}
-function: sqrt(x + 2) + 1, [-2, 7), A, blue
+width: 100%
+function: -1/2 * (x - 1)**3 + 1, [-1, 3), g, blue
+function-endpoints: true
+:::
+
+
+:::{plot}
+function: exp(-x) - 3, (-2, 3), blue
+function-endpoints: true 
+:::
+
+
+:::{plot}
+function: exp(-x**2 + 1), (-2, 2], blue
+function-endpoints: true 
+:::
+
+
+:::{plot}
+function: 2*cbrt(abs(x)) * sign(x), [-3, 3], blue
+function-endpoints: true
+:::
+
+
+:::{plot}
+function: -0.125 * x**3 + 1, (-3, 3], blue 
+function-endpoints: true
+:::
+
+
+:::{plot}
+width: 100%
+function: 2*sqrt(x + 2) - 3, [-1, 2], blue
+function: 0.5 * (x - 4)**2 + 1, (2, 4], blue
 function-endpoints: true
 xmin: -3
-xmax: 8
-ymax: 5
-ymin: -1  
-yticks: off
-grid: off
-:::
-
-
-:::{plot}
-function: x * exp(-x), (0, 4), B, blue
-function-endpoints: true
-xmin: -1
-xmax: 5
-ymax: 1
-ymin: -0.5 
-yticks: off
-grid: off
-:::
-
-
-::::
-
-
-
----
-
-
-:::{plot}
-width: 70%
-function: sqrt(x + 2) + 1, [-2, 7), f, blue
-function-endpoints: true
-xmin: -3
-xmax: 8
-ymax: 6
-ymin: 0 
-fontsize: 25
+ymin: -3
 :::

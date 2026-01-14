@@ -144,6 +144,48 @@ $$
 :::::::::::::::
 
 
+
+---
+
+
+
+:::::::::::::::{exercise} Oppgave 3
+Tre punkter er gitt ved $A(-2, 1)$, $B(1, 5)$ og $C(8, -3)$.
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bestem $\lvec{OA}$, $\lvec{OB}$ og $\lvec{OC}$.
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Bestem $\lvec{AB}$, $\lvec{BC}$ og $\lvec{CA}$.
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+Punktene $A$, $B$ og $C$ utgjør en trekant $\triangle ABC$.
+
+Bestem hvilken sidelengde som er lengst i trekanten, og hvilken lengde denne sidelengden har.
+:::::::::::::
+
+
+::::::::::::::
+
+
+:::::::::::::::
+
+
+
+
+
 ---
 
 
@@ -329,8 +371,49 @@ Bestem koordinatene til skjæringspunktet mellom linjene $\ell$ og $m$.
 ---
 
 
-
 :::::::::::::::{exercise} Oppgave 6
+En linje $\ell$ går gjennom punktene $A(-6, 1)$ og $B(3, -2)$.
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bestem en vektorfunksjon $\vec{r}(t)$ for linja.
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Bestem koordinatene til skjæringspunktene mellom $\ell$ og koordinataksene.
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} c
+En linje $m$ er gitt ved 
+
+$$
+\vec{r}_m(s) = [2s + 1, 3s - 4]
+$$
+
+
+Bestem koordinatene til skjæringspunktet mellom $\ell$ og $m$.
+:::::::::::::
+
+
+::::::::::::::
+
+
+:::::::::::::::
+
+
+---
+
+
+
+:::::::::::::::{exercise} Oppgave 7
 Et punkt er gitt ved $A(3, 2)$. To vektorer $\vec{u}$ og $\vec{v}$ er gitt ved
 
 $$

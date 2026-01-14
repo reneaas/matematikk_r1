@@ -530,7 +530,40 @@ $$
 ---
 
 
-Vi tar et eksempel til der vi har fått oppgitt likningen til linja.
+Dersom vi kjenner til stigningstallet til en linje, så er det ganske enkelt å bestemme en retningsvektor for linja.
+
+
+:::::::::::::::{summary} Retningsvektor og stigningstall
+
+:::{plot}
+align: right
+width: 100%
+function: 2*x - 1
+vector: (1, 1), 1, 2, red
+xmin: -1
+xmax: 4
+ymin: -1
+ymax: 5
+hline: 1, 1, 2, dashed, gray
+vline: 2, 1, 3, dashed, gray
+text: 0.5 * (1 + 2), 1, "$1$", bottom-center
+text: 2, 0.5 * (1 + 3), "$a$", center-right
+ticks: off
+fontsize: 30
+text: 0.5 * (1 + 2), 0.5 * (1 + 3), "$\vec{v}$", top-left
+:::
+
+
+
+Hvis en linje $\ell$ gitt ved $y = ax + b$ har stigningstall $a$, så vil en retningsvektor for linja være
+
+$$
+\vec{v} = [1, a]
+$$
+
+
+
+:::::::::::::::
 
 
 
@@ -546,23 +579,33 @@ Bestem posisjonsvektoren $\vec{r}(t)$ for linja.
 ---
 dropdown: 0
 ---
-Linja er gitt ved 
+Først kan vi se at stigningstallet til linja er $a = 2$, som betyr at én retningsvektor for linja er gitt ved 
 
 $$
-y = y(x) = 2x - 4.
+\vec{v} = [1, 2].
 $$
 
-Dermed kan vi beskrive punktene på linja ved 
+Så trenger vi ett punkt på linja, som vi kan få ved å sette inn en verdi for $x$ i likningen for linja. Vi velger $x = 0$ som gir
 
 $$
-\vec{r}(x) = [x, y(x)] = [x, 2x - 4] \qfor x \in \mathbb{R}
+y = 2 \cdot 0 - 4 = -4.
 $$
 
-Her er $x$ bare en merkelapp for alle tall $x \in \real$, så vi kan like gjerne kalle den for $t$ (men det er ikke noe spesielt med dette annet enn at vi skal bruke samme variabel som før). Da får vi
+Dermed er punktet $A(0, -4)$ på linja. Da får vi at 
 
 $$
-\vec{r}(t) = [t, 2t - 4] \qfor t \in \mathbb{R}
+\begin{align*}
+\vec{r}(t) &= \lvec{OA} + \vec{v} \cdot t \\
+\\
+&= [0, -4] + [1, 2] \cdot t \\
+\\
+&= [0, -4] + [t, 2t] \\
+\\
+&= [t, -4 + 2t]
+\end{align*}
 $$
+
+som gjelder for alle $t \in \real$. 
 
 ::::
 
@@ -582,23 +625,38 @@ Bestem posisjonsvektoren $\vec{r}(t)$ for linja.
 
 ::::{answer}
 $$
-\vec{r}(t) = \left[t, -\dfrac{1}{2}t + 3\right] \qfor t \in \mathbb{R}
+\vec{r}(t) = \left[t, 3 - \dfrac{1}{2}t\right] \qfor t \in \mathbb{R}
 $$
 ::::
 
 ::::{solution}
-Vi kan beskrive punktene på linja ved
+Stigningstallet til linja er $a = -\dfrac{1}{2}$ som betyr at en retningsvektor for linja er gitt ved 
 
 $$
-\vec{r}(x) = [x, y(x)] = \left[x, -\dfrac{1}{2}x + 3\right] \qfor x \in \mathbb{R}
+\vec{v} = \left[1, -\dfrac{1}{2}\right].
 $$
 
-Her er $x$ bare en merkelapp for alle tall $x \in \real$, så vi kan like gjerne kalle den for $t$. Da får vi
+Vi trenger ett punkt på linja som vi finner ved å sette inn en $x$-verdi i likningen for linja. Vi velger $x = 0$ som gir 
 
 $$
-\vec{r}(t) = \left[t, -\dfrac{1}{2}t + 3\right] \qfor t \in \mathbb{R}
+y = -\dfrac{1}{2} \cdot 0 + 3 = 3.
 $$
 
+Dermed er punktet $A(0, 3)$ på linja. Da får vi at
+
+$$
+\begin{align*}
+\vec{r}(t) &= \lvec{OA} + \vec{v} \cdot t \\
+\\
+&= [0, 3] + \left[1, -\dfrac{1}{2}\right] \cdot t \\
+\\
+&= [0, 3] + \left[t, -\dfrac{1}{2}t\right] \\
+\\
+&= \left[t, 3 - \dfrac{1}{2}t\right]
+\end{align*}
+$$
+
+som gjelder for alle $t \in \real$.
 
 ::::
 :::::::::::::::

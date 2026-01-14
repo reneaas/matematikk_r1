@@ -907,7 +907,7 @@ $$
 To vektorer $\vec{c}$ og $\vec{d}$ er gitt ved
 
 $$
-\vec{c} = [1, 6] \qog \vec{d] = [4, 2]
+\vec{c} = [1, 6] \qog \vec{d} = [4, 2]
 $$
 
 Bestem $\vec{d} - \vec{c}$ og $\vec{c} - \vec{d}$.
@@ -935,7 +935,7 @@ $$
 To vektorer $\vec{p}$ og $\vec{q}$ er gitt ved
 
 $$
-\vec{p} = [3, 5] \qog \vec{q] = [1, 7]
+\vec{p} = [3, 5] \qog \vec{q} = [1, 7]
 $$
 
 Bestem $\vec{q} - \vec{p}$ og $\vec{p} - \vec{q}$.
@@ -960,7 +960,7 @@ $$
 To vektorer $\vec{r}$ og $\vec{s}$ er gitt ved
 
 $$
-\vec{r} = [0, 4] \qog \vec{s] = [5, 1]
+\vec{r} = [0, 4] \qog \vec{s} = [5, 1]
 $$
 
 Bestem $\vec{s} - \vec{r}$ og $\vec{r} - \vec{s}$.
