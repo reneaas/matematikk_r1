@@ -661,7 +661,7 @@ $$
 
 :::::::::::::::{exercise} Oppgave 4
 
-> Notasjonen for den deriverte til den omvendte funksjonen er litt knotete, men vi bør prøve å bli vant til skrivemåten. At skrive $(f^{-1})'(y)$ er det samme som å skrive $g'(y)$ dersom $g = f^{-1}$. Men ved å bruke denne notasjonen slipper vi å gi et nytt navn til den omvendte funksjonen. 
+> Notasjonen for den deriverte til den omvendte funksjonen er litt knotete, men vi bør prøve å bli vant til skrivemåten. Å skrive $(f^{-1})'(y)$ er det samme som å skrive $g'(y)$ dersom $g = f^{-1}$. Men ved å bruke denne notasjonen slipper vi å gi et nytt navn til den omvendte funksjonen. 
 
 ::::::::::::::{tab-set}
 ---
