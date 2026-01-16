@@ -40,7 +40,7 @@ $$
 Vi kan tegne en fortegnslinje for $f'(x)$:
 
 :::{signchart-2}
-width: 100%
+width: 80%
 function: 4 * x**3, f'(x)
 fontsize: 24
 :::
@@ -87,7 +87,7 @@ $$
 Så tegner vi et fortegnsskjema for $g'(x)$:
 
 :::{signchart-2}
-width: 100%
+width: 80%
 function: -3*x**2, g'(x)
 :::
 
@@ -311,7 +311,7 @@ $$
 Altså har grafen til $f$ muligens et ekstremalpunkt i $x = -3$. Vi sjekker ved å tegne et fortegnsskjema for $f'(x)$: 
 
 :::{signchart-2}
-width: 100%
+width: 80%
 function: 2 * (x + 3), f'(x)
 :::
 
@@ -366,7 +366,7 @@ $$
 Deretter tegner vi et fortegnsskjema for $g'(x)$:
 
 :::{signchart-2}
-width: 100%
+width: 80%
 function: -6 * x**2 + 3, g'(x)
 :::
 
@@ -479,7 +479,7 @@ $$
 Vi tegner et fortegnsskjema for $k'(x)$:
 
 :::{signchart-2}
-width: 100%
+width: 80%
 function: exp(-x) * (2 * x - x**2), k'(x)
 :::
 
@@ -549,6 +549,41 @@ Bestem det største intervallet $I = [a, b]$ slik at
 $$
 I = \left[-\sqrt{2}, \sqrt{2}\right]
 $$
+::::
+
+
+::::{solution}
+Vi bestemmer ekstremalpunktene til $f$ først slik at vi vet hvor grafen til $f$ stiger og synker:
+
+$$
+f'(x) = (x^3 - 6x)' = 3x^2 - 6
+$$
+
+så løser vi $f'(x) = 0$:
+
+$$
+f'(x) = 0 \liff 3x^2 - 6 = 0
+$$
+
+som gir
+
+$$
+3x^2 = 6 \liff x^2 = 2 \liff x = \pm \sqrt{2}
+$$
+
+Så tegner vi et fortegnsskjema for $f'(x)$:
+
+:::{signchart-2}
+width: 80%
+function: 3 * x**2 - 6, f'(x)
+:::
+
+Vi ser at grafen til $f$ har ekstremalpunkter i $x = \pm\sqrt{2}$. Siden $f$ synker mellom disse punktene og $1 \in [-\sqrt{2}, \sqrt{2}]$, så må vi velge
+
+$$
+a = -\sqrt{2} \and b = \sqrt{2}
+$$
+
 ::::
 :::::::::::::
 
@@ -1173,7 +1208,7 @@ For hvilke verdier av $a$ har $f$ en omvendt funksjon?
 
 ::::{answer}
 $$
-a \in \left[\dfrac{1}{3}, \to\right\rangle
+a \in \left\langle 0, \dfrac{1}{3}\right]
 $$
 ::::
 

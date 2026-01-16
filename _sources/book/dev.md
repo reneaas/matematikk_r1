@@ -46,3 +46,51 @@ function-endpoints: true
 xmin: -3
 ymin: -3
 :::
+
+
+
+
+
+
+
+
+::::{multi-plot2}
+---
+rows: 2
+cols: 2
+fontsize: 25
+xstep: 2
+ystep: 2
+xmin: -12
+xmax: 12
+ymin: -12
+ymax: 12
+---
+:::{plot}
+function: 2 * sqrt(2) * sqrt(8 - x) - 6, [-10, 8), blue
+function-endpoints: true
+text: 8, 10, "A", center-center, bbox
+:::
+
+
+:::{plot}
+function: -6 + sqrt(8*x + 64), [-8, 10), blue
+function-endpoints: true
+text: 8, 10, "B", center-center, bbox
+:::
+
+
+
+:::{plot}
+function: -1/8 * ((x + 6)**2 - 64), [-6, 6), blue
+function-endpoints: true
+text: 8, 10, "C", center-center, bbox
+:::
+
+
+:::{plot}
+function: 1/8 * ((x + 6)**2 - 64), [-6, 6), blue
+function-endpoints: true
+text: 8, 10, "D", center-center, bbox
+:::
+::::
