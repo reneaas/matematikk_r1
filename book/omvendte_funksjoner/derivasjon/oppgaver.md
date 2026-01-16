@@ -1330,7 +1330,7 @@ For hvilke verdier av $b$ har $g$ en omvendt funksjon?
 
 ::::{answer}
 $$
-b \in \langle \gets, -1]
+b \in [-1, \to \rangle
 $$
 ::::
 :::::::::::::
