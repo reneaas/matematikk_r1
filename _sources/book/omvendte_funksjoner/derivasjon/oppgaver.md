@@ -617,6 +617,35 @@ $$
 ::::
 
 
+::::{solution}
+Vi bestemmer eventuelle ekstremalpunkter på grafen til $g$: 
+
+$$
+g'(x) = (x^4 - 6x^2 + 2)' = 4x^3 - 12x = 0
+$$
+
+som gir
+
+$$
+4x(x^2 - 3) = 0 \liff x = 0 \or x = \pm \sqrt{3}.
+$$
+
+Vi tegner et fortegnsskjema for $g'(x)$:
+
+:::{signchart-2}
+width: 80%
+function: 4 * x**3 - 12*x, g'(x)
+:::
+
+Fra fortegnsskjema ser vi at alle punktene der $g'(x) = 0$ svarer til ekstremalpunkter, så vi må avgrense grafen til $g$ til et intervall som ligger mellom to av de. Siden $-1 \in D_g$, og dette punktet ligger mellom $x = -\sqrt{3}$ og $x = 0$, så må vi velge at
+
+$$
+a = -\sqrt{3} \and b = 0
+$$
+
+::::
+
+
 
 :::::::::::::
 
@@ -646,6 +675,71 @@ Bestem $a$ og $b$ slik at
 $$
 a = -\dfrac{\sqrt{6}}{2} \and b = \dfrac{\sqrt{6}}{2}
 $$
+::::
+
+
+::::{solution}
+Vi starter med å undersøke om $h$ har noen ekstremalpunkter:
+
+$$
+\begin{align*}
+h'(x) &= \left(x^3 e^{-x^2 + 1}\right)' \\
+\\
+&= 3x^2 e^{-x^2 + 1} + x^3 e^{-x^2 + 1} \cdot (-x^2 + 1)' \\
+\\
+&= 3x^2 e^{-x^2 + 1} + x^3 e^{-x^2 + 1} \cdot (-2x) \\
+\\
+&= 3x^2 e^{-x^2 + 1} - 2x^4 e^{-x^2 + 1} \\
+\\
+&= (3 - 2x^2)x^2 e^{-x^2 + 1}
+\end{align*}
+$$
+
+Så løser vi $h'(x) = 0$:
+
+$$
+h'(x) = 0 \limplies (3 - 2x^2)x^2 e^{-x^2 + 1} = 0
+$$
+
+som gir at 
+
+$$
+(3 - 2x^2) = 0 \or x^2 = 0 \or e^{-x^2 + 1} = 0
+$$
+
+Den siste likningen har ingen løsning. For den første likningen får vi at
+
+$$
+3 - 2x^2 = 0 \liff 2x^2 = 3 \liff x^2 = \dfrac{3}{2} \liff x = \pm \dfrac{\sqrt{6}}{2}
+$$
+
+Den andre likningen gir oss at
+
+$$
+x^2 = 0 \liff x = 0.
+$$
+
+Dermed kan vi faktorisere $h'(x)$ som
+
+$$
+h'(x) = -2x\left(x + \dfrac{\sqrt{6}}{2}\right)\left(x - \dfrac{\sqrt{6}}{2}\right) e^{-x^2 + 1}
+$$
+
+Vi tegner et fortegnsskjema for å undersøke hvor grafen til $h$ stiger og synker:
+
+:::{signchart-2}
+width: 80%
+function: (3 - 2*x**2) * x**2 * exp(-x**2 + 1), h'(x)
+:::
+
+Altså ser vi at $x = \pm \dfrac{\sqrt{6}}{2}$ er ekstremalpunkter, mens $x = 0$ bare er et terrassepunkt. Det betyr at $x = 0$ kan være med i $D_h$ uten at $h$ mister sin omvendte funksjon. Dermed kan vi velge at 
+
+$$
+a = -\dfrac{\sqrt{6}}{2} \and b = \dfrac{\sqrt{6}}{2}
+$$
+
+for at $h^{-1}$ skal eksistere og at $D_{h^{-1}}$ blir så stor som mulig.
+
 ::::
 
 
@@ -1092,7 +1186,7 @@ Bestem $g'(12)$.
 
 ::::{answer}
 $$
-g'(12) = \dfrac{1}{435}
+g'(12) = \dfrac{1}{15}
 $$
 ::::
 
