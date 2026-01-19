@@ -387,6 +387,8 @@ fontsize: 24
 
 Avgjør hvilke påstander nedenfor som er sanne.
 
+Rett opp i eventuelle påstander som er gale.
+
 
 :::::{grid} 1 2 2 2
 ---
@@ -429,6 +431,8 @@ $$
 
 ::::{answer}
 Påstand 1, 2 og 4 er sanne.
+
+Påstand 3 er korrekt hvis dersom $(f^{-1})'(5) = -2$.
 ::::
 
 
@@ -785,4 +789,5 @@ $A$, $B$, $C$ og $G$ har omvendte funksjoner.
 
 
 ---
+
 
