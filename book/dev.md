@@ -94,3 +94,11 @@ function-endpoints: true
 text: 8, 10, "D", center-center, bbox
 :::
 ::::
+
+
+
+
+:::{signchart-2}
+width: 80%
+function: x * (x - b) * (x + a), f(x) 
+:::
