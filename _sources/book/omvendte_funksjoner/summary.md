@@ -94,7 +94,6 @@ function: (x - 1/2)**3 * exp(-(x - 1/2)**2 + 1) - 1/2, f, [(-sqrt(6) + 1)/2, (sq
 function: (x - 1/2)**3 * exp(-(x - 1/2)**2 + 1) - 1/2, (-20, (-sqrt(6) + 1)/2), red
 function: (x - 1/2)**3 * exp(-(x - 1/2)**2 + 1) - 1/2, ((sqrt(6) + 1)/2, 20) red
 function-endpoints: true
-nocache:
 :::
 
 **Kontinuerlige og deriverbare funksjoner**:
