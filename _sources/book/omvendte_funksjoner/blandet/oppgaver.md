@@ -680,7 +680,10 @@ text: 5, 4, "D", center-center, bbox
 
 
 
-:::::::::::::::{exercise} Oppgave 11
+:::::::::::::::{admonition} Oppgave 11
+---
+class: exercise, full-width
+---
 Nedenfor ser du åtte grafer.
 
 * En av grafene er grafen til en funksjon på formen $f(x) = a^x$ der $a$ er positivt helt tall.
