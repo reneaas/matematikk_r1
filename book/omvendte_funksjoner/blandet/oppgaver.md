@@ -412,7 +412,7 @@ $$
 **Påstand 3**
 ^^^
 $$
-\left(f^{-1}\right)'(3) = -\dfrac{1}{2}
+\left(f^{-1}\right)'(5) = -\dfrac{1}{2}
 $$
 ::::
 
