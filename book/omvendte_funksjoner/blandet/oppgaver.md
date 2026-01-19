@@ -75,7 +75,7 @@ Bestem $p^{-1}(x)$.
 
 ::::{answer}
 $$
-p^{-1}(x) = \sqrt{\ln x + 4} \, , \quad D_{p^{-1}} = \langle 0, 1]
+p^{-1}(x) = \sqrt{\ln x + 4} \, , \quad D_{p^{-1}} = \langle 1, \to \rangle
 $$
 ::::
 
