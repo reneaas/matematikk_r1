@@ -555,20 +555,17 @@ $$
 ::::{solution}
 Vi bestemmer ekstremalpunktene til $f$ først slik at vi vet hvor grafen til $f$ stiger og synker:
 
-$$
-f'(x) = (x^3 - 6x)' = 3x^2 - 6
-$$
+:::{figure} ./figurer/oppgave_3/a/ekstremalpunkter.png
+---
+class: no-click, adaptive-figure
+width: 60%
+---
+:::
 
-så løser vi $f'(x) = 0$:
-
-$$
-f'(x) = 0 \liff 3x^2 - 6 = 0
-$$
-
-som gir
+altså er $x = \pm \sqrt{2}$ mulige ekstremalpunkter. Vi kan faktorisere $f'(x)$ som 
 
 $$
-3x^2 = 6 \liff x^2 = 2 \liff x = \pm \sqrt{2}
+f'(x) = 3\left(x - \sqrt{2}\right)\left(x + \sqrt{2}\right)
 $$
 
 Så tegner vi et fortegnsskjema for $f'(x)$:
@@ -722,10 +719,8 @@ $$
 Dermed kan vi faktorisere $h'(x)$ som
 
 $$
-h'(x) = -2x\left(x + \dfrac{\sqrt{6}}{2}\right)\left(x - \dfrac{\sqrt{6}}{2}\right) e^{-x^2 + 1}
+h'(x) = -2x^2 \left(x + \dfrac{\sqrt{6}}{2}\right)\left(x - \dfrac{\sqrt{6}}{2}\right) e^{-x^2 + 1}
 $$
-
-Vi tegner et fortegnsskjema for å undersøke hvor grafen til $h$ stiger og synker:
 
 :::{signchart-2}
 width: 80%
@@ -769,6 +764,108 @@ $$
 ::::{answer}
 1. $a = \sqrt{2}$.
 2. $D_{k^{-1}} = \left\langle\dfrac{3}{4}, \to\right\rangle$
+::::
+
+
+::::{solution}
+Vi deriverer først $k$ slik at vi kan bestemme eventuelle ekstremalpunkter. Vi husker på at 
+
+$$
+\log_2 x = \dfrac{\ln x}{\ln 2} \limplies (\log_2 x)' = \dfrac{1}{x \ln 2}
+$$
+
+Da får vi:
+
+$$
+\begin{align*}
+k'(x) &= \left((\log_2 x)^2 - \log_2 x + 1\right)' \\
+\\
+&= 2 \log_2 x \cdot (\log_2 x)' - (\log_2 x)' + 0 \\
+\\
+&= 2 \log_2 x \cdot \dfrac{1}{x \ln 2} - \dfrac{1}{x \ln 2} \\
+\\
+&= \dfrac{2 \log_2 x - 1}{x \ln 2}
+\end{align*}
+$$
+
+Så løser vi likningen $k'(x) = 0$ for å finne eventuelle ekstremalpunkter:
+
+$$
+k'(x) = 0 \limplies \dfrac{2 \log_2 x - 1}{x \ln 2} = 0
+$$
+
+For at brøken skal bli null, må telleren være null, så da får vi at
+
+$$
+2 \log_2 x - 1 = 0 \liff 2 \log_2 x = 1 \liff \log_2 x = \dfrac{1}{2}
+$$
+
+som betyr at
+
+$$
+x = 2^{\tfrac{1}{2}} = \sqrt{2}
+$$
+
+Det er ikke så rett fram å tegne et fortegnsskjema ved å faktorisere $k'(x)$ siden det ikke er et polynom, men vi kan regne ut $k'(x)$ for én verdi på hver side av $x = \sqrt{2}$ for å avgjøre fortegnet til den deriverte:
+
+For $x = 1$ får vi:
+
+$$
+k'(1) = \dfrac{2 \log_2 1 - 1}{1 \cdot \ln 2} = \dfrac{0 - 1}{\ln 2} = \dfrac{-1}{\ln 2} < 0
+$$
+
+og for $x = 2$ får vi:
+
+$$
+k'(2) = \dfrac{2 \log_2 2 - 1}{2 \cdot \ln 2} = \dfrac{2 \cdot 1 - 1}{2 \cdot \ln 2} = \dfrac{1}{2 \cdot \ln 2} > 0
+$$
+
+Dermed må fortegnslinja til $k'(x)$ se slik ut:
+
+:::{signchart-2}
+width: 80%
+function: (2 * log(x) / log(2) - 1) / (x * log(2)), k'(x)
+factors: false
+:::
+
+Siden $x = \sqrt{2}$ svarer til et ekstremalpunkt, så må vi plassere $a$ slik at dette punktet ligger på kanten av definisjonsmengden til $k$. 
+
+Dermed vil det minste tallet $a$ som gjør at $k$ har en omvendt funksjon være
+
+$$
+a = \sqrt{2}
+$$
+
+Definisjonsmengden til $k^{-1}$ er lik verdimengden til $k$. For å finne denne regner vi ut funksjonsverdiene til $k$ i endepunktene av definisjonsmengden til $k$ (siden $k$ stiger helt fra $x = \sqrt{2}$ og utover):
+
+$$
+k(\sqrt{2}) = (\log_2 \sqrt{2})^2 - \log_2 \sqrt{2} + 1 = \left(\dfrac{1}{2}\right)^2 - \dfrac{1}{2} + 1 = \dfrac{1}{4} - \dfrac{1}{2} + 1 = \dfrac{3}{4}
+$$
+
+Når $x \to \infty$, så vil $k(x) \to \infty$ siden
+
+$$
+\begin{align*}
+\lim_{x \to \infty} k(x) &= \lim_{x \to \infty} \left((\log_2 x)^2 - \log_2 x + 1\right) \\
+\\
+&= \lim_{x \to \infty} (\log_2 x)^2 \left(1 - \dfrac{1}{\log_2 x} + \dfrac{1}{(\log_2 x)^2}\right) \\
+\\
+&= \lim_{x \to \infty}(\log_2 x)^2 \cdot \lim_{x \to \infty}\left(1 - \dfrac{1}{\log_2 x} + \dfrac{1}{(\log_2 x)^2}\right) \\
+\\
+&= \lim_{x \to \infty}(\log_2 x)^2 \cdot (1 - 0 + 0) \\
+\\
+&= \lim_{x \to \infty}(\log_2 x)^2 \\
+\\
+&= \infty
+\end{align*}
+$$
+
+Dermed vil verdimengden til $k$, og dermed definisjonsmengden til $k^{-1}$ være
+
+$$
+D_{k^{-1}} = \left\langle\dfrac{3}{4}, \to\right\rangle
+$$
+
 ::::
 
 
@@ -1067,6 +1164,15 @@ $$
 $$
 ::::
 
+
+::::{solution}
+Vi har at tangenten til grafen til $f$ i punkt $(1, 2)$ har stigningstall $4$ slik at $f'(1) = 4$. Da vil en tangent i punktet $(2, 1)$ på grafen til $f^{-1}$ ha stigningstallet:
+
+$$
+\left(f^{-1}\right)'(2) = \dfrac{1}{f'(1)} = \dfrac{1}{4}
+$$
+::::
+
 :::::::::::::
 
 
@@ -1081,6 +1187,17 @@ $$
 (5, 2)
 $$
 ::::
+
+
+::::{solution}
+Siden punktet $(2, 5)$ ligger på grafen til $g$, vil punktet $(5, 2)$ ligge på grafen til $g^{-1}$. Siden tangenten til grafen til $g$ har stigningstall $2$ i dette punktet, vil tangenten til grafen til $g^{-1}$ i punktet $(5, 2)$ ha stigningstall:
+
+$$
+\left(g^{-1}\right)'(5) = \dfrac{1}{g'(2)} = \dfrac{1}{2}
+$$
+::::
+
+
 :::::::::::::
 
 
@@ -1460,7 +1577,7 @@ $$
 f'(x) = 0 \limplies x^2(4x - 3b) = 0 \liff x = 0 \or x = \dfrac{3b}{4}
 $$
 
-Siden $f'(x)$ inneholder faktoren $x^2$, så vil ikke fortegnet til $f'(x)$ endre seg når vi passer gjennom $x = 0$. Det betyr at det er faktoren $(4x - 3b)$ som avgjør når fortegnet til $f'(x)$ endrer seg. Vi må derfor passe på at $x = \dfrac{3b}{4}$ ligger på kanten eller utenfor definisjonsmengden til $f$. For å sikre dette, så må vi kreve at 
+Siden $f'(x)$ inneholder faktoren $x^2$, så vil ikke fortegnet til $f'(x)$ endre seg når vi passerer gjennom $x = 0$. Det betyr at det er faktoren $(4x - 3b)$ som avgjør når fortegnet til $f'(x)$ endrer seg. Vi må derfor passe på at $x = \dfrac{3b}{4}$ ligger på kanten eller utenfor definisjonsmengden til $f$. For å sikre dette, så må vi kreve at 
 
 $$
 \dfrac{3b}{4} \leq -3 \liff b \leq -4.
