@@ -17,7 +17,7 @@ Bestem $f^{-1}(x)$.
 
 ::::{answer}
 $$
-f^{-1}(x) = \dfrac{x + 1}{2} \, , \quad D_{f^{-1}} = [-5, 5\rangle
+f^{-1}(x) = \dfrac{x + 1}{2} \, , \quad D_{f^{-1}} = \langle -5, 5]
 $$
 ::::
 
