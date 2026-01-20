@@ -248,7 +248,7 @@ For hvilke verdier av $a$ har $g$ en omvendt funksjon?
 
 ::::{answer}
 $$
-a \in \left\langle \gets, \dfrac{1}{8}\right]
+a \in \left\langle \gets, \dfrac{1}{18}\right]
 $$
 ::::
 
