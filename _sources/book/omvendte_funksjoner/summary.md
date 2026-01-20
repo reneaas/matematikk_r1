@@ -76,6 +76,48 @@ fontsize: 25
 ::::::
 
 
+
+::::::{grid-item-card}
+**Den deriverte av en omvendt funksjon**
+^^^
+
+:::{plot}
+width: 100%
+align: right
+function: x**2 + 1, f, (0, 2], blue
+function: sqrt(x - 1), f^{-1}, (1, 5], red
+function-endpoints: true
+ticks: off
+fontsize: 25
+tangent: sqrt(2), f, dashed, gray
+point: (sqrt(2), f(sqrt(2)))
+text: sqrt(2), f(sqrt(2)), "$(a, b)$", center-right
+tangent: 2, g, dashed, red
+point: (f(sqrt(2)), sqrt(2))
+text: f(sqrt(2)), sqrt(2), "$(b, a)$", top-center
+line: 1/(2*sqrt(2)), (3, sqrt(2)), dashed, gray
+xmin: -1
+xmax: 6
+ymin: -1
+ymax: 6
+annotate: (-2, 5), (sqrt(2), f(sqrt(2))), "Stigningstall: $f'(a)$"
+annotate: (2, -2), (3, sqrt(2)), "Stigningstall: $\displaystyle \frac{1}{f'(a)}$"
+:::
+
+* Hvis et punkt $(a, b)$ ligger på grafen til $f$, så er 
+
+$$
+\left(f^{-1}\right)'(b) = \dfrac{1}{f'(a)}
+$$
+
+forutsatt at $f'(a) \neq 0$. 
+
+* Hvis en tangent i punktet $(a, b)$ på grafen til $f$ har stigningstall $f'(a)$, så har en tangent til grafen til $f^{-1}$ i punktet $(b, a)$ stigningstall $\dfrac{1}{f'(a)}$
+
+
+::::::
+
+
 ::::::{grid-item-card}
 **Eksistens av omvendte funksjoner**
 ^^^
@@ -123,47 +165,6 @@ For en funksjon $f$ med delt forskrift, har den en omvendt funksjon hvis
 
 * $f$ er **1-til-1** (også kalt én-entydig). For hver $y$-verdi finnes det bare én $x$-verdi slik at $f(x) = y$.
 * Grafen til $f$ har bare ett skjæringspunkt med alle linjer $y = k$. 
-::::::
-
-
-::::::{grid-item-card}
-**Den deriverte av en omvendt funksjon**
-^^^
-
-:::{plot}
-width: 100%
-align: right
-function: x**2 + 1, f, (0, 2], blue
-function: sqrt(x - 1), f^{-1}, (1, 5], red
-function-endpoints: true
-ticks: off
-fontsize: 25
-tangent: sqrt(2), f, dashed, gray
-point: (sqrt(2), f(sqrt(2)))
-text: sqrt(2), f(sqrt(2)), "$(a, b)$", center-right
-tangent: 2, g, dashed, red
-point: (f(sqrt(2)), sqrt(2))
-text: f(sqrt(2)), sqrt(2), "$(b, a)$", top-center
-line: 1/(2*sqrt(2)), (3, sqrt(2)), dashed, gray
-xmin: -1
-xmax: 6
-ymin: -1
-ymax: 6
-annotate: (-2, 5), (sqrt(2), f(sqrt(2))), "Stigningstall: $f'(a)$"
-annotate: (2, -2), (3, sqrt(2)), "Stigningstall: $\displaystyle \frac{1}{f'(a)}$"
-:::
-
-* Hvis et punkt $(a, b)$ ligger på grafen til $f$, så er 
-
-$$
-\left(f^{-1}\right)'(b) = \dfrac{1}{f'(a)}
-$$
-
-forutsatt at $f'(a) \neq 0$. 
-
-* Hvis en tangent i punktet $(a, b)$ på grafen til $f$ har stigningstall $f'(a)$, så har en tangent til grafen til $f^{-1}$ i punktet $(b, a)$ stigningstall $\dfrac{1}{f'(a)}$
-
-
 ::::::
 
 
