@@ -10,7 +10,6 @@ cols: 2
 animate-var: a, 0, 10, 20
 fps: 10
 format: webp
-
 function: sin(a*x)
 xmin: -10
 xmax: 10
@@ -25,7 +24,6 @@ width: 100%
 animate-var: a, -4, 4, 128
 fps: 16
 format: webp
-
 function: x**3 - 3*x + 2, f
 ymin: -10
 ymax: 10
@@ -44,7 +42,6 @@ width: 100%
 :::{interactive-graph}
 interactive-var: a, 0, 2*pi, 128
 interactive-var-start: 0
-
 xmin: -1.5
 xmax: 1.5
 ymin: -1.5
@@ -62,7 +59,6 @@ width: 70%
 
 :::{interactive-graph}
 interactive-var: a, -4, 4, 50
-
 function: x**3 - 3*x + 2, f
 ymin: -10
 ymax: 10
@@ -166,7 +162,6 @@ grid: true
 :::{interactive-graph}
 interactive-var: a, 0, 2*pi, 50
 interactive-var-start: pi/4
-
 xmin: -pi
 xmax: pi
 ymin: -3
@@ -185,7 +180,6 @@ Test with logarithms and exponentials:
 :::{interactive-graph}
 interactive-var: a, 0.1, 3, 40
 interactive-var-start: 1
-
 xmin: 0.01
 xmax: 3
 ymin: -2
@@ -206,7 +200,6 @@ width: 80%
 :::{interactive-graph} 
 interactive-var: k, -2, 2, 64
 interactive-var-start: -2
-
 function: -x**2 + (2 + k) * x, (-10, k), blue
 function: x**2 + (2 - k) * x, [k, 10), red
 function-endpoints: true
@@ -225,7 +218,6 @@ width: 80%
 :::{interactive-graph} 
 interactive-var: k, -2, 2, 64
 interactive-var-start: -2
-
 function: -x**2 + (2 + k) * x, (-10, k), blue
 function: x**2 + (2 - k) * x, [k, 10), red
 function-endpoints: true
