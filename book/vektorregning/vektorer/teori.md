@@ -383,9 +383,30 @@ Når vi ganger en vektor med et tall, så kan vi tolke det som hvor mange ganger
 
 Ganger vi en vektor med $-1$, skal vi følge vektoren i motsatt retning, så da får vi en vektor som er like lang som den opprinnelige vektoren, men som peker i motsatt retning.
 
-Ganger vi vektoren med $-\dfrac{1}{2}$ så gjør vi vektoren halvparten så lang og følger den i motsatt retning. 
+Ganger vi vektoren med $-\dfrac{1}{2}$ så gjør vi vektoren halvparten så lang og følger den i motsatt retning.
+
+:::{interactive-graph} 
+interactive-var: k, -5, 5, 64
+interactive-var-start: 1
+vector: (0, 0), (k, 2*k), red
+vector: (-4, 1), 1, 2, blue
+text: 0.5 * (-4 - 3), 0.5 * (1 + 3), "$\vec{a}$", top-left
+text: 0.5 * k, k, "{k:.2f} \cdot $\vec{a}$", bottom-right, bbox
+nocache:
+align: right
+width: 50%
+fontsize: 25
+:::
+
+
 
 Når vi ganger en vektor $\vec{a}$ med en skalar $k$, så får vi en ny vektor $k \cdot \vec{a}$ slik at lengden av den nye vektoren er $\abs{k}$ ganger lengden av den opprinnelige vektoren. I tillegg vil komponentene være multiplisert med skalarverdien $k$.
+
+
+
+:::{clear}
+:::
+
 
 :::::::::::::::{summary} Skalarmultiplikasjon av vektorer
 Hvis vi ganger en vektor $\vec{a}$ med en skalar $k$, så får vi en ny vektor $k \cdot \vec{a}$ ved å gange hver av koordinatene til vektoren med skalarverdien:
