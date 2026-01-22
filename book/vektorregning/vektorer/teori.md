@@ -399,6 +399,8 @@ fontsize: 25
 
 Når vi ganger en vektor $\vec{a}$ med en skalar $k$, så får vi en ny vektor $k \cdot \vec{a}$ slik at lengden av den nye vektoren er $\abs{k}$ ganger lengden av den opprinnelige vektoren. I tillegg vil komponentene være multiplisert med skalarverdien $k$.
 
+Du kan utforske nærmere i den interaktive figuren til høyre ved å se på hva som skjer når du endrer på verdien til $k$.
+
 
 
 :::{clear}
