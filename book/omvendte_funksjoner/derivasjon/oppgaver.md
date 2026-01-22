@@ -1652,17 +1652,21 @@ $$
 
 Ekstremalpunktet til $g$ vil derfor ligge midt mellom $x = k$ og $x = 2$ siden ekstremalpunktet er gjennomsnittet av de to punktene. Dersom vi velger $k = 2$, så ligger ekstremalpunktet akkurat på kanten av definisjonsmengden til $g$ i $x = k$. Dersom vi velger $k > 2$, så vil ekstremalpunktet havne en plass der $x < k$ og ligge innenfor definisjonsmengden til $g$. Da vil ikke $g$ være en monoton funksjon på sin definisjonsmengde. Det betyr at vi må minst kreve at $k \leq 2$.
 
-:::{plot}
-width: 50%
-ymin: -16
-ymax: 16
+Figuren nedenfor viser grafen til $f$ når $k > 2$.
+
+:::{interactive-graph} 
+interactive-var: k, 2, 6, 64
+interactive-var-start: 2
+
+function: -x**2 + (2 + k) * x, (-10, k), blue
+function: x**2 + (2 - k) * x, [k, 10), red
+function-endpoints: true
+ymin: -17
+ymax: 17
+xmax: 7
 yticks: off
 grid: off
-function: -x**2 + (2 + 3) * x, (-10, 3), g, blue
-function: x**2 + (2 - 3) * x, [3, 10), h, red 
-function-endpoints: true
-
-Grafen til $f$ når $k > 2$.
+width: 70%
 :::
 
 
@@ -1672,19 +1676,23 @@ $$
 h'(x) = (x^2 + (2 - k)x)' = 2x + 2 - k = 0 \liff x = \dfrac{k - 2}{2}
 $$
 
-Ekstremalpunktet til $h$ vil derfor ligge midt mellom $x = k$ og $x = -2$ siden ekstremalpunktet er gjennomsnittet av de to punktene. Dersom vi velger $k = -2$, så ligger ekstremalpunktet akkurat på kanten av definisjonsmengden til $h$ i $x = k$. Dersom vi velger $k < -2$, så vil ekstremalpunktet havne en plass der $x > k$ og ligge innenfor definisjonsmengden til $h$. Da vil ikke $h$ være en monoton funksjon. Det betyr at vi må minst kreve at $k \geq -2$.
+Ekstremalpunktet til $h$ vil derfor ligge midt mellom $x = k$ og $x = -2$ siden ekstremalpunktet er gjennomsnittet av de to punktene. Dersom vi velger $k = -2$, så ligger ekstremalpunktet akkurat på kanten av definisjonsmengden til $h$ i $x = k$. Dersom vi velger $k < -2$, så vil ekstremalpunktet havne en plass der $x > k$ og ligge innenfor definisjonsmengden til $h$. Da vil ikke $h$ være en monoton funksjon. Det betyr at vi må minst kreve at $k \geq -2$. 
 
-:::{plot}
-width: 50%
-ymin: -16
-ymax: 16
+Figuren nedenfor viser grafen til $f$ når $k < -2$.
+
+:::{interactive-graph} 
+interactive-var: k, -6, -2, 64
+interactive-var-start: -2
+
+function: -x**2 + (2 + k) * x, (-10, k), blue
+function: x**2 + (2 - k) * x, [k, 10), red
+function-endpoints: true
+ymin: -17
+ymax: 17
+xmin: -7
 yticks: off
 grid: off
-function: -x**2 + (2 - 4) * x, (-10, -4), g, blue
-function: x**2 + (2 + 4) * x, [-4, 10), h, red 
-function-endpoints: true
-
-Grafen til $f$ når $k < -2$.
+width: 70%
 :::
 
 
@@ -1700,19 +1708,24 @@ $$
 k \in [-2, 2].
 $$
 
+Nedenfor vises grafen til $f$ for disse verdiene av $k$.
 
-:::{plot}
-width: 50%
+:::{interactive-graph} 
+interactive-var: k, -2, 2, 64
+interactive-var-start: -2
+
+function: -x**2 + (2 + k) * x, (-10, k), blue
+function: x**2 + (2 - k) * x, [k, 10), red
+function-endpoints: true
 ymin: -16
 ymax: 16
 yticks: off
 grid: off
-function: -x**2 + (2 + 1) * x, (-10, 1), g, blue
-function: x**2 + (2 - 1) * x, [1, 10), h, red 
-function-endpoints: true
-
-Grafen til $f$ når $-2 \leq k \leq 2$.
+width: 70%
 :::
+
+
+
 
 
 
@@ -1720,7 +1733,6 @@ Grafen til $f$ når $-2 \leq k \leq 2$.
 
 
 :::::::::::::::
-
 
 
 
