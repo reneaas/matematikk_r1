@@ -271,7 +271,6 @@ vline: 4, 1, 5, dashed, gray
 text: 0.5 * (1 + 4), 1, "$3$", bottom-center
 text: 4, 0.5 * (1 + 5), "$4$", center-right
 fontsize: 30
-nocache:
 :::
 
 
@@ -371,7 +370,6 @@ text: 0.5 * (3 + 5), 0.5 * (3 + 5), "$\vec{a}$", top-left
 text: 0.5 * (1 + 5), 0.5 * (0 + 4), "$2 \cdot \vec{a}$", bottom-right
 text: 0.5 * (3 + 1), 0.5 * (-1 + -3), "$-\vec{a}$", bottom-right
 text: 0.5 * (3 + 2), 0.5 * (-4 + -5), "$-\displaystyle \frac{1}{2} \cdot \vec{a}$", bottom-right
-nocache:
 xmin: -2
 fontsize: 30
 :::
@@ -392,7 +390,6 @@ vector: (0, 0), (k, 2*k), red
 vector: (-4, 1), 1, 2, blue
 text: 0.5 * (-4 - 3), 0.5 * (1 + 3), "$\vec{a}$", top-left
 text: 0.5 * k, k, "{k:.2f} \cdot $\vec{a}$", bottom-right, bbox
-nocache:
 align: right
 width: 50%
 fontsize: 25
