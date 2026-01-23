@@ -608,14 +608,13 @@ interactive-var-start: 30
 vector: (1, 1), (1 + 2, 1), blue
 vector: (1, 1), (1 + 1.5 * cos(varphi * pi/180), 1 + 1.5 * sin(varphi * pi/180)), red
 angle-arc: (1, 1), 0.4, 0, varphi
-text: 1 + 0.7 * cos((varphi/2) * pi/180), 1 + 0.7 * sin((varphi/2) * pi/180), "$\varphi = {varphi} ^\circ$", center-center
+text: 1 + 0.8 * cos((varphi/2) * pi/180), 1 + 0.8 * sin((varphi/2) * pi/180), "$\varphi = {varphi} ^\circ$", center-center
 xmin: -2
 xmax: 4
 ymin: -1
 ymax: 4
 width: 50%
 text: 3, 3, "$\vec{a} \cdot \vec{b}$ = {2 * 1.5 * cos(varphi * pi/180):.2f}", center-center, bbox
-nocache:
 :::
 
 Fra den geometriske formelen for skalarproduktet så vil fortegnet til skalarproduktet fortelle oss noe om hvilken retning vektorene peker i forhold til hverandre. Vi kan også i utgangspunktet regne ut vinkelen, men det skal vi spare til vi jobber med digitale verktøy nedenfor. For nå, kan vi få oversikt over hva fortegnet til skalarproduktet forteller oss om vinkelen mellom to vektorer:
