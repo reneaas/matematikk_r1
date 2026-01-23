@@ -37,8 +37,7 @@ ymin: -1
 ymax: 3
 ticks: off
 text: 0.5 * (1 + 0), 0.5 * (2 + 0), "$\overrightarrow{OP}$", top-left
-
-Når vektoren peker til et punkt $P$ fra origo $O$, kaller vi vektoren for $\overrightarrow{OP}$. Da tenker vi på vektoren som et punkt. 
+text: 0, 4, "Posisjonsvektor $\overrightarrow{OP}$ til punktet $P$", center-center, bbox
 :::
 
 :::{plot}
@@ -53,8 +52,7 @@ xmax: 3.5
 ymin: -1
 ymax: 3 
 ticks: off
-
-Når vektoren peker fra et punkt $A$ til et punkt $B$, kaller vi vektoren for $\lvec{AB}$. Da tenker vi på vektoren som en pil mellom to punkter.
+text: 1, 4, "Vektoren $\overrightarrow{AB}$ mellom to punkter $A$ og $B$", center-center, bbox
 :::
 
 
