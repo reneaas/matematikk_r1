@@ -229,3 +229,33 @@ width: 80%
 :::
 ::::
 :::::::::::::::
+
+
+---
+
+
+
+:::{interactive-graph} 
+interactive-var: t, 0, 2*pi, 128
+interactive-var-start: 0
+curve: 2*cos(t), 1/2 * sin(t), (0, t), solid, blue
+xmin: -3
+xmax: 3
+ymin: -3
+ymax: 3
+nocache:
+:::
+
+
+
+:::{interactive-graph} 
+interactive-var: a, -5, 5, 16
+interactive-var: b, -5, 5, 16
+interactive-var-start: a=2, b=0
+function: a*x + b, f
+xmin: -6
+xmax: 6
+ymin: -6
+ymax: 6
+nocache:
+:::
