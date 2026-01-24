@@ -72,6 +72,24 @@ width: 70%
 :::
 
 
+## Line primitive (interactive)
+
+:::{interactive-graph}
+interactive-var: a, -2, 2, 30
+interactive-var: b, -3, 3, 30
+interactive-var-start: a=1, b=0
+xmin: -5
+xmax: 5
+ymin: -6
+ymax: 6
+line: a, b, solid, red
+point: (0, b)
+text: 0.5, 5, "y = {a:.2f}x + {b:.2f}", top-left
+grid: true
+width: 70%
+:::
+
+
 ## Multi Interactive Graph Test
 
 ::::{multi-interactive-graph}
@@ -260,6 +278,8 @@ ymax: 6
 nocache:
 :::
 
+Waddup
+
 
 
 :::{interactive-graph} 
@@ -276,4 +296,28 @@ ymin: -1
 ymax: 4
 width: 50%
 text: 3, 3, "$\vec{a} \cdot \vec{b}$ = {2 * 1.5 * cos(varphi * pi/180):.2f}", center-center, bbox
+:::
+
+
+
+Waddup dawg? *Dunno*...
+
+:::{interactive-graph} 
+interactive-var: t, -8, 6, 64
+interactive-var-start: 2
+xmin: -8
+xmax: 8
+ymin: -4
+ymax: 8
+line: 0.5, 2, solid, blue
+point: (2, 3)
+text: 2, 3, "$A$", top-left
+vector: (0, 0), (2, 3), red
+vector: (2, 3), t, 0.5*t, red
+text: 0.5 * (2 + 2 + t), 0.5 * (3 + 3 + 0.5 * t), "{t:.2f} $\cdot \vec{v}$", top-left, bbox
+vector: (0, 0), (2 + t, 3 + 0.5 * t), red
+text: 0.5 * (2 + t), 0.5 * (3 + 0.5 * t), "$\vec{r}({t:.2f})$", bottom-right, bbox
+point: (2 + t, 3 + 0.5 * t)
+text: 2+t, 3+0.5*t, "$P$", top-left
+nocache:
 :::
