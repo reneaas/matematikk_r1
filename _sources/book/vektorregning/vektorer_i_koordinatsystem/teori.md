@@ -383,9 +383,43 @@ Når vi skal beskrive en linje $\ell$ i et koordinatsystem, så trenger vi to ti
 Vi trenger startpunktet så vi har et utgangspunkt for å bygge opp linja. Med retningsvektoren vet vi i hvilken retning vi må bevege oss fra startpunktet for å følge linja.
 
 
+
 ### Parameterframstilling med vektorfunksjon
 
+
+
+:::{interactive-graph} 
+align: right
+interactive-var: t, -8, 6, 64
+interactive-var-start: 2
+xmin: -8
+xmax: 8
+ymin: -4
+ymax: 8
+line: 0.5, 2, solid, blue
+point: (2, 3)
+text: 2, 3, "$A$", top-left
+vector: (0, 0), (2, 3), red
+vector: (2, 3), t, 0.5*t, red
+text: 0.5 * (2 + 2 + t), 0.5 * (3 + 3 + 0.5 * t), "{t:.2f} $\cdot \vec{v}$", top-left, bbox
+vector: (0, 0), (2 + t, 3 + 0.5 * t), red
+text: 0.5 * (2 + t), 0.5 * (3 + 0.5 * t), "$\vec{r}({t:.2f})$", bottom-right, bbox
+point: (2 + t, 3 + 0.5 * t)
+text: 2+t, 3+0.5*t, "$P$", top-left
+nocache:
+width: 50%
+fontsize: 25
+:::
+
 Når vi beskriver posisjonen til punktet på en linje $\ell$ i et koordinatsystem kan vi bruke en vektorfunksjon $\vec{r}(t)$. I første omgang vil $t$ bare være en parameter (variabel), men når vi senere skal se på naturvitenskapelige anvendelser av vektorer, så vil $t$ ofte representere tid.
+
+For å bestemme posisjonen til et punkt $P$ på linja, går vi veien om et punkt $A$ med vektoren $\lvec{OA}$ og så følger vi en retningsvektor $\vec{v}$ som peker langs linja. Dersom vi følger retningsvektoren med $t$ enheter ender vi opp i et punkt $P(t)$ på linja som har posisjonsvektoren $\vec{r}(t) = \lvec{OP}(t)$.
+
+Den interaktive figuren til høyre lar deg undersøke hvordan posisjonsvektoren $\vec{r}(t)$ endrer seg når vi varierer parameteren $t$. Bruk den til å forstå beskrivelsen av linja $\ell$ ved hjelp av posisjonsvektoren $\vec{r}(t)$. 
+
+:::{clear}
+:::
+
 
 :::::::::::::::{summary} Linjer i koordinatsystemet (vektorfunksjon)
 En linje $\ell$ i et koordinatsystem kan beskrives ved hjelp av et startpunkt $A$ som ligger på linja og en retningsvektor $\vec{v}$ som peker langs linja. Da er alle punkter på linja gitt ved posisjonsvektoren $\vec{r}(t)$ beskrevet av vektorfunksjonen
@@ -413,10 +447,10 @@ text: 0.5 * 2, 0.5 * 2, "$\overrightarrow{OA}$", center-left
 vector: (2, 2), (4, 3), red
 vector: (0, 0), (4, 3), red
 text: 0.5 * (2 + 4), 0.5 * (2 + 3), "$\vec{v} \cdot t$", top-left
-text: 0.5 * 4, 0.5 * 3, "$\vec{r}(t) = \overrightarrow{OB} = \overrightarrow{OA} + \vec{v} \cdot t$", bottom-right
+text: 0.5 * 4, 0.5 * 3, "$\vec{r}(t) = \overrightarrow{OP} = \overrightarrow{OA} + \vec{v} \cdot t$", bottom-right
 text: -1/2, 3/4, "$\ell$", center-left
 point: (4, 3)
-text: 4, 3, "$B$", bottom-right
+text: 4, 3, "$P$", bottom-right
 fontsize: 22
 :::
 
