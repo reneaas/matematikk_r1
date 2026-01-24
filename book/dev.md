@@ -1,5 +1,17 @@
 # Dev
 
+:::{signchart-2}
+width: 80%
+function: 4*x**3 - 6*a**2*x, f'(x)
+domain: a > 0
+nocache:
+:::
+
+:::{signchart-2}
+width: 80%
+function: 3*(x + 1) * (x - 3), g(x)
+:::
+
 ::::{multi-plot2}
 ---
 rows: 1
