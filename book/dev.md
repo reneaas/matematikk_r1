@@ -4,7 +4,6 @@
 width: 80%
 function: 4*x**3 - 6*a**2*x, f'(x)
 domain: a > 0
-nocache:
 :::
 
 :::{signchart-2}
@@ -273,7 +272,6 @@ xmin: -3
 xmax: 3
 ymin: -3
 ymax: 3
-nocache:
 :::
 
 
@@ -287,15 +285,12 @@ xmin: -6
 xmax: 6
 ymin: -6
 ymax: 6
-nocache:
 :::
 
-Waddup
 
 
 
 :::{interactive-graph} 
-align: right
 interactive-var: varphi, 0, 180, 181
 interactive-var-start: 60
 vector: (1, 1), (1 + 2, 1), blue
@@ -310,9 +305,6 @@ width: 50%
 text: 3, 3, "$\vec{a} \cdot \vec{b}$ = {2 * 1.5 * cos(varphi * pi/180):.2f}", center-center, bbox
 :::
 
-
-
-Waddup dawg? *Dunno*...
 
 :::{interactive-graph} 
 interactive-var: t, -8, 6, 64
@@ -331,5 +323,4 @@ vector: (0, 0), (2 + t, 3 + 0.5 * t), red
 text: 0.5 * (2 + t), 0.5 * (3 + 0.5 * t), "$\vec{r}({t:.2f})$", bottom-right, bbox
 point: (2 + t, 3 + 0.5 * t)
 text: 2+t, 3+0.5*t, "$P$", top-left
-nocache:
 :::
