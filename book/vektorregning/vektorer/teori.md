@@ -163,7 +163,7 @@ $$
 a_x = b_x \and a_y = b_y
 $$
 
-De to vektorene trenger ikke starte i samme punkt.
+De to vektorene trenger **ikke** starte i samme punkt.
 
 
 ::::{multi-plot2}
@@ -178,8 +178,7 @@ vector: -1, -2, 3, 1, blue
 vector: 2, 1, 3, 1, red
 text: 1, -2, "$\vec{a}$", bottom-right
 text: 0.5 * (2 + 5), 0.5 * (1 + 2), "$\vec{b}$", top-left
-
-Vektor $\vec{a}$ og $\vec{b}$ er like fordi de har samme lengde og retning. De flytter seg like mye i $x$- og $y$-retning fra startpunktene sine.
+text: -3, 4, "Like vektorer", center-center, bbox
 :::
 
 
@@ -188,8 +187,7 @@ vector: -1, -2, 3, 1, blue
 vector: 2, 1, 1, 3, red
 text: 1, -2, "$\vec{a}$", bottom-right
 text: 2.5, 2.5, "$\vec{b}$", bottom-right
-
-Vektor $\vec{a}$ og $\vec{b}$ er ulike fordi de har forskjellig lengde og retning. De flytter seg ulikt i $x$- og $y$-retning fra startpunktene sine.
+text: -3, 4, "Ikke like vektorer", center-center, bbox
 :::
 
 
@@ -206,7 +204,7 @@ Vektor $\vec{a}$ og $\vec{b}$ er ulike fordi de har forskjellig lengde og retnin
 
 
 ## Lengden av en vektor
-Lengden av en vektor er avstanden fra startpunktet til endpunktet til vektoren. Dette vil samsvare med hypotenusen i en rettvinklet trekant som er hva vi skal definere lengden av en vektor til å være.
+Lengden av en vektor er avstanden fra startpunktet til endepunktet til vektoren. Dette vil samsvare med hypotenusen i en rettvinklet trekant som er *det* vi skal definere lengden av en vektor til å være.
 
 
 :::::::::::::::{summary} Lengden av vektor
@@ -384,7 +382,7 @@ Ganger vi en vektor med $-1$, skal vi følge vektoren i motsatt retning, så da 
 Ganger vi vektoren med $-\dfrac{1}{2}$ så gjør vi vektoren halvparten så lang og følger den i motsatt retning.
 
 :::{interactive-graph} 
-interactive-var: k, -5, 5, 64
+interactive-var: k, -5, 5, 101
 interactive-var-start: 1
 vector: (0, 0), (k, 2*k), red
 vector: (-4, 1), 1, 2, blue
