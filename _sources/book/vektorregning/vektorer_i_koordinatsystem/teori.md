@@ -406,7 +406,6 @@ vector: (0, 0), (2 + t, 3 + 0.5 * t), red
 text: 0.5 * (2 + t), 0.5 * (3 + 0.5 * t), "$\vec{r}({t:.2f})$", bottom-right, bbox
 point: (2 + t, 3 + 0.5 * t)
 text: 2+t, 3+0.5*t, "$P$", top-left
-nocache:
 width: 50%
 fontsize: 25
 :::

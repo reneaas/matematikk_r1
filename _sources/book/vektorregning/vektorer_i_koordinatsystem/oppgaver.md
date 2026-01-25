@@ -111,8 +111,30 @@ $$
 :::::::::::::::
 
 
+---
+
+
 :::::::::::::::{exercise} Oppgave 2
-Gitt punktene $A(2, 3)$ og $B(-2, 2)$
+
+:::{plot}
+width: 100%
+align: right
+point: (1, 4)
+text: 1, 4, "$C$", top-right
+point: (-4, -3)
+text: -4, -3, "$A$", bottom-left
+point: (4, 2)
+text: 4, 2, "$B$", top-right
+fontsize: 30
+:::
+
+
+
+Gitt punktene $A$, $B$ og $C$ i koordinatsystemet til høyre.
+
+
+:::{clear}
+:::
 
 
 ::::::::::::::{tab-set}
@@ -120,7 +142,130 @@ Gitt punktene $A(2, 3)$ og $B(-2, 2)$
 class: tabs-parts
 ---
 :::::::::::::{tab-item} a
-Bestem $\lvec{OA}$ og $\lvec{OB}$
+Bestem posisjonsvektorene $\lvec{OA}$, $\lvec{OB}$ og $\lvec{OC}$.
+
+
+::::{answer}
+$$
+\lvec{OA} = [-4, -3] \qog \lvec{OB} = [4, 2] \qog \lvec{OC} = [1, 4]
+$$
+::::
+
+::::{solution}
+Punktet $A$ har koordinatene $(-4, -3)$ som betyr at 
+
+$$
+\lvec{OA} = [-4, -3]
+$$
+
+Punktet $B$ har koordinatene $(4, 2)$ som betyr at
+
+$$
+\lvec{OB} = [4, 2]
+$$
+
+Punktet $C$ har koordinatene $(1, 4)$ som betyr at 
+
+$$
+\lvec{OC} = [1, 4]
+$$
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Bestem $\lvec{AB}$, $\lvec{AC}$ og $\lvec{BC}$.
+
+
+::::{answer}
+$$
+\lvec{AB} = [8, 5] \qog \lvec{AC} = [5, 7] \qog \lvec{BC} = [-3, 2]
+$$
+::::
+
+
+::::{solution}
+Vi kan lese av fra figuren at $A(-4, -3)$ og $B(4, 2)$. Da har vi
+
+$$
+\lvec{AB} = \lvec{OB} - \lvec{OA} = [4, 2] - [-4, -3] = [4 - (-4), 2 - (-3)] = [8, 5]
+$$
+
+Vi kan også lese av fra figuren at $C(1, 4)$. Da har vi
+
+$$
+\lvec{AC} = \lvec{OC} - \lvec{OA} = [1, 4] - [-4, -3] = [1 - (-4), 4 - (-3)] = [5, 7]
+$$
+
+
+Vi kan finne $\lvec{BC}$ ved å bruke at
+
+$$
+\lvec{BC} = \lvec{AC} - \lvec{AB} = [5, 7] - [8, 5] = [5 - 8, 7 - 5] = [-3, 2]
+$$
+
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+Bestem omkretsen til trekanten $\triangle ABC$.
+
+
+::::{answer}
+$$
+\mathcal{O} = \sqrt{89} + \sqrt{74} + \sqrt{13}
+$$
+::::
+
+::::{solution}
+Vi har at
+
+$$
+\begin{align*}
+\abs{\lvec{AB}} &= \sqrt{8^2 + 5^2} = \sqrt{64 + 25} = \sqrt{89} \\
+\\
+\abs{\lvec{AC}} &= \sqrt{5^2 + 7^2} = \sqrt{25 + 49} = \sqrt{74} \\
+\\
+\abs{\lvec{BC}} &= \sqrt{(-3)^2 + 2^2} = \sqrt{9 + 4} = \sqrt{13}
+\end{align*}
+$$
+
+Altså er omkretsen til trekanten gitt ved
+
+$$
+\mathcal{O} = \abs{\lvec{AB}} + \abs{\lvec{AC}} + \abs{\lvec{BC}} = \sqrt{89} + \sqrt{74} + \sqrt{13}
+$$
+::::
+
+
+:::::::::::::
+
+
+
+
+
+::::::::::::::
+
+
+:::::::::::::::
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 3
+Gitt punktene $A(2, 3)$ og $B(-2, 2)$.
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bestem $\lvec{OA}$ og $\lvec{OB}$.
 
 
 ::::{answer}
@@ -142,7 +287,7 @@ $$
 
 
 :::::::::::::{tab-item} b
-Bestem $\lvec{AB}$ og $\lvec{BA}$
+Bestem $\lvec{AB}$ og $\lvec{BA}$.
 
 
 ::::{answer}
@@ -170,7 +315,7 @@ $$
 :::::::::::::
 
 :::::::::::::{tab-item} c
-Bestem avstanden mellom punktene $A$ og $B$.
+Bestem lengden av linjestykket $AB$.
 
 
 ::::{answer}
@@ -180,7 +325,7 @@ $$
 ::::
 
 ::::{solution}
-Vi har allerede funnet at $\lvec{AB} = [-4, -1]$. Da er avstanden mellom punktene $A$ og $B$ gitt ved
+Vi har allerede funnet at $\lvec{AB} = [-4, -1]$. Da er lengden av linjestykket $AB$ gitt ved
 
 $$
 \abs{\lvec{AB}} = \sqrt{(-4)^2 + (-1)^2} = \sqrt{17}
@@ -192,20 +337,35 @@ $$
 
 
 :::::::::::::{tab-item} d
-Sjekk ved regning at
+Bestem koordinatene til midtpunktet $M$ på linjestykket $AB$.
 
-$$
-\lvec{OB} = \lvec{OA} + \lvec{AB}
-$$
+
+::::{answer}
+$M\left(0, \dfrac{5}{2}\right)$
+::::
 
 
 ::::{solution}
-Vi har at
+Midtpunktet $M$ ligger midt mellom punktene $A(2, 3)$ og $B(-2, 2)$. Vi kan derfor finne dette punktet ved å først gå veien om $A$, deretter følger vi $\lvec{AB}$ halve veien. Posisjonsvektoren til punktet er derfor
 
 $$
-\lvec{OA} + \lvec{AB} = [2, 3] + [-4, -1] = [2 - 4, 3 - 1] = [-2, 2] = \lvec{OB}
+\begin{align*}
+\lvec{OM} &= \lvec{OA} + \frac{1}{2} \cdot \lvec{AB} \\
+\\
+&= [2, 3] + \frac{1}{2} \cdot [-4, -1] \\
+\\
+&= [2, 3] + \left[-2, -\dfrac{1}{2}\right] \\
+\\
+&= \left[2 - 2, 3 - \dfrac{1}{2}\right] \\
+\\
+&= \left[0, \dfrac{5}{2}\right]
+\end{align*}
 $$
+
+Altså er koordinatene til punktet $M\left(0, \dfrac{5}{2}\right)$.
+
 ::::
+
 :::::::::::::
 
 
@@ -220,7 +380,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 3
+:::::::::::::::{exercise} Oppgave 4
 Tre punkter er gitt ved $A(-2, 1)$, $B(1, 5)$ og $C(7, -3)$.
 
 
@@ -335,14 +495,192 @@ Altså er $BC$ den lengste siden i trekanten med lengde $10$.
 :::::::::::::::
 
 
+---
 
+
+:::::::::::::::{exercise} Oppgave 5
+
+:::{plot}
+fontsize: 30
+width: 100%
+align: right
+xmin: -1
+xmax: 9
+ymin: -1
+ymax: 9
+ticks: off
+point: (1, 2)
+text: 1, 2, "$A(1, 2)$", bottom-right
+point: (5, 4)
+text: 5, 4, "$B(5, 4)$", bottom-right
+point: (7, 8)
+text: 7, 8, "$C(7, 8)$", top-right
+point: (3, 6)
+text: 3, 6, "$D$", top-left
+line-segment: (1, 2), (5, 4), dashed, gray
+line-segment: (5, 4), (7, 8), dashed, gray
+line-segment: (7, 8), (3, 6), dashed, gray
+line-segment: (3, 6), (1, 2), dashed, gray
+:::
+
+
+
+
+Et parallellogram $ABCD$ har hjørnene
+
+$$
+A(1, 2), \, B(5, 4), \, C(7, 8) \qog D(a, b)
+$$
+
+
+:::{clear}
+:::
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bestem koordinatene til punktet $D$.
+
+
+
+::::{hints} Hint: Hva er egentlig et parallellogram?
+I et parallellogram så vil to og to sider være parallelle og like lange.
+::::
+
+
+
+::::{answer}
+$$
+D(3, 6)
+$$
+::::
+
+::::{solution}
+Sidene $AD$ og $BC$ er parallelle og like lange som betyr at 
+
+$$
+\begin{align*}
+\lvec{AD} &= \lvec{BC} \\
+\\
+&= \lvec{OC} - \lvec{OB}
+\\
+\\&= [7, 8] - [5, 4] \\
+\\
+&= [2, 4]
+\end{align*}
+$$
+
+For å finne koordinatene til punktet $D$, kan vi da gå veien om $A$ først og så følge vektoren $\lvec{AD}$:
+
+$$
+\begin{align*}
+\lvec{OD} &= \lvec{OA} + \lvec{AD} \\
+\\
+&= [1, 2] + [2, 4] \\
+\\
+&= [3, 6]
+\end{align*}
+$$
+
+Dermed er punktet $D$ gitt ved $D(3, 6)$.
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Bestem koordinatene til skjæringspunktet $P$ mellom diagonalene $AC$ og $BD$. 
+
+
+::::{hints} Hint
+Når du deler opp parallellogrammet med diagonalene $AC$ og $BD$, hvor havner skjæringspunktet i forhold til $A$ og $C$, og $B$ og $D$? 
+::::
+
+
+::::{answer}
+$$
+P(4, 5)
+$$
+::::
+
+::::{solution}
+
+:::{plot}
+fontsize: 30
+width: 100%
+align: right
+xmin: -1
+xmax: 9
+ymin: -1
+ymax: 9
+ticks: off
+point: (1, 2)
+text: 1, 2, "$A(1, 2)$", bottom-right
+point: (5, 4)
+text: 5, 4, "$B(5, 4)$", bottom-right
+point: (7, 8)
+text: 7, 8, "$C(7, 8)$", top-right
+point: (3, 6)
+text: 3, 6, "$D$", top-left
+line-segment: (1, 2), (5, 4), dashed, gray
+line-segment: (5, 4), (7, 8), dashed, gray
+line-segment: (7, 8), (3, 6), dashed, gray
+line-segment: (3, 6), (1, 2), dashed, gray
+line-segment: (1, 2), (7, 8), solid, blue
+line-segment: (5, 4), (3, 6), solid, red
+point: (4, 5)
+text: 4, 5, "$P$", top-right
+:::
+
+
+Vi lager en hjelpefigur som vist til høyre.
+Fordi linjestykkene $AC$ deler parallellogrammet i to like store trekanter, må skjæringspunktet $P$ ligge midt mellom $B$ og $D$, altså er det midtpunktet på linjestykket $BD$. Vi kan også snu dette rundt og si at $P$ er midtpunktet på linjestykket $AC$ fordi linjestykket $BD$ også deler parallellogrammet i to like store trekanter. 
+
+Vi kan altså bestemme koordinatene til $P$ ved å først gå veien om punktet $A$, og så følge vektoren $\lvec{AC}$ halve veien. Vi har at
+
+$$
+\lvec{AC} = \lvec{OC} - \lvec{OA} = [7, 8] - [1, 2] = [6, 6]
+$$
+
+Altså er posisjonsvektoren til punktet $P$ gitt ved
+
+$$
+\begin{align*}
+\lvec{OP} &= \lvec{OA} + \frac{1}{2} \cdot \lvec{AC} \\
+\\
+&= [1, 2] + \frac{1}{2} \cdot [6, 6] \\
+\\
+&= [1, 2] + [3, 3] \\
+\\
+&= [4, 5]
+\end{align*}
+$$
+
+Altså er skjæringspunktet $P(4, 5)$.
+
+
+
+::::
+
+
+:::::::::::::
+
+
+::::::::::::::
+
+
+:::::::::::::::
 
 
 ---
 
 
 
-:::::::::::::::{exercise} Oppgave 4
+
+:::::::::::::::{exercise} Oppgave 6
 ::::::::::::::{tab-set}
 ---
 class: tabs-parts
@@ -509,7 +847,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 5
+:::::::::::::::{exercise} Oppgave 7
 ::::::::::::::{tab-set}
 ---
 class: tabs-parts
@@ -683,7 +1021,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 6
+:::::::::::::::{exercise} Oppgave 8
 En linje $\ell$ er beskrevet av parameterframstillingen
 
 $$
@@ -803,7 +1141,7 @@ Vi får to forskjellige verdier for $t$ som betyr at $A(5, -2)$ **ikke** ligger 
 ---
 
 
-:::::::::::::::{exercise} Oppgave 7
+:::::::::::::::{exercise} Oppgave 9
 En linje $\ell$ går gjennom punktet $A(2, -1)$ og har retningsvektoren $\vec{v} = [2, 3]$.
 
 
@@ -995,7 +1333,7 @@ Vi får to forskjellige verdier for $t$ som betyr at $D(3, 2)$ ikke ligger på l
 ---
 
 
-:::::::::::::::{exercise} Oppgave 8
+:::::::::::::::{exercise} Oppgave 10
 En linje $\ell$ er beskrevet av parameterframstillingen
 
 $$
@@ -1033,26 +1371,41 @@ $$
 
 
 :::::::::::::{tab-item} b
-Bestem startpunktet til parameterframstillingen.
+Bestem koordinatene til skjæringspunktene mellom $\ell$ og koordinataksene.
 
 ::::{answer}
-$$
-(1, 4)
-$$
+* Linja skjærer $x$-aksen i $(7, 0)$
+* Linja skjærer $y$-aksen i $\left(0, \dfrac{14}{3}\right)$
 ::::
 
 ::::{solution}
-Startpunktet til parameterframstillingen får vi ved å sette $t = 0$ i likningene for $x$ og $y$:
+Vi har at $x(t) = 3t + 1$. Når linja $\ell$ skjærer $y$-aksen vil $x(t) = 0$: 
 
 $$
-\begin{align*}
-x &= 3 \cdot 0 + 1 = 1 \\
-\\
-y &= -2 \cdot 0 + 4 = 4
-\end{align*}
+x(t) = 0 \liff 3t + 1 = 0 \liff t = -\dfrac{1}{3}
 $$
 
-Altså er startpunktet til parameterframstillingen $(1, 4)$.
+Vi har at $y(t) = -2t + 4$, så da blir $y$-koordinaten til skjæringspunktet
+
+$$
+y\left(-\dfrac{1}{3}\right) = -2 \cdot \left(-\dfrac{1}{3}\right) + 4 = \dfrac{2}{3} + 4 = \dfrac{14}{3}
+$$
+
+Altså skjærer linja $y$-aksen i $\left(0, \dfrac{14}{3}\right)$.
+
+For å finne skjæringspunktet mellom linja og $x$-aksen, setter vi $y(t) = 0$:
+
+$$
+y(t) = 0 \liff -2t + 4 = 0 \liff -2t = -4 \liff t = 2
+$$
+
+Når vi setter inn $t = 2$ i $x(t)$, får vi:
+
+$$
+x(2) = 3 \cdot 2 + 1 = 6 + 1 = 7
+$$
+
+Altså skjærer linja $x$-aksen i punktet $(7, 0)$.
 ::::
 
 :::::::::::::
@@ -1063,67 +1416,13 @@ Altså er startpunktet til parameterframstillingen $(1, 4)$.
 :::::::::::::::
 
 
----
-
-
-:::::::::::::::{exercise} Oppgave 9
-
-En linje $\ell$ er gitt ved 
-
-$$
-\vec{r}(t) = [4 - t, 2 + 2t]
-$$
-
-Hvilken av linjene nedenfor viser grafen til $\ell$? 
-
-
-::::{multi-plot2}
----
-rows: 2
-cols: 2
-xmin: -12
-xmax: 12
-ymin: -12
-ymax: 12
-xstep: 2
-ystep: 2
-fontsize: 25
----
-:::{plot}
-function: -2*x + 10 
-text: 8, 8, "A", center-center, bbox
-:::
-
-:::{plot}
-function: 2*x - 10
-text: 8, 8, "B", center-center, bbox
-:::
-
-:::{plot}
-function: -2*x + 4 
-text: 8, 8, "C", center-center, bbox
-:::
-
-:::{plot}
-function: 2*x + 4
-text: 8, 8, "D", center-center, bbox
-:::
-
-::::
-
-
-::::{answer}
-Graf A.
-::::
-
-:::::::::::::::
-
-
 
 ---
 
 
-:::::::::::::::{exercise} Oppgave 10
+
+
+:::::::::::::::{exercise} Oppgave 11
 En linje $\ell$ har likningen $y = x - 4$.
 
 ::::::::::::::{tab-set}
@@ -1257,7 +1556,7 @@ Altså er koordinatene til skjæringspunktet mellom linjene $\ell$ og $m$ gitt v
 ---
 
 
-:::::::::::::::{exercise} Oppgave 11
+:::::::::::::::{exercise} Oppgave 12
 ::::::::::::::{tab-set}
 ---
 class: tabs-parts
@@ -1460,6 +1759,81 @@ En linje $\ell$ har stigningstall $2$ og har et punkt $A(0, 2)$ som ligger på l
 En annen linje $m$ har stigningstall $-1$ og har et punkt $B(-1, 6)$ som ligger på linja.
 
 Besten koordinatene til skjæringspunktet mellom linjene $\ell$ og $m$.
+
+
+::::{answer}
+$$
+(1, 4)
+$$
+::::
+
+::::{solution}
+Linja $\ell$ har stigningstall $2$ som betyr at en retningsvektor for linja er 
+
+$$
+\vec{v}_\ell = [1, 2]
+$$
+
+Punktet $A(0, 2)$ ligger på linja, og posisjonsvektoren til punktene på linja er da gitt ved
+
+$$
+\vec{r}_\ell(t) = \lvec{OA} + \vec{v}_\ell \cdot t = [0, 2] + [1, 2] \cdot t = [t, 2 + 2t]
+$$
+
+Linja $m$ har stigningstall $-1$ som betyr at en retningsvektor for linja er
+
+$$
+\vec{v}_m = [1, -1]
+$$
+
+Punktet $B(-1, 6)$ ligger på linja, og posisjonsvektoren til punktene på linja er da gitt ved
+
+$$
+\vec{r}_m(s) = \lvec{OB} + \vec{v}_m \cdot s = [-1, 6] + [1, -1] \cdot s = [-1 + s, 6 - s]
+$$
+
+For å finne skjæringspunktet mellom de to linjene, må vi finne verdier for $t$ og $s$ slik at
+
+$$
+\vec{r}_\ell(t) = \vec{r}_m(s)
+$$
+
+som vi kan skrive som
+
+$$
+[t, 2 + 2t] = [-1 + s, 6 - s]
+$$
+
+Her må $x$-komponentene og $y$-komponentene være like, så vi får to likninger som må være tilfredsstilt samtidig:
+
+$$
+t = -1 + s \and 2 + 2t = 6 - s
+$$
+
+Den første likningen er allerede løst for $t$, så vi setter inn dette i den andre likningen:
+
+$$
+2 + 2(-1 + s) = 6 - s
+$$
+
+$$
+2 - 2 + 2s = 6 - s
+$$
+
+$$
+3s = 6 \liff s = 2
+$$
+
+Vi setter inn $s = 2$ i $\vec{r}_m(s)$ for å finne koordinatene til skjæringspunktet mellom de to linjene:
+
+$$
+\vec{r}_m(2) = [-1 + 2, 6 - 2] = [1, 4]
+$$
+
+Altså er koordinatene til skjæringspunktet mellom $\ell$ og $m$ gitt ved $(1, 4)$.
+::::
+
+
 :::::::::::::
 
 
@@ -1472,7 +1846,7 @@ Besten koordinatene til skjæringspunktet mellom linjene $\ell$ og $m$.
 
 
 
-:::::::::::::::{exercise} Oppgave 12
+:::::::::::::::{exercise} Oppgave 13
 Et punkt er gitt ved $A(3, 2)$. To vektorer $\vec{u}$ og $\vec{v}$ er gitt ved
 
 $$
@@ -1490,11 +1864,196 @@ class: tabs-parts
 Bestem koordinatene til $B$.
 
 Bestem koordinatene til $C$ og $D$ uttrykt ved $t$.
+
+
+::::{answer}
+* $B(7, 5)$
+* $C(7 + 2t, 5 + 5t)$
+* $D(3 + 2t, 2 + 5t)$
+::::
+
+::::{solution}
+
+:::{plot}
+fontsize: 25
+width: 100%
+align: right
+xmin: -1
+xmax: 12
+ymin: -1
+ymax: 12
+ticks: off
+point: (3, 2)
+text: 3, 2, "$A(3, 2)$", bottom-right
+point: (7, 5)
+text: 7, 5, "$B$", bottom-right
+point: (7 + 2, 5 + 5)
+text: 7 + 2, 5 + 5, "$C$", top-right
+point: (3 + 2, 2 + 5)
+text: 3 + 2, 2 + 5, "$D$", top-left
+line-segment: (3, 2), (7, 5), dashed, gray
+line-segment: (7, 5), (7 + 2, 5 + 5), dashed, gray
+line-segment: (7 + 2, 5 + 5), (3 + 2, 2 + 5), dashed, gray
+line-segment: (3 + 2, 2 + 5), (3, 2), dashed, gray
+vector: (0, 0), (3, 2), blue
+text: 0.5 * 3, 0.5 * 2, "$\overrightarrow{OA}$", top-left
+vector: (3, 2), (7, 5), red
+text: 0.5 * (3 + 7), 0.5 * (2 + 5), "$\overrightarrow{AB}$", bottom-right
+vector: (7, 5), (7 + 2, 5 + 5), red
+text: 0.5 * (7 + (7 + 2)), 0.5 * (5 + (5 + 5)), "$\overrightarrow{BC} = \overrightarrow{AD}$", bottom-right
+vector: (3, 2), (3 + 2, 2 + 5), red
+text: 0.5 * (3 + (3 + 2)), 0.5 * (2 + (2 + 5)), "$\overrightarrow{AD}$", top-left
+:::
+
+
+Vi lager oss en hjelpefigur som vist til høyre.
+
+For å komme til punktet $B$, går vi via punktet $A$ og så følger vi $\lvec{AB}$ for å ende opp i punktet $B$. Altså:
+
+$$
+\begin{align*}
+\lvec{OB} &= \lvec{OA} + \lvec{AB} \\
+\\
+&= [3, 2] + [4, 3] \\
+\\
+&= [3 + 4, 2 + 3] \\
+\\
+&= [7, 5]
+\end{align*}
+$$
+
+Altså er koordinatene til punktet $B$ gitt ved $(7, 5)$.
+
+For å komme til punktet $D$, kan vi gå via punktet $A$ og så følge $\lvec{AD}$ for å ende opp i punktet $D$. Altså:
+
+$$
+\begin{align*}
+\lvec{OD} &= \lvec{OA} + \lvec{AD} \\
+\\
+&= [3, 2] + [2t, 5t] \\
+\\
+&= [3 + 2t, 2 + 5t] \\
+\end{align*}
+$$
+
+Altså er koordinatene til punktet $D$ gitt ved $(3 + 2t, 2 + 5t)$.
+
+For å komme til punktet $C$, kan vi gå via punktet $B$ og så følge $\lvec{AD} = \lvec{BC}$ for å ende opp i punktet $C$. Altså:
+
+$$
+\begin{align*}
+\lvec{OC} &= \lvec{OB} + \lvec{AD} \\
+\\
+&= [7, 5] + [2t, 5t] \\
+\\
+&= [7 + 2t, 5 + 5t] \\
+\end{align*}
+$$
+
+Dermed er koordinatene til punktet $C$ gitt ved $(7 + 2t, 5 + 5t)$.
+::::
+
+
 :::::::::::::
 
 
 :::::::::::::{tab-item} b
 Bestem $t$ slik at skjæringspunktet mellom diagonalene i parallellogrammet er $P(8, 11)$.
+
+
+
+::::{answer}
+$$
+t = 3
+$$
+::::
+
+
+::::{solution}
+
+:::{plot}
+fontsize: 25
+width: 100%
+align: right
+xmin: -1
+xmax: 12
+ymin: -1
+ymax: 12
+ticks: off
+point: (3, 2)
+text: 3, 2, "$A$", bottom-right
+point: (7, 5)
+text: 7, 5, "$B$", center-right
+point: (7 + 2, 5 + 5)
+text: 7 + 2, 5 + 5, "$C$", center-right
+point: (3 + 2, 2 + 5)
+text: 3 + 2, 2 + 5, "$D$", top-center
+point: (6, 6)
+text: 6, 6, "$P$", top-center
+line-segment: (3, 2), (7, 5), dashed, gray
+line-segment: (7, 5), (7 + 2, 5 + 5), dashed, gray
+line-segment: (7 + 2, 5 + 5), (3 + 2, 2 + 5), dashed, gray
+line-segment: (3 + 2, 2 + 5), (3, 2), dashed, gray
+line: (3, 2), (7 + 2, 5 + 5), solid, blue
+line: (7,5), (3 + 2, 2 + 5), solid, red
+text: 0.5 * 3, 0.5 * 2, "$\ell$", top-center
+text: 0.5 * 3, 10, "$m$", bottom-center
+:::
+
+Vi lager oss en hjelpefigur først. Vi kan tenke oss at vi har to linjer $\ell$ (blå) og $m$ (rød), der linja $\ell$ går gjennom punktene $A$ og $C$, og linja $m$ går gjennom punktene $B$ og $D$. Skjæringspunktet til de to linjene er da skjæringspunktet $P$ mellom diagonalene i parallellogrammet.
+
+Både linja $\ell$ og linja $m$ deler parallellogrammet i to like store deler som er speilet om linjene, som betyr at skjæringspunktet $P$ må ligge midt mellom $A$ og $C$, og midt mellom $B$ og $D$. 
+
+Det betyr at vi kan komme oss til punktet $P$, ved å først gå til punktet $A$ og deretter følge vektorer $\lvec{AC}$ halvveis. Vi har at
+
+$$
+\lvec{AC} = \lvec{OC} - \lvec{OA} = [7 + 2t, 5 + 5t] - [3, 2] = [4 + 2t, 3 + 5t]
+$$
+
+Altså er posisjonsvektoren til punktet $P$ gitt ved
+
+$$
+\begin{align*}
+\lvec{OP} &= \lvec{OA} + \dfrac{1}{2} \cdot \lvec{AC} \\
+\\
+&= [3, 2] + \dfrac{1}{2} \cdot [4 + 2t, 3 + 5t] \\
+\\
+&= [3, 2] + \left[2 + t, \dfrac{3 + 5t}{2}\right] \\
+\\
+&= \left[5 + t, 2 + \dfrac{3 + 5t}{2}\right] \\
+\end{align*}
+$$
+
+Vi skal kreve at $\lvec{OP} = [8, 11]$, som gir oss likningene
+
+$$
+5 + t = 8 \and 2 + \dfrac{3 + 5t}{2} = 11
+$$
+
+Vi løser den første likningen:
+
+$$
+5 + t = 8 \liff t = 3
+$$
+
+Så løser vi den andre likningen for å sjekke at vi får samme verdi for $t$:
+
+$$
+2 + \dfrac{3 + 5t}{2} = 11  \liff 4 + (3 + 5t) = 22
+$$
+
+$$
+7 + 5t = 22 \liff 5t = 15 \liff t = 3
+$$
+
+Altså vil koordinatene til skjæringspunktet $P$ mellom diagonalene være $(8, 11)$ når
+
+$$
+t = 3
+$$
+
+::::
+
 :::::::::::::
 
 
@@ -1502,3 +2061,6 @@ Bestem $t$ slik at skjæringspunktet mellom diagonalene i parallellogrammet er $
 
 
 :::::::::::::::
+
+
+
