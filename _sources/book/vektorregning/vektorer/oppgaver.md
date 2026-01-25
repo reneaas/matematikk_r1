@@ -505,129 +505,11 @@ Vektorene $\vec{a}$ og $\vec{b}$ er like.
 :::::::::::::::
 
 
+
 ---
 
 
 :::::::::::::::{exercise} Oppgave 4
-::::::::::::::{tab-set}
----
-class: tabs-parts
----
-:::::::::::::{tab-item} a
-En vektor $\vec{a}$ er gitt ved
-
-$$
-\vec{a} = [2, 5]
-$$
-
-Bestem $\abs{\vec{a}}$.
-
-
-
-::::{answer}
-$$
-\abs{\vec{a}} = \sqrt{29}
-$$
-::::
-
-
-::::{solution}
-$$
-\abs{\vec{a}} = \sqrt{2^2 + 5^2} = \sqrt{4 + 25} = \sqrt{29}
-$$
-::::
-
-
-:::::::::::::
-
-
-:::::::::::::{tab-item} b
-En vektor $\vec{b}$ er gitt ved
-
-$$
-\vec{b} = [-3, 1]
-$$
-
-Bestem $\abs{\vec{b}}$.
-
-
-::::{answer}
-$$
-\abs{\vec{b}} = \sqrt{10}
-$$
-::::
-
-
-::::{solution}
-$$
-\abs{\vec{b}} = \sqrt{(-3)^2 + 1^2} = \sqrt{9 + 1} = \sqrt{10}
-$$
-::::
-
-
-:::::::::::::
-
-
-:::::::::::::{tab-item} c
-En vektor $\vec{c}$ er gitt ved
-
-$$
-\vec{c} = [4, -4]
-$$
-
-Bestem $\abs{\vec{c}}$.
-
-
-
-::::{answer}
-$$
-\abs{\vec{c}} = 4\sqrt{2}
-$$
-::::
-
-::::{solution}
-$$
-\abs{\vec{c}} = \sqrt{4^2 + (-4)^2} = \sqrt{16 + 16} = \sqrt{2\cdot 16} = 4\sqrt{2}
-$$
-::::
-
-:::::::::::::
-
-
-:::::::::::::{tab-item} d
-En vektor $\vec{d}$ er gitt ved
-
-$$
-\vec{d} = [-1, -7]
-$$
-
-Bestem $\abs{\vec{d}}$.
-
-
-::::{answer}
-$$
-\abs{\vec{d}} = 5\sqrt{2}
-$$
-::::
-
-::::{solution}
-$$
-\abs{\vec{d}} = \sqrt{(-1)^2 + (-7)^2} = \sqrt{1 + 49} = \sqrt{50} = 5\sqrt{2}
-$$
-::::
-
-:::::::::::::
-
-
-::::::::::::::
-
-:::::::::::::::
-
-
----
-
-
-:::::::::::::::{exercise} Oppgave 5
 ::::::::::::::{tab-set}
 ---
 class: tabs-parts
@@ -754,7 +636,467 @@ $$
 
 
 
+:::::::::::::::{exercise} Oppgave 5
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+En vektor $\vec{a}$ er gitt ved
+
+$$
+\vec{a} = [2, 5]
+$$
+
+Bestem $\abs{\vec{a}}$.
+
+
+
+::::{answer}
+$$
+\abs{\vec{a}} = \sqrt{29}
+$$
+::::
+
+
+::::{solution}
+$$
+\abs{\vec{a}} = \sqrt{2^2 + 5^2} = \sqrt{4 + 25} = \sqrt{29}
+$$
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+En vektor $\vec{b}$ er gitt ved
+
+$$
+\vec{b} = [-3, 1]
+$$
+
+Bestem $\abs{\vec{b}}$.
+
+
+::::{answer}
+$$
+\abs{\vec{b}} = \sqrt{10}
+$$
+::::
+
+
+::::{solution}
+$$
+\abs{\vec{b}} = \sqrt{(-3)^2 + 1^2} = \sqrt{9 + 1} = \sqrt{10}
+$$
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+En vektor $\vec{c}$ er gitt ved
+
+$$
+\vec{c} = [4, -4]
+$$
+
+Bestem $\abs{\vec{c}}$.
+
+
+
+::::{answer}
+$$
+\abs{\vec{c}} = 4\sqrt{2}
+$$
+::::
+
+::::{solution}
+$$
+\abs{\vec{c}} = \sqrt{4^2 + (-4)^2} = \sqrt{16 + 16} = \sqrt{2\cdot 16} = 4\sqrt{2}
+$$
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+En vektor $\vec{d}$ er gitt ved
+
+$$
+\vec{d} = [-1, -7]
+$$
+
+Bestem $\abs{\vec{d}}$.
+
+
+::::{answer}
+$$
+\abs{\vec{d}} = 5\sqrt{2}
+$$
+::::
+
+::::{solution}
+$$
+\abs{\vec{d}} = \sqrt{(-1)^2 + (-7)^2} = \sqrt{1 + 49} = \sqrt{50} = 5\sqrt{2}
+$$
+::::
+
+:::::::::::::
+
+
+::::::::::::::
+
+:::::::::::::::
+
+
+
+---
+
+
 :::::::::::::::{exercise} Oppgave 6
+> Noen ganger er det lurt å faktorisere ut en skalar fra vektoren og bruke at $\abs{k\cdot \vec{a}} = \abs{k} \cdot \abs{\vec{a}}$ for å kunne skrive lengden av vektoren så enkelt som mulig. Prøv dette i denne oppgaven.
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+En vektor $\vec{a}$ er gitt ved 
+
+$$
+\vec{a} = [6, -8]
+$$
+
+Bestem $\abs{\vec{a}}$.
+
+::::{answer}
+$$
+\abs{\vec{a}} = 10
+$$
+::::
+
+::::{solution}
+Vi kan skrive vektoren som 
+
+$$
+\vec{a} = [6, -8] = 2 \cdot [3, -4]
+$$
+
+Dermed blir lengden:
+
+$$
+\abs{\vec{a}} = \abs{2} \cdot \abs{[3, -4]} = 2 \cdot \sqrt{3^2 + (-4)^2} = 2 \cdot \sqrt{9 + 16} = 2 \cdot \sqrt{25} = 2 \cdot 5 = 10.
+$$
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+En vektor $\vec{b}$ er gitt ved
+
+$$
+\vec{b} = [-2, 14]
+$$
+
+Bestem $\abs{\vec{b}}$.
+
+::::{answer}
+$$
+\abs{\vec{b}} = 10\sqrt{2}
+$$
+::::
+
+::::{solution}
+Vi kan skrive vektoren som
+
+$$
+\vec{b} = [-2, 14] = 2\cdot [-1, 7]
+$$
+
+Da blir lengden
+
+$$
+\begin{align*}
+\abs{\vec{b}} &= \abs{2} \cdot \abs{[-1, 7]} = 2 \cdot \sqrt{(-1)^2 + 7^2} \\
+\\
+&= 2 \cdot \sqrt{1 + 49} \\
+\\
+&= 2 \cdot \sqrt{50} \\
+\\
+&= 2 \cdot \sqrt{2 \cdot 25} \\
+\\
+&= 2 \cdot \sqrt{2} \cdot \sqrt{25} \\
+\\
+&= 2 \cdot \sqrt{2} \cdot 5 \\
+\\
+&= 10 \sqrt{2}
+\end{align*}
+$$
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+En vektor $\vec{c}$ er gitt ved 
+
+$$
+\vec{c} = [9, 12]
+$$
+
+Bestem $\abs{\vec{c}}$.
+
+
+::::{answer}
+$$
+\abs{\vec{c}} = 15.
+$$
+::::
+
+
+::::{solution}
+Vi kan skrive vektoren som
+
+$$
+\vec{c} = [9, 12] = 3 \cdot [3, 4]
+$$
+
+Da blir lengden
+
+$$
+\begin{align*}
+\abs{\vec{c}} &= \abs{3} \cdot \abs{[3, 4]} \\
+\\
+&= 3 \cdot \sqrt{3^2 + 4^2} \\
+\\
+&= 3 \cdot \sqrt{9 + 16} \\
+\\
+&= 3 \cdot \sqrt{25} \\
+\\
+&= 3 \cdot 5 \\
+\\
+&= 15
+\end{align*}
+$$
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} d
+En vektor $\vec{d}$ er gitt ved
+
+$$
+\vec{d} = [21, -3]
+$$
+
+Bestem $\abs{\vec{d}}$.
+
+::::{answer}
+$$
+\abs{\vec{d}} = 15\sqrt{2}
+$$
+::::
+
+
+::::{solution}
+Vi kan skrive vektoren som
+
+$$
+\vec{d} = [21, -3] = 3 \cdot [7, -1]
+$$
+
+Da blir lengden
+
+$$
+\begin{align*}
+\abs{\vec{d}} &= \abs{3} \cdot \abs{[7, -1]} \\
+\\
+&= 3 \cdot \sqrt{7^2 + (-1)^2} \\
+\\
+&= 3 \cdot \sqrt{49 + 1} \\
+\\
+&= 3 \cdot \sqrt{50} \\
+\\
+&= 3 \cdot \sqrt{2 \cdot 25} \\
+\\
+&= 3 \cdot \sqrt{2} \cdot \sqrt{25} \\
+\\
+&= 3 \cdot \sqrt{2} \cdot 5 \\
+\\
+&= 15 \sqrt{2}
+\end{align*}
+$$
+::::
+
+
+:::::::::::::
+
+
+::::::::::::::
+
+
+
+:::::::::::::::
+
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 7
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Tre vektorer $\vec{a}$, $\vec{b}$ og $\vec{c}$ er gitt ved
+
+$$
+\vec{a} = [3, -4] \qog \vec{b} = [8, -1] \qog \vec{c} = [6, 2]
+$$
+
+Sorter vektorene i stigende rekkefølge etter lengde. 
+
+::::{answer}
+$$
+\abs{\vec{a}} < \abs{\vec{c}} < \abs{\vec{b}}
+$$
+::::
+
+
+::::{solution}
+Vi regner ut lengden til hver vektor:
+
+$$
+\abs{\vec{a}} = \sqrt{3^2 + (-4)^2} = \sqrt{9 + 16} = \sqrt{25} = 5
+$$
+
+$$
+\abs{\vec{b}} = \sqrt{8^2 + (-1)^2} = \sqrt{64 + 1} = \sqrt{65}
+$$
+
+$$
+\abs{\vec{c}} = \sqrt{6^2 + 2^2} = \sqrt{36 + 4} = \sqrt{40} = 2\sqrt{10}
+$$
+
+Dermed har vi at vektorene sortert i stigende rekkefølge etter lengde er
+
+$$
+\abs{\vec{a}} < \abs{\vec{c}} < \abs{\vec{b}}
+$$
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Tre vektorer $\vec{p}$, $\vec{q}$ og $\vec{r}$ er gitt ved
+
+$$
+\vec{p} = [2, 7] \qog \vec{q} = [-1, 9] \qog \vec{r} = [3, -6]
+$$
+
+Sorter vektorene i stigende rekkefølge etter lengde.
+
+::::{answer}
+$$
+\abs{\vec{r}} \lt \abs{\vec{p}} \lt \abs{\vec{q}}
+$$
+::::
+
+
+::::{solution}
+Vi regner ut lengden til hver vektor:
+
+$$
+\abs{\vec{p}} = \sqrt{2^2 + 7^2} = \sqrt{4 + 49} = \sqrt{53}
+$$
+
+$$
+\abs{\vec{q}} = \sqrt{(-1)^2 + 9^2} = \sqrt{1 + 81} = \sqrt{82}
+$$
+
+$$
+\abs{\vec{r}} = \sqrt{3^2 + (-6)^2} = \sqrt{9 + 36} = \sqrt{45} = 3\sqrt{5}
+$$
+
+
+Dermed har vi at vektorene sortert i stigende rekkefølge etter lengde er
+
+$$
+\abs{\vec{r}} \lt \abs{\vec{p}} \lt \abs{\vec{q}}
+$$
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+Tre vektorer $\vec{u}$, $\vec{v}$ og $\vec{w}$ er gitt ved
+
+$$
+\vec{u} = [12, -5] \qog \vec{v} = [-11, 7] \qog \vec{w} = [10, 3]
+$$
+
+Sorter vektorene i stigende rekkefølge etter lengde.
+
+
+::::{answer}
+$$
+\abs{\vec{w}} \lt \abs{\vec{u}} \lt \abs{\vec{v}}
+$$
+::::
+
+
+::::{solution}
+Vi regner ut lengden til hver vektor:
+
+$$
+\abs{\vec{u}} = \sqrt{12^2 + (-5)^2} = \sqrt{144 + 25} = \sqrt{169} = 13
+$$
+
+$$
+\abs{\vec{v}} = \sqrt{(-11)^2 + 7^2} = \sqrt{121 + 49} = \sqrt{170}
+$$
+
+$$
+\abs{\vec{w}} = \sqrt{10^2 + 3^2} = \sqrt{100 + 9} = \sqrt{109}
+$$
+
+Dermed har vi at vektorene sortert i stigende rekkefølge etter lengde er
+
+$$
+\abs{\vec{w}} \lt \abs{\vec{u}} \lt \abs{\vec{v}}
+$$
+::::
+
+
+:::::::::::::
+
+
+::::::::::::::
+
+
+:::::::::::::::
+
+
+---
+
+
+
+
+:::::::::::::::{exercise} Oppgave 8
 ::::::::::::::{tab-set}
 ---
 class: tabs-parts
@@ -868,7 +1210,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 7
+:::::::::::::::{exercise} Oppgave 9
 ::::::::::::::{tab-set}
 ---
 class: tabs-parts
@@ -992,7 +1334,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 8
+:::::::::::::::{exercise} Oppgave 10
 En vektor $\vec{a}$ har lengden $\abs{\vec{a}} = 5$. 
 
 
@@ -1093,7 +1435,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 9
+:::::::::::::::{exercise} Oppgave 11
 ::::::::::::::{tab-set}
 ---
 class: tabs-parts
@@ -1253,7 +1595,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 10
+:::::::::::::::{exercise} Oppgave 12
 ::::::::::::::{tab-set}
 ---
 class: tabs-parts
@@ -1509,7 +1851,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 11
+:::::::::::::::{exercise} Oppgave 13
 ::::::::::::::{tab-set}
 ---
 class: tabs-parts
@@ -1661,7 +2003,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 12
+:::::::::::::::{exercise} Oppgave 14
 To vektorer $\vec{u}$ og $\vec{v}$ er gitt ved
 
 $$

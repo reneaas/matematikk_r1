@@ -425,11 +425,11 @@ Den interaktive figuren til høyre lar deg undersøke hvordan posisjonsvektoren 
 En linje $\ell$ i et koordinatsystem kan beskrives ved hjelp av et startpunkt $A$ som ligger på linja og en retningsvektor $\vec{v}$ som peker langs linja. Da er alle punkter på linja gitt ved posisjonsvektoren $\vec{r}(t)$ beskrevet av vektorfunksjonen
 
 $$
-\vec{r}(t) = \overrightarrow{OA} + \vec{v} \cdot t \qfor t \in \mathbb{R}
+\vec{r}(t) = \overrightarrow{OA} + \vec{v} \cdot t
 $$
 
 
-Et annet punkt $B$ på linja finner vi ved å starte i $A$ og bevege oss $t$ enheter med retningsvektoren $\vec{v}$. Dette tilsvarer å flytte oss fra $A$ med $\vec{v} \cdot t$.
+Et annet punkt $P(t)$ på linja finner vi ved å starte i $A$ og bevege oss $t$ enheter med retningsvektoren $\vec{v}$. Dette tilsvarer å flytte oss fra $A$ med $\vec{v} \cdot t$.
 
 
 :::{plot}
@@ -697,7 +697,7 @@ som gjelder for alle $t \in \real$.
 
 ### Parameterframstilling på komponentform
 
-En annen vanlig måte å beskrive linjer på er å skrive dem som en parameterframstilling. Dette er det samme som en vektorfunksjon, men representasjonen er skrevet som likninger for $x$- og $y$-koordinatene hver for seg, fremfor en samlet vektor.
+En annen vanlig måte å beskrive linjer på er å skrive dem på komponentform. Dette er det samme som en vektorfunksjon, men representasjonen er skrevet som likninger for $x$- og $y$-koordinatene hver for seg, fremfor en samlet vektor.
 
 
 :::::::::::::::{summary} Linjer i koordinatsystemet (parameterframstilling på komponentform)
@@ -707,7 +707,7 @@ $$
 \vec{r}(t) = [x(t), y(t)]
 $$
 
-kan skrives som en parameterframstilling gitt ved likningene
+kan skrives på komponentform gitt ved likningene
 
 $$
 \ell: \begin{cases}
