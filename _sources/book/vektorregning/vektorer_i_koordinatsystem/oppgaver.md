@@ -62,7 +62,7 @@ Bestem $\lvec{AB}$ og $\lvec{BA}$.
 
 ::::{answer}
 $$
-\lvec{AB} = [5, 1] \qog \lvec{BA} = -\lvec{BA} = [-5, -1]
+\lvec{AB} = [5, 1] \qog \lvec{BA} = -\lvec{AB} = [-5, -1]
 $$
 ::::
 
@@ -817,7 +817,7 @@ $$
 En retningsvektor for linja er da gitt ved
 
 $$
-\vec{v} = \lvec{CD} = \lvec{CD} = \lvec{OD} - \lvec{OC} = [3 - (-1), -2 - 4] = [4, -6]
+\vec{v} = \lvec{CD} = \lvec{OD} - \lvec{OC} = [3 - (-1), -2 - 4] = [4, -6]
 $$
 
 Da er en posisjonsvektoren for punktene på linja gitt ved
@@ -1281,7 +1281,7 @@ En annet punkt er gitt ved $D(3, 2)$.
 Avgjør om punktet $D$ ligger på linja $\ell$.
 
 ::::{answer}
-Punktet ligger ikke på linja siden vi får at $t = \dfrac{1}{2}$ for at $x$-komponentene skal være like, og $t = 1$ for at $y$-kompontenene skal være like.
+Punktet ligger ikke på linja siden vi får at $t = \dfrac{1}{2}$ for at $x$-komponentene skal være like, og $t = 1$ for at $y$-komponentene skal være like.
 ::::
 
 
@@ -2061,6 +2061,54 @@ $$
 
 
 :::::::::::::::
+
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 14
+Om et parallellogram $ABCD$ får du vite at 
+
+* $A(0, 1)$.
+* $\lvec{AB} = [4, 2]$.
+* $\lvec{AD} = [t, 3]$ for et tall $t \in \real$.
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bestem koordinatene til $B$, $C$ og $D$.
+
+
+::::{answer}
+* $B(4, 3)$
+* $C(4 + t, 6)$
+* $D(t, 4)$
+::::
+
+:::::::::::::
+
+
+
+:::::::::::::{tab-item} b
+Bestem $t$ slik at skjæringspunktet mellom diagonalene ligger på linja $y = 2x + 1$.
+
+::::{answer}
+$$
+t = -\dfrac{3}{2}
+$$
+::::
+
+:::::::::::::
+
+
+
+::::::::::::::
+
+:::::::::::::::
+
 
 
 

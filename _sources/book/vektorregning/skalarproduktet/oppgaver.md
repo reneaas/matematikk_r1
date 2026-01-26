@@ -1103,7 +1103,13 @@ $$
 \vec{w} = t \cdot \vec{a} + \vec{b} \qder t \in \real
 $$
 
-Bestem $t$ slik at $\vec{w} \perp \vec{v}$.
+Bestem $t$ slik at $\vec{w} \perp \vec{u}$.
+
+::::{answer}
+$$
+t = 6
+$$
+::::
 
 
 :::::::::::::
