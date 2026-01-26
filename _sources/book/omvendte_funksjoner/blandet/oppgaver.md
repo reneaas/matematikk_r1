@@ -605,7 +605,7 @@ Bestem $f(x)$.
 
 ::::{answer}
 $$
-f(x) = \dfrac{3}{2}x^2 + 3x - 8
+f(x) = \dfrac{3}{2}x^2 + 3x - 7
 $$
 ::::
 
