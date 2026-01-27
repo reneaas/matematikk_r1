@@ -1,5 +1,13 @@
 # Dev
 
+
+:::{plot}
+width: 70%
+:::
+
+
+
+
 :::{signchart-2}
 width: 80%
 function: 4*x**3 - 6*a**2*x, f'(x)
