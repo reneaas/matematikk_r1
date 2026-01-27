@@ -1562,7 +1562,7 @@ Bestem vektorkoordinatene til $\vec{w}$.
 
 ::::{answer}
 $$
-\vec{w} = [22, 10]
+\vec{w} = [22, 11]
 $$
 ::::
 
