@@ -1,6 +1,49 @@
 # Oppgaver: Skalarproduktet
 
 
+:::::::::::::::{exercise} Oppgave 0
+Flashcards for å memorisere kjente eksakte verdier for $\cos \varphi$ og $\sin \varphi$
+
+:::{flashcards}
+---
+shuffle:
+show_progress:
+---
+
+Q: $\cos 0^\circ$
+A: 1 
+
+Q: $\cos 30^\circ$
+A: $\dfrac{\sqrt{3}}{2}$
+
+Q: $\cos 45^\circ$
+A: $\dfrac{\sqrt{2}}{2}$
+
+Q: $\cos 60^\circ$
+A: $\dfrac{1}{2}$
+
+Q: $\cos 90^\circ$
+A: 0
+
+Q: $\sin 0^\circ$
+A: 0
+
+Q: $\sin 30^\circ$
+A: $\dfrac{1}{2}$
+
+Q: $\sin 45^\circ$
+A: $\dfrac{\sqrt{2}}{2}$
+
+Q: $\sin 60^\circ$
+A: $\dfrac{\sqrt{3}}{2}$
+
+Q: $\sin 90^\circ$
+A: 1
+:::
+
+:::::::::::::::
+
+
 :::::::::::::::{exercise} Oppgave 1
 Regn ut skalarproduktet mellom vektorene.
 ::::::::::::::{tab-set}
@@ -1107,7 +1150,7 @@ Bestem $t$ slik at $\vec{w} \perp \vec{u}$.
 
 ::::{answer}
 $$
-t = 6
+t = -6
 $$
 ::::
 
