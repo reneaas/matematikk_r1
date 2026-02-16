@@ -1,23 +1,62 @@
 # Dev
 
-
 :::{plot}
 width: 70%
+ticks: off
+point: (-2, 1)
+text: -2, 1, "$A(-2, 1)$", bottom-left
+point: (-1, 3)
+text: -1, 3, "$D(-1, 3)$", top-left
+point: (2, -1)
+text: 2, -1, "$C$", center-right
+point: (1, -3)
+text: 1, -3, "$B(1, -3)$", bottom-right
+line-segment: (-2, 1), (1, -3), dashed, gray
+line-segment: (1, -3), (2, -1), dashed, gray
+line-segment: (2, -1), (-1, 3), dashed, gray
+line-segment: (-1, 3), (-2, 1), dashed, gray
 :::
 
 
 
 
-:::{signchart-2}
-width: 80%
-function: 4*x**3 - 6*a**2*x, f'(x)
-domain: a > 0
+:::{flashcards}
+---
+shuffle:
+show_progress:
+---
+
+Q: $\cos 0^\circ$
+A: 1 
+
+Q: $\cos 30^\circ$
+A: $\dfrac{\sqrt{3}}{2}$
+
+Q: $\cos 45^\circ$
+A: $\dfrac{\sqrt{2}}{2}$
+
+Q: $\cos 60^\circ$
+A: $\dfrac{1}{2}$
+
+Q: $\cos 90^\circ$
+A: 0
+
+Q: $\sin 0^\circ$
+A: 0
+
+Q: $\sin 30^\circ$
+A: $\dfrac{1}{2}$
+
+Q: $\sin 45^\circ$
+A: $\dfrac{\sqrt{2}}{2}$
+
+Q: $\sin 60^\circ$
+A: $\dfrac{\sqrt{3}}{2}$
+
+Q: $\sin 90^\circ$
+A: 1
 :::
 
-:::{signchart-2}
-width: 80%
-function: 3*(x + 1) * (x - 3), g(x)
-:::
 
 ::::{multi-plot2}
 ---

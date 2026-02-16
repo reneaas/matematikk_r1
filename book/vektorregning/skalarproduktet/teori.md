@@ -88,7 +88,7 @@ $$
 
 ## Sammenheng mellom skalarprodukt og lengde
 
-Det er en klar sammenheng mellom skalarproduktet av en vektor med seg selv og lengden av vektoren.
+Det er en klar sammenheng mellom skalarproduktet av en vektor med seg selv og lengden av vektoren. Dette vil også belyse det vi mener med at en skalar er noe som er uavhengig av hvordan koordinatsystemet vi bruker for å beskrive vektorer. Siden en vektor beskriver forflytningen mellom to punkter, vil lengden av vektoren i utgangspunkt beskrive avstanden mellom to punkter. Men avstanden mellom to punkter kan ikke være avhengig av hvordan vi tegner et koordinatsystem rundt punktet – de har en objektiv avstand mellom seg. La oss se nærmere på sammenhengen mellom skalarprodukt og lengde:
 
 
 
@@ -197,7 +197,7 @@ $$
 
 ## Geometrisk formel for skalarproduktet
 
-Det er ikke opplagt hva skalarproduktet egentlig betyr for noe. Så langt har vi bare definert hva vi mener med å gange to vektorer med hverandre. Nå skal vi se at det har en klar geometrisk betydning som vi skal utnytte videre.
+Det er ikke opplagt hva skalarproduktet egentlig betyr for noe. Så langt har vi bare definert hva vi mener med å gange to vektorer med hverandre. Men vi har også sett at skalarproduktet kan brukes til å beregne lengden av en vektor fordi lengden bør være en skalar – altså et tall som er uavhengig av hvilket koordinatsystem vi velger å bruke for å beskrive vektorene. Nå skal vi se at det har en klar geometrisk betydning av skalarproduktet som vi skal utnytte videre.
 
 
 :::::::::::::::{summary} Geometrisk formel for skalarproduktet
