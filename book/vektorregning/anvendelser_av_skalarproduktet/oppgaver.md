@@ -809,7 +809,130 @@ Avstanden er $\dfrac{10}{\sqrt{13}}$.
 ---
 
 
+
 :::::::::::::::{exercise} Oppgave 5
+:::{plot}
+width: 60%
+ticks: off
+let: x = 2.5
+point: (0, 4)
+point: (8, 0)
+point: (0, x)
+point: (x, 0)
+point: (4, 2)
+line-segment: (0, 4), (8, 0), solid, black
+polygon: (x, 0), (0, x), (4, 2), blue, 0.2
+text: 0, x, "$P(0, t)$", center-left
+text: x, 0, "$Q(t, 0)$", bottom-center
+text: 0, 0, "$O$", bottom-left
+text: 8, 0, "$B(8, 0)$", bottom-center
+text: 0, 4, "$A(0, 4)$", center-left
+text: 4, 2, "$M(4, 2)$", top-right
+xmin: -1
+xmax: 9
+ymin: -1
+ymax: 5 
+:::
+
+En trekant har hjørnene $P(0, t)$, $Q(t, 0)$ og $M(4, 2)$ der $t \in \langle 0, 4 \rangle$.
+
+
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+Bruk vektorregning til å finne en uttrykk for arealet av $\triangle PQM$ uttrykt ved $t$.
+
+::::{answer}
+$$
+T(t) = -\dfrac{1}{2}t^2 + 3t
+$$
+::::
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+Bestem det største mulige arealet en slik trekant kan ha.
+
+::::{answer}
+$$
+\dfrac{9}{2}
+$$
+::::
+:::::::::::::
+
+
+::::::::::::::
+
+:::::::::::::::
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 6
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+En firkant $ABCD$ har hjørnene $A(1, 1)$, $B(4, 2)$, $C(3, 5)$ og $D(0, 7)$.
+
+Bestem arealet av firkanten.
+
+
+::::{answer}
+Arealet er $13$. 
+::::
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+En firkant har hjørnene $A(2, -1)$, $B(5, -2)$, $C(7, 6)$ og $D(1, t)$ der $t > 0$.
+
+Bestem $t$ slik at arealet av firkanten er $20$. 
+
+
+::::{answer}
+$$
+t = \dfrac{2}{5}
+$$
+::::
+
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+En linje $\ell$ går gjennom punktene $A(2, 1)$ og $B(8, 4)$.
+
+Et annen punkt $C(3, 9)$ ligger utenfor linja. Dersom vi speiler $C$ om linja $\ell$, får vi punktet $D$.
+
+Bestem arealet av firkanten $ABCD$.
+
+
+::::{answer}
+Arealet er $45$.
+::::
+
+
+:::::::::::::
+
+
+::::::::::::::
+:::::::::::::::
+
+
+
+---
+
+
+:::::::::::::::{exercise} Oppgave 7
 
 
 ::::{hints} Dekomponering relativ til en linje
@@ -907,7 +1030,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 6
+:::::::::::::::{exercise} Oppgave 8
 ::::::::::::::{tab-set}
 ---
 class: tabs-parts
@@ -969,71 +1092,13 @@ $$
 :::::::::::::::
 
 
----
-
-
-:::::::::::::::{exercise} Oppgave 7
-::::::::::::::{tab-set}
----
-class: tabs-parts
----
-:::::::::::::{tab-item} a
-En firkant $ABCD$ har hjørnene $A(1, 1)$, $B(4, 2)$, $C(3, 5)$ og $D(0, 7)$.
-
-Bestem arealet av firkanten.
-
-
-::::{answer}
-Arealet er $13$. 
-::::
-
-
-:::::::::::::
-
-
-:::::::::::::{tab-item} b
-En firkant har hjørnene $A(2, -1)$, $B(5, -2)$, $C(7, 6)$ og $D(1, t)$ der $t > 0$.
-
-Bestem $t$ slik at arealet av firkanten er $20$. 
-
-
-::::{answer}
-$$
-t = \dfrac{2}{5}
-$$
-::::
-
-
-
-:::::::::::::
-
-
-:::::::::::::{tab-item} c
-En linje $\ell$ går gjennom punktene $A(2, 1)$ og $B(8, 4)$.
-
-Et annen punkt $C(3, 9)$ ligger utenfor linja. Dersom vi speiler $C$ om linja $\ell$, får vi punktet $D$.
-
-Bestem arealet av firkanten $ABCD$.
-
-
-::::{answer}
-Arealet er $45$.
-::::
-
-
-:::::::::::::
-
-
-::::::::::::::
-:::::::::::::::
-
 
 ---
 
 
 
 
-:::::::::::::::{exercise} Oppgave 8
+:::::::::::::::{exercise} Oppgave 9
 En sirkel har sentrum i $S(4, -2)$. En linje $\ell$ tangerer sirkelen i punktet $T(8, 2)$.
 
 ::::::::::::::{tab-set}
@@ -1092,7 +1157,7 @@ $$
 
 
 
-:::::::::::::::{exercise} Oppgave 9
+:::::::::::::::{exercise} Oppgave 10
 
 ::::::::::::::{tab-set}
 ---
@@ -1159,7 +1224,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 10
+:::::::::::::::{exercise} Oppgave 11
 
 :::{cas-popup}
 ---
@@ -1245,7 +1310,7 @@ $$
 ---
 
 
-:::::::::::::::{exercise} Oppgave 11
+:::::::::::::::{exercise} Oppgave 12
 Grafen til en funksjonen $f$ gitt ved $f(x) = \ln x$ er vist i figuren nedenfor.
 
 Et punkt $B$ på grafen til $f$ er plassert slik at tangenten til grafen i punktet $B$ går gjennom $A(0, 0)$.
@@ -1255,12 +1320,14 @@ Punktet $C$ er plassert på linja $y = x$ slik at $\angle ACB = 90\degree$.
 
 
 :::{plot}
-width: 70%
+width: 55%
 xmin: -1
 ymin: -1
-xmax: 5
-ymax: 5
-figsize: (6, 6)
+xmax: 3.5
+ymax: 3.5
+figsize: (5, 5)
+let: ds = 0.15
+let: c = (exp(1) + 1) / 2
 function: log(x + 1e-6), (0, 10), f, blue
 point: (0, 0)
 text: 0, 0, "$A$", top-left
@@ -1272,7 +1339,8 @@ text: (exp(1) + 1) / 2, (exp(1) + 1) / 2, "$C$", top-left
 line: 1, 0, dashed, gray
 polygon: (0, 0), (exp(1), 1), ((exp(1) + 1) / 2, (exp(1) + 1) / 2)
 fill-polygon: (0, 0), (exp(1), 1), ((exp(1) + 1) / 2, (exp(1) + 1) / 2)
-polygon: ((exp(1) + 1) / 2 - 0.2, (exp(1) + 1) / 2 - 0.2), ((exp(1) + 1) / 2, (exp(1) + 1) / 2 - 0.2 - 0.2), ((exp(1) + 1) / 2 + 0.2, (exp(1) + 1) / 2 - 0.2) ,((exp(1) + 1) / 2, (exp(1) + 1) / 2 - 0.2 - 0.2)
+line-segment: (c - ds, c - ds), (c, c - 2 * ds), solid, black
+line-segment: (c, c - 2 * ds), (c + ds, c - ds), solid, black
 ticks: off
 :::
 
