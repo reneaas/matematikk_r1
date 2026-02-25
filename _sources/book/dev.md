@@ -1,5 +1,37 @@
 # Dev
 
+
+:::{plot}
+width: 70%
+point: (1, 1)
+let: ux = 1
+let: uy = 2
+let: Ax = 1
+let: Ay = 1
+let: Bx = Ax + ux
+let: By = Ay + uy
+let: vx = -3
+let: vy = 3
+let: Cx = Bx + vx
+let: Cy = By + vy
+let: Dx = Ax + vx
+let: Dy = Ay + vy
+polygon: (Ax, Ay), (Bx, By), (Cx, Cy), (Dx, Dy)
+point: (Ax, Ay)
+point: (Bx, By)
+point: (Cx, Cy)
+point: (Dx, Dy)
+text: Ax, Ay, "$A$", bottom-center
+text: Bx, By, "$B$", center-right
+text: Cx, Cy, "$C$", top-center
+text: Dx, Dy, "$D$", center-left
+axis: off
+axis: equal
+:::
+
+
+
+
 :::{plot}
 width: 70%
 ticks: off

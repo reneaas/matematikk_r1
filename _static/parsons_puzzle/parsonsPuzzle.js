@@ -1,3 +1,9 @@
+// NOTE: This file may be included alongside munchboka-edutools' Parsons puzzle.
+// If a newer implementation is already loaded, do not override it.
+if (typeof window !== 'undefined' && typeof window.ParsonsPuzzle !== 'undefined') {
+    // no-op
+} else {
+
 class ParsonsPuzzle {
     constructor(puzzleContainerId, codeString, onSolvedCallback = null) {
         this.puzzleContainerId = puzzleContainerId;
@@ -638,4 +644,6 @@ class IndentationParsonsPuzzle extends ParsonsPuzzle {
         }
         return true;
     }
+}
+
 }
