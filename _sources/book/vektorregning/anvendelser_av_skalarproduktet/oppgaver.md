@@ -913,7 +913,7 @@ En linje $\ell$ går gjennom punktene $A(2, 1)$ og $B(8, 4)$.
 
 Et annen punkt $C(3, 9)$ ligger utenfor linja. Dersom vi speiler $C$ om linja $\ell$, får vi punktet $D$.
 
-Bestem arealet av firkanten $ABCD$.
+Bestem arealet av firkanten $ADBC$.
 
 
 ::::{answer}
