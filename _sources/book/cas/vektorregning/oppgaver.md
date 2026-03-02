@@ -1,4 +1,4 @@
-# CAS-kurs: Vektorregning
+# Vektorregning
 
 
 :::{goals} Læringsmål
