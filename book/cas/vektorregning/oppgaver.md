@@ -276,3 +276,78 @@ width: 70%
 
 :::::::::::::::
 
+
+
+---
+
+
+:::::::::::::::{exercise} Underveisoppgave 4
+::::::::::::::{tab-set}
+---
+class: tabs-parts
+---
+:::::::::::::{tab-item} a
+
+:::{cas-popup}
+---
+layout: sidebar
+---
+:::
+
+
+Bestem vinkelen mellom vektorene
+
+
+$$
+\vec{a} = [3, 5] \qog \vec{b} = [-1, 3]
+$$
+
+
+
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} b
+
+:::{cas-popup}
+---
+layout: sidebar
+---
+:::
+
+
+
+Bestem vinkelen mellom vektorene
+
+$$
+\vec{u} = [2, -1] \qog \vec{v] = [4, 3]
+$$
+
+
+
+:::::::::::::
+
+
+:::::::::::::{tab-item} c
+:::{cas-popup}
+---
+layout: sidebar
+---
+:::
+
+Bestem vinkelen mellom vektorene
+
+$$
+\vec{p} = [1, 2] \qog \vec{q] = [5, 4]
+$$
+
+
+:::::::::::::
+
+
+
+::::::::::::::
+
+:::::::::::::::

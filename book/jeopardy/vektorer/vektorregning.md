@@ -1,123 +1,121 @@
 # Jeopardy: Vektorregning
 
-> Oppgaver der hjelpemidler er ment til å brukes, så er det er CAS-vindu tilgjengelig.
-
 ::::::::{jeopardy-2}
 
 
 :::::::{jeopardy-question}
 ---
-category: Vektorer i geometri
+category: Basics
 points: 100
 ---
-Hvor mange vektorer i koordinatsystemet nedenfor er like?
-
-
 :::{plot}
-width: 70%
-vector: (0, 0), 2, 1, blue
-vector: (-3, 2), 2, 1, blue
-vector: (1, 1), -4, 2, blue
-vector: (3, 1), 1, 2, blue 
-vector: (2, 3), -4, 2, blue
-vector: (0, -2), 3, 1, blue
+align: right
+width: 50%
+vector: (1, 2), (3, -4), blue
+fontsize: 24
 :::
 
 
+Bestem vektorkoordinatene til $\vec{a}$ i figuren ovenfor.
 
-
+::::::{jeopardy-answer}
+$$
+\vec{a} = [2, -6]
+$$
+::::::
 :::::::
-
-
-:::::::{jeopardy-answer}
----
-category: Vektorer i geometri
-points: 100
----
-Fire vektorer er like. 
-:::::::
-
 
 
 :::::::{jeopardy-question}
 ---
-category: Vektorer i geometri
+category: Basics
 points: 200
 ---
-En vektor $\vec{a}$ er gitt ved
+Bestem lengden av $\vec{a} = [-1, 2]$.
 
-$$
-\vec{a} = [1, -2]
-$$
-
-Bestem $|\vec{a}|$.
-:::::::
-
-:::::::{jeopardy-answer}
----
-category: Vektorer i geometri
-points: 200
----
+::::::{jeopardy-answer}
 $$
 |\vec{a}| = \sqrt{5}
 $$
+::::::
+
+
 :::::::
 
 
 :::::::{jeopardy-question}
 ---
-category: Vektorer i geometri
+category: Basics
 points: 300
 ---
-To vektorer $\vec{a}$ og $\vec{b}$ er gitt ved
+Sorter vektorene i stigende rekkefølge etter lengde.
+
 
 $$
-\vec{a} = [3, 4] \quad \mathrm{og} \quad \vec{b} = [k, 8]
+\vec{a} = [3, 4], \quad \vec{b} = [-1, 1], \quad \vec{c} = [0, -2]
+$$
+
+
+::::::{jeopardy-answer}
+$$
+|\vec{b}| < |\vec{c}| < |\vec{a}|
+$$
+::::::
+
+
+:::::::
+
+
+:::::::{jeopardy-question}
+---
+category: Basics
+points: 400
+---
+Gitt $\vec{a} = [2, -3]$ og $\vec{b} = [-1, 4]$.
+
+Bestem vektorkoordinatene til 
+
+$$
+2 \cdot \vec{a} - 3 \cdot \vec{b}.
+$$
+
+
+::::::{jeopardy-answer}
+$$
+2 \cdot \vec{a} - 3 \cdot \vec{b} = [7, -18]
+$$
+::::::
+
+
+:::::::
+
+
+
+:::::::{jeopardy-question}
+---
+category: Basics
+points: 500
+---
+To vektorer er gitt ved 
+
+$$
+\vec{a} = [-1, 4] \quad \text{og} \quad \vec{b} = [2, k].
 $$
 
 Bestem $k$ slik at $\vec{a} \parallel \vec{b}$.
-:::::::
 
 
-:::::::{jeopardy-answer}
----
-category: Vektorer i geometri
-points: 300
----
+::::::{jeopardy-answer}
 $$
-k = 6
+k = -8
 $$
-:::::::
-
-
-:::::::{jeopardy-question}
----
-category: Vektorer i geometri
-points: 400
----
-For en vektor $\vec{a}$ er $|\vec{a}| = 4$.
-
-En annen vektor $\vec{b}$ er gitt ved
-
-$$
-\vec{b} = -3\vec{a}
-$$
-
-Bestem $|\vec{b}|$.
+::::::
 
 
 :::::::
 
 
-:::::::{jeopardy-answer}
----
-category: Vektorer i geometri
-points: 400
----
-$$
-|\vec{b}| = 12
-$$
-:::::::
+
 
 
 
@@ -127,37 +125,52 @@ $$
 category: Vektorer i koordinatsystemet
 points: 100
 ---
-Bestem $\overrightarrow{AB}$ mellom punktene vist i figuren nedenfor.
-
 :::{plot}
-width: 60%
-point: (1, 2)
-point: (2, 4)
-vector: (1, 2), (2, 4), blue
-text: 1, 2, "$A$", bottom-left
-text: 2, 4, "$B$", top-right
-text: 0.5 * (1 + 2), 0.5 * (2 + 4), "$\overrightarrow{AB}$", bottom-right
-fontsize: 25
-xmin: -2
-ymin: -2
-nocache:
+width: 50%
+let: Ax = 2
+let: Ay = 3
+let: Bx = -1
+let: By = 4
+point: (Ax, Ay)
+text: Ax, Ay, "$A$", top-right
+point: (Bx, By)
+text: Bx, By, "$B$", top-left
+vector: (Ax, Ay), (Bx, By), blue
+fontsize: 24
 :::
 
+Bestem vektorkoordinatene til $\overrightarrow{AB}$. 
+
+
+::::::{jeopardy-answer}
+$$
+\overrightarrow{AB} = [-3, 1]
+$$
+::::::
 
 
 
 :::::::
 
-:::::::{jeopardy-answer}
+
+
+:::::::{jeopardy-question}
 ---
 category: Vektorer i koordinatsystemet
-points: 100
+points: 200
 ---
-$$
-\overrightarrow{AB} = [1, 2]
-$$
-:::::::
+Et parallellogram $ABCD$ har hjørnene $A(1, 2)$, $B(4, 6)$ og $C(3, 5)$.
 
+Bestem koordinatene til punktet $D$.
+
+
+::::::{jeopardy-answer}
+$$
+D(0, 1)
+$$
+::::::
+
+:::::::
 
 
 
@@ -166,26 +179,17 @@ $$
 category: Skalarproduktet
 points: 100
 ---
-To vektorer er gitt ved 
+Gitt vektorene $\vec{a} = [1, 2]$ og $\vec{b} = [-3, 4]$.
 
-$$
-\vec{a} = [-2, 1] \quad \mathrm{og} \quad \vec{b} = [4, 3]
-$$
+Regn ut $\vec{a} \cdot \vec{b}$.
 
-Bestem $\vec{a} \cdot \vec{b}$.
+::::::{jeopardy-answer}
+$$
+\vec{a} \cdot \vec{b} = 5
+$$
+::::::
+
 :::::::
-
-
-:::::::{jeopardy-answer}
----
-category: Skalarproduktet
-points: 100
----
-$$
-\vec{a} \cdot \vec{b} = -5
-$$
-:::::::
-
 
 
 :::::::{jeopardy-question}
@@ -193,28 +197,19 @@ $$
 category: Skalarproduktet
 points: 200
 ---
-
 Om to vektorer $\vec{a}$ og $\vec{b}$ får du vite at
-
-- $|\vec{a}| = 5$
-- $|\vec{b}| = 4$
-- $\cos \varphi = \dfrac{1}{2}$ der $\varphi$ er vinkelen mellom vektorene.
+* $|\vec{a}| = 3$
+* $|\vec{b}| = 4$
+* $\cos \varphi = \dfrac{1}{2}$ der $\varphi$ er vinkelen mellom $\vec{a}$ og $\vec{b}$.
 
 Bestem $\vec{a} \cdot \vec{b}$.
 
-:::::::
-
-
-:::::::{jeopardy-answer}
----
-category: Skalarproduktet
-points: 200 
----
+::::::{jeopardy-answer}
 $$
-\vec{a} \cdot \vec{b} = 10
+\vec{a} \cdot \vec{b} = 6
 $$
+::::::
 :::::::
-
 
 
 :::::::{jeopardy-question}
@@ -222,32 +217,15 @@ $$
 category: Skalarproduktet
 points: 300
 ---
+Gitt vektorene $\vec{a} = [-2, 3]$ og $\vec{b} = [5, t]$.
 
-:::{cas-popup}
-:::
+Bestem $t$ slik at $\vec{a}$ og $\vec{b}$ er ortogonale.
 
-
-
-
-To vektorer er gitt ved 
-
+::::::{jeopardy-answer}
 $$
-\vec{a} = [1, 2] \quad \mathrm{og} \quad \vec{b} = [-4, 3]
+t = \dfrac{10}{3}
 $$
-
-Bestem vinkelen mellom vektorene $\vec{a}$ og $\vec{b}$.
-
-:::::::
-
-
-:::::::{jeopardy-answer}
----
-category: Skalarproduktet
-points: 300
----
-$$
-\varphi \approx 79.7^\circ
-$$
+::::::
 :::::::
 
 
@@ -259,98 +237,48 @@ points: 400
 ---
 Om to vektorer $\vec{a}$ og $\vec{b}$ får du vite at
 
-* $|\vec{a}| = 3$
-* $|\vec{b}| = 2$
-* $\vec{a} \cdot \vec{b} = -2$
+* $|\vec{a}| = 2$
+* $|\vec{b}| = 3$
+* $\vec{a} \cdot \vec{b} = -3$
 
-To andre vektorer er gitt ved 
+En annen vektor er gitt ved $\vec{p} = 2 \cdot \vec{a} - \vec{b}$.
 
+
+Bestem $|\vec{p}|$.
+
+::::::{jeopardy-answer}
 $$
-\vec{p} = 4\vec{a} - \vec{b} \quad \mathrm{og} \quad \vec{q} = \vec{a} + 3\vec{b}
+|\vec{p}| = \sqrt{37}
 $$
-
-Bestem $\vec{p} \cdot \vec{q}$.
+::::::
 
 :::::::
 
 
 
-
 :::::::{jeopardy-question}
 ---
-category: Linjer
+category: Geometri
 points: 100
 ---
-Om en linje $\ell$ får du vite at
 
-* Punktet $A(1, 0)$ ligger på linja.
-* Linja har retningsvektor $\vec{v} = [2, 3]$.
-
-Bestem en parameterframstilling for linja $\ell$.
 :::::::
 
 
-:::::::{jeopardy-answer}
+
+:::::::{jeopardy-question}
 ---
-category: Linjer
+category: Blanding
 points: 100
 ---
-$$
-\vec{r}(t) = [1 + 2t, 3t] \quad \mathrm{eller} \quad \ell : \begin{cases} x = 1 + 2t \\ \\ y = 3t \end{cases}
-$$
-:::::::
-
-
-
-:::::::{jeopardy-question}
----
-category: Linjer
-points: 200
----
-En linje $\ell$ går gjennom punktene $A(2, 1)$ og $B(4, 5)$.
-
-Bestem en retningsvektor til linja.
-:::::::
-
-
-:::::::{jeopardy-answer}
----
-category: Linjer
-points: 200
----
-En retningsvektor for linja til være alle vektorer som er parallelle med:
-
-$$
-\vec{v} = [2, 4]
-$$
 
 :::::::
 
 
-:::::::{jeopardy-question}
----
-category: Linjer
-points: 300
----
-En linje $\ell$ er beskrevet av parameterframstillingen
-
-$$
-\vec{r}(t) = [3 + t, 2 - 2t]
-$$
-
-Bestem retningsvektoren til linja.
-:::::::
 
 
-:::::::{jeopardy-answer}
----
-category: Linjer
-points: 300
----
-$$
-\vec{v} = [1, -2]
-$$
-:::::::
+
+
 
 
 
