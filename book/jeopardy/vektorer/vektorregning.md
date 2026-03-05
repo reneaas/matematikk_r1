@@ -540,7 +540,7 @@ Bestem $t$ slik at $A$, $B$ og $C$ ligger på en rett linje.
 
 ::::::{jeopardy-answer}
 $$
-t = 1
+t = 7
 $$
 ::::::
 
