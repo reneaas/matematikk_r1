@@ -429,7 +429,7 @@ $$
 category: Areal og avstand
 points: 400
 ---
-En trekant $\triangle $ABC$ har hjørnene $A(4, 1)$, $B(2, 3)$ og $C(5, t)$ der $t \in \mathbb{R}$.
+En trekant $\triangle ABC$ har hjørnene $A(4, 1)$, $B(2, 3)$ og $C(5, t)$ der $t \in \mathbb{R}$.
 
 
 Bestem $t$ slik at arealet av $\triangle ABC$ er $6$.
