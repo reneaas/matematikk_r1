@@ -459,7 +459,7 @@ Bestem $t$ slik at avstanden fra $C$ til $\ell$ er $9$.
 
 ::::::{jeopardy-answer}
 $$
-t = 11
+t = 20
 $$
 ::::::
 
