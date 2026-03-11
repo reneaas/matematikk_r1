@@ -16,20 +16,22 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/legacy_1t/general_style.css?v=11bbc4b6" />
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/legacy_1t/admonitions.css?v=9237f12a" />
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/legacy_1t/popup.css?v=2d27c3a4" />
@@ -41,7 +43,7 @@
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/clickable_figures/style.css?v=d35dfce7" />
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/escapeRoom/style.css?v=b30732ed" />
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/mathjax/style.css?v=194b018e" />
-    <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/misc_styles/figures.css?v=5dd46ff0" />
+    <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/misc_styles/figures.css?v=46e199f0" />
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/misc_styles/geogebra.css?v=fd180d66" />
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/misc_styles/grids.css?v=7667ba21" />
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/misc_styles/misc.css?v=55d93a12" />
@@ -67,7 +69,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/admonitions.css?v=0a2c5d2d" />
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/dialogue.css?v=1b585024" />
-    <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/figures.css?v=a197b544" />
+    <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/figures.css?v=acd93126" />
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/popup.css?v=26181dfd" />
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/timedQuiz.css?v=89e27729" />
     <link rel="stylesheet" type="text/css" href="../../_static/munchboka/css/cas_popup.css?v=bae4ad7e" />
@@ -105,10 +107,11 @@
     <link rel="stylesheet" type="text/css" href="../../_static/misc_styles/misc.css?v=55d93a12" />
     <link rel="stylesheet" type="text/css" href="../../_static/fonts/opendyslexic/dyslexic.css?v=80f1227b" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=c712eed9"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -120,14 +123,14 @@
     <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../../_static/copybutton.js?v=f281be69"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script src="../../_static/tabs.js?v=3ee01567"></script>
     <script src="../../_static/munchboka/js/escapeRoom/escape-room.js?v=fec3e31f"></script>
     <script src="../../_static/munchboka/js/flashcards.js?v=293ceac2"></script>
     <script src="../../_static/munchboka/js/interactiveCode/interactiveCodeSetup.js?v=733f5585"></script>
     <script src="../../_static/munchboka/js/interactiveCode/codeEditor.js?v=d7a9df79"></script>
     <script src="../../_static/munchboka/js/interactiveCode/pythonRunner.js?v=e9f0c2d2"></script>
-    <script src="../../_static/munchboka/js/interactiveCode/workerManager.js?v=b934d01d"></script>
+    <script src="../../_static/munchboka/js/interactiveCode/workerManager.js?v=024a7849"></script>
     <script src="../../_static/munchboka/js/interactiveCode/turtleCode.js?v=0d62d95e"></script>
     <script src="../../_static/munchboka/js/jeopardy.js?v=375a3583"></script>
     <script src="../../_static/munchboka/js/quiz.js?v=f8bcd7a1"></script>
@@ -193,6 +196,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="norwegian"/>
+  <meta name="docsearch:version" content="" />
 <!-- Pyodide -->
 <script src="https://cdn.jsdelivr.net/pyodide/v0.27.0/full/pyodide.js"></script>
 
@@ -244,19 +248,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -264,7 +257,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -272,8 +264,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -291,7 +283,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -321,21 +314,17 @@
     
     
     <img src="../../_static/r1_logo.png" class="logo__image only-light" alt="Matematikk R1 - Home"/>
-    <script>document.write(`<img src="../../_static/r1_logo.png" class="logo__image only-dark" alt="Matematikk R1 - Home"/>`);</script>
+    <img src="../../_static/r1_logo.png" class="logo__image only-dark pst-js-only" alt="Matematikk R1 - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">I. Potenser og logaritmer</span></p>
@@ -427,9 +416,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -512,7 +506,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullskjerm-modus"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -526,24 +520,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -671,7 +657,7 @@ y = f(a) + f'(a) \cdot (x - a)
   <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
-    <dc:date>2026-02-21T17:11:31.614101</dc:date>
+    <dc:date>2026-03-11T17:17:13.025345</dc:date>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -684,8 +670,8 @@ y = f(a) + f'(a) \cdot (x - a)
  <defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="cpl_b992a45e7cf1_38e7ec_figure_1">
-  <g id="cpl_b992a45e7cf1_38e7ec_patch_1">
+ <g id="cpl_cc20348a9d4b_178cb6_figure_1">
+  <g id="cpl_cc20348a9d4b_178cb6_patch_1">
    <path d="M 0 345.6 
 L 460.8 345.6 
 L 460.8 0 
@@ -694,8 +680,8 @@ L 0 345.6
 z
 " style="fill: none"/>
   </g>
-  <g id="cpl_b992a45e7cf1_38e7ec_axes_1">
-   <g id="cpl_b992a45e7cf1_38e7ec_patch_2">
+  <g id="cpl_cc20348a9d4b_178cb6_axes_1">
+   <g id="cpl_cc20348a9d4b_178cb6_patch_2">
     <path d="M 10.8 334.8 
 L 447 334.8 
 L 447 20.016315 
@@ -704,8 +690,8 @@ L 10.8 334.8
 z
 " style="fill: none"/>
    </g>
-   <g id="cpl_b992a45e7cf1_38e7ec_matplotlib.axis_1">
-    <g id="cpl_b992a45e7cf1_38e7ec_text_1">
+   <g id="cpl_cc20348a9d4b_178cb6_matplotlib.axis_1">
+    <g id="cpl_cc20348a9d4b_178cb6_text_1">
      <!-- $x$ -->
      <g transform="translate(435.913188 300.173049) scale(0.2 -0.2)">
       <defs>
@@ -747,8 +733,8 @@ z
      </g>
     </g>
    </g>
-   <g id="cpl_b992a45e7cf1_38e7ec_matplotlib.axis_2">
-    <g id="cpl_b992a45e7cf1_38e7ec_text_2">
+   <g id="cpl_cc20348a9d4b_178cb6_matplotlib.axis_2">
+    <g id="cpl_cc20348a9d4b_178cb6_text_2">
      <!-- $y$ -->
      <g transform="translate(106.337165 16.140682) scale(0.2 -0.2)">
       <defs>
@@ -790,31 +776,31 @@ z
      </g>
     </g>
    </g>
-   <g id="cpl_b992a45e7cf1_38e7ec_line2d_1">
+   <g id="cpl_cc20348a9d4b_178cb6_line2d_1">
     <defs>
-     <path id="cpl_b992a45e7cf1_38e7ec_m9a82503199" d="M 3 0 
+     <path id="cpl_cc20348a9d4b_178cb6_me26dae4cf1" d="M 3 0 
 L -3 -3 
 L -3 3 
 z
 " style="stroke: #000000; stroke-linejoin: miter"/>
     </defs>
     <g>
-     <use xlink:href="#cpl_b992a45e7cf1_38e7ec_m9a82503199" x="447" y="282.336053" style="stroke: #000000; stroke-linejoin: miter"/>
+     <use xlink:href="#cpl_cc20348a9d4b_178cb6_me26dae4cf1" x="447" y="282.336053" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="cpl_b992a45e7cf1_38e7ec_line2d_2">
+   <g id="cpl_cc20348a9d4b_178cb6_line2d_2">
     <defs>
-     <path id="cpl_b992a45e7cf1_38e7ec_mdb348f04f7" d="M 0 -3 
+     <path id="cpl_cc20348a9d4b_178cb6_mf34551da09" d="M 0 -3 
 L -3 3 
 L 3 3 
 z
 " style="stroke: #000000; stroke-linejoin: miter"/>
     </defs>
     <g>
-     <use xlink:href="#cpl_b992a45e7cf1_38e7ec_mdb348f04f7" x="119.85" y="20.016315" style="stroke: #000000; stroke-linejoin: miter"/>
+     <use xlink:href="#cpl_cc20348a9d4b_178cb6_mf34551da09" x="119.85" y="20.016315" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="cpl_b992a45e7cf1_38e7ec_line2d_3">
+   <g id="cpl_cc20348a9d4b_178cb6_line2d_3">
     <path d="M 91.229516 346.6 
 L 95.228383 338.619729 
 L 99.64816 329.292131 
@@ -885,16 +871,16 @@ L 425.167369 282.04659
 L 446.973375 282.2388 
 L 447 282.238934 
 L 447 282.238934 
-" clip-path="url(#cpl_b992a45e7cf1_38e7ec_padb1b5c324)" style="fill: none; stroke: #0072b2; stroke-width: 2.5; stroke-linecap: square"/>
+" clip-path="url(#cpl_cc20348a9d4b_178cb6_p73e4d02f22)" style="fill: none; stroke: #0072b2; stroke-width: 2.5; stroke-linecap: square"/>
    </g>
-   <g id="cpl_b992a45e7cf1_38e7ec_line2d_4">
+   <g id="cpl_cc20348a9d4b_178cb6_line2d_4">
     <path d="M 17.772343 -1 
 L 410.570057 346.6 
-" clip-path="url(#cpl_b992a45e7cf1_38e7ec_padb1b5c324)" style="fill: none; stroke-dasharray: 9.25,4; stroke-dashoffset: 0; stroke: #dc5e8b; stroke-width: 2.5"/>
+" clip-path="url(#cpl_cc20348a9d4b_178cb6_p73e4d02f22)" style="fill: none; stroke-dasharray: 9.25,4; stroke-dashoffset: 0; stroke: #dc5e8b; stroke-width: 2.5"/>
    </g>
-   <g id="cpl_b992a45e7cf1_38e7ec_line2d_5">
+   <g id="cpl_cc20348a9d4b_178cb6_line2d_5">
     <defs>
-     <path id="cpl_b992a45e7cf1_38e7ec_m30ddfb6828" d="M 0 5 
+     <path id="cpl_cc20348a9d4b_178cb6_m3fe5e1b114" d="M 0 5 
 C 1.326016 5 2.597899 4.473168 3.535534 3.535534 
 C 4.473168 2.597899 5 1.326016 5 0 
 C 5 -1.326016 4.473168 -2.597899 3.535534 -3.535534 
@@ -906,31 +892,31 @@ C -2.597899 4.473168 -1.326016 5 0 5
 z
 " style="stroke: #000000; stroke-opacity: 0.8"/>
     </defs>
-    <g clip-path="url(#cpl_b992a45e7cf1_38e7ec_padb1b5c324)">
-     <use xlink:href="#cpl_b992a45e7cf1_38e7ec_m30ddfb6828" x="228.9" y="185.834014" style="fill-opacity: 0.8; stroke: #000000; stroke-opacity: 0.8"/>
+    <g clip-path="url(#cpl_cc20348a9d4b_178cb6_p73e4d02f22)">
+     <use xlink:href="#cpl_cc20348a9d4b_178cb6_m3fe5e1b114" x="228.9" y="185.834014" style="fill-opacity: 0.8; stroke: #000000; stroke-opacity: 0.8"/>
     </g>
    </g>
-   <g id="cpl_b992a45e7cf1_38e7ec_patch_3">
+   <g id="cpl_cc20348a9d4b_178cb6_patch_3">
     <path d="M 119.85 334.8 
 L 119.85 20.016315 
 " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="cpl_b992a45e7cf1_38e7ec_patch_4">
+   <g id="cpl_cc20348a9d4b_178cb6_patch_4">
     <path d="M 447 334.8 
 L 447 20.016315 
 " style="fill: none"/>
    </g>
-   <g id="cpl_b992a45e7cf1_38e7ec_patch_5">
+   <g id="cpl_cc20348a9d4b_178cb6_patch_5">
     <path d="M 10.8 282.336053 
 L 447 282.336053 
 " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="cpl_b992a45e7cf1_38e7ec_patch_6">
+   <g id="cpl_cc20348a9d4b_178cb6_patch_6">
     <path d="M 10.8 20.016315 
 L 447 20.016315 
 " style="fill: none"/>
    </g>
-   <g id="cpl_b992a45e7cf1_38e7ec_text_3">
+   <g id="cpl_cc20348a9d4b_178cb6_text_3">
     <!-- $(a, f(a))$ -->
     <g transform="translate(235.443 176.147615) scale(0.2 -0.2)">
      <defs>
@@ -1042,8 +1028,8 @@ z
      <use xlink:href="#CMR17-29" transform="translate(310.679906 0) scale(0.996264)"/>
     </g>
    </g>
-   <g id="cpl_b992a45e7cf1_38e7ec_legend_1">
-    <g id="cpl_b992a45e7cf1_38e7ec_patch_7">
+   <g id="cpl_cc20348a9d4b_178cb6_legend_1">
+    <g id="cpl_cc20348a9d4b_178cb6_patch_7">
      <path d="M 359.383352 63.891949 
 L 433 63.891949 
 Q 437 63.891949 437 59.891949 
@@ -1056,13 +1042,13 @@ Q 355.383352 63.891949 359.383352 63.891949
 z
 " style="fill: #ffffff; opacity: 0.8; stroke: #cccccc; stroke-linejoin: miter"/>
     </g>
-    <g id="cpl_b992a45e7cf1_38e7ec_line2d_6">
+    <g id="cpl_cc20348a9d4b_178cb6_line2d_6">
      <path d="M 363.383352 45.016315 
 L 383.383352 45.016315 
 L 403.383352 45.016315 
 " style="fill: none; stroke: #0072b2; stroke-width: 2.5; stroke-linecap: square"/>
     </g>
-    <g id="cpl_b992a45e7cf1_38e7ec_text_4">
+    <g id="cpl_cc20348a9d4b_178cb6_text_4">
      <!-- $f$ -->
      <g transform="translate(419.383352 52.016315) scale(0.2 -0.2)">
       <use xlink:href="#CMMI12-66" transform="scale(0.996264)"/>
@@ -1072,7 +1058,7 @@ L 403.383352 45.016315
   </g>
  </g>
  <defs>
-  <clipPath id="cpl_b992a45e7cf1_38e7ec_padb1b5c324">
+  <clipPath id="cpl_cc20348a9d4b_178cb6_p73e4d02f22">
    <rect x="10.8" y="20.016315" width="436.2" height="314.783685"/>
   </clipPath>
  </defs>
@@ -1138,8 +1124,8 @@ L 403.383352 45.016315
  <defs>
   <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
  </defs>
- <g id="cpl_33fccdb4d974_1a896b_figure_1">
-  <g id="cpl_33fccdb4d974_1a896b_patch_1">
+ <g id="cpl_33fccdb4d974_d1bc8f_figure_1">
+  <g id="cpl_33fccdb4d974_d1bc8f_patch_1">
    <path d="M 0 345.6 
 L 460.8 345.6 
 L 460.8 0 
@@ -1148,8 +1134,8 @@ L 0 345.6
 z
 " style="fill: none"/>
   </g>
-  <g id="cpl_33fccdb4d974_1a896b_axes_1">
-   <g id="cpl_33fccdb4d974_1a896b_patch_2">
+  <g id="cpl_33fccdb4d974_d1bc8f_axes_1">
+   <g id="cpl_33fccdb4d974_d1bc8f_patch_2">
     <path d="M 10.8 334.8 
 L 447 334.8 
 L 447 20.016315 
@@ -1158,8 +1144,8 @@ L 10.8 334.8
 z
 " style="fill: none"/>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_matplotlib.axis_1">
-    <g id="cpl_33fccdb4d974_1a896b_text_1">
+   <g id="cpl_33fccdb4d974_d1bc8f_matplotlib.axis_1">
+    <g id="cpl_33fccdb4d974_d1bc8f_text_1">
      <!-- $x$ -->
      <g transform="translate(435.913188 234.593115) scale(0.2 -0.2)">
       <defs>
@@ -1201,8 +1187,8 @@ z
      </g>
     </g>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_matplotlib.axis_2">
-    <g id="cpl_33fccdb4d974_1a896b_text_2">
+   <g id="cpl_33fccdb4d974_d1bc8f_matplotlib.axis_2">
+    <g id="cpl_33fccdb4d974_d1bc8f_text_2">
      <!-- $y$ -->
      <g transform="translate(215.387165 16.140682) scale(0.2 -0.2)">
       <defs>
@@ -1244,31 +1230,31 @@ z
      </g>
     </g>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_line2d_1">
+   <g id="cpl_33fccdb4d974_d1bc8f_line2d_1">
     <defs>
-     <path id="cpl_33fccdb4d974_1a896b_mad700e4cfc" d="M 3 0 
+     <path id="cpl_33fccdb4d974_d1bc8f_mad700e4cfc" d="M 3 0 
 L -3 -3 
 L -3 3 
 z
 " style="stroke: #000000; stroke-linejoin: miter"/>
     </defs>
     <g>
-     <use xlink:href="#cpl_33fccdb4d974_1a896b_mad700e4cfc" x="447" y="216.756118" style="stroke: #000000; stroke-linejoin: miter"/>
+     <use xlink:href="#cpl_33fccdb4d974_d1bc8f_mad700e4cfc" x="447" y="216.756118" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_line2d_2">
+   <g id="cpl_33fccdb4d974_d1bc8f_line2d_2">
     <defs>
-     <path id="cpl_33fccdb4d974_1a896b_m744f73e312" d="M 0 -3 
+     <path id="cpl_33fccdb4d974_d1bc8f_m744f73e312" d="M 0 -3 
 L -3 3 
 L 3 3 
 z
 " style="stroke: #000000; stroke-linejoin: miter"/>
     </defs>
     <g>
-     <use xlink:href="#cpl_33fccdb4d974_1a896b_m744f73e312" x="228.9" y="20.016315" style="stroke: #000000; stroke-linejoin: miter"/>
+     <use xlink:href="#cpl_33fccdb4d974_d1bc8f_m744f73e312" x="228.9" y="20.016315" style="stroke: #000000; stroke-linejoin: miter"/>
     </g>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_line2d_3">
+   <g id="cpl_33fccdb4d974_d1bc8f_line2d_3">
     <path d="M 197.842672 346.6 
 L 198.653818 328.163838 
 L 199.539105 312.801146 
@@ -1351,9 +1337,9 @@ L 422.305164 93.732459
 L 445.229427 81.566693 
 L 447.046594 80.594256 
 L 447.046594 80.594256 
-" clip-path="url(#cpl_33fccdb4d974_1a896b_pdb4ebc5de6)" style="fill: none; stroke: #0072b2; stroke-width: 2.5; stroke-linecap: square"/>
+" clip-path="url(#cpl_33fccdb4d974_d1bc8f_pdb4ebc5de6)" style="fill: none; stroke: #0072b2; stroke-width: 2.5; stroke-linecap: square"/>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_line2d_4">
+   <g id="cpl_33fccdb4d974_d1bc8f_line2d_4">
     <path d="M 10.771156 189.213794 
 L 31.132747 188.221261 
 L 48.248288 187.170278 
@@ -1396,44 +1382,44 @@ L 184.160856 26.588184
 L 185.088299 5.396845 
 L 185.329216 -1 
 L 185.329216 -1 
-" clip-path="url(#cpl_33fccdb4d974_1a896b_pdb4ebc5de6)" style="fill: none; stroke: #0072b2; stroke-width: 2.5; stroke-linecap: square"/>
+" clip-path="url(#cpl_33fccdb4d974_d1bc8f_pdb4ebc5de6)" style="fill: none; stroke: #0072b2; stroke-width: 2.5; stroke-linecap: square"/>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_line2d_5">
+   <g id="cpl_33fccdb4d974_d1bc8f_line2d_5">
     <path d="M 10.8 315.12602 
 L 447 79.038256 
-" clip-path="url(#cpl_33fccdb4d974_1a896b_pdb4ebc5de6)" style="fill: none; stroke-dasharray: 9.25,4; stroke-dashoffset: 0; stroke: #dc5e8b; stroke-width: 2.5"/>
+" clip-path="url(#cpl_33fccdb4d974_d1bc8f_pdb4ebc5de6)" style="fill: none; stroke-dasharray: 9.25,4; stroke-dashoffset: 0; stroke: #dc5e8b; stroke-width: 2.5"/>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_LineCollection_1">
+   <g id="cpl_33fccdb4d974_d1bc8f_LineCollection_1">
     <path d="M 192.55 334.8 
 L 192.55 20.016315 
-" clip-path="url(#cpl_33fccdb4d974_1a896b_pdb4ebc5de6)" style="fill: none; stroke-dasharray: 9.25,4; stroke-dashoffset: 0; stroke: #dc5e8b; stroke-width: 2.5"/>
+" clip-path="url(#cpl_33fccdb4d974_d1bc8f_pdb4ebc5de6)" style="fill: none; stroke-dasharray: 9.25,4; stroke-dashoffset: 0; stroke: #dc5e8b; stroke-width: 2.5"/>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_LineCollection_2">
+   <g id="cpl_33fccdb4d974_d1bc8f_LineCollection_2">
     <path d="M 301.6 334.8 
 L 301.6 20.016315 
-" clip-path="url(#cpl_33fccdb4d974_1a896b_pdb4ebc5de6)" style="fill: none; stroke-dasharray: 9.25,4; stroke-dashoffset: 0; stroke: #dc5e8b; stroke-width: 2.5"/>
+" clip-path="url(#cpl_33fccdb4d974_d1bc8f_pdb4ebc5de6)" style="fill: none; stroke-dasharray: 9.25,4; stroke-dashoffset: 0; stroke: #dc5e8b; stroke-width: 2.5"/>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_LineCollection_3">
+   <g id="cpl_33fccdb4d974_d1bc8f_LineCollection_3">
     <path d="M 10.8 197.082138 
 L 447 197.082138 
-" clip-path="url(#cpl_33fccdb4d974_1a896b_pdb4ebc5de6)" style="fill: none; stroke-dasharray: 9.25,4; stroke-dashoffset: 0; stroke: #dc5e8b; stroke-width: 2.5"/>
+" clip-path="url(#cpl_33fccdb4d974_d1bc8f_pdb4ebc5de6)" style="fill: none; stroke-dasharray: 9.25,4; stroke-dashoffset: 0; stroke: #dc5e8b; stroke-width: 2.5"/>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_patch_3">
+   <g id="cpl_33fccdb4d974_d1bc8f_patch_3">
     <path d="M 228.9 334.8 
 L 228.9 20.016315 
 " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_patch_4">
+   <g id="cpl_33fccdb4d974_d1bc8f_patch_4">
     <path d="M 447 334.8 
 L 447 20.016315 
 " style="fill: none"/>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_patch_5">
+   <g id="cpl_33fccdb4d974_d1bc8f_patch_5">
     <path d="M 10.8 216.756118 
 L 447 216.756118 
 " style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
    </g>
-   <g id="cpl_33fccdb4d974_1a896b_patch_6">
+   <g id="cpl_33fccdb4d974_d1bc8f_patch_6">
     <path d="M 10.8 20.016315 
 L 447 20.016315 
 " style="fill: none"/>
@@ -1441,7 +1427,7 @@ L 447 20.016315
   </g>
  </g>
  <defs>
-  <clipPath id="cpl_33fccdb4d974_1a896b_pdb4ebc5de6">
+  <clipPath id="cpl_33fccdb4d974_d1bc8f_pdb4ebc5de6">
    <rect x="10.8" y="20.016315" width="436.2" height="314.783685"/>
   </clipPath>
  </defs>
@@ -1572,8 +1558,8 @@ Av René Ask, Edvard Munch Videregående Skole
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

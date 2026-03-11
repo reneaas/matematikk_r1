@@ -484,7 +484,7 @@ Avgjør om vinkelen i hjørne $A$ er
 
 
 ::::::{jeopardy-answer}
-Større enn $90^\circ$.
+Mindre enn $90^\circ$ siden $\vec{AB} \cdot \vec{AC} > 0$.
 ::::::
 
 
