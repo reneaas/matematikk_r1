@@ -3,6 +3,16 @@
 
 :::{plot}
 width: 70%
+function: (x - 2)**2 + 1, f'
+ymin: -1
+ymax: 9
+xmin: -3
+:::
+
+
+
+:::{plot}
+width: 70%
 point: (1, 1)
 let: ux = 1
 let: uy = 2
