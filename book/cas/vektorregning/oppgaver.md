@@ -322,7 +322,7 @@ layout: sidebar
 Bestem vinkelen mellom vektorene
 
 $$
-\vec{u} = [2, -1] \qog \vec{v] = [4, 3]
+\vec{u} = [2, -1] \qog \vec{v} = [4, 3]
 $$
 
 
@@ -340,7 +340,7 @@ layout: sidebar
 Bestem vinkelen mellom vektorene
 
 $$
-\vec{p} = [1, 2] \qog \vec{q] = [5, 4]
+\vec{p} = [1, 2] \qog \vec{q} = [5, 4]
 $$
 
 
