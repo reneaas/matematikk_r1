@@ -149,6 +149,8 @@
     <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/physics"]}, "tex": {"packages": {"[+]": ["physics"]}, "macros": {"annotateAbove": ["\\mathrel{\\overset{\\substack{\\text{#2} \\\\ \\Bigg\\downarrow}}{#1}}", 2], "annotateBelow": ["\\mathrel{\\underset{\\substack{\\Bigg\\uparrow \\\\ \\text{#2}}}{#1}}", 2], "cline": ["\\underline{\\phantom{#1}}", 1], "and": ["\\quad \\land \\quad"], "or": ["\\quad \\lor \\quad"], "liff": ["\\quad \\iff \\quad"], "limplies": ["\\quad \\implies \\quad"], "limpliedby": ["\\quad \\impliedby \\quad"], "lland": ["\\; \\land \\;"], "degree": ["^\\circ"], "qog": ["\\quad \\text{og} \\quad"], "qder": ["\\quad \\text{der} \\quad"], "qeller": ["\\quad \\text{eller} \\quad"], "qhvis": ["\\quad \\text{hvis} \\quad"], "qfor": ["\\quad \\text{for} \\quad"], "natural": ["\\mathbb{N}"], "integer": ["\\mathbb{Z}"], "rational": ["\\mathbb{Q}"], "real": ["\\mathbb{R}"], "irrational": ["\\mathbb{Q}^c"], "qcomma": [",\\quad"], "nimplies": ["\\quad\\mathrel{\\not\\!\\!\\!\\implies}\\quad"], "nimpliedby": ["\\quad\\mathrel{\\not\\!\\!\\!\\impliedby}\\quad"], "niff": ["\\quad\\mathrel{\\not\\!\\!\\!\\iff}\\quad"], "cubica": ["\\raisebox{-0.4ex}{\\small\\(\\frown\\!\\smile\\)}", 0], "cubicb": ["\\raisebox{-0.4ex}{\\small\\(\\smile\\!\\frown\\)}", 0], "t": ["\\mathrm{#1}", 1], "dot": ["\\vec{#1} \\cdot \\vec{#2}", 2], "len": ["\\abs{\\vec{#1}}", 1], "lvec": ["\\overrightarrow{#1}", 1], "v": ["\\left[#1, #2\\right]", 2], "proj": ["\\mathrm{proj}_{#1}\\left(#2\\right)", 2], "mstack": ["\\begin{array}{c}#1\\end{array}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3.2/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/derivasjon/derivasjonsregler_elementærfunksjoner/teori';</script>
     <script>mermaid.initialize({"startOnLoad": true})</script>
@@ -529,7 +531,9 @@
 <button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
 </button>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -545,6 +549,15 @@
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Innhold </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivasjonsregler-for-elementaerfunksjoner">Derivasjonsregler for elementærfunksjoner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#likningen-til-tangenter">Likningen til tangenter</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -559,10 +572,618 @@
 <div class="tip admonition">
 <p class="admonition-title">Læringsmål</p>
 <ul class="simple">
-<li><p>Kunne derivere polynomfunksjoner, potensfunksjoner, rotfunksjoener, eksponentialfunksjoner og logaritmefunksjoner</p></li>
+<li><p>Kunne derivere polynomfunksjoner, potensfunksjoner, rotfunksjoner, eksponentialfunksjoner og logaritmefunksjoner</p></li>
 <li><p>Kunne bestemme likningen til tangenter, og forklare sammenhengen mellom den deriverte og stigningstallet til tangenter.</p></li>
 </ul>
 </div>
+<section id="derivasjonsregler-for-elementaerfunksjoner">
+<h2>Derivasjonsregler for elementærfunksjoner<a class="headerlink" href="#derivasjonsregler-for-elementaerfunksjoner" title="Link to this heading">#</a></h2>
+<p>Vi må memorisere derivasjonsreglene til en del elementærfunksjoner for at vi skal være i stand til å derivere mer kompliserte funksjoner senere. Derivasjonsreglene for elementærfunksjonene vi skal jobbe med er:</p>
+<div class="admonition summary">
+<p class="admonition-title">Derivasjonsreglene</p>
+<div class="munchboka-table-container docutils container">
+<div class="munchboka-table-frame munchboka-table-frame--align-center"><div class="munchboka-table-scroll"><table class="munchboka-table" data-katex="true"><thead><tr><th scope="col" class="munchboka-table-label munchboka-table-align-center">Funksjon</th><th scope="col" class="munchboka-table-label munchboka-table-align-center">Derivert</th><th scope="col" class="munchboka-table-label munchboka-table-align-center">Eksempel</th></tr></thead><tbody><tr><td class="munchboka-table-align-center">$f(x) = x^n$</td><td class="munchboka-table-align-center">$f&#x27;(x) = n \cdot x^{n-1}$</td><td class="munchboka-table-align-center">$(x^3)&#x27; = 3x^2$</td></tr><tr><td class="munchboka-table-align-center">$f(x) = \sqrt{x}$</td><td class="munchboka-table-align-center">$f&#x27;(x) = \dfrac{1}{2\sqrt{x}}$</td><td class="munchboka-table-align-center">$(\sqrt{x})&#x27; = \dfrac{1}{2\sqrt{x}}$</td></tr><tr><td class="munchboka-table-align-center">$f(x) = e^x$</td><td class="munchboka-table-align-center">$f&#x27;(x) = e^x$</td><td class="munchboka-table-align-center">$(e^x)&#x27; = e^x$</td></tr><tr><td class="munchboka-table-align-center">$f(x) = e^{kx}$</td><td class="munchboka-table-align-center">$f&#x27;(x) = k \cdot e^{kx}$</td><td class="munchboka-table-align-center">$(e^{3x})&#x27; = 3 \cdot e^{3x}$</td></tr><tr><td class="munchboka-table-align-center">$f(x) = \ln(ax)$</td><td class="munchboka-table-align-center">$f&#x27;(x) = \dfrac{1}{x}$</td><td class="munchboka-table-align-center">$(\ln(3x))&#x27; = \dfrac{1}{x}$</td></tr><tr><td class="munchboka-table-align-center">$f(x) = a^x$</td><td class="munchboka-table-align-center">$f&#x27;(x) = a^x \cdot \ln(a)$</td><td class="munchboka-table-align-center">$(3^x)&#x27; = 3^x \cdot \ln(3)$</td></tr><tr><td class="munchboka-table-align-center">$f(x) = \log_a(x)$</td><td class="munchboka-table-align-center">$f&#x27;(x) = \dfrac{1}{x \cdot \ln(a)}$</td><td class="munchboka-table-align-center">$(\log_2(x))&#x27; = \dfrac{1}{x \cdot \ln(2)}$</td></tr></tbody></table></div></div></div>
+</div>
+<p>Vi må også få til å derivere summer og differanser av elementærfunksjoner. Regnereglene for dette er:</p>
+<div class="admonition summary">
+<p class="admonition-title">Derivasjonsregler for sum og differanser</p>
+<div class="munchboka-table-container docutils container">
+<div class="munchboka-table-frame munchboka-table-frame--align-center"><div class="munchboka-table-scroll"><table class="munchboka-table" data-katex="true"><thead><tr><th scope="col" class="munchboka-table-label munchboka-table-align-center">Regel</th><th scope="col" class="munchboka-table-label munchboka-table-align-center">Eksempel</th></tr></thead><tbody><tr><td class="munchboka-table-align-center">$(f(x) + g(x))&#x27; = f&#x27;(x) + g&#x27;(x)$</td><td class="munchboka-table-align-center">$(x^3 + e^x)&#x27; = 3x^2 + e^x$</td></tr><tr><td class="munchboka-table-align-center">$(f(x) - g(x))&#x27; = f&#x27;(x) - g&#x27;(x)$</td><td class="munchboka-table-align-center">$(\sqrt{x} - \ln(3x))&#x27; = \dfrac{1}{2\sqrt{x}} - \dfrac{1}{x}$</td></tr><tr><td class="munchboka-table-align-center">$a \cdot f(x)&#x27; = a \cdot f&#x27;(x)$</td><td class="munchboka-table-align-center">$(3 \cdot e^x)&#x27; = 3 \cdot e^x$</td></tr></tbody></table></div></div></div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 1</p>
+<p>Bestem den deriverte til funksjonene.</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+a</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^5
+\]</div>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+b</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+g(x) = 4\sqrt{x}
+\]</div>
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+c</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+h(x) = \ln(8x)
+\]</div>
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+d</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+p(x) = e^{-3x}
+\]</div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 2</p>
+<p>Bestem den deriverte til funksjonene.</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+a</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+f(x) = 3^x + 5x^2
+\]</div>
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+b</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+g(x) = \ln(4x) - 2\sqrt{x}
+\]</div>
+</div>
+<input id="sd-tab-item-6" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+c</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+h(x) = 4e^{2x} + 7\log_3(x)
+\]</div>
+</div>
+<input id="sd-tab-item-7" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-7">
+d</label><div class="sd-tab-content docutils">
+<div class="math notranslate nohighlight">
+\[
+p(x) = 5x^3 - 2e^{-x} + \ln(6x)
+\]</div>
+</div>
+</div>
+</div>
+</section>
+<section id="likningen-til-tangenter">
+<h2>Likningen til tangenter<a class="headerlink" href="#likningen-til-tangenter" title="Link to this heading">#</a></h2>
+<figure class="adaptive-figure plot-figure no-click align-right">
+<div class="graph-image no-click no-scaled-link"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.8 345.6" xmlns="http://www.w3.org/2000/svg" version="1.1" class="graph-inline-svg" role="img" aria-label="Tilpasset figur" style="width:100%; height:auto; display:block; margin:0 auto;">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-03-20T19:53:45.012168</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="cpl_3742e78b4f98_f6b50e_figure_1">
+  <g id="cpl_3742e78b4f98_f6b50e_patch_1">
+   <path d="M 0 345.6 
+L 460.8 345.6 
+L 460.8 0 
+L 0 0 
+L 0 345.6 
+z
+" style="fill: none"/>
+  </g>
+  <g id="cpl_3742e78b4f98_f6b50e_axes_1">
+   <g id="cpl_3742e78b4f98_f6b50e_patch_2">
+    <path d="M 10.8 329.852651 
+L 447 329.852651 
+L 447 25.330113 
+L 10.8 25.330113 
+L 10.8 329.852651 
+z
+" style="fill: none"/>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_matplotlib.axis_1">
+    <g id="cpl_3742e78b4f98_f6b50e_text_1">
+     <!-- $x$ -->
+     <g transform="translate(429.261101 328.307991) scale(0.32 -0.32)">
+      <defs>
+       <path id="CMMI12-78" d="M 3034 2606 
+C 2829 2567 2752 2414 2752 2293 
+C 2752 2139 2874 2088 2963 2088 
+C 3155 2088 3290 2254 3290 2427 
+C 3290 2695 2982 2816 2714 2816 
+C 2323 2816 2106 2433 2048 2312 
+C 1901 2816 1504 2816 1389 2816 
+C 736 2816 390 1980 390 1839 
+C 390 1814 416 1782 461 1782 
+C 512 1782 525 1820 538 1846 
+C 755 2555 1184 2689 1370 2689 
+C 1658 2689 1715 2420 1715 2267 
+C 1715 2127 1677 1980 1600 1673 
+L 1382 798 
+C 1286 415 1101 64 762 64 
+C 730 64 570 64 435 147 
+C 666 192 717 383 717 460 
+C 717 588 621 664 499 664 
+C 346 664 179 530 179 326 
+C 179 57 480 -64 755 -64 
+C 1062 -64 1280 179 1414 441 
+C 1517 64 1837 -64 2074 -64 
+C 2726 -64 3072 773 3072 913 
+C 3072 945 3046 971 3008 971 
+C 2950 971 2944 939 2925 888 
+C 2752 326 2381 64 2093 64 
+C 1869 64 1747 230 1747 492 
+C 1747 632 1773 734 1875 1156 
+L 2099 2024 
+C 2195 2408 2413 2689 2707 2689 
+C 2720 2689 2899 2689 3034 2606 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#CMMI12-78" transform="scale(0.996264)"/>
+     </g>
+    </g>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_matplotlib.axis_2">
+    <g id="cpl_3742e78b4f98_f6b50e_text_2">
+     <!-- $y$ -->
+     <g transform="translate(15.157837 19.129094) scale(0.32 -0.32)">
+      <defs>
+       <path id="CMMI12-79" d="M 1683 -700 
+C 1510 -939 1261 -1152 947 -1152 
+C 870 -1152 563 -1152 467 -889 
+C 486 -895 518 -895 531 -895 
+C 723 -895 851 -729 851 -582 
+C 851 -435 730 -384 634 -384 
+C 531 -384 307 -458 307 -759 
+C 307 -1071 582 -1286 947 -1286 
+C 1587 -1286 2234 -700 2413 6 
+L 3040 2485 
+C 3046 2517 3059 2556 3059 2594 
+C 3059 2689 2982 2753 2886 2753 
+C 2829 2753 2694 2727 2643 2535 
+L 2170 658 
+C 2138 543 2138 530 2086 460 
+C 1958 281 1747 64 1440 64 
+C 1082 64 1050 415 1050 588 
+C 1050 952 1222 1443 1395 1903 
+C 1466 2088 1504 2178 1504 2305 
+C 1504 2574 1312 2816 998 2816 
+C 410 2816 173 1890 173 1839 
+C 173 1814 198 1782 243 1782 
+C 301 1782 307 1807 333 1897 
+C 486 2433 730 2689 979 2689 
+C 1037 2689 1146 2689 1146 2478 
+C 1146 2312 1075 2127 979 1884 
+C 666 1047 666 837 666 683 
+C 666 77 1101 -64 1421 -64 
+C 1606 -64 1837 -6 2061 230 
+L 2067 224 
+C 1971 -147 1907 -392 1683 -700 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#CMMI12-79" transform="scale(0.996264)"/>
+     </g>
+    </g>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_line2d_1">
+    <defs>
+     <path id="cpl_3742e78b4f98_f6b50e_md1ec76afe8" d="M 3 0 
+L -3 -3 
+L -3 3 
+z
+" style="stroke: #000000; stroke-linejoin: miter"/>
+    </defs>
+    <g>
+     <use xlink:href="#cpl_3742e78b4f98_f6b50e_md1ec76afe8" x="447" y="302.168784" style="stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_line2d_2">
+    <defs>
+     <path id="cpl_3742e78b4f98_f6b50e_m921fafa9bf" d="M 0 -3 
+L -3 3 
+L 3 3 
+z
+" style="stroke: #000000; stroke-linejoin: miter"/>
+    </defs>
+    <g>
+     <use xlink:href="#cpl_3742e78b4f98_f6b50e_m921fafa9bf" x="34.378378" y="25.330113" style="stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_line2d_3">
+    <path d="M 10.8 279.503151 
+L 22.381945 277.163382 
+L 33.431386 274.706403 
+L 44.0282 272.123583 
+L 54.172386 269.42381 
+L 63.917195 266.602137 
+L 73.315876 263.65057 
+L 82.395056 260.566962 
+L 91.154734 257.3581 
+L 99.64816 254.010614 
+L 107.875334 250.529818 
+L 115.862882 246.909868 
+L 123.637429 243.142897 
+L 131.198975 239.232946 
+L 138.574144 235.169997 
+L 145.789562 230.941339 
+L 152.84523 226.548328 
+L 159.741146 221.993091 
+L 166.503937 217.25939 
+L 173.133602 212.347689 
+L 179.656766 207.237662 
+L 186.07343 201.927515 
+L 192.383593 196.415913 
+L 198.587255 190.702006 
+L 204.711042 184.758949 
+L 210.754953 178.582789 
+L 216.718989 172.169849 
+L 222.60315 165.516756 
+L 228.43406 158.588039 
+L 234.211719 151.37614 
+L 239.936129 143.873511 
+L 245.607288 136.072632 
+L 251.225197 127.966025 
+L 256.81648 119.505018 
+L 262.354514 110.719557 
+L 267.865922 101.556859 
+L 273.32408 92.050567 
+L 278.755613 82.143502 
+L 284.16052 71.821347 
+L 289.538802 61.069402 
+L 294.89046 49.872572 
+L 300.215492 38.215373 
+L 305.540524 26.01956 
+L 310.838931 13.325488 
+L 316.110712 0.116116 
+L 316.545532 -1 
+L 316.545532 -1 
+" clip-path="url(#cpl_3742e78b4f98_f6b50e_pface238792)" style="fill: none; stroke: #0072b2; stroke-width: 2.5; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_line2d_4">
+    <path d="M 10.8 317.219295 
+L 447 38.784849 
+" clip-path="url(#cpl_3742e78b4f98_f6b50e_pface238792)" style="fill: none; stroke: #dc5e8b; stroke-width: 2.5; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_LineCollection_1">
+    <path d="M 270.162162 226.916231 
+L 270.162162 151.663679 
+" clip-path="url(#cpl_3742e78b4f98_f6b50e_pface238792)" style="fill: none; stroke-dasharray: 9.25,4; stroke-dashoffset: 0; stroke: #808080; stroke-width: 2.5"/>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_LineCollection_2">
+    <path d="M 152.27027 226.916231 
+L 270.162162 226.916231 
+" clip-path="url(#cpl_3742e78b4f98_f6b50e_pface238792)" style="fill: none; stroke-dasharray: 9.25,4; stroke-dashoffset: 0; stroke: #808080; stroke-width: 2.5"/>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_line2d_5">
+    <defs>
+     <path id="cpl_3742e78b4f98_f6b50e_m47600c5775" d="M 0 5 
+C 1.326016 5 2.597899 4.473168 3.535534 3.535534 
+C 4.473168 2.597899 5 1.326016 5 0 
+C 5 -1.326016 4.473168 -2.597899 3.535534 -3.535534 
+C 2.597899 -4.473168 1.326016 -5 0 -5 
+C -1.326016 -5 -2.597899 -4.473168 -3.535534 -3.535534 
+C -4.473168 -2.597899 -5 -1.326016 -5 0 
+C -5 1.326016 -4.473168 2.597899 -3.535534 3.535534 
+C -2.597899 4.473168 -1.326016 5 0 5 
+z
+" style="stroke: #000000; stroke-opacity: 0.8"/>
+    </defs>
+    <g clip-path="url(#cpl_3742e78b4f98_f6b50e_pface238792)">
+     <use xlink:href="#cpl_3742e78b4f98_f6b50e_m47600c5775" x="152.27027" y="226.916231" style="fill-opacity: 0.8; stroke: #000000; stroke-opacity: 0.8"/>
+    </g>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_patch_3">
+    <path d="M 34.378378 329.852651 
+L 34.378378 25.330113 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_patch_4">
+    <path d="M 447 329.852651 
+L 447 25.330113 
+" style="fill: none"/>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_patch_5">
+    <path d="M 10.8 302.168784 
+L 447 302.168784 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_patch_6">
+    <path d="M 10.8 25.330113 
+L 447 25.330113 
+" style="fill: none"/>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_text_3">
+    <!-- $(a, f(a))$ -->
+    <g transform="translate(35.019864 214.404945) scale(0.32 -0.32)">
+     <defs>
+      <path id="CMR17-28" d="M 1958 -1561 
+C 1958 -1555 1958 -1542 1939 -1523 
+C 1645 -1224 858 -407 858 1581 
+C 858 3569 1632 4379 1946 4697 
+C 1946 4704 1958 4717 1958 4736 
+C 1958 4755 1939 4768 1914 4768 
+C 1843 4768 1299 4296 986 3594 
+C 666 2887 576 2199 576 1588 
+C 576 1128 621 351 1005 -471 
+C 1312 -1135 1837 -1600 1914 -1600 
+C 1946 -1600 1958 -1587 1958 -1561 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMMI12-61" d="M 1926 760 
+C 1894 651 1894 639 1805 517 
+C 1664 338 1382 64 1082 64 
+C 819 64 672 300 672 677 
+C 672 1028 870 1743 992 2012 
+C 1210 2459 1510 2689 1760 2689 
+C 2182 2689 2266 2165 2266 2114 
+C 2266 2108 2246 2024 2240 2012 
+L 1926 760 
+z
+M 2336 2395 
+C 2266 2561 2093 2816 1760 2816 
+C 1037 2816 256 1884 256 939 
+C 256 307 627 -64 1062 -64 
+C 1414 -64 1715 211 1894 422 
+C 1958 45 2259 -64 2451 -64 
+C 2643 -64 2797 51 2912 281 
+C 3014 498 3104 888 3104 913 
+C 3104 945 3078 971 3040 971 
+C 2982 971 2976 939 2950 843 
+C 2854 466 2733 64 2470 64 
+C 2285 64 2272 230 2272 358 
+C 2272 505 2291 575 2349 824 
+C 2394 984 2426 1124 2477 1309 
+C 2714 2267 2771 2497 2771 2535 
+C 2771 2625 2701 2695 2605 2695 
+C 2400 2695 2349 2472 2336 2395 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMMI12-3b" d="M 1248 -31 
+C 1248 343 1126 619 864 619 
+C 659 619 557 453 557 313 
+C 557 172 653 0 870 0 
+C 954 0 1024 26 1082 83 
+C 1094 96 1101 96 1107 96 
+C 1120 96 1120 5 1120 -27 
+C 1120 -240 1082 -659 710 -1080 
+C 640 -1157 640 -1170 640 -1183 
+C 640 -1216 672 -1248 704 -1248 
+C 755 -1248 1248 -771 1248 -31 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMMI12-66" d="M 2854 2566 
+C 2982 2566 3034 2566 3034 2688 
+C 3034 2752 2982 2752 2867 2752 
+L 2349 2752 
+C 2470 3429 2560 3897 2611 4107 
+C 2650 4265 2784 4416 2950 4416 
+C 3085 4416 3219 4358 3283 4298 
+C 3034 4272 2957 4082 2957 3969 
+C 2957 3837 3053 3759 3174 3759 
+C 3302 3759 3494 3870 3494 4119 
+C 3494 4393 3226 4544 2944 4544 
+C 2669 4544 2400 4334 2272 4078 
+C 2157 3848 2093 3611 1946 2752 
+L 1517 2752 
+C 1395 2752 1331 2752 1331 2637 
+C 1331 2566 1370 2566 1498 2566 
+L 1907 2566 
+C 1792 1976 1530 542 1382 -137 
+C 1274 -689 1178 -1152 858 -1152 
+C 838 -1152 653 -1152 538 -1031 
+C 864 -1005 864 -726 864 -720 
+C 864 -593 768 -517 646 -517 
+C 518 -517 326 -625 326 -867 
+C 326 -1140 608 -1280 858 -1280 
+C 1510 -1280 1779 -118 1850 199 
+C 1965 688 2278 2376 2310 2566 
+L 2854 2566 
+z
+" transform="scale(0.015625)"/>
+      <path id="CMR17-29" d="M 1683 1581 
+C 1683 2040 1638 2817 1254 3639 
+C 947 4303 422 4768 346 4768 
+C 326 4768 301 4761 301 4729 
+C 301 4717 307 4710 314 4697 
+C 621 4378 1402 3568 1402 1584 
+C 1402 -407 627 -1217 314 -1537 
+C 307 -1549 301 -1556 301 -1568 
+C 301 -1600 326 -1600 346 -1600 
+C 416 -1600 960 -1128 1274 -426 
+C 1594 281 1683 969 1683 1581 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMR17-28" transform="scale(0.996264)"/>
+     <use xlink:href="#CMMI12-61" transform="translate(35.280768 0) scale(0.996264)"/>
+     <use xlink:href="#CMMI12-3b" transform="translate(86.488625 0) scale(0.996264)"/>
+     <use xlink:href="#CMMI12-66" transform="translate(130.190208 0) scale(0.996264)"/>
+     <use xlink:href="#CMR17-28" transform="translate(188.910513 0) scale(0.996264)"/>
+     <use xlink:href="#CMMI12-61" transform="translate(224.19128 0) scale(0.996264)"/>
+     <use xlink:href="#CMR17-29" transform="translate(275.399138 0) scale(0.996264)"/>
+     <use xlink:href="#CMR17-29" transform="translate(310.679906 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_text_4">
+    <!-- $1$ -->
+    <g transform="translate(203.90574 253.623276) scale(0.32 -0.32)">
+     <defs>
+      <path id="CMR17-31" d="M 1702 4058 
+C 1702 4192 1696 4192 1606 4192 
+C 1357 3916 979 3827 621 3827 
+C 602 3827 570 3827 563 3808 
+C 557 3795 557 3782 557 3648 
+C 755 3648 1088 3686 1344 3839 
+L 1344 461 
+C 1344 236 1331 160 781 160 
+L 589 160 
+L 589 0 
+C 896 0 1216 0 1523 0 
+C 1830 0 2150 0 2458 0 
+L 2458 160 
+L 2266 160 
+C 1715 160 1702 230 1702 458 
+L 1702 4058 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMR17-31" transform="scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_text_5">
+    <!-- $f'(a)$ -->
+    <g transform="translate(276.705162 197.301781) scale(0.32 -0.32)">
+     <defs>
+      <path id="CMSY10-30" d="M 1619 3040 
+C 1651 3117 1677 3174 1677 3238 
+C 1677 3424 1510 3578 1312 3578 
+C 1133 3578 1018 3456 973 3290 
+L 211 493 
+C 211 480 186 410 186 403 
+C 186 333 352 288 403 288 
+C 442 288 448 307 486 390 
+L 1619 3040 
+z
+" transform="scale(0.015625)"/>
+     </defs>
+     <use xlink:href="#CMMI12-66" transform="scale(0.996264)"/>
+     <use xlink:href="#CMSY10-30" transform="translate(58.720305 36.153639) scale(0.697382)"/>
+     <use xlink:href="#CMR17-28" transform="translate(78.396397 0) scale(0.996264)"/>
+     <use xlink:href="#CMMI12-61" transform="translate(113.677165 0) scale(0.996264)"/>
+     <use xlink:href="#CMR17-29" transform="translate(164.885023 0) scale(0.996264)"/>
+    </g>
+   </g>
+   <g id="cpl_3742e78b4f98_f6b50e_legend_1">
+    <g id="cpl_3742e78b4f98_f6b50e_patch_7">
+     <path d="M 33.2 95.531133 
+L 150.986636 95.531133 
+Q 157.386636 95.531133 157.386636 89.131133 
+L 157.386636 47.730113 
+Q 157.386636 41.330113 150.986636 41.330113 
+L 33.2 41.330113 
+Q 26.8 41.330113 26.8 47.730113 
+L 26.8 89.131133 
+Q 26.8 95.531133 33.2 95.531133 
+z
+" style="fill: #ffffff; opacity: 0.8; stroke: #cccccc; stroke-linejoin: miter"/>
+    </g>
+    <g id="cpl_3742e78b4f98_f6b50e_line2d_6">
+     <path d="M 39.6 65.330113 
+L 71.6 65.330113 
+L 103.6 65.330113 
+" style="fill: none; stroke: #0072b2; stroke-width: 2.5; stroke-linecap: square"/>
+    </g>
+    <g id="cpl_3742e78b4f98_f6b50e_text_6">
+     <!-- $f$ -->
+     <g transform="translate(129.2 76.530113) scale(0.32 -0.32)">
+      <use xlink:href="#CMMI12-66" transform="scale(0.996264)"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="cpl_3742e78b4f98_f6b50e_pface238792">
+   <rect x="10.8" y="25.330113" width="436.2" height="304.522538"/>
+  </clipPath>
+ </defs>
+</svg>
+</div></figure>
+<p>Den deriverte <span class="math notranslate nohighlight">\(f'(a)\)</span> til en funksjon <span class="math notranslate nohighlight">\(f\)</span> gir oss stigningstallet til en tangent i punktet <span class="math notranslate nohighlight">\((a, f(a))\)</span> på grafen til <span class="math notranslate nohighlight">\(f\)</span>.</p>
+<p>Ettpunktsformelen for en linje med stigningstall <span class="math notranslate nohighlight">\(m\)</span> som går gjennom punktet <span class="math notranslate nohighlight">\((x_0, y_0)\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+y - y_0 = m \cdot (x - x_0)
+\]</div>
+<p>Siden tangenten går gjennom punkt <span class="math notranslate nohighlight">\((a, f(a))\)</span>, så er <span class="math notranslate nohighlight">\((x_0, y_0) = (a, f(a))\)</span>. Siden stigningstallet til tangenten er <span class="math notranslate nohighlight">\(f'(a)\)</span>, så er <span class="math notranslate nohighlight">\(m = f'(a)\)</span>. Setter vi inn dette i ettpunktsformelen får vi</p>
+<div class="math notranslate nohighlight">
+\[
+y - f(a) = f'(a) \cdot (x - a)
+\]</div>
+<p>Dette kan vi skrive om til</p>
+<div class="math notranslate nohighlight">
+\[
+y = f'(a) \cdot (x - a) + f(a)
+\]</div>
+<div class="admonition summary">
+<p class="admonition-title">Likningen til en tangent</p>
+<p>En tangent til grafen til <span class="math notranslate nohighlight">\(f\)</span> i punktet <span class="math notranslate nohighlight">\((a, f(a))\)</span> har likningen</p>
+<div class="math notranslate nohighlight">
+\[
+y = f'(a) \cdot (x - a) + f(a)
+\]</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Underveisoppgave 3</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-8" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-8">
+a</label><div class="sd-tab-content docutils">
+<p>Funksjonen <span class="math notranslate nohighlight">\(f\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x^3 - 3x + 1
+\]</div>
+<p>Bestem likningen til tangenten til grafen til <span class="math notranslate nohighlight">\(f\)</span> i punktet <span class="math notranslate nohighlight">\((1, f(1))\)</span>.</p>
+</div>
+<input id="sd-tab-item-9" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-9">
+b</label><div class="sd-tab-content docutils">
+<p>Funksjonen <span class="math notranslate nohighlight">\(g\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+g(x) = e^{2x}
+\]</div>
+<p>Bestem likningen til tangenten til grafen til <span class="math notranslate nohighlight">\(g\)</span> i punktet <span class="math notranslate nohighlight">\((0, g(0))\)</span>.</p>
+</div>
+<input id="sd-tab-item-10" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-10">
+c</label><div class="sd-tab-content docutils">
+<p>Funksjonen <span class="math notranslate nohighlight">\(h\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+h(x) = \ln(5x)
+\]</div>
+<p>Bestem likningen til tangenten til grafen til <span class="math notranslate nohighlight">\(h\)</span> i punktet <span class="math notranslate nohighlight">\((e, h(e))\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -601,6 +1222,24 @@
             </div>
             
             
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Innhold
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivasjonsregler-for-elementaerfunksjoner">Derivasjonsregler for elementærfunksjoner</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#likningen-til-tangenter">Likningen til tangenter</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

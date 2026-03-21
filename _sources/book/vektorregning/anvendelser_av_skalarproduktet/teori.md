@@ -19,17 +19,22 @@ Når vi jobber med geometriske problemer i vektorregning, vil vi i blant trenge 
 
 
 :::::::::::::::{summary} Tverrvektor
-La $\vec{a}$ være en vektor. Da vil $\vec{a}_\perp$ være en **tverrvektor** til $\vec{a}$ hvis
-
-$$
-\vec{a} \perp \vec{a}_\perp \qog \len{a} = \abs{\vec{a}_\perp}
-$$
-
-
-Hvis $\vec{a} = [x, y]$, så er en tverrvektor til $\vec{a}$ gitt ved
+La $\vec{a} = [x, y]$ være en vektor. En **tverrvektor** $\vec{a}_\perp$ til $\vec{a}$ får vi ved å rotere vektoren $\vec{a}$ med eller mot klokka med $90^\circ$. Dette gir oss to muligheter:
 
 $$
 \vec{a}_\perp = [-y, x] \qeller \vec{a}_\perp = [y, -x]
+$$
+
+Vi kan merke oss at tverrvektoren vil ha samme lengde som den opprinnelige vektoren:
+
+$$
+\abs{\vec{a}_\perp} = \abs{\vec{a}}
+$$
+
+Vektorene $\vec{a}$ og $\vec{a}_\perp$ er da ortogonale slik at 
+
+$$
+\vec{a} \cdot \vec{a}_\perp = 0 \liff \vec{a} \perp \vec{a}_\perp
 $$
 
 :::::::::::::::
@@ -160,11 +165,108 @@ der $\vec{b}_\perp$ er en **tverrvektor** til $\vec{b}$.
 ---
 class: theory, dropdown
 ---
-Vi lager en hjelpefigur og tegner inn en høyde $h$ i trekanten og en tverrvektor $\vec{b}_\perp$ til vektoren $\vec{b}$:
+
+:::{plot}
+align: right
+width: 100%
+figsize: (4, 4)
+point: (0, 0)
+point: (3, 0)
+point: (2, 1)
+vector: 0, 0, 3, 0, blue
+vector: 0, 0, 2, 1, red
+line-segment: (3, 0), (2, 1), dashed, gray 
+xmin: -0.5
+xmax: 3.5
+ymin: -0.5
+ymax: 1.5
+ticks: off
+axis: off
+text: 1.5, 0, "$\vec{a}$", bottom-center
+text: 1, 0.5, "$\vec{b}$", top-left
+fontsize: 20
+text: 0, 0, "$A$", bottom-left
+text: 3, 0, "$B$", bottom-right
+text: 2, 1, "$C$", top-right
+vline: 2, 0, 1, dashed, gray
+text: 2, 0.5, "$h$", center-left
+angle-arc: (0, 0), 0.5, 0, 26.565
+text: 0.6, 0.05, "$\varphi$", top-right
+axis: equal
+:::
+
+
+Grunnlinja i trekanten er $\abs{\vec{a}}$ og høyden er $h$. Dette betyr at arealet av trekanten kan uttrykkes som
+
+$$
+T = \dfrac{1}{2} \cdot \abs{\vec{a}} \cdot h
+$$
+
+
+Lar vi vinkelen mellom vektorene $\vec{a}$ og $\vec{b}$ var $\varphi$, kan vi se at 
+
+$$
+\sin \varphi = \dfrac{h}{\abs{\vec{b}}} \liff h = \abs{\vec{b}} \cdot \sin \varphi
+$$
+
+Altså kan vi skrive arealet som 
+
+$$
+T = \dfrac{1}{2} \cdot \abs{\vec{a}} \cdot \abs{\vec{b}} \cdot \sin \varphi
+$$
+
+
+Formelen ligner skrekkelig mye på den geometriske formelen for skalarproduktet, bortsett fra at $\sin \varphi$ inngår i uttrykket og ikke $\cos \varphi$. 
+
+Vi skulle liksom ønske oss at det i stedet stod
+
+$$
+T = \dfrac{1}{2} \cdot \abs{\vec{a}} \cdot \abs{\vec{b}} \cdot \cos \varphi
+$$
+
+
+:::{plot}
+align: right
+width: 100%
+figsize: (4, 3)
+polygon: (0, 0), (cos(pi/6), 0), (cos(pi/6), sin(pi/6))
+polygon: (cos(pi/6), 0), (cos(pi/6) - 0.1, 0), (cos(pi/6) - 0.1, 0.1), (cos(pi/6), 0.1)
+axis: equal
+angle-arc: (0, 0), 0.2, 0, 30
+text: 0.2, 0.025, "$\varphi$", top-right
+angle-arc: (cos(pi/6), sin(pi/6)), 0.15, -90, -90-60
+text: cos(pi/6), sin(pi/6) - 0.15, "$90^\circ - \varphi$", bottom-left
+axis: off
+text: 0, 0, "$A$", bottom-left
+text: cos(pi/6), 0, "$B$", bottom-right
+text: cos(pi/6), sin(pi/6), "$C$", top-right
+:::
+
+Men la oss ta en liten omvei via trigonometrien. Vi tegner oss en rettvinklet trekant $\triangle ABC$ der den ene vinkelen er $\varphi$. Da må den andre spisse vinkelen i trekanten være $90^\circ - \varphi$. Vi kan da bruke definisjonen av sinus og cosinus på de to vinklene i trekanten, og se at
+
+
+$$
+\cos (90\degree - \varphi) = \dfrac{BC}{AC} \and \sin \varphi = \dfrac{BC}{AC}
+$$
+
+Det betyr derfor at 
+
+$$
+\sin \varphi = \cos(90\degree - \varphi)
+$$
+
+
+Altså kan vi også skrive arealet av trekanten som 
+
+$$
+T = \dfrac{1}{2} \cdot \abs{\vec{a}} \cdot \abs{\vec{b}} \cdot \cos(90\degree - \varphi)
+$$
+
 
 :::{plot}
 figsize: (4, 4)
-width: 70%
+align: right
+width: 100%
 point: (0, 0)
 point: (3, 0)
 point: (2, 1)
@@ -194,93 +296,28 @@ text: 2, 0.5, "$h$", center-left
 fontsize: 18
 :::
 
-Vi vet at arealet $T$ til en trekant bare er gitt ved grunnlinje ganger høyde delt på to. Her er grunnlinjen $\len{a}$ og høyden er $h$ slik at
+Men vinkelen mellom vektorene $\vec{a}$ og $\vec{b}$ er jo $\varphi$ og ikke $90^\circ - \varphi$. Men dersom vi roterer én av vektorene $90 \degree$, så blir vinkelen mellom vektorene $90^\circ - \varphi$. Men å rotere en vektor med $90 \degree$ er jo det samme som å lage en tverrvektor.
+
+Vi lager en tverrvektor $\vec{b}_\perp$ til vektoren $\vec{b}$. Da vil vinkelen mellom vektorene $\vec{a}$ og $\vec{b}_\perp$ være $90^\circ - \varphi$. Samtidig så er jo lengden av $\vec{b}_\perp$ den samme som lengden av $\vec{b}$, altså $\abs{\vec{b}_\perp} = \abs{\vec{b}}$. Det betyr at 
 
 $$
-T = \dfrac{1}{2} \cdot \len{a} \cdot h
+\begin{align*}
+T &= \dfrac{1}{2} \abs{\vec{a}} \cdot \abs{\vec{b}_\perp} \cdot \cos (90\degree - \varphi) \\
+\end{align*}
 $$
 
-Vi kan uttrykke høyden $h$ ved hjelp av $\len{b}$ og vinkelen $\varphi$ mellom vektorene $\vec{a}$ og $\vec{b}$. Vi kan først se at
+Nå er uttrykket for arealet det samme som skalarproduktet mellom $\vec{a}$ og $\vec{b}_\perp$. Derfor har vi at 
 
 $$
-\sin \varphi = \dfrac{h}{\len{b}} \liff h = \len{b} \cdot \sin \varphi
+T = \dfrac{1}{2} \vec{a} \cdot \vec{b}_\perp
 $$
 
-Altså kan vi skrive om arealet til
-
-$$
-T = \dfrac{1}{2} \cdot \len{a} \cdot \len{b} \cdot \sin \varphi
-$$
-
-Vi vet lengdene til en vektor og dens tverrvektor er den samme slik at $\len{b} = \abs{\vec{b}_\perp}$. I såfall må det bety at arealet også kan skrives om til
-
-
-$$
-T = \dfrac{1}{2} \cdot \len{a} \cdot \abs{\vec{b}_\perp} \cdot \sin \varphi
-$$
-
-Arealformelen ligner skrekkelig mye på den geometriske formelen for skalarproduktet, bortsett fra $\sin \varphi$ inngår i uttrykket og ikke $\cos \varphi$. Men så er jo vinkelen mellom $\vec{a}$ og $\vec{b}_\perp$ gitt ved $90^\circ - \varphi$ og ikke $\varphi$. Kanskje vi kan se om det er en sammenheng til skalarproduktet mellom $\vec{a}$ og $\vec{b}_\perp$? Da får vi:
-
-$$
-\vec{a} \cdot \vec{b}_\perp = \len{a} \cdot \abs{\vec{b}_\perp} \cdot \cos(90\degree - \varphi)
-$$
-
-:::{plot}
-align: right
-width: 100%
-figsize: (4, 3)
-polygon: (0, 0), (cos(pi/6), 0), (cos(pi/6), sin(pi/6))
-polygon: (cos(pi/6), 0), (cos(pi/6) - 0.1, 0), (cos(pi/6) - 0.1, 0.1), (cos(pi/6), 0.1)
-axis: equal
-angle-arc: (0, 0), 0.2, 0, 30
-text: 0.2, 0.025, "$\varphi$", top-right
-angle-arc: (cos(pi/6), sin(pi/6)), 0.15, -90, -90-60
-text: cos(pi/6), sin(pi/6) - 0.15, "$90^\circ - \varphi$", bottom-left
-axis: off
-text: 0, 0, "$A$", bottom-left
-text: cos(pi/6), 0, "$B$", bottom-right
-text: cos(pi/6), sin(pi/6), "$C$", top-right
-:::
-
-Uttrykket ligner en del på uttrykket vi har kommet fram til for arealet, men vi må undersøke om det er en sammenheng mellom $\sin \varphi$ og $\cos(90\degree - \varphi)$ vi kan bruke. La oss tegne oss en trekant $\triangle ABC$ og lete etter en slik sammenheng:
-
-Ved å bruke definisjonen av sinus og cosinus på de to vinklene i trekanten, får vi 
-
-$$
-\sin \varphi = \dfrac{BC}{AC} \and \cos (90\degree - \varphi) = \dfrac{BC}{AC}
-$$
-
-Men de to uttrykkene må jo da være like, så vi får at
-
-$$
-\sin \varphi = \cos(90\degree - \varphi)
-$$
-
-Dermed har vi at 
-
-$$
-\vec{a} \cdot \vec{b}_\perp = \len{a} \cdot \abs{\vec{b}_\perp} \cdot \cos(90\degree - \varphi) = \len{a} \cdot \abs{\vec{b}_\perp} \cdot \sin \varphi
-$$
-
-Og siden arealet av trekanten kunne skrives som
-
-$$
-T = \dfrac{1}{2} \cdot \len{a} \cdot \abs{\vec{b}_\perp} \cdot \sin \varphi
-$$
-
-må dette bety at 
-
-$$
-T = \dfrac{1}{2} \cdot \vec{a} \cdot \vec{b}_\perp
-$$
-
-Vi har en siste floke å løsne opp i. Siden det finnes to tverrvektorer til $\vec{b}$ som er motsatt rettet av hverandre, vil skalarproduktet i formelen ovenfor kunne bli negativt. For å fikse dette, tar vi bare absoluttverdien av svaret slik at det alltid blir positivt: 
+Men vi kan jo lage to forskjellige tverrvektorer av $\vec{b}$. Den ene får vi ved å rotere $90\degree$ med klokka, og den andre ved å rotere $90\degree$ mot klokka. Det betyr at vi vil kunne få samme absoluttverdi, men motsatt fortegn, så vi risikerer at arealet blir negativt. For å slippe unna dette problemet, tar vi bare absoluttverdien av skalarproduktet slik at det alltid blir et positivt svar. Ergo er formelen for arealet av trekanten
 
 $$
 T = \dfrac{1}{2} \abs{\vec{a} \cdot \vec{b}_\perp}
 $$
 
-Dette var formelen vi skulle begrunne.
 
 
 :::::
