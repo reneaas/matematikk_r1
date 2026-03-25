@@ -273,7 +273,7 @@ $$
 
 der $\vec{r}_0 = \lvec{OA}$ er startposisjonen. 
 
-I den interaktive figuren nedenfor viser vi et eksempel på en partikkel som starter i et punkt $A$ og beveger seg med en konstant fartsvektor $\vec{v}$ langs en rett linje. Den røde vektoren viser posisjonsvektoren $\vec{r}(t)$, og den grønne vektoren viser fartsvektoren $\vec{v}$, og punktet vises posisjonen til partikkelen på kurven (den blå rette linjen) på et tidspunkt $t$.
+I den interaktive figuren nedenfor viser vi et eksempel på en partikkel som starter i et punkt $A$ og beveger seg med en konstant fartsvektor $\vec{v}$ langs en rett linje. Den røde vektoren viser posisjonsvektoren $\vec{r}(t)$, og den grønne vektoren viser fartsvektoren $\vec{v}$, og punktet viser posisjonen til partikkelen på kurven (den blå rette linjen) på et tidspunkt $t$.
 
 :::{interactive-graph} 
 parallel: true
