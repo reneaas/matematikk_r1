@@ -1,1 +1,0 @@
-# Oppgaver: Produktregelen og brøkregelen
