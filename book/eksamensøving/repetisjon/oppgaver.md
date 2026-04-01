@@ -1669,6 +1669,8 @@ $$
 \lim_{x \to a} \dfrac{\ln(ax - 8)}{x - a}
 $$
 
+<br>
+
 Koden til neste rom er $a^5$ der $a$ er den verdien som gjør at grenseverdien eksisterer.
 :::::::
 
