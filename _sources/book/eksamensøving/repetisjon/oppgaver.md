@@ -1661,9 +1661,15 @@ Koden til neste rom er verdiene nedenfor plassert i synkende rekkefølge: $$\beg
 
 :::::::{room}
 ---
-code: 1296
+code: 243
 ---
-Koden til neste rom er $(f'(2))^4$ for $$f(x) = \begin{cases} \dfrac{x^3 - 8}{x^2 - 4} \quad \text{for} \quad x \neq 2 \\ \\ 12 \quad \text{for} \quad x = 2  \end{cases}$$
+En grenseverdi er gitt ved 
+
+$$
+\lim_{x \to a} \dfrac{\ln(ax - 8)}{x - a}
+$$
+
+Koden til neste rom er $a^5$ der $a$ er den verdien som gjør at grenseverdien eksisterer.
 :::::::
 
 
