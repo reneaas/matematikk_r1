@@ -601,6 +601,10 @@ Det punktet som ligger nærmest $N$ er $M(-1, 3)$, så derfor er dette det punkt
 
 
 :::::::::::::::{exercise} Oppgave 1 (6 poeng)
+---
+aids: true
+---
+
 Teknologiselskaper PowBat skal lansere en ny batteriteknologi i en by med 3 millioner husstander. PowBat regner med at antallet husstander som har batteriet $t$ uker etter lanseringen, vil følge modellen $S$ gitt ved
 
 $$
@@ -747,6 +751,10 @@ $$
 
 
 :::::::::::::::{exercise} Oppgave 2 (6 poeng)
+---
+aids: true
+---
+
 Funksjonen $f$ er gitt ved
 
 $$
@@ -886,6 +894,10 @@ $$
 
 
 :::::::::::::::{exercise} Oppgave 3 (3 poeng)
+---
+aids: true
+---
+
 Amalie arbeider med en funksjon $f$ med delt forskrift og skal vise funksjonsuttrykket til de andre i klassen. Dessverre har hun søkt på arket sitt og klarer ikke å lese alt som står der.
 
 
@@ -962,6 +974,10 @@ $$
 
 
 :::::::::::::::{exercise} Oppgave 4 (8 poeng)
+---
+aids: true
+---
+
 Posisjonen $\vec{r}$ til en fiskebåt $t$ timer etter at den drar fra land, er gitt ved
 
 $$
@@ -1192,6 +1208,10 @@ Altså må fiskebåten holde en fart på $3\sqrt{13}~\mathrm{km/h}$ for å treff
 
 
 :::::::::::::::{exercise} Oppgave 5 (4 poeng)
+---
+aids: true
+---
+
 Grafen til en funksjonen $f$ gitt ved $f(x) = \ln x$ er vist i figuren nedenfor.
 
 Et punkt $B$ på grafen til $f$ er plassert slik at tangenten til grafen i punktet $B$ går gjennom $A(0, 0)$.

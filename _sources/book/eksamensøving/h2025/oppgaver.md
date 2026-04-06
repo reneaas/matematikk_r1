@@ -572,6 +572,9 @@ Altså skriver programmet ut en tilnærming til $x = e$.
 
 
 :::::::::::::::{exercise} Oppgave 1 (6 poeng)
+---
+aids: true
+---
 Tabellen nedenfor viser folketallet på et lite tettsted, noen år i perioden $1960 – 1980$.
 
 :::{table}
@@ -734,6 +737,10 @@ Vi ser at det skjer to ganger:
 
 
 :::::::::::::::{exercise} Oppgave 2 (4 poeng)
+---
+aids: true
+---
+
 Funksjonen $f$ er gitt ved
 
 $$
@@ -864,6 +871,10 @@ $$
 
 
 :::::::::::::::{exercise} Oppgave 3 (4 poeng)
+---
+aids: true
+---
+
 Beboerne i et boligområde klager på lukt fra et biogassanlegg. Kommunen tar luftprøver og vurderer værdata som vind og temperatur.
 
 Prøvene analyseres, og hver prøve gis en luktverdi $c$. Denne luktverdien er gitt i lukenheter (odour units) per kubikkmeter ($\mathrm{OU/m^3}$).
@@ -966,6 +977,10 @@ Altså må biogassanlegget sikte på at $c \in [8.5, 43.9]~\mathrm{OU/m^3}$ for 
 
 
 :::::::::::::::{exercise} Oppgave 4 (6 poeng)
+---
+aids: true
+---
+
 Ina følger en sti fra ei hytte til et utsiktspunkt. I et koordinatsystem der enheten langs aksene er meter, ligger hytta i punktet $H(0, 300)$ og utsiktspunktet i $U(1200, 400)$. 
 
 Stien mellom hytta og utsiktspunktet er en rett linja. Ina går med konstant fart.
@@ -1170,6 +1185,10 @@ Altså har Ina gått nøyaktig $35 \sqrt{145}$ meter som er ca. $421$ meter.
 
 
 :::::::::::::::{exercise} Oppgave 5 (4 poeng)
+---
+aids: true
+---
+
 For $\vec{a}$ og $\vec{b}$ er $\abs{\vec{a}} = 4$, $\abs{\vec{b}} = 2 \sqrt{3}$ og vinkelen mellom $\vec{a}$ og $\vec{b}$ er $30 \degree$.
 
 
