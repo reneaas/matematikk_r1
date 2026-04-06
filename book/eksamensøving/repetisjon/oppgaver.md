@@ -1473,7 +1473,7 @@ $$
 category: Geometri
 points: 500
 ---
-En sirkel med radius $2$ er vist i figuren nedenfor. Punktene $A\left(3 + \sqrt{3}, 4\right)$ og $B\left(3 - \sqrt{3}, 2\right)$ ligger på sirkelen og danner grunnlinja til en trekant $\triangle ABP$. 
+En sirkel med radius $2$ er vist i figuren nedenfor. Punktene $A\left(3 + \sqrt{3}, 2\right)$ og $B\left(3 - \sqrt{3}, 4\right)$ ligger på sirkelen og danner grunnlinja til en trekant $\triangle ABP$. 
 
 Grunnlinja $AB$ er et linjestykke som går gjennom sentrum $S(3, 3)$ av sirkelen. Punktet $P$ kan ligge hvor som helst på sirkelen.
 
