@@ -1509,7 +1509,7 @@ grid: off
 
 ::::::{jeopardy-answer}
 $$
-S\left(4, 3 + \sqrt{3}\right) \quad \mathrm{eller} \quad S\left(2, 3 - \sqrt{3}\right)
+P\left(4, 3 + \sqrt{3}\right) \quad \mathrm{eller} \quad P\left(2, 3 - \sqrt{3}\right)
 $$
 ::::::
 
