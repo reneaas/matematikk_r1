@@ -337,7 +337,7 @@ Linja gjennom $A$ og $B$ skjærer $x$-aksen i punktet $C$.
 Bestem koordinatene til $C$.
 
 ::::{answer}
-$C\left(0, \dfrac{13}{5}\right)$
+$C\left(13, 0\right)$
 ::::
 
 ::::{solution}
@@ -353,19 +353,19 @@ $$
 \vec{r}(t) = \lvec{OA} + t \cdot \vec{v} = [-2, 3] + t \cdot [5, -1] = [-2 + 5t, 3 - t].
 $$
 
-Vi vet at punktet $C$ ligger på $x$-aksen som betyr at $x$-komponenten til $\vec{r}(t)$ må være lik $0$:
+Vi vet at punktet $C$ ligger på $x$-aksen som betyr at $y$-komponenten til $\vec{r}(t)$ må være lik $0$:
 
 $$
--2 + 5t = 0 \liff t = \dfrac{2}{5}.
+3 - t = 0 \liff t = 3.
 $$
 
-Så setter vi denne verdien inn i $y$-komponenten for å finne $y$-verdien til $C$:
+Så setter vi denne verdien inn i $y$-komponenten for å finne $x$-verdien til $C$:
 
 $$
-y = 3 - t = 3 - \dfrac{2}{5} = \dfrac{13}{5}.
+x = -2 + 5 \cdot 3 = 13.
 $$
 
-Altså er koordinatene til punktet $C\left(0, \dfrac{13}{5}\right)$.
+Altså er koordinatene til punktet $C\left(13, 0\right)$.
 ::::
 
 
