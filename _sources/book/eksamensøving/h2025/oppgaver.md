@@ -359,7 +359,7 @@ $$
 3 - t = 0 \liff t = 3.
 $$
 
-Så setter vi denne verdien inn i $y$-komponenten for å finne $x$-verdien til $C$:
+Så setter vi denne verdien inn i $x$-komponenten for å finne $x$-koordinaten til punktet $C$:
 
 $$
 x = -2 + 5 \cdot 3 = 13.

@@ -260,6 +260,7 @@ $$
 
 ::::{solution}
 Vi prøver å sette inn $x = 3$ direkte i uttrykket for å finne grenseverdien:
+
 $$
 \lim\limits_{x\to 3} \dfrac{3(x^2 - 3)}{x - 3} &= \dfrac{3\cdot (3^2 - 3)}{3 - 3} = \pm \infty
 $$
@@ -559,7 +560,7 @@ $$
 Vi vet også hvilken lengde $\lvec{JM}$ skal ha. Fra dette kan vi finne lengden til $\lvec{AM}$:
 
 $$
-\abs{\lvec{JM}} = \abs{\lvec{JA}}^2 + \abs{\lvec{AM}}^2
+\abs{\lvec{JM}}^2 = \abs{\lvec{JA}}^2 + \abs{\lvec{AM}}^2
 $$
 
 $$
