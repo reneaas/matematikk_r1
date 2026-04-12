@@ -271,13 +271,13 @@ $$
 
 :::::::::::::{tab-item} b
 $$
-\lim\limits_{x\to 4} \dfrac{\sqrt{x} - 2}{x - 2}
+\lim\limits_{x\to 4} \dfrac{\sqrt{x} - 2}{x - 4}
 $$
 
 
 ::::{answer}
 $$
-\lim\limits_{x\to 4} \dfrac{\sqrt{x} - 2}{x - 2} = \dfrac{1}{4}
+\lim\limits_{x\to 4} \dfrac{\sqrt{x} - 2}{x - 4} = \dfrac{1}{4}
 $$
 ::::
 
@@ -285,7 +285,7 @@ $$
 Vi får et $0/0$-uttrykk når vi setter inn $x = 4$, så vi bruker L'Hôpitals regel for å finne grenseverdien:
 
 $$
-\lim\limits_{x\to 4} \dfrac{\sqrt{x} - 2}{x - 2} = \lim\limits_{x\to 4} \dfrac{\dfrac{1}{2\sqrt{x}}}{1} = \dfrac{1}{4}.
+\lim\limits_{x\to 4} \dfrac{\sqrt{x} - 2}{x - 4} = \lim\limits_{x\to 4} \dfrac{\dfrac{1}{2\sqrt{x}}}{1} = \dfrac{1}{4}.
 $$
 ::::
 :::::::::::::
