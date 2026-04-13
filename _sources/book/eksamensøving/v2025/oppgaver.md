@@ -982,7 +982,7 @@ aids: true
 Posisjonen $\vec{r}$ til en fiskebåt $t$ timer etter at den drar fra land, er gitt ved
 
 $$
-\vec{r}(t) = [-1 + 5t, 4 + 8t].
+\vec{r}(t) = [1 + 5t, 4 + 8t].
 $$
 
 Enheten langs aksene er kilometer.
@@ -1047,7 +1047,7 @@ Bestem den minste avstanden mellom fiskebåten og fyret.
 
 ::::{answer}
 $$
-h = \dfrac{55}{\sqrt{89}} = \dfrac{55 \sqrt{89}}{89}
+h = \dfrac{9}{\sqrt{89}} = \dfrac{9 \sqrt{89}}{89}
 $$
 ::::
 
@@ -1062,7 +1062,7 @@ $$
 Den minste avstanden fra fyret til båten vil være den korteste avstanden fra punktet $P(4, 7)$ til linja. Vi trenger også et punkt på linja. Vi lar dette punktet være
 
 $$
-\lvec{OQ} = \vec{r}(0) = [-1, 4].
+\lvec{OQ} = \vec{r}(0) = [1, 4].
 $$
 
 Da vil den korteste avstanden $h$ være
@@ -1074,10 +1074,10 @@ $$
 Vi har at
 
 $$
-\lvec{PQ} = \lvec{OQ} - \lvec{OP} = [-1, 4] - [4, 7] = [-5, -3]
+\lvec{PQ} = \lvec{OQ} - \lvec{OP} = [1, 4] - [4, 7] = [-3, -3]
 $$
 
-og at en tverrvektor til $\vec{v}$ er
+og at en tverrvektor til $\vec{v}$ er   
 
 $$
 \vec{v}_\perp = [-8, 5].
@@ -1086,13 +1086,13 @@ $$
 Da får vi at
 
 $$
-\lvec{PQ} \cdot \vec{v}_\perp = [-5, -3] \cdot [-8, 5] = 55
+\lvec{PQ} \cdot \vec{v}_\perp = [-3, -3] \cdot [-8, 5] = 24 - 15 = 9
 $$
 
 Dermed blir den korteste avstanden
 
 $$
-h = \dfrac{55}{\sqrt{89}} = \dfrac{55 \sqrt{89}}{89}
+h = \dfrac{9}{\sqrt{89}} = \dfrac{9 \sqrt{89}}{89}
 $$
 
 ::::

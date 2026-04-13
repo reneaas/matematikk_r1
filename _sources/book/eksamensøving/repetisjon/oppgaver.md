@@ -1671,7 +1671,7 @@ $$
 
 <br>
 
-Koden til neste rom er $a^5$ der $a$ er den verdien som gjør at grenseverdien eksisterer.
+Koden til neste rom er $a^5$ der $a$ er den positive verdien som gjør at grenseverdien eksisterer.
 :::::::
 
 
