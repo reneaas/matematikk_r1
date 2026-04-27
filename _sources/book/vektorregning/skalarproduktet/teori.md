@@ -727,12 +727,6 @@ fontsize: 30
 
 
 
-| $\varphi$ | $\cos \varphi$ | $\vec{a} \cdot \vec{b}$ |
-|:-----------:|:------------:|:-------------:|
-| $0\degree \leq \varphi < 90\degree$ (spiss vinkel) | $\cos \varphi > 0$ (Positiv) | Positiv |
-| $\varphi = 90\degree$ (rett vinkel) | $\cos\varphi = 0$  | $0$ |
-| $90\degree < \varphi \leq 180\degree$ (stump vinkel) | $\cos \varphi < 0$ (Negativ) | Negativ |  
-
 
 Vi forutsetter at ingen av vektorene er nullvektoren, altså at $\len{a} > 0$ og $\len{b} > 0$.
 

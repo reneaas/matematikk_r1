@@ -1,0 +1,1725 @@
+
+<!DOCTYPE html>
+
+
+<html lang="norwegian" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Numerisk derivasjon &#8212; Matematikk R1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/general_style.css?v=11bbc4b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/admonitions.css?v=9237f12a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/popup.css?v=2d27c3a4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/escape-room.css?v=bfeb5342" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/interactive_code.css?v=23cd07d5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/jeopardy.css?v=71d9bb06" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/parsonsPuzzle.css?v=9fbab2c7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/static_code_blocks.css?v=68f9364b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/clickable_figures/style.css?v=d35dfce7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/escapeRoom/style.css?v=b30732ed" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/mathjax/style.css?v=194b018e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/misc_styles/figures.css?v=46e199f0" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/misc_styles/geogebra.css?v=fd180d66" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/misc_styles/grids.css?v=7667ba21" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/misc_styles/misc.css?v=55d93a12" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/misc_styles/popup_code.css?v=4b4feebf" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/misc_styles/tabs.css?v=a560da15" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/multipleChoiceQuiz/style.css?v=d667b426" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/fonts/opendyslexic/dyslexic.css?v=80f1227b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/general_style.css?v=57d653fb" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/escapeRoom/escape-room.css?v=9eb2d604" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/flashcards.css?v=816457f1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/interactive_code.css?v=f903e660" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/jeopardy.css?v=951b6e4f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/quiz.css?v=722631f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/admonitions.css?v=aacd8e29" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/dialogue.css?v=1b585024" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/figures.css?v=acd93126" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/popup.css?v=26181dfd" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/timedQuiz.css?v=89e27729" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/cas_popup.css?v=bae4ad7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/github-light.css?v=0cccc4aa" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/github-dark.css?v=2454bc3f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/github-dark-high-contrast.css?v=4c0c1b0f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/table.css?v=30eed71c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/pairPuzzle/style.css?v=f77426ac" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/parsons/parsonsPuzzle.css?v=8c5c5c21" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/print_pdf.css?v=448841f9" />
+    <link id="highlight-theme-light" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css" />
+    <link id="highlight-theme-dark" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github-dark.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/general_style.css?v=11bbc4b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/admonitions.css?v=f84a357c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/grid_print.css?v=73205d86" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/static_code_blocks.css?v=68f9364b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/dialogue.css?v=1b585024" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/multipleChoiceQuiz/style.css?v=89e27729" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mathjax/style.css?v=0f1cb662" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/clickable_figures/style.css?v=d35dfce7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/grids.css?v=7667ba21" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/popup_code.css?v=4b4feebf" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/geogebra.css?v=fd180d66" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/tabs.css?v=a560da15" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/figures.css?v=5dd46ff0" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/misc.css?v=55d93a12" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/parsons_puzzle/parsonsPuzzle.css?v=9fbab2c7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/interactiveCode/style.css?v=23cd07d5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_light_default_cm.css?v=c880a553" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_light_cm.css?v=facc8b7a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_dark_high_contrast_cm.css?v=4c0c1b0f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/one_dark_cm.css?v=3ae52176" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_dark_cm.css?v=d1235728" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_dark_default_cm.css?v=3beebd47" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pairPuzzle/style.css?v=f77426ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=c712eed9"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/munchboka/fonts/opendyslexic/opendylexic-toggle.js?v=1652b728"></script>
+    <script src="../../../_static/munchboka/js/utils.js?v=b59157b9"></script>
+    <script src="../../../_static/munchboka/js/casThemeManager.js?v=88874cc7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="../../../_static/munchboka/js/skulpt/skulpt.js?v=51c28977"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../_static/munchboka/js/solution_timer.js?v=e7176ead"></script>
+    <script src="../../../_static/munchboka/js/escapeRoom/escape-room.js?v=1498b374"></script>
+    <script src="../../../_static/munchboka/js/flashcards.js?v=293ceac2"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/interactiveCodeSetup.js?v=733f5585"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/codeEditor.js?v=d7a9df79"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/pythonRunner.js?v=e9f0c2d2"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/workerManager.js?v=024a7849"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/turtleCode.js?v=0d62d95e"></script>
+    <script src="../../../_static/munchboka/js/jeopardy.js?v=375a3583"></script>
+    <script src="../../../_static/munchboka/js/quiz.js?v=f8bcd7a1"></script>
+    <script>let toggleHintShow = 'Klikk for å vise';</script>
+    <script>let toggleHintHide = 'Klikk for å skjule';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/munchboka/js/popup.js?v=5db611f4"></script>
+    <script src="../../../_static/munchboka/js/timedQuiz/utils.js?v=2c6f871c"></script>
+    <script src="../../../_static/munchboka/js/timedQuiz/multipleChoiceQuestion.js?v=c6ce1ca2"></script>
+    <script src="../../../_static/munchboka/js/timedQuiz/timedMultipleChoiceQuiz.js?v=9accc73d"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/physics"]}, "tex": {"packages": {"[+]": ["physics"]}, "macros": {"annotateAbove": ["\\mathrel{\\overset{\\substack{\\text{#2} \\\\ \\Bigg\\downarrow}}{#1}}", 2], "annotateBelow": ["\\mathrel{\\underset{\\substack{\\Bigg\\uparrow \\\\ \\text{#2}}}{#1}}", 2], "cline": ["\\underline{\\phantom{#1}}", 1], "and": ["\\quad \\land \\quad"], "or": ["\\quad \\lor \\quad"], "liff": ["\\quad \\iff \\quad"], "limplies": ["\\quad \\implies \\quad"], "limpliedby": ["\\quad \\impliedby \\quad"], "lland": ["\\; \\land \\;"], "degree": ["^\\circ"], "qog": ["\\quad \\text{og} \\quad"], "qder": ["\\quad \\text{der} \\quad"], "qeller": ["\\quad \\text{eller} \\quad"], "qhvis": ["\\quad \\text{hvis} \\quad"], "qfor": ["\\quad \\text{for} \\quad"], "natural": ["\\mathbb{N}"], "integer": ["\\mathbb{Z}"], "rational": ["\\mathbb{Q}"], "real": ["\\mathbb{R}"], "irrational": ["\\mathbb{Q}^c"], "qcomma": [",\\quad"], "nimplies": ["\\quad\\mathrel{\\not\\!\\!\\!\\implies}\\quad"], "nimpliedby": ["\\quad\\mathrel{\\not\\!\\!\\!\\impliedby}\\quad"], "niff": ["\\quad\\mathrel{\\not\\!\\!\\!\\iff}\\quad"], "cubica": ["\\raisebox{-0.4ex}{\\small\\(\\frown\\!\\smile\\)}", 0], "cubicb": ["\\raisebox{-0.4ex}{\\small\\(\\smile\\!\\frown\\)}", 0], "t": ["\\mathrm{#1}", 1], "dot": ["\\vec{#1} \\cdot \\vec{#2}", 2], "len": ["\\abs{\\vec{#1}}", 1], "lvec": ["\\overrightarrow{#1}", 1], "v": ["\\left[#1, #2\\right]", 2], "proj": ["\\mathrm{proj}_{#1}\\left(#2\\right)", 2], "mstack": ["\\begin{array}{c}#1\\end{array}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3.2/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/numeriske_metoder/numerisk_derivasjon/oppgaver';</script>
+    <script>mermaid.initialize({"startOnLoad": true})</script>
+    <script src="../../../_static/munchboka/js/pairPuzzle/draggableItem.js?v=ce9ef7bd"></script>
+    <script src="../../../_static/munchboka/js/pairPuzzle/dropZone.js?v=56907477"></script>
+    <script src="../../../_static/munchboka/js/pairPuzzle/game.js?v=cb8b0d45"></script>
+    <script src="../../../_static/munchboka/js/escapeRoom/escape-room.js?v=1498b374"></script>
+    <script src="../../../_static/munchboka/js/parsons/parsonsPuzzle.js?v=57870877"></script>
+    <script src="../../../_static/munchboka/js/print_answer_key.js?v=eebcd271"></script>
+    <script src="../../../_static/static_code_blocks.js?v=e512471c"></script>
+    <script src="../../../_static/serviceWorker.js?v=19bb19ce"></script>
+    <script src="../../../_static/geogebra-setup.js?v=c67998b1"></script>
+    <script src="../../../_static/utils.js?v=14803243"></script>
+    <script src="../../../_static/multipleChoiceQuiz/sequentialMultipleChoiceQuiz.js?v=503540b6"></script>
+    <script src="../../../_static/multipleChoiceQuiz/utils.js?v=2c6f871c"></script>
+    <script src="../../../_static/multipleChoiceQuiz/multipleChoiceQuiz.js?v=7d161c2c"></script>
+    <script src="../../../_static/multipleChoiceQuiz/timedMultipleChoiceQuiz.js?v=9accc73d"></script>
+    <script src="../../../_static/multipleChoiceQuiz/multipleChoiceQuestion.js?v=c6ce1ca2"></script>
+    <script src="../../../_static/skulpt/skulpt.js?v=51c28977"></script>
+    <script src="../../../_static/clickable_figures/clickable_figure.js?v=dd2467e6"></script>
+    <script src="../../../_static/parsons_puzzle/theme-switcher.js?v=c0cdcaac"></script>
+    <script src="../../../_static/parsons_puzzle/parsonsPuzzle.js?v=079d69da"></script>
+    <script src="../../../_static/interactiveCode/workerManager.js?v=de8adb65"></script>
+    <script src="../../../_static/interactiveCode/pythonRunner.js?v=e9f0c2d2"></script>
+    <script src="../../../_static/interactiveCode/interactiveCodeSetup.js?v=49566f0b"></script>
+    <script src="../../../_static/interactiveCode/codeEditor.js?v=30f3f389"></script>
+    <script src="../../../_static/interactiveCode/turtleCode.js?v=0d62d95e"></script>
+    <script src="../../../_static/pairPuzzle/dropZone.js?v=56907477"></script>
+    <script src="../../../_static/pairPuzzle/game.js?v=cb8b0d45"></script>
+    <script src="../../../_static/pairPuzzle/draggableItem.js?v=5767251d"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="../../../_static/munchboka/js/highlight-init.js?v=6bc17905"></script>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script src="../../../_static/munchboka/js/geogebra-setup.js?v=8e77fc11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <link rel="canonical" href="https://r1.munchboka.no/book/numeriske_metoder/numerisk_derivasjon/oppgaver.html" />
+    <link rel="icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="norwegian"/>
+  <meta name="docsearch:version" content="" />
+<!-- Pyodide -->
+<script src="https://cdn.jsdelivr.net/pyodide/v0.27.0/full/pyodide.js"></script>
+
+
+<!-- CodeMirror -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+<link rel="stylesheet" href="../../../_static/code_mirror_themes/github_light_cm.css">
+<link rel="stylesheet" href="../../../_static/code_mirror_themes/github_dark_cm.css">
+<link rel="stylesheet" href="../../../_static/code_mirror_themes/one_dark_cm.css">
+
+<!-- CodeMirror scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- highlighting of code in Parsons puzzle -->
+<head>
+    <link id="highlight-theme-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <link id="highlight-theme-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github-dark.min.css">
+</head>
+
+
+
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch-improved@0.3.1/dist/jquery.ui.touch-punch-improved.min.js"></script>
+
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/r1_logo.png" class="logo__image only-light" alt="Matematikk R1 - Home"/>
+    <img src="../../../_static/r1_logo.png" class="logo__image only-dark pst-js-only" alt="Matematikk R1 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">I. Potenser og logaritmer</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../potenser_og_logaritmer/potenser/teori.html">1. Potenser</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../potenser_og_logaritmer/potenser/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../potenser_og_logaritmer/logaritmer/teori.html">2. Logaritmer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../potenser_og_logaritmer/logaritmer/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../potenser_og_logaritmer/likninger/teori.html">3. Logaritmelikninger og eksponentiallikninger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../potenser_og_logaritmer/oppgavesamling/oppgaver.html">4. Oppgavesamling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Derivasjon</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/derivasjonsregler_element%C3%A6rfunksjoner/teori.html">5. Derivasjon av elementærfunksjoner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/kjerneregelen/teori.html">6. Kjerneregelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/produktregelen/teori.html">7. Produktregelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/br%C3%B8kregelen/teori.html">8. Brøkregelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/anvendelser_av_derivasjon/oppgaver.html">9. Anvendelser av derivasjon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/optimering/oppgaver.html">10. Oppgaver: Optimering</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Grenseverdier, kontinuitet og deriverbarhet</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../grenseverdier_og_kontinuitet/grenseverdier/teori.html">11. Grenseverdier</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../grenseverdier_og_kontinuitet/grenseverdier/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../grenseverdier_og_kontinuitet/kontinuitet/teori.html">12. Kontinuitet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../grenseverdier_og_kontinuitet/kontinuitet/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../derivasjon/deriverbarhet/teori.html">13. Deriverbarhet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../derivasjon/deriverbarhet/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Omvendte funksjoner</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../omvendte_funksjoner/basics/teori.html">14. Omvendte funksjoner</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../omvendte_funksjoner/basics/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../omvendte_funksjoner/derivasjon/teori.html">15. Derivasjon og omvendte funksjoner</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../omvendte_funksjoner/derivasjon/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../omvendte_funksjoner/blandet/oppgaver.html">16. Blandede oppgaver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../omvendte_funksjoner/summary.html">17. Oppsummering</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">V. Vektorregning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../vektorregning/vektorer/teori.html">18. Vektorer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../vektorregning/vektorer/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../vektorregning/vektorer_i_koordinatsystem/teori.html">19. Vektorer i koordinatsystemet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../vektorregning/vektorer_i_koordinatsystem/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../vektorregning/skalarproduktet/teori.html">20. Skalarproduktet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../vektorregning/skalarproduktet/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../vektorregning/anvendelser_av_skalarproduktet/teori.html">21. Anvendelser av skalarproduktet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../vektorregning/anvendelser_av_skalarproduktet/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vektorregning/vektorfunksjoner/teori.html">22. Vektorfunksjoner</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">CAS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../cas/del_1/oppgaver.html">Krasjkurs 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cas/vektorregning/oppgaver.html">Vektorregning</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Oppgavesamlinger</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../oppgavesamlinger/oppgavesamling_1/oppgaver.html">Oppgavesamling 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Eksamensøving</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../eksamens%C3%B8ving/repetisjon/oppgaver.html">Repetisjon: <em>New Game+</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eksamens%C3%B8ving/v2025/oppgaver.html">Eksamen vår 2025</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eksamens%C3%B8ving/h2025/oppgaver.html">Eksamen høsten 2025</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Programmering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../programmering/r2/teori.html">Programmering av tallfølger</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../programmering/r2/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Jeopardy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../jeopardy/derivasjon/jeopardy.html">Derivasjonsregler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jeopardy/vektorer/vektorregning.html">Vektorregning</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Oversikt</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../oversikt/formler.html">Formler</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Eksamensressurser</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../eksamensressurser/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eksamensressurser/cas.html">CAS (Geogebra)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eksamensressurser/geogebra.html">Geogebra</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Last ned denne siden">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/book/numeriske_metoder/numerisk_derivasjon/oppgaver.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Last ned kildefilen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Skriv ut til PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullskjerm-modus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Numerisk derivasjon</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="numerisk-derivasjon">
+<h1>Numerisk derivasjon<a class="headerlink" href="#numerisk-derivasjon" title="Link to this heading">#</a></h1>
+<div class="admonition summary">
+<p class="admonition-title">Elementærfunksjoner i Python</p>
+<p>Noen funksjoner vi jobber med i matematikk er ikke innebygd i Python fra før av og må <strong>importeres</strong>. I tabellen nedenfor vises en oversikt over ulike måter å skrive vanlige funksjoner i Python og hvordan de importeres så de kan brukes.</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head text-center"><p>Funksjon i matematikk</p></th>
+<th class="head"><p>I Python</p></th>
+<th class="head"><p>Importer med</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(e^x\)</span></p></td>
+<td><p><code class="code docutils literal highlight highlight-python"><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></code></p></td>
+<td><p><code class="code docutils literal highlight highlight-python"><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">exp</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p></p></td>
+<td><p><code class="code docutils literal highlight highlight-python"><span class="n">e</span><span class="o">**</span><span class="n">x</span></code></p></td>
+<td><p><code class="code docutils literal highlight highlight-python"><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">e</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(\ln x\)</span></p></td>
+<td><p><code class="code docutils literal highlight highlight-python"><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></code></p></td>
+<td><p><code class="code docutils literal highlight highlight-python"><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span></code></p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\sqrt{x}\)</span></p></td>
+<td><p><code class="code docutils literal highlight highlight-python"><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></code></p></td>
+<td><p><code class="code docutils literal highlight highlight-python"><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">sqrt</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td><p><code class="code docutils literal highlight highlight-python"><span class="n">x</span><span class="o">**</span><span class="mf">0.5</span></code></p></td>
+<td><p>(ingen import nødvendig)</p></td>
+</tr>
+<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(\log_a x\)</span></p></td>
+<td><p><code class="code docutils literal highlight highlight-python"><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span></code></p></td>
+<td><p><code class="code docutils literal highlight highlight-python"><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span></code></p></td>
+</tr>
+<tr class="row-even"><td class="text-center"><p></p></td>
+<td><p><code class="code docutils literal highlight highlight-python"><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="n">log</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></code></p></td>
+<td><p><code class="code docutils literal highlight highlight-python"><span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">log</span></code></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 1</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-0">
+a</label><div class="sd-tab-content docutils">
+<p>Et program vises nedenfor.</p>
+<p>Bestem verdien programmet skriver ut når det kjøres. Sjekk svaret ditt ved å kjøre programmet.</p>
+
+        <div id="container-code-e1bd2bd5"></div>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", () => {
+                const code = 
+`def f(x):
+    return x**3 + 2*x + 1
+
+
+x = 2
+h = 1e-7
+
+dfdx = (f(x + h) - f(x)) / h
+print(dfdx)`;
+
+                makePredictionInteractiveCode(
+                    "container-code-e1bd2bd5",
+                    code,
+                );
+            });
+        </script>
+        </div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-1">
+b</label><div class="sd-tab-content docutils">
+<p>Et program vises nedenfor.</p>
+<p>Bestem verdien programmet skriver ut når det kjøres. Sjekk svaret ditt ved å kjøre programmet.</p>
+
+        <div id="container-code-ec884a1a"></div>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", () => {
+                const code = 
+`def g(x):
+    from math import sqrt
+    return x * sqrt(x)
+
+
+x = 4
+h = 1e-7
+
+dgdx = (g(x + h) - g(x)) / h
+print(dgdx)`;
+
+                makePredictionInteractiveCode(
+                    "container-code-ec884a1a",
+                    code,
+                );
+            });
+        </script>
+        </div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 2</p>
+<div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-2">
+a</label><div class="sd-tab-content docutils">
+<p>Nedenfor vises et uferdig program som skal bestemme den deriverte til funksjonen</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \sqrt{x + 1}
+\]</div>
+<p>i punktet <span class="math notranslate nohighlight">\(x = 3\)</span>.</p>
+<p>Fullfør programmet slik at det fungerer som beskrevet.</p>
+
+        <div id="container-code-5f514845"></div>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", () => {
+                const code = 
+`def f(x):
+    return ????
+
+x = 3
+h = 1e-7
+
+f_derivert = ????
+
+print(f_derivert)`;
+
+                makeInteractiveCode(
+                    "container-code-5f514845",
+                    code,
+                );
+            });
+        </script>
+        </div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-3">
+b</label><div class="sd-tab-content docutils">
+<p>Nedenfor vises et uferdig program som skal bestemme den deriverte til funksjonen</p>
+<div class="math notranslate nohighlight">
+\[
+g(x) = x\ln x
+\]</div>
+<p>i punktet <span class="math notranslate nohighlight">\(x = 5\)</span>.</p>
+<p>Fullfør programmet og bestem <span class="math notranslate nohighlight">\(g'(5)\)</span>.</p>
+
+        <div id="container-code-da78537d"></div>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", () => {
+                const code = 
+`from math import log # log(x) er den naturlige logaritmen til x
+def g(x):
+    return ????
+
+
+x = ????
+h = 1e-7
+
+g_derivert = ????
+
+print(g_derivert)`;
+
+                makeInteractiveCode(
+                    "container-code-da78537d",
+                    code,
+                );
+            });
+        </script>
+        </div>
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-4">
+c</label><div class="sd-tab-content docutils">
+<p>Nedenfor vises et uferdig program som skal bestemme den deriverte til funksjonen</p>
+<div class="math notranslate nohighlight">
+\[
+p(x) = x e^{-x^2}
+\]</div>
+<p>i punktet <span class="math notranslate nohighlight">\(x = 1\)</span>.</p>
+<p>Fullfør programmet og bestem <span class="math notranslate nohighlight">\(p'(1)\)</span>.</p>
+
+        <div id="container-code-cf7c3611"></div>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", () => {
+                const code = 
+`def p(x):
+    from math import e # e er Eulers tall
+    return ????
+
+x = ????
+h = 1e-7
+
+p_derivert = ????
+
+print(p_derivert)`;
+
+                makeInteractiveCode(
+                    "container-code-cf7c3611",
+                    code,
+                );
+            });
+        </script>
+        </div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 3</p>
+<figure class="adaptive-figure plot-figure no-click align-right">
+<div class="graph-image no-click no-scaled-link"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.8 345.6" xmlns="http://www.w3.org/2000/svg" version="1.1" class="graph-inline-svg" role="img" aria-label="Tilpasset figur" style="width:100%; height:auto; display:block; margin:0 auto;">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-03-24T23:01:18.538955</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="cpl_ace1f867c670_2609dc_figure_1">
+  <g id="cpl_ace1f867c670_2609dc_patch_1">
+   <path d="M 0 345.6 
+L 460.8 345.6 
+L 460.8 0 
+L 0 0 
+L 0 345.6 
+z
+" style="fill: none"/>
+  </g>
+  <g id="cpl_ace1f867c670_2609dc_axes_1">
+   <g id="cpl_ace1f867c670_2609dc_patch_2">
+    <path d="M 10.8 334.8 
+L 447 334.8 
+L 447 24.444473 
+L 10.8 24.444473 
+L 10.8 334.8 
+z
+" style="fill: none"/>
+   </g>
+   <g id="cpl_ace1f867c670_2609dc_matplotlib.axis_1">
+    <g id="cpl_ace1f867c670_2609dc_xtick_1">
+     <g id="cpl_ace1f867c670_2609dc_line2d_1">
+      <defs>
+       <path id="cpl_ace1f867c670_2609dc_m638c46ee98" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#cpl_ace1f867c670_2609dc_m638c46ee98" x="83.5" y="257.211118" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="cpl_ace1f867c670_2609dc_text_1">
+      <!-- $\mathdefault{−2}$ -->
+      <g transform="translate(65.023313 284.966613) scale(0.3 -0.3)">
+       <defs>
+        <path id="CMSY10-0" d="M 4218 1472 
+C 4326 1472 4442 1472 4442 1600 
+C 4442 1728 4326 1728 4218 1728 
+L 755 1728 
+C 646 1728 531 1728 531 1600 
+C 531 1472 646 1472 755 1472 
+L 4218 1472 
+z
+" transform="scale(0.015625)"/>
+        <path id="CMR17-32" d="M 2669 989 
+L 2554 989 
+C 2490 536 2438 459 2413 420 
+C 2381 369 1920 369 1830 369 
+L 602 369 
+C 832 619 1280 1072 1824 1597 
+C 2214 1967 2669 2402 2669 3035 
+C 2669 3790 2067 4224 1395 4224 
+C 691 4224 262 3604 262 3030 
+C 262 2780 448 2748 525 2748 
+C 589 2748 781 2787 781 3010 
+C 781 3207 614 3264 525 3264 
+C 486 3264 448 3258 422 3245 
+C 544 3790 915 4058 1306 4058 
+C 1862 4058 2227 3617 2227 3035 
+C 2227 2479 1901 2000 1536 1584 
+L 262 146 
+L 262 0 
+L 2515 0 
+L 2669 989 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CMSY10-0" transform="scale(0.996264)"/>
+       <use xlink:href="#CMR17-32" transform="translate(77.487468 0) scale(0.996264)"/>
+      </g>
+     </g>
+    </g>
+    <g id="cpl_ace1f867c670_2609dc_xtick_2">
+     <g id="cpl_ace1f867c670_2609dc_line2d_2">
+      <g>
+       <use xlink:href="#cpl_ace1f867c670_2609dc_m638c46ee98" x="156.2" y="257.211118" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="cpl_ace1f867c670_2609dc_text_2">
+      <!-- $\mathdefault{−1}$ -->
+      <g transform="translate(137.723313 284.966613) scale(0.3 -0.3)">
+       <defs>
+        <path id="CMR17-31" d="M 1702 4058 
+C 1702 4192 1696 4192 1606 4192 
+C 1357 3916 979 3827 621 3827 
+C 602 3827 570 3827 563 3808 
+C 557 3795 557 3782 557 3648 
+C 755 3648 1088 3686 1344 3839 
+L 1344 461 
+C 1344 236 1331 160 781 160 
+L 589 160 
+L 589 0 
+C 896 0 1216 0 1523 0 
+C 1830 0 2150 0 2458 0 
+L 2458 160 
+L 2266 160 
+C 1715 160 1702 230 1702 458 
+L 1702 4058 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CMSY10-0" transform="scale(0.996264)"/>
+       <use xlink:href="#CMR17-31" transform="translate(77.487468 0) scale(0.996264)"/>
+      </g>
+     </g>
+    </g>
+    <g id="cpl_ace1f867c670_2609dc_xtick_3">
+     <g id="cpl_ace1f867c670_2609dc_line2d_3">
+      <g>
+       <use xlink:href="#cpl_ace1f867c670_2609dc_m638c46ee98" x="301.6" y="257.211118" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="cpl_ace1f867c670_2609dc_text_3">
+      <!-- $\mathdefault{1}$ -->
+      <g transform="translate(294.746428 284.966613) scale(0.3 -0.3)">
+       <use xlink:href="#CMR17-31" transform="scale(0.996264)"/>
+      </g>
+     </g>
+    </g>
+    <g id="cpl_ace1f867c670_2609dc_xtick_4">
+     <g id="cpl_ace1f867c670_2609dc_line2d_4">
+      <g>
+       <use xlink:href="#cpl_ace1f867c670_2609dc_m638c46ee98" x="374.3" y="257.211118" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="cpl_ace1f867c670_2609dc_text_4">
+      <!-- $\mathdefault{2}$ -->
+      <g transform="translate(367.446428 284.966613) scale(0.3 -0.3)">
+       <use xlink:href="#CMR17-32" transform="scale(0.996264)"/>
+      </g>
+     </g>
+    </g>
+    <g id="cpl_ace1f867c670_2609dc_text_5">
+     <!-- $x$ -->
+     <g transform="translate(430.369782 315.535559) scale(0.3 -0.3)">
+      <defs>
+       <path id="CMMI12-78" d="M 3034 2606 
+C 2829 2567 2752 2414 2752 2293 
+C 2752 2139 2874 2088 2963 2088 
+C 3155 2088 3290 2254 3290 2427 
+C 3290 2695 2982 2816 2714 2816 
+C 2323 2816 2106 2433 2048 2312 
+C 1901 2816 1504 2816 1389 2816 
+C 736 2816 390 1980 390 1839 
+C 390 1814 416 1782 461 1782 
+C 512 1782 525 1820 538 1846 
+C 755 2555 1184 2689 1370 2689 
+C 1658 2689 1715 2420 1715 2267 
+C 1715 2127 1677 1980 1600 1673 
+L 1382 798 
+C 1286 415 1101 64 762 64 
+C 730 64 570 64 435 147 
+C 666 192 717 383 717 460 
+C 717 588 621 664 499 664 
+C 346 664 179 530 179 326 
+C 179 57 480 -64 755 -64 
+C 1062 -64 1280 179 1414 441 
+C 1517 64 1837 -64 2074 -64 
+C 2726 -64 3072 773 3072 913 
+C 3072 945 3046 971 3008 971 
+C 2950 971 2944 939 2925 888 
+C 2752 326 2381 64 2093 64 
+C 1869 64 1747 230 1747 492 
+C 1747 632 1773 734 1875 1156 
+L 2099 2024 
+C 2195 2408 2413 2689 2707 2689 
+C 2720 2689 2899 2689 3034 2606 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#CMMI12-78" transform="scale(0.996264)"/>
+     </g>
+    </g>
+   </g>
+   <g id="cpl_ace1f867c670_2609dc_matplotlib.axis_2">
+    <g id="cpl_ace1f867c670_2609dc_text_6">
+     <!-- $y$ -->
+     <g transform="translate(210.630756 18.631022) scale(0.3 -0.3)">
+      <defs>
+       <path id="CMMI12-79" d="M 1683 -700 
+C 1510 -939 1261 -1152 947 -1152 
+C 870 -1152 563 -1152 467 -889 
+C 486 -895 518 -895 531 -895 
+C 723 -895 851 -729 851 -582 
+C 851 -435 730 -384 634 -384 
+C 531 -384 307 -458 307 -759 
+C 307 -1071 582 -1286 947 -1286 
+C 1587 -1286 2234 -700 2413 6 
+L 3040 2485 
+C 3046 2517 3059 2556 3059 2594 
+C 3059 2689 2982 2753 2886 2753 
+C 2829 2753 2694 2727 2643 2535 
+L 2170 658 
+C 2138 543 2138 530 2086 460 
+C 1958 281 1747 64 1440 64 
+C 1082 64 1050 415 1050 588 
+C 1050 952 1222 1443 1395 1903 
+C 1466 2088 1504 2178 1504 2305 
+C 1504 2574 1312 2816 998 2816 
+C 410 2816 173 1890 173 1839 
+C 173 1814 198 1782 243 1782 
+C 301 1782 307 1807 333 1897 
+C 486 2433 730 2689 979 2689 
+C 1037 2689 1146 2689 1146 2478 
+C 1146 2312 1075 2127 979 1884 
+C 666 1047 666 837 666 683 
+C 666 77 1101 -64 1421 -64 
+C 1606 -64 1837 -6 2061 230 
+L 2067 224 
+C 1971 -147 1907 -392 1683 -700 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#CMMI12-79" transform="scale(0.996264)"/>
+     </g>
+    </g>
+   </g>
+   <g id="cpl_ace1f867c670_2609dc_line2d_5">
+    <defs>
+     <path id="cpl_ace1f867c670_2609dc_m4003222544" d="M 3 0 
+L -3 -3 
+L -3 3 
+z
+" style="stroke: #000000; stroke-linejoin: miter"/>
+    </defs>
+    <g>
+     <use xlink:href="#cpl_ace1f867c670_2609dc_m4003222544" x="447" y="257.211118" style="stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="cpl_ace1f867c670_2609dc_line2d_6">
+    <defs>
+     <path id="cpl_ace1f867c670_2609dc_m1c89eea39a" d="M 0 -3 
+L -3 3 
+L 3 3 
+z
+" style="stroke: #000000; stroke-linejoin: miter"/>
+    </defs>
+    <g>
+     <use xlink:href="#cpl_ace1f867c670_2609dc_m1c89eea39a" x="228.9" y="24.444473" style="stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="cpl_ace1f867c670_2609dc_line2d_7">
+    <path d="M 10.8 257.210641 
+L 76.111518 257.096604 
+L 93.04512 256.846659 
+L 104.387438 256.466268 
+L 113.226991 255.954125 
+L 120.602161 255.309507 
+L 127.018824 254.530268 
+L 132.769859 253.611958 
+L 138.041641 252.547809 
+L 142.94067 251.334346 
+L 147.573448 249.95848 
+L 151.9666 248.423533 
+L 156.2 246.710605 
+L 160.3269 244.801148 
+L 164.373924 242.683033 
+L 168.367698 240.341442 
+L 172.361472 237.740315 
+L 176.381871 234.853342 
+L 180.455521 231.65121 
+L 184.635671 228.078824 
+L 188.975572 224.073368 
+L 193.581725 219.513164 
+L 198.587255 214.236282 
+L 204.311665 207.867061 
+L 212.006336 198.94324 
+L 224.520161 184.423253 
+L 229.791943 178.676272 
+L 234.131844 174.263438 
+L 237.965867 170.673788 
+L 241.453763 167.706958 
+L 244.675407 165.253177 
+L 247.684051 163.234806 
+L 250.532943 161.585187 
+L 253.275334 160.251593 
+L 255.911225 159.215466 
+L 258.46724 158.448454 
+L 260.970005 157.92972 
+L 263.41952 157.648161 
+L 265.84241 157.591637 
+L 268.265299 157.756257 
+L 270.714814 158.146365 
+L 273.190954 158.766597 
+L 275.720344 159.630194 
+L 278.32961 160.758125 
+L 281.045376 162.178631 
+L 283.867643 163.909005 
+L 286.849661 166.002288 
+L 290.018055 168.502639 
+L 293.426076 171.479951 
+L 297.180223 175.063088 
+L 301.386999 179.395246 
+L 306.339279 184.827143 
+L 312.942318 192.426516 
+L 329.05054 211.090226 
+L 334.668449 217.179757 
+L 339.620729 222.225617 
+L 344.200256 226.577862 
+L 348.540157 230.398677 
+L 352.720308 233.785948 
+L 356.820582 236.823801 
+L 360.867607 239.546207 
+L 364.888006 241.984368 
+L 368.93503 244.17966 
+L 373.035305 246.151397 
+L 377.215455 247.915824 
+L 381.528731 249.495548 
+L 386.028383 250.905627 
+L 390.767662 252.155151 
+L 395.799817 253.249052 
+L 401.204724 254.194219 
+L 407.142135 255.003088 
+L 413.7718 255.677213 
+L 421.386596 256.222177 
+L 430.492401 256.642651 
+L 442.04772 256.942004 
+L 447 257.018795 
+L 447 257.018795 
+" clip-path="url(#cpl_ace1f867c670_2609dc_pffb6fecaa9)" style="fill: none; stroke: #0072b2; stroke-width: 4; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_ace1f867c670_2609dc_patch_3">
+    <path d="M 228.9 334.8 
+L 228.9 24.444473 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_ace1f867c670_2609dc_patch_4">
+    <path d="M 447 334.8 
+L 447 24.444473 
+" style="fill: none"/>
+   </g>
+   <g id="cpl_ace1f867c670_2609dc_patch_5">
+    <path d="M 10.8 257.211118 
+L 447 257.211118 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_ace1f867c670_2609dc_patch_6">
+    <path d="M 10.8 24.444473 
+L 447 24.444473 
+" style="fill: none"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="cpl_ace1f867c670_2609dc_pffb6fecaa9">
+   <rect x="10.8" y="24.444473" width="436.2" height="310.355527"/>
+  </clipPath>
+ </defs>
+</svg>
+</div></figure>
+<p>I figuren til høyre vises grafen til en funksjon <span class="math notranslate nohighlight">\(f\)</span> gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = e^{-x^2 + x}
+\]</div>
+<p>Nedenfor vises et program.</p>
+<ol class="arabic simple">
+<li><p>Hva er det programmet finner når det kjøres?</p></li>
+<li><p>Bestem en eksakt verdi for det programmet skriver ut. Sjekk svaret ved å kjøre programmet!</p></li>
+</ol>
+<div style="clear: both;"></div>
+        <div id="container-code-59ac5968"></div>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", () => {
+                const code = 
+`def f(x):
+    from math import e
+    return e**(-x**2 + x)
+
+
+x = -2
+h = 1e-7
+while f(x) < f(x + h):
+    x += 0.01
+
+print(x)`;
+
+                makePredictionInteractiveCode(
+                    "container-code-59ac5968",
+                    code,
+                );
+            });
+        </script>
+        </div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 4</p>
+<figure class="adaptive-figure plot-figure no-click align-right">
+<div class="graph-image no-click no-scaled-link"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.8 345.6" xmlns="http://www.w3.org/2000/svg" version="1.1" class="graph-inline-svg" role="img" aria-label="Tilpasset figur" style="width:100%; height:auto; display:block; margin:0 auto;">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-03-24T23:01:18.587766</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.8, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="cpl_7f392691c83f_575841_figure_1">
+  <g id="cpl_7f392691c83f_575841_patch_1">
+   <path d="M 0 345.6 
+L 460.8 345.6 
+L 460.8 0 
+L 0 0 
+L 0 345.6 
+z
+" style="fill: none"/>
+  </g>
+  <g id="cpl_7f392691c83f_575841_axes_1">
+   <g id="cpl_7f392691c83f_575841_patch_2">
+    <path d="M 10.8 334.8 
+L 447 334.8 
+L 447 24.444473 
+L 10.8 24.444473 
+L 10.8 334.8 
+z
+" style="fill: none"/>
+   </g>
+   <g id="cpl_7f392691c83f_575841_matplotlib.axis_1">
+    <g id="cpl_7f392691c83f_575841_xtick_1">
+     <g id="cpl_7f392691c83f_575841_line2d_1">
+      <defs>
+       <path id="cpl_7f392691c83f_575841_m4e43e2d4e0" d="M 0 0 
+L 0 3.5 
+" style="stroke: #000000; stroke-width: 0.8"/>
+      </defs>
+      <g>
+       <use xlink:href="#cpl_7f392691c83f_575841_m4e43e2d4e0" x="119.85" y="179.622236" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="cpl_7f392691c83f_575841_text_1">
+      <!-- $\mathdefault{−1}$ -->
+      <g transform="translate(101.373313 207.377732) scale(0.3 -0.3)">
+       <defs>
+        <path id="CMSY10-0" d="M 4218 1472 
+C 4326 1472 4442 1472 4442 1600 
+C 4442 1728 4326 1728 4218 1728 
+L 755 1728 
+C 646 1728 531 1728 531 1600 
+C 531 1472 646 1472 755 1472 
+L 4218 1472 
+z
+" transform="scale(0.015625)"/>
+        <path id="CMR17-31" d="M 1702 4058 
+C 1702 4192 1696 4192 1606 4192 
+C 1357 3916 979 3827 621 3827 
+C 602 3827 570 3827 563 3808 
+C 557 3795 557 3782 557 3648 
+C 755 3648 1088 3686 1344 3839 
+L 1344 461 
+C 1344 236 1331 160 781 160 
+L 589 160 
+L 589 0 
+C 896 0 1216 0 1523 0 
+C 1830 0 2150 0 2458 0 
+L 2458 160 
+L 2266 160 
+C 1715 160 1702 230 1702 458 
+L 1702 4058 
+z
+" transform="scale(0.015625)"/>
+       </defs>
+       <use xlink:href="#CMSY10-0" transform="scale(0.996264)"/>
+       <use xlink:href="#CMR17-31" transform="translate(77.487468 0) scale(0.996264)"/>
+      </g>
+     </g>
+    </g>
+    <g id="cpl_7f392691c83f_575841_xtick_2">
+     <g id="cpl_7f392691c83f_575841_line2d_2">
+      <g>
+       <use xlink:href="#cpl_7f392691c83f_575841_m4e43e2d4e0" x="337.95" y="179.622236" style="stroke: #000000; stroke-width: 0.8"/>
+      </g>
+     </g>
+     <g id="cpl_7f392691c83f_575841_text_2">
+      <!-- $\mathdefault{1}$ -->
+      <g transform="translate(331.096428 207.377732) scale(0.3 -0.3)">
+       <use xlink:href="#CMR17-31" transform="scale(0.996264)"/>
+      </g>
+     </g>
+    </g>
+    <g id="cpl_7f392691c83f_575841_text_3">
+     <!-- $x$ -->
+     <g transform="translate(430.369782 237.946677) scale(0.3 -0.3)">
+      <defs>
+       <path id="CMMI12-78" d="M 3034 2606 
+C 2829 2567 2752 2414 2752 2293 
+C 2752 2139 2874 2088 2963 2088 
+C 3155 2088 3290 2254 3290 2427 
+C 3290 2695 2982 2816 2714 2816 
+C 2323 2816 2106 2433 2048 2312 
+C 1901 2816 1504 2816 1389 2816 
+C 736 2816 390 1980 390 1839 
+C 390 1814 416 1782 461 1782 
+C 512 1782 525 1820 538 1846 
+C 755 2555 1184 2689 1370 2689 
+C 1658 2689 1715 2420 1715 2267 
+C 1715 2127 1677 1980 1600 1673 
+L 1382 798 
+C 1286 415 1101 64 762 64 
+C 730 64 570 64 435 147 
+C 666 192 717 383 717 460 
+C 717 588 621 664 499 664 
+C 346 664 179 530 179 326 
+C 179 57 480 -64 755 -64 
+C 1062 -64 1280 179 1414 441 
+C 1517 64 1837 -64 2074 -64 
+C 2726 -64 3072 773 3072 913 
+C 3072 945 3046 971 3008 971 
+C 2950 971 2944 939 2925 888 
+C 2752 326 2381 64 2093 64 
+C 1869 64 1747 230 1747 492 
+C 1747 632 1773 734 1875 1156 
+L 2099 2024 
+C 2195 2408 2413 2689 2707 2689 
+C 2720 2689 2899 2689 3034 2606 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#CMMI12-78" transform="scale(0.996264)"/>
+     </g>
+    </g>
+   </g>
+   <g id="cpl_7f392691c83f_575841_matplotlib.axis_2">
+    <g id="cpl_7f392691c83f_575841_text_4">
+     <!-- $y$ -->
+     <g transform="translate(210.630756 18.631022) scale(0.3 -0.3)">
+      <defs>
+       <path id="CMMI12-79" d="M 1683 -700 
+C 1510 -939 1261 -1152 947 -1152 
+C 870 -1152 563 -1152 467 -889 
+C 486 -895 518 -895 531 -895 
+C 723 -895 851 -729 851 -582 
+C 851 -435 730 -384 634 -384 
+C 531 -384 307 -458 307 -759 
+C 307 -1071 582 -1286 947 -1286 
+C 1587 -1286 2234 -700 2413 6 
+L 3040 2485 
+C 3046 2517 3059 2556 3059 2594 
+C 3059 2689 2982 2753 2886 2753 
+C 2829 2753 2694 2727 2643 2535 
+L 2170 658 
+C 2138 543 2138 530 2086 460 
+C 1958 281 1747 64 1440 64 
+C 1082 64 1050 415 1050 588 
+C 1050 952 1222 1443 1395 1903 
+C 1466 2088 1504 2178 1504 2305 
+C 1504 2574 1312 2816 998 2816 
+C 410 2816 173 1890 173 1839 
+C 173 1814 198 1782 243 1782 
+C 301 1782 307 1807 333 1897 
+C 486 2433 730 2689 979 2689 
+C 1037 2689 1146 2689 1146 2478 
+C 1146 2312 1075 2127 979 1884 
+C 666 1047 666 837 666 683 
+C 666 77 1101 -64 1421 -64 
+C 1606 -64 1837 -6 2061 230 
+L 2067 224 
+C 1971 -147 1907 -392 1683 -700 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#CMMI12-79" transform="scale(0.996264)"/>
+     </g>
+    </g>
+   </g>
+   <g id="cpl_7f392691c83f_575841_line2d_3">
+    <defs>
+     <path id="cpl_7f392691c83f_575841_m661087765d" d="M 3 0 
+L -3 -3 
+L -3 3 
+z
+" style="stroke: #000000; stroke-linejoin: miter"/>
+    </defs>
+    <g>
+     <use xlink:href="#cpl_7f392691c83f_575841_m661087765d" x="447" y="179.622236" style="stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="cpl_7f392691c83f_575841_line2d_4">
+    <defs>
+     <path id="cpl_7f392691c83f_575841_ma7a24c3ba8" d="M 0 -3 
+L -3 3 
+L 3 3 
+z
+" style="stroke: #000000; stroke-linejoin: miter"/>
+    </defs>
+    <g>
+     <use xlink:href="#cpl_7f392691c83f_575841_ma7a24c3ba8" x="228.9" y="24.444473" style="stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="cpl_7f392691c83f_575841_line2d_5">
+    <path d="M 10.8 323.036942 
+L 20.544809 307.594227 
+L 29.996741 293.028662 
+L 39.12917 279.360123 
+L 47.968724 266.526959 
+L 56.488775 254.545314 
+L 64.715949 243.354535 
+L 72.650247 232.932523 
+L 80.318293 223.22338 
+L 87.693463 214.239175 
+L 94.802381 205.925122 
+L 101.645047 198.260069 
+L 108.248086 191.194318 
+L 114.584875 184.735758 
+L 120.682036 178.835932 
+L 126.539572 173.474835 
+L 132.15748 168.63172 
+L 137.535763 164.285069 
+L 142.701044 160.393239 
+L 147.653324 156.937544 
+L 152.392602 153.898559 
+L 156.918879 151.256086 
+L 161.25878 148.975922 
+L 165.412305 147.040998 
+L 169.406079 145.42356 
+L 173.213477 144.118334 
+L 176.861124 143.099454 
+L 180.375645 142.347183 
+L 183.730416 141.854314 
+L 186.95206 141.603467 
+L 190.040579 141.583336 
+L 193.022597 141.784887 
+L 195.898114 142.201952 
+L 198.667131 142.828248 
+L 201.329647 143.657386 
+L 203.912287 144.694833 
+L 206.415052 145.941957 
+L 208.811317 147.38376 
+L 211.127706 149.035508 
+L 213.364219 150.902406 
+L 215.520857 152.992369 
+L 217.597619 155.317307 
+L 219.567881 157.858396 
+L 221.431643 160.626517 
+L 223.162278 163.593487 
+L 224.759788 166.774589 
+L 226.170921 170.074487 
+L 227.369053 173.426608 
+L 228.300934 176.66463 
+L 228.860062 179.322461 
+L 229.339315 181.920409 
+L 230.164695 184.969587 
+L 231.309577 188.336822 
+L 232.694085 191.710038 
+L 234.26497 194.951548 
+L 235.995605 198.014505 
+L 237.859366 200.863224 
+L 239.829628 203.473311 
+L 241.906391 205.858821 
+L 244.063029 208.002328 
+L 246.326167 209.938408 
+L 248.669181 211.64865 
+L 251.065446 213.124869 
+L 253.541586 214.391903 
+L 256.097601 215.452056 
+L 258.733492 216.306536 
+L 261.475884 216.960998 
+L 264.298151 217.405752 
+L 267.226918 217.641567 
+L 270.262186 217.661904 
+L 273.403955 217.460385 
+L 276.67885 217.026387 
+L 280.086871 216.348664 
+L 283.628017 215.416456 
+L 287.328914 214.209955 
+L 291.189562 212.714437 
+L 295.209962 210.915802 
+L 299.390112 208.800528 
+L 303.756638 206.339887 
+L 308.30954 203.516957 
+L 313.075444 200.296759 
+L 318.027724 196.679482 
+L 323.193005 192.62857 
+L 328.571287 188.125422 
+L 334.189196 183.127737 
+L 340.020106 177.639878 
+L 346.090643 171.618162 
+L 352.400806 165.042607 
+L 358.950595 157.893905 
+L 365.766636 150.122412 
+L 372.848929 141.706287 
+L 380.197473 132.624401 
+L 387.812269 122.856303 
+L 395.693316 112.3822 
+L 403.86724 101.145729 
+L 412.334041 89.124758 
+L 421.093719 76.297831 
+L 430.146274 62.644147 
+L 439.491705 48.14353 
+L 447 36.207531 
+L 447 36.207531 
+" clip-path="url(#cpl_7f392691c83f_575841_p005850e655)" style="fill: none; stroke: #0072b2; stroke-width: 4; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_7f392691c83f_575841_patch_3">
+    <path d="M 228.9 334.8 
+L 228.9 24.444473 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_7f392691c83f_575841_patch_4">
+    <path d="M 447 334.8 
+L 447 24.444473 
+" style="fill: none"/>
+   </g>
+   <g id="cpl_7f392691c83f_575841_patch_5">
+    <path d="M 10.8 179.622236 
+L 447 179.622236 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_7f392691c83f_575841_patch_6">
+    <path d="M 10.8 24.444473 
+L 447 24.444473 
+" style="fill: none"/>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="cpl_7f392691c83f_575841_p005850e655">
+   <rect x="10.8" y="24.444473" width="436.2" height="310.355527"/>
+  </clipPath>
+ </defs>
+</svg>
+</div></figure>
+<p>I figuren til høyre vises grafen til en funksjon <span class="math notranslate nohighlight">\(f\)</span> gitt ved</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x \ln x^2
+\]</div>
+<p>Nedenfor vises et program.</p>
+<div style="clear: both;"></div><div class="sd-tab-set tabs-parts docutils">
+<input checked="checked" id="sd-tab-item-5" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-5">
+a</label><div class="sd-tab-content docutils">
+<ol class="arabic simple">
+<li><p>Hva er det programmet finner når det kjøres?</p></li>
+<li><p>Bestem en eksakt verdi for det programmet skriver ut. Sjekk svaret ved å kjøre programmet!</p></li>
+</ol>
+</div>
+<input id="sd-tab-item-6" name="sd-tab-set-2" type="radio">
+<label class="sd-tab-label" for="sd-tab-item-6">
+b</label><div class="sd-tab-content docutils">
+<p>Gjør nødvendige endringer og bruk det til å bestemme koordinatene til toppunktet til <span class="math notranslate nohighlight">\(f\)</span>.</p>
+</div>
+</div>
+
+        <div id="container-code-e77debd5"></div>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", () => {
+                const code = 
+`def f(x):
+    from math import log
+    return x * log(x**2)
+
+
+x = 0.0001
+h = 1e-7
+while (f(x + h) - f(x)) / h < 0:
+    x += 0.0001
+
+print(x)`;
+
+                makePredictionInteractiveCode(
+                    "container-code-e77debd5",
+                    code,
+                );
+            });
+        </script>
+        </div>
+<hr class="docutils" />
+<div class="admonition exercise">
+<p class="admonition-title">Oppgave 5</p>
+<p>En funksjon <span class="math notranslate nohighlight">\(f\)</span> er gitt ved</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+f(x) =
+\begin{cases}
+    \dfrac{1 - \sqrt{x}}{1 - x} &amp; \qhvis x \neq 1 \qog x \geq 0 \\
+    \\
+    \dfrac{1}{2} &amp; \qhvis x = 1
+\end{cases}
+\end{split}\]</div>
+<p>Bruk programmet nedenfor til å bestemme <span class="math notranslate nohighlight">\(f'(1)\)</span>.</p>
+
+        <div id="container-code-000970c9"></div>
+        <script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", () => {
+                const code = 
+`def f(x):
+    if x != 1 and x >= 0:
+        return ????
+    else:
+        return ????
+
+
+x = 1
+h = 1e-6
+
+f_derivert = ????
+
+print(f_derivert)`;
+
+                makeInteractiveCode(
+                    "container-code-000970c9",
+                    code,
+                );
+            });
+        </script>
+        </div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/numeriske_metoder/numerisk_derivasjon"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Av René Ask, Edvard Munch Videregående Skole
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

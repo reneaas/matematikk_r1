@@ -1,0 +1,1104 @@
+
+<!DOCTYPE html>
+
+
+<html lang="norwegian" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Numerisk derivasjon &#8212; Matematikk R1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/general_style.css?v=11bbc4b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/admonitions.css?v=9237f12a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/popup.css?v=2d27c3a4" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/escape-room.css?v=bfeb5342" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/interactive_code.css?v=23cd07d5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/jeopardy.css?v=71d9bb06" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/legacy_1t/parsonsPuzzle.css?v=9fbab2c7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/static_code_blocks.css?v=68f9364b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/clickable_figures/style.css?v=d35dfce7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/escapeRoom/style.css?v=b30732ed" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/mathjax/style.css?v=194b018e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/misc_styles/figures.css?v=46e199f0" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/misc_styles/geogebra.css?v=fd180d66" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/misc_styles/grids.css?v=7667ba21" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/misc_styles/misc.css?v=55d93a12" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/misc_styles/popup_code.css?v=4b4feebf" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/misc_styles/tabs.css?v=a560da15" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/multipleChoiceQuiz/style.css?v=d667b426" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/fonts/opendyslexic/dyslexic.css?v=80f1227b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/tabs.css?v=4c969af8" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/general_style.css?v=57d653fb" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/escapeRoom/escape-room.css?v=9eb2d604" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/flashcards.css?v=816457f1" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/interactive_code.css?v=f903e660" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/jeopardy.css?v=951b6e4f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/quiz.css?v=722631f3" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" />
+    <link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/admonitions.css?v=aacd8e29" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/dialogue.css?v=1b585024" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/figures.css?v=acd93126" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/popup.css?v=26181dfd" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/timedQuiz.css?v=89e27729" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/cas_popup.css?v=bae4ad7e" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/github-light.css?v=0cccc4aa" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/github-dark.css?v=2454bc3f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/github-dark-high-contrast.css?v=4c0c1b0f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/table.css?v=30eed71c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/pairPuzzle/style.css?v=f77426ac" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/parsons/parsonsPuzzle.css?v=8c5c5c21" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/munchboka/css/print_pdf.css?v=448841f9" />
+    <link id="highlight-theme-light" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css" />
+    <link id="highlight-theme-dark" rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github-dark.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/general_style.css?v=11bbc4b6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/admonitions.css?v=f84a357c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/grid_print.css?v=73205d86" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/static_code_blocks.css?v=68f9364b" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/dialogue.css?v=1b585024" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/multipleChoiceQuiz/style.css?v=89e27729" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mathjax/style.css?v=0f1cb662" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/clickable_figures/style.css?v=d35dfce7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/grids.css?v=7667ba21" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/popup_code.css?v=4b4feebf" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/geogebra.css?v=fd180d66" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/tabs.css?v=a560da15" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/figures.css?v=5dd46ff0" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/misc_styles/misc.css?v=55d93a12" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/parsons_puzzle/parsonsPuzzle.css?v=9fbab2c7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/interactiveCode/style.css?v=23cd07d5" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_light_default_cm.css?v=c880a553" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_light_cm.css?v=facc8b7a" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_dark_high_contrast_cm.css?v=4c0c1b0f" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/one_dark_cm.css?v=3ae52176" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_dark_cm.css?v=d1235728" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/code_mirror_themes/github_dark_default_cm.css?v=3beebd47" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pairPuzzle/style.css?v=f77426ac" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=c712eed9"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/munchboka/fonts/opendyslexic/opendylexic-toggle.js?v=1652b728"></script>
+    <script src="../../../_static/munchboka/js/utils.js?v=b59157b9"></script>
+    <script src="../../../_static/munchboka/js/casThemeManager.js?v=88874cc7"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.js"></script>
+    <script src="../../../_static/munchboka/js/skulpt/skulpt.js?v=51c28977"></script>
+    <script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/auto-render.min.js"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../../../_static/tabs.js?v=3ee01567"></script>
+    <script src="../../../_static/munchboka/js/solution_timer.js?v=e7176ead"></script>
+    <script src="../../../_static/munchboka/js/escapeRoom/escape-room.js?v=1498b374"></script>
+    <script src="../../../_static/munchboka/js/flashcards.js?v=293ceac2"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/interactiveCodeSetup.js?v=733f5585"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/codeEditor.js?v=d7a9df79"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/pythonRunner.js?v=e9f0c2d2"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/workerManager.js?v=024a7849"></script>
+    <script src="../../../_static/munchboka/js/interactiveCode/turtleCode.js?v=0d62d95e"></script>
+    <script src="../../../_static/munchboka/js/jeopardy.js?v=375a3583"></script>
+    <script src="../../../_static/munchboka/js/quiz.js?v=f8bcd7a1"></script>
+    <script>let toggleHintShow = 'Klikk for å vise';</script>
+    <script>let toggleHintHide = 'Klikk for å skjule';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=b8b12719"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/design-tabs.js?v=f930bc37"></script>
+    <script src="../../../_static/munchboka/js/popup.js?v=5db611f4"></script>
+    <script src="../../../_static/munchboka/js/timedQuiz/utils.js?v=2c6f871c"></script>
+    <script src="../../../_static/munchboka/js/timedQuiz/multipleChoiceQuestion.js?v=c6ce1ca2"></script>
+    <script src="../../../_static/munchboka/js/timedQuiz/timedMultipleChoiceQuiz.js?v=9accc73d"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"loader": {"load": ["[tex]/physics"]}, "tex": {"packages": {"[+]": ["physics"]}, "macros": {"annotateAbove": ["\\mathrel{\\overset{\\substack{\\text{#2} \\\\ \\Bigg\\downarrow}}{#1}}", 2], "annotateBelow": ["\\mathrel{\\underset{\\substack{\\Bigg\\uparrow \\\\ \\text{#2}}}{#1}}", 2], "cline": ["\\underline{\\phantom{#1}}", 1], "and": ["\\quad \\land \\quad"], "or": ["\\quad \\lor \\quad"], "liff": ["\\quad \\iff \\quad"], "limplies": ["\\quad \\implies \\quad"], "limpliedby": ["\\quad \\impliedby \\quad"], "lland": ["\\; \\land \\;"], "degree": ["^\\circ"], "qog": ["\\quad \\text{og} \\quad"], "qder": ["\\quad \\text{der} \\quad"], "qeller": ["\\quad \\text{eller} \\quad"], "qhvis": ["\\quad \\text{hvis} \\quad"], "qfor": ["\\quad \\text{for} \\quad"], "natural": ["\\mathbb{N}"], "integer": ["\\mathbb{Z}"], "rational": ["\\mathbb{Q}"], "real": ["\\mathbb{R}"], "irrational": ["\\mathbb{Q}^c"], "qcomma": [",\\quad"], "nimplies": ["\\quad\\mathrel{\\not\\!\\!\\!\\implies}\\quad"], "nimpliedby": ["\\quad\\mathrel{\\not\\!\\!\\!\\impliedby}\\quad"], "niff": ["\\quad\\mathrel{\\not\\!\\!\\!\\iff}\\quad"], "cubica": ["\\raisebox{-0.4ex}{\\small\\(\\frown\\!\\smile\\)}", 0], "cubicb": ["\\raisebox{-0.4ex}{\\small\\(\\smile\\!\\frown\\)}", 0], "t": ["\\mathrm{#1}", 1], "dot": ["\\vec{#1} \\cdot \\vec{#2}", 2], "len": ["\\abs{\\vec{#1}}", 1], "lvec": ["\\overrightarrow{#1}", 1], "v": ["\\left[#1, #2\\right]", 2], "proj": ["\\mathrm{proj}_{#1}\\left(#2\\right)", 2], "mstack": ["\\begin{array}{c}#1\\end{array}", 1]}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3.2/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/numeriske_metoder/numerisk_derivasjon/teori';</script>
+    <script>mermaid.initialize({"startOnLoad": true})</script>
+    <script src="../../../_static/munchboka/js/pairPuzzle/draggableItem.js?v=ce9ef7bd"></script>
+    <script src="../../../_static/munchboka/js/pairPuzzle/dropZone.js?v=56907477"></script>
+    <script src="../../../_static/munchboka/js/pairPuzzle/game.js?v=cb8b0d45"></script>
+    <script src="../../../_static/munchboka/js/escapeRoom/escape-room.js?v=1498b374"></script>
+    <script src="../../../_static/munchboka/js/parsons/parsonsPuzzle.js?v=57870877"></script>
+    <script src="../../../_static/munchboka/js/print_answer_key.js?v=eebcd271"></script>
+    <script src="../../../_static/static_code_blocks.js?v=e512471c"></script>
+    <script src="../../../_static/serviceWorker.js?v=19bb19ce"></script>
+    <script src="../../../_static/geogebra-setup.js?v=c67998b1"></script>
+    <script src="../../../_static/utils.js?v=14803243"></script>
+    <script src="../../../_static/multipleChoiceQuiz/sequentialMultipleChoiceQuiz.js?v=503540b6"></script>
+    <script src="../../../_static/multipleChoiceQuiz/utils.js?v=2c6f871c"></script>
+    <script src="../../../_static/multipleChoiceQuiz/multipleChoiceQuiz.js?v=7d161c2c"></script>
+    <script src="../../../_static/multipleChoiceQuiz/timedMultipleChoiceQuiz.js?v=9accc73d"></script>
+    <script src="../../../_static/multipleChoiceQuiz/multipleChoiceQuestion.js?v=c6ce1ca2"></script>
+    <script src="../../../_static/skulpt/skulpt.js?v=51c28977"></script>
+    <script src="../../../_static/clickable_figures/clickable_figure.js?v=dd2467e6"></script>
+    <script src="../../../_static/parsons_puzzle/theme-switcher.js?v=c0cdcaac"></script>
+    <script src="../../../_static/parsons_puzzle/parsonsPuzzle.js?v=079d69da"></script>
+    <script src="../../../_static/interactiveCode/workerManager.js?v=de8adb65"></script>
+    <script src="../../../_static/interactiveCode/pythonRunner.js?v=e9f0c2d2"></script>
+    <script src="../../../_static/interactiveCode/interactiveCodeSetup.js?v=49566f0b"></script>
+    <script src="../../../_static/interactiveCode/codeEditor.js?v=30f3f389"></script>
+    <script src="../../../_static/interactiveCode/turtleCode.js?v=0d62d95e"></script>
+    <script src="../../../_static/pairPuzzle/dropZone.js?v=56907477"></script>
+    <script src="../../../_static/pairPuzzle/game.js?v=cb8b0d45"></script>
+    <script src="../../../_static/pairPuzzle/draggableItem.js?v=5767251d"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="../../../_static/munchboka/js/highlight-init.js?v=6bc17905"></script>
+    <script src="https://www.geogebra.org/apps/deployggb.js"></script>
+    <script src="../../../_static/munchboka/js/geogebra-setup.js?v=8e77fc11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+    <link rel="canonical" href="https://r1.munchboka.no/book/numeriske_metoder/numerisk_derivasjon/teori.html" />
+    <link rel="icon" href="../../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="norwegian"/>
+  <meta name="docsearch:version" content="" />
+<!-- Pyodide -->
+<script src="https://cdn.jsdelivr.net/pyodide/v0.27.0/full/pyodide.js"></script>
+
+
+<!-- CodeMirror -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css">
+<link rel="stylesheet" href="../../../_static/code_mirror_themes/github_light_cm.css">
+<link rel="stylesheet" href="../../../_static/code_mirror_themes/github_dark_cm.css">
+<link rel="stylesheet" href="../../../_static/code_mirror_themes/one_dark_cm.css">
+
+<!-- CodeMirror scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/python/python.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<!-- highlighting of code in Parsons puzzle -->
+<head>
+    <link id="highlight-theme-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github.min.css">
+    <link id="highlight-theme-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/github-dark.min.css">
+</head>
+
+
+
+<script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+<script src="https://cdn.jsdelivr.net/npm/jquery-ui-touch-punch-improved@0.3.1/dist/jquery.ui.touch-punch-improved.min.js"></script>
+
+
+
+
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/r1_logo.png" class="logo__image only-light" alt="Matematikk R1 - Home"/>
+    <img src="../../../_static/r1_logo.png" class="logo__image only-dark pst-js-only" alt="Matematikk R1 - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">I. Potenser og logaritmer</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../potenser_og_logaritmer/potenser/teori.html">1. Potenser</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../potenser_og_logaritmer/potenser/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../potenser_og_logaritmer/logaritmer/teori.html">2. Logaritmer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../potenser_og_logaritmer/logaritmer/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../potenser_og_logaritmer/likninger/teori.html">3. Logaritmelikninger og eksponentiallikninger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../potenser_og_logaritmer/oppgavesamling/oppgaver.html">4. Oppgavesamling</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">II. Derivasjon</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/derivasjonsregler_element%C3%A6rfunksjoner/teori.html">5. Derivasjon av elementærfunksjoner</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/kjerneregelen/teori.html">6. Kjerneregelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/produktregelen/teori.html">7. Produktregelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/br%C3%B8kregelen/teori.html">8. Brøkregelen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/anvendelser_av_derivasjon/oppgaver.html">9. Anvendelser av derivasjon</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../derivasjon/optimering/oppgaver.html">10. Oppgaver: Optimering</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">III. Grenseverdier, kontinuitet og deriverbarhet</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../grenseverdier_og_kontinuitet/grenseverdier/teori.html">11. Grenseverdier</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../grenseverdier_og_kontinuitet/grenseverdier/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../grenseverdier_og_kontinuitet/kontinuitet/teori.html">12. Kontinuitet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../grenseverdier_og_kontinuitet/kontinuitet/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../derivasjon/deriverbarhet/teori.html">13. Deriverbarhet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../derivasjon/deriverbarhet/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">IV. Omvendte funksjoner</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../omvendte_funksjoner/basics/teori.html">14. Omvendte funksjoner</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../omvendte_funksjoner/basics/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../omvendte_funksjoner/derivasjon/teori.html">15. Derivasjon og omvendte funksjoner</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../omvendte_funksjoner/derivasjon/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../omvendte_funksjoner/blandet/oppgaver.html">16. Blandede oppgaver</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../omvendte_funksjoner/summary.html">17. Oppsummering</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">V. Vektorregning</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../vektorregning/vektorer/teori.html">18. Vektorer</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../vektorregning/vektorer/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../vektorregning/vektorer_i_koordinatsystem/teori.html">19. Vektorer i koordinatsystemet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../vektorregning/vektorer_i_koordinatsystem/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../vektorregning/skalarproduktet/teori.html">20. Skalarproduktet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../vektorregning/skalarproduktet/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../vektorregning/anvendelser_av_skalarproduktet/teori.html">21. Anvendelser av skalarproduktet</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../vektorregning/anvendelser_av_skalarproduktet/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../../vektorregning/vektorfunksjoner/teori.html">22. Vektorfunksjoner</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">CAS</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../cas/del_1/oppgaver.html">Krasjkurs 1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../cas/vektorregning/oppgaver.html">Vektorregning</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Oppgavesamlinger</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../oppgavesamlinger/oppgavesamling_1/oppgaver.html">Oppgavesamling 1</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Eksamensøving</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../eksamens%C3%B8ving/repetisjon/oppgaver.html">Repetisjon: <em>New Game+</em></a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eksamens%C3%B8ving/v2025/oppgaver.html">Eksamen vår 2025</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eksamens%C3%B8ving/h2025/oppgaver.html">Eksamen høsten 2025</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Programmering</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../programmering/r2/teori.html">Programmering av tallfølger</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../programmering/r2/oppgaver.html">Oppgaver</a></li>
+</ul>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Jeopardy</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../jeopardy/derivasjon/jeopardy.html">Derivasjonsregler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../jeopardy/vektorer/vektorregning.html">Vektorregning</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Oversikt</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../oversikt/formler.html">Formler</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Eksamensressurser</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../eksamensressurser/python.html">Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eksamensressurser/cas.html">CAS (Geogebra)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../eksamensressurser/geogebra.html">Geogebra</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Last ned denne siden">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/book/numeriske_metoder/numerisk_derivasjon/teori.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Last ned kildefilen"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Skriv ut til PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullskjerm-modus"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Numerisk derivasjon</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Innhold </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-er-numerisk-derivasjon">Hva er numerisk derivasjon?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-fremover-kvotient">Newtons fremover-kvotient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-bakover-kvotient">Newtons bakover-kvotient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-symmetriske-kvotient">Newtons symmetriske kvotient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bestemme-andrederiverte-numeriske">Bestemme andrederiverte numeriske</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="numerisk-derivasjon">
+<h1>Numerisk derivasjon<a class="headerlink" href="#numerisk-derivasjon" title="Link to this heading">#</a></h1>
+<div class="tip admonition">
+<p class="admonition-title">Læringsmål</p>
+<ul class="simple">
+<li><p>Kunne forklare Newtons fremover-kvotient, Newtons bakover-kvotient og Newtons symmetriske kvotient og bruke dem til å finne tilnærmede verdier for deriverte.</p></li>
+</ul>
+</div>
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
+<figure class="align-default">
+<a class="no-click reference internal image-reference" href="../../../_images/dumbledore.png"><img alt="../../../_images/dumbledore.png" class="no-click" src="../../../_images/dumbledore.png" style="width: 100%;" />
+</a>
+</figure>
+</aside>
+<p>Selv om alle deriverbare funksjoner i prinsippet kan deriveres hvis vi følger derivasjonsreglene til <em>punkt og prikke</em>, så kan det bli fryktelig knotete å derivere noen funksjoner. For eksempel vil det være et mildt mareritt å derivere funksjonen</p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = \dfrac{\sqrt{\log_5 x} \cdot e^{\sqrt{x}} \cdot \sqrt{\ln (x^2 + 1)} + (x^2 + 1) }{\sqrt{x^2 - 3x + 2} + \ln x}
+\]</div>
+<p>Vi er jo ikke nødvendigvis interessert i hva uttrykket til <span class="math notranslate nohighlight">\(f'(x)\)</span> <em>er</em>. I stedet er vi kanskje interessert i hvor <span class="math notranslate nohighlight">\(f'(x) = 0\)</span> eller hvor <span class="math notranslate nohighlight">\(f'(x)\)</span> er positiv eller negativ. For å angripe funksjoner som dette, kan vi derivere dem <strong>numerisk</strong>.</p>
+<section id="hva-er-numerisk-derivasjon">
+<h2>Hva er numerisk derivasjon?<a class="headerlink" href="#hva-er-numerisk-derivasjon" title="Link to this heading">#</a></h2>
+<p>Numerisk derivasjon går ut på å finne <strong>tilnærmede verdier</strong> for den deriverte. Det at vi kaller det for <strong>numerisk</strong> derivasjon kommer fra at vi bruker tallverdier – <strong>numeriske verdier</strong> – for å finne en numerisk verdi til den deriverte i bestemt punkt <span class="math notranslate nohighlight">\(x\)</span>. For å lage oss meningsfulle fremgangsmåter for å gjøre dette, skal vi ta utgangspunkt i <strong>definisjonen</strong> av den deriverte:</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \lim_{h \to 0} \dfrac{f(x + h) - f(x)}{h}
+\]</div>
+<p>For at den deriverte skal eksistere, må grenseverdien <strong>ovenfra</strong> og <strong>nedenfra</strong> være like som gir oss utgangspunktet for de to første strategiene vi skal se på.</p>
+</section>
+<section id="newtons-fremover-kvotient">
+<h2>Newtons fremover-kvotient<a class="headerlink" href="#newtons-fremover-kvotient" title="Link to this heading">#</a></h2>
+<p>Definisjonen av den deriverte når vi tar grenseverdien <strong>ovenfra</strong> vil gi oss at</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \lim_{h \to 0^+} \dfrac{f(x + h) - f(x)}{h}
+\]</div>
+<p>Men på en datamaskin er det ikke mulig å la <span class="math notranslate nohighlight">\(h \to 0\)</span> i en teoretisk forstand slik vi kan gjøre i matematikken ved å “tenke oss” at <span class="math notranslate nohighlight">\(h\)</span> nærmer seg null, men likevel kommer aldri helt fram til null. I stedet velger vi oss et lite tall <span class="math notranslate nohighlight">\(h\)</span> som er nesten lik null, og så anser vi det som er <em>grei nok</em> tilnærming til å la <span class="math notranslate nohighlight">\(h \to 0\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) \approx \dfrac{f(x + h) - f(x)}{h}
+\]</div>
+<p>der <span class="math notranslate nohighlight">\(h\)</span> er et <em>lite</em> positivt tall som angir avstanden mellom <span class="math notranslate nohighlight">\(x\)</span> og <span class="math notranslate nohighlight">\(x + h\)</span>. Denne fremgangsmåten kalles for <strong>Newtons fremover-kvotient</strong>.</p>
+<p>Rent geometrisk kan vi tolke dette som at vi finner stigningstallet til en sekant som går gjennom punktene <span class="math notranslate nohighlight">\((x, f(x))\)</span> og <span class="math notranslate nohighlight">\((x + h, f(x + h))\)</span> på grafen til <span class="math notranslate nohighlight">\(f\)</span>. Se figuren nedenfor.</p>
+<figure class="adaptive-figure plot-figure no-click align-center">
+<div class="graph-image no-click no-scaled-link"><?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 460.8 345.6" xmlns="http://www.w3.org/2000/svg" version="1.1" class="graph-inline-svg" role="img" aria-label="Tilpasset figur" style="width:70%; height:auto; display:block; margin:0 auto;">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-04-27T20:02:27.863964</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.9.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="cpl_fad39d17048a_441126_figure_1">
+  <g id="cpl_fad39d17048a_441126_patch_1">
+   <path d="M 0 345.6 
+L 460.8 345.6 
+L 460.8 0 
+L 0 0 
+L 0 345.6 
+z
+" style="fill: none"/>
+  </g>
+  <g id="cpl_fad39d17048a_441126_axes_1">
+   <g id="cpl_fad39d17048a_441126_patch_2">
+    <path d="M 10.8 334.8 
+L 447 334.8 
+L 447 20.016315 
+L 10.8 20.016315 
+L 10.8 334.8 
+z
+" style="fill: none"/>
+   </g>
+   <g id="cpl_fad39d17048a_441126_matplotlib.axis_1">
+    <g id="cpl_fad39d17048a_441126_text_1">
+     <!-- $x$ -->
+     <g transform="translate(435.913188 163.766786) scale(0.2 -0.2)">
+      <defs>
+       <path id="CMMI12-78" d="M 3034 2606 
+C 2829 2567 2752 2414 2752 2293 
+C 2752 2139 2874 2088 2963 2088 
+C 3155 2088 3290 2254 3290 2427 
+C 3290 2695 2982 2816 2714 2816 
+C 2323 2816 2106 2433 2048 2312 
+C 1901 2816 1504 2816 1389 2816 
+C 736 2816 390 1980 390 1839 
+C 390 1814 416 1782 461 1782 
+C 512 1782 525 1820 538 1846 
+C 755 2555 1184 2689 1370 2689 
+C 1658 2689 1715 2420 1715 2267 
+C 1715 2127 1677 1980 1600 1673 
+L 1382 798 
+C 1286 415 1101 64 762 64 
+C 730 64 570 64 435 147 
+C 666 192 717 383 717 460 
+C 717 588 621 664 499 664 
+C 346 664 179 530 179 326 
+C 179 57 480 -64 755 -64 
+C 1062 -64 1280 179 1414 441 
+C 1517 64 1837 -64 2074 -64 
+C 2726 -64 3072 773 3072 913 
+C 3072 945 3046 971 3008 971 
+C 2950 971 2944 939 2925 888 
+C 2752 326 2381 64 2093 64 
+C 1869 64 1747 230 1747 492 
+C 1747 632 1773 734 1875 1156 
+L 2099 2024 
+C 2195 2408 2413 2689 2707 2689 
+C 2720 2689 2899 2689 3034 2606 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#CMMI12-78" transform="scale(0.996264)"/>
+     </g>
+    </g>
+   </g>
+   <g id="cpl_fad39d17048a_441126_matplotlib.axis_2">
+    <g id="cpl_fad39d17048a_441126_text_2">
+     <!-- $y$ -->
+     <g transform="translate(121.915737 16.140682) scale(0.2 -0.2)">
+      <defs>
+       <path id="CMMI12-79" d="M 1683 -700 
+C 1510 -939 1261 -1152 947 -1152 
+C 870 -1152 563 -1152 467 -889 
+C 486 -895 518 -895 531 -895 
+C 723 -895 851 -729 851 -582 
+C 851 -435 730 -384 634 -384 
+C 531 -384 307 -458 307 -759 
+C 307 -1071 582 -1286 947 -1286 
+C 1587 -1286 2234 -700 2413 6 
+L 3040 2485 
+C 3046 2517 3059 2556 3059 2594 
+C 3059 2689 2982 2753 2886 2753 
+C 2829 2753 2694 2727 2643 2535 
+L 2170 658 
+C 2138 543 2138 530 2086 460 
+C 1958 281 1747 64 1440 64 
+C 1082 64 1050 415 1050 588 
+C 1050 952 1222 1443 1395 1903 
+C 1466 2088 1504 2178 1504 2305 
+C 1504 2574 1312 2816 998 2816 
+C 410 2816 173 1890 173 1839 
+C 173 1814 198 1782 243 1782 
+C 301 1782 307 1807 333 1897 
+C 486 2433 730 2689 979 2689 
+C 1037 2689 1146 2689 1146 2478 
+C 1146 2312 1075 2127 979 1884 
+C 666 1047 666 837 666 683 
+C 666 77 1101 -64 1421 -64 
+C 1606 -64 1837 -6 2061 230 
+L 2067 224 
+C 1971 -147 1907 -392 1683 -700 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#CMMI12-79" transform="scale(0.996264)"/>
+     </g>
+    </g>
+   </g>
+   <g id="cpl_fad39d17048a_441126_line2d_1">
+    <defs>
+     <path id="cpl_fad39d17048a_441126_m28a2d3b08c" d="M 3 0 
+L -3 -3 
+L -3 3 
+z
+" style="stroke: #000000; stroke-linejoin: miter"/>
+    </defs>
+    <g>
+     <use xlink:href="#cpl_fad39d17048a_441126_m28a2d3b08c" x="447" y="145.929789" style="stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="cpl_fad39d17048a_441126_line2d_2">
+    <defs>
+     <path id="cpl_fad39d17048a_441126_m348ea20bb8" d="M 0 -3 
+L -3 3 
+L 3 3 
+z
+" style="stroke: #000000; stroke-linejoin: miter"/>
+    </defs>
+    <g>
+     <use xlink:href="#cpl_fad39d17048a_441126_m348ea20bb8" x="135.428571" y="20.016315" style="stroke: #000000; stroke-linejoin: miter"/>
+    </g>
+   </g>
+   <g id="cpl_fad39d17048a_441126_line2d_3">
+    <path d="M 73.114286 145.929789 
+L 75.301352 168.719539 
+L 77.431365 188.646821 
+L 79.523342 206.186761 
+L 81.577283 221.580132 
+L 83.593188 235.044626 
+L 85.552039 246.670907 
+L 87.472854 256.767889 
+L 89.336615 265.410753 
+L 91.162341 272.84544 
+L 92.931012 279.135431 
+L 94.64263 284.420805 
+L 96.297193 288.826225 
+L 97.894703 292.462621 
+L 99.435158 295.428697 
+L 100.91856 297.812267 
+L 102.344908 299.691441 
+L 103.714202 301.135685 
+L 105.026442 302.206758 
+L 106.300646 302.96899 
+L 107.555832 303.466045 
+L 108.811018 303.724206 
+L 110.066205 303.755927 
+L 111.359427 303.564435 
+L 112.709703 303.135215 
+L 114.13605 302.442451 
+L 115.657488 301.449663 
+L 117.293034 300.110363 
+L 119.061705 298.36889 
+L 121.001538 296.138185 
+L 123.131551 293.339013 
+L 125.470762 289.888578 
+L 128.076224 285.639126 
+L 131.004991 280.425338 
+L 134.352154 273.998961 
+L 138.288874 265.940929 
+L 143.176493 255.402852 
+L 150.346268 239.35703 
+L 163.506705 209.877587 
+L 169.687545 196.629297 
+L 175.069631 185.607357 
+L 180.014304 175.977494 
+L 184.692725 167.34634 
+L 189.161948 159.562309 
+L 193.479028 152.485473 
+L 197.662982 146.048615 
+L 201.751846 140.161265 
+L 205.764638 134.769524 
+L 209.701358 129.847607 
+L 213.600042 125.326077 
+L 217.46069 121.187165 
+L 221.283302 117.4123 
+L 225.086897 113.965992 
+L 228.890491 110.818426 
+L 232.694085 107.958703 
+L 236.49768 105.375436 
+L 240.320292 103.045937 
+L 244.18094 100.952261 
+L 248.098642 99.080779 
+L 252.073398 97.429098 
+L 256.105208 95.993873 
+L 260.232108 94.760537 
+L 264.473116 93.725938 
+L 268.828231 92.892585 
+L 273.335491 92.256878 
+L 278.03293 91.820665 
+L 282.920548 91.591293 
+L 288.055401 91.574235 
+L 293.494541 91.781118 
+L 299.276004 92.226338 
+L 305.475863 92.929417 
+L 312.208225 93.919671 
+L 319.644251 95.242537 
+L 328.012159 96.962147 
+L 337.806414 99.209364 
+L 350.111042 102.272833 
+L 370.422236 107.596665 
+L 384.685714 111.337003 
+L 384.685714 111.337003 
+" clip-path="url(#cpl_fad39d17048a_441126_p30416fc2ed)" style="fill: none; stroke: #0072b2; stroke-width: 2.5; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_fad39d17048a_441126_line2d_4">
+    <path d="M 99.728109 346.6 
+L 261.79876 -1 
+" clip-path="url(#cpl_fad39d17048a_441126_p30416fc2ed)" style="fill: none; stroke-dasharray: 9.25,4; stroke-dashoffset: 0; stroke: #dc5e8b; stroke-width: 2.5"/>
+   </g>
+   <g id="cpl_fad39d17048a_441126_line2d_5">
+    <defs>
+     <path id="cpl_fad39d17048a_441126_m7777e58080" d="M 0 5 
+C 1.326016 5 2.597899 4.473168 3.535534 3.535534 
+C 4.473168 2.597899 5 1.326016 5 0 
+C 5 -1.326016 4.473168 -2.597899 3.535534 -3.535534 
+C 2.597899 -4.473168 1.326016 -5 0 -5 
+C -1.326016 -5 -2.597899 -4.473168 -3.535534 -3.535534 
+C -4.473168 -2.597899 -5 -1.326016 -5 0 
+C -5 1.326016 -4.473168 2.597899 -3.535534 3.535534 
+C -2.597899 4.473168 -1.326016 5 0 5 
+z
+" style="stroke: #000000; stroke-opacity: 0.8"/>
+    </defs>
+    <g clip-path="url(#cpl_fad39d17048a_441126_p30416fc2ed)">
+     <use xlink:href="#cpl_fad39d17048a_441126_m7777e58080" x="166.585714" y="203.207576" style="fill-opacity: 0.8; stroke: #000000; stroke-opacity: 0.8"/>
+    </g>
+   </g>
+   <g id="cpl_fad39d17048a_441126_patch_3">
+    <path d="M 135.428571 334.8 
+L 135.428571 20.016315 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_fad39d17048a_441126_patch_4">
+    <path d="M 447 334.8 
+L 447 20.016315 
+" style="fill: none"/>
+   </g>
+   <g id="cpl_fad39d17048a_441126_patch_5">
+    <path d="M 10.8 145.929789 
+L 447 145.929789 
+" style="fill: none; stroke: #000000; stroke-width: 0.8; stroke-linejoin: miter; stroke-linecap: square"/>
+   </g>
+   <g id="cpl_fad39d17048a_441126_patch_6">
+    <path d="M 10.8 20.016315 
+L 447 20.016315 
+" style="fill: none"/>
+   </g>
+   <g id="cpl_fad39d17048a_441126_legend_1">
+    <g id="cpl_fad39d17048a_441126_patch_7">
+     <path d="M 359.383352 63.891949 
+L 433 63.891949 
+Q 437 63.891949 437 59.891949 
+L 437 34.016315 
+Q 437 30.016315 433 30.016315 
+L 359.383352 30.016315 
+Q 355.383352 30.016315 355.383352 34.016315 
+L 355.383352 59.891949 
+Q 355.383352 63.891949 359.383352 63.891949 
+z
+" style="fill: #ffffff; opacity: 0.8; stroke: #cccccc; stroke-linejoin: miter"/>
+    </g>
+    <g id="cpl_fad39d17048a_441126_line2d_6">
+     <path d="M 363.383352 45.016315 
+L 383.383352 45.016315 
+L 403.383352 45.016315 
+" style="fill: none; stroke: #0072b2; stroke-width: 2.5; stroke-linecap: square"/>
+    </g>
+    <g id="cpl_fad39d17048a_441126_text_3">
+     <!-- $f$ -->
+     <g transform="translate(419.383352 52.016315) scale(0.2 -0.2)">
+      <defs>
+       <path id="CMMI12-66" d="M 2854 2566 
+C 2982 2566 3034 2566 3034 2688 
+C 3034 2752 2982 2752 2867 2752 
+L 2349 2752 
+C 2470 3429 2560 3897 2611 4107 
+C 2650 4265 2784 4416 2950 4416 
+C 3085 4416 3219 4358 3283 4298 
+C 3034 4272 2957 4082 2957 3969 
+C 2957 3837 3053 3759 3174 3759 
+C 3302 3759 3494 3870 3494 4119 
+C 3494 4393 3226 4544 2944 4544 
+C 2669 4544 2400 4334 2272 4078 
+C 2157 3848 2093 3611 1946 2752 
+L 1517 2752 
+C 1395 2752 1331 2752 1331 2637 
+C 1331 2566 1370 2566 1498 2566 
+L 1907 2566 
+C 1792 1976 1530 542 1382 -137 
+C 1274 -689 1178 -1152 858 -1152 
+C 838 -1152 653 -1152 538 -1031 
+C 864 -1005 864 -726 864 -720 
+C 864 -593 768 -517 646 -517 
+C 518 -517 326 -625 326 -867 
+C 326 -1140 608 -1280 858 -1280 
+C 1510 -1280 1779 -118 1850 199 
+C 1965 688 2278 2376 2310 2566 
+L 2854 2566 
+z
+" transform="scale(0.015625)"/>
+      </defs>
+      <use xlink:href="#CMMI12-66" transform="scale(0.996264)"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="cpl_fad39d17048a_441126_p30416fc2ed">
+   <rect x="10.8" y="20.016315" width="436.2" height="314.783685"/>
+  </clipPath>
+ </defs>
+</svg>
+</div></figure>
+</section>
+<section id="newtons-bakover-kvotient">
+<h2>Newtons bakover-kvotient<a class="headerlink" href="#newtons-bakover-kvotient" title="Link to this heading">#</a></h2>
+</section>
+<section id="newtons-symmetriske-kvotient">
+<h2>Newtons symmetriske kvotient<a class="headerlink" href="#newtons-symmetriske-kvotient" title="Link to this heading">#</a></h2>
+</section>
+<section id="bestemme-andrederiverte-numeriske">
+<h2>Bestemme andrederiverte numeriske<a class="headerlink" href="#bestemme-andrederiverte-numeriske" title="Link to this heading">#</a></h2>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./book/numeriske_metoder/numerisk_derivasjon"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Innhold
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hva-er-numerisk-derivasjon">Hva er numerisk derivasjon?</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-fremover-kvotient">Newtons fremover-kvotient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-bakover-kvotient">Newtons bakover-kvotient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newtons-symmetriske-kvotient">Newtons symmetriske kvotient</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bestemme-andrederiverte-numeriske">Bestemme andrederiverte numeriske</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Av René Ask, Edvard Munch Videregående Skole
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
